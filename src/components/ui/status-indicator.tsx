@@ -55,13 +55,13 @@ export function StatusPill({ status, className, ...props }: StatusIndicatorProps
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest",
+        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-label",
         className
       )}
       {...props}
     >
       <StatusIndicator status={status} size="sm" showGlow={true} />
-      <span className={cn("text-[9px] font-black uppercase tracking-widest", getStatusIndicatorClasses(status).text)}>
+      <span className={cn("text-label", getStatusIndicatorClasses(status).text)}>
         {status?.toUpperCase() || "UNKNOWN"}
       </span>
     </div>

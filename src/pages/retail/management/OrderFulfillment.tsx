@@ -95,7 +95,7 @@ const OrderFulfillment = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="px-6 py-3 border-b bg-background/40 backdrop-blur-md shrink-0 flex items-center justify-between gap-6">
+      <div className="px-6 py-3 border-b bg-background/40 shrink-0 flex items-center justify-between gap-6">
         <PageHeader
           title="Fulfillment Engine"
           subtitle={`Node: ${session.location_id || "CENTRAL_HUB"}`}
@@ -113,7 +113,7 @@ const OrderFulfillment = () => {
               }
             }}
             variant="outline"
-            className="h-10 rounded-xl px-4 font-black italic border-border text-[10px] uppercase tracking-widest gap-2"
+            className="h-10 rounded-xl px-4 font-bold border-border text-[10px] uppercase tracking-widest gap-2"
           >
             <History className="w-3 h-3" /> MANIFEST
           </Button>
@@ -128,7 +128,7 @@ const OrderFulfillment = () => {
                 toast({ title: "Batch Pick Failed", description: "Could not initialize batch pick process.", variant: "destructive" });
               }
             }}
-            className="h-10 px-5 rounded-xl bg-secondary font-black italic uppercase text-[10px] tracking-widest gap-2 shadow-lg hover:bg-secondary/60"
+            className="h-10 px-5 rounded-xl bg-secondary font-semibold text-[10px] tracking-widest gap-2 shadow-lg hover:bg-secondary/60"
           >
             <Zap className="w-3 h-3 text-warning" /> START BATCH
           </Button>
@@ -143,7 +143,7 @@ const OrderFulfillment = () => {
               <div className="flex h-[400px] items-center justify-center">
                 <div className="flex flex-col items-center gap-4">
                   <RotateCcw className="w-8 h-8 text-primary animate-spin" />
-                  <p className="text-sm font-black italic uppercase tracking-widest text-muted-foreground">
+                  <p className="text-sm font-semibold tracking-widest text-muted-foreground">
                     Syncing Pipeline Data...
                   </p>
                 </div>
@@ -168,19 +168,19 @@ const OrderFulfillment = () => {
               <div className="space-y-12">
                 {/* Logistics Pulse Vitals */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <Card className="rounded-[2rem] p-6 bg-card border-border shadow-xl border-b-4 border-b-border hover:border-b-primary transition-all">
+                  <Card className="rounded-2xl p-6 bg-card border-border shadow-sm border-b-4 border-b-border hover:border-b-primary transition-all">
                     <div className="flex justify-between items-start mb-6">
                       <div className="p-4 rounded-2xl bg-primary/5 text-primary">
                         <PackageCheck className="w-5 h-5" />
                       </div>
-                      <Badge className="bg-primary/5 text-primary font-black italic text-[8px] uppercase tracking-widest border-none">
+                      <Badge className="bg-primary/5 text-primary font-bold text-[8px] uppercase tracking-widest border-none">
                         Active
                       </Badge>
                     </div>
-                    <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+                    <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                       Queue Depth
                     </div>
-                    <div className="text-3xl font-black italic tracking-tighter text-foreground">
+                    <div className="text-3xl font-bold tracking-tighter text-foreground">
                       {stats.pending} Orders
                     </div>
                     <div className="text-[10px] font-bold italic text-muted-foreground mt-2 uppercase flex items-center gap-1">
@@ -188,19 +188,19 @@ const OrderFulfillment = () => {
                     </div>
                   </Card>
 
-                  <Card className="rounded-[2rem] p-6 bg-card border-border shadow-xl border-b-4 border-b-border hover:border-b-warning transition-all">
+                  <Card className="rounded-2xl p-6 bg-card border-border shadow-sm border-b-4 border-b-border hover:border-b-warning transition-all">
                     <div className="flex justify-between items-start mb-6">
                       <div className="p-4 rounded-2xl bg-warning/10 text-warning">
                         <Truck className="w-5 h-5" />
                       </div>
-                      <Badge className="bg-warning/10 text-warning font-black italic text-[8px] uppercase tracking-widest border-none">
+                      <Badge className="bg-warning/10 text-warning font-bold text-[8px] uppercase tracking-widest border-none">
                         Total
                       </Badge>
                     </div>
-                    <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+                    <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                       Orders in View
                     </div>
-                    <div className="text-3xl font-black italic tracking-tighter text-foreground">
+                    <div className="text-3xl font-bold tracking-tighter text-foreground">
                       {formatNumber(loadedOrders.length, { maximumFractionDigits: 0 })}
                     </div>
                     <div className="text-[10px] font-bold italic text-muted-foreground mt-2 uppercase">
@@ -208,22 +208,22 @@ const OrderFulfillment = () => {
                     </div>
                   </Card>
 
-                  <Card className="rounded-[2rem] p-6 bg-card border-border shadow-xl border-b-4 border-b-border hover:border-b-primary transition-all">
+                  <Card className="rounded-2xl p-6 bg-card border-border shadow-sm border-b-4 border-b-border hover:border-b-primary transition-all">
                     <div className="flex justify-between items-start mb-6">
                       <div className="p-4 rounded-2xl bg-primary/5 text-primary">
                         <Zap className="w-5 h-5" />
                       </div>
                       <Badge
                         variant="destructive"
-                        className="font-black italic text-[8px] uppercase tracking-widest"
+                        className="font-bold text-[8px] uppercase tracking-widest"
                       >
                         Priority
                       </Badge>
                     </div>
-                    <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+                    <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                       High-Value Stream
                     </div>
-                    <div className="text-3xl font-black italic tracking-tighter text-foreground">
+                    <div className="text-3xl font-bold tracking-tighter text-foreground">
                       {stats.priority} Orders
                     </div>
                     <div className="text-[10px] font-bold italic text-muted-foreground mt-2 uppercase">
@@ -231,13 +231,13 @@ const OrderFulfillment = () => {
                     </div>
                   </Card>
 
-                  <Card className="rounded-[2rem] p-6 bg-secondary text-foreground shadow-2xl relative overflow-hidden group">
+                  <Card className="rounded-2xl p-6 bg-secondary text-foreground shadow-sm relative overflow-hidden group">
                     <ShieldAlert className="absolute -right-8 -bottom-8 w-32 h-32 opacity-10 group-hover:rotate-12 transition-transform" />
                     <div className="relative z-10">
-                      <div className="text-[10px] font-black italic uppercase tracking-widest text-primary mb-4">
+                      <div className="text-[10px] font-semibold tracking-widest text-primary mb-4">
                         Priority Ratio
                       </div>
-                      <div className="text-2xl font-black italic tracking-tighter text-success">
+                      <div className="text-2xl font-bold tracking-tighter text-success">
                         {loadedOrders.length > 0
                           ? `${formatNumber((stats.priority / loadedOrders.length) * 100, { maximumFractionDigits: 1 })}%`
                           : "—"}

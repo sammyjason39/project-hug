@@ -163,7 +163,7 @@ export const GlobalKpiRow: React.FC<GlobalKpiRowProps> = ({ kpis }) => {
             {idx < 2 && (
               <div className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-success/10 border border-success/20 animate-pulse">
                 <div className="w-1 h-1 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-                <span className="text-[7px] font-black text-success uppercase tracking-widest italic">
+                <span className="text-[7px] font-bold text-success uppercase tracking-widest italic">
                   LIVE
                 </span>
               </div>
@@ -171,11 +171,11 @@ export const GlobalKpiRow: React.FC<GlobalKpiRowProps> = ({ kpis }) => {
           </div>
 
           <div className="mt-4 flex flex-col relative z-10">
-            <p className="text-[8px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-0.5 italic">
+            <p className="text-label tracking-[0.2em] text-muted-foreground mb-0.5 italic">
               {item.label}
             </p>
             <div className="flex items-end justify-between gap-3">
-              <p className="text-lg font-black italic text-foreground tracking-tighter whitespace-nowrap">
+              <p className="text-lg font-bold text-foreground tracking-tighter whitespace-nowrap">
                 {item.value}
               </p>
               {item.sparkline && (

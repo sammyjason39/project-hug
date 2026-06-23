@@ -101,9 +101,9 @@ export const TransferTrackingModal: React.FC<TransferTrackingModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl rounded-[2rem]">
+      <DialogContent className="max-w-2xl rounded-2xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-black italic tracking-tighter uppercase">
+          <DialogTitle className="text-2xl font-bold tracking-tighter uppercase">
             Transfer Tracking
           </DialogTitle>
           <DialogDescription className="font-bold italic">
@@ -130,14 +130,14 @@ export const TransferTrackingModal: React.FC<TransferTrackingModalProps> = ({
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
                     <div className="text-xs text-muted-foreground font-bold">Origin</div>
-                    <div className="font-black italic">{transfer.from}</div>
+                    <div className="font-bold">{transfer.from}</div>
                   </div>
                 </div>
                 <Truck className="w-6 h-6 text-muted-foreground" />
                 <div className="flex items-center gap-3">
                   <div className="text-right">
                     <div className="text-xs text-muted-foreground font-bold">Destination</div>
-                    <div className="font-black italic">{transfer.to}</div>
+                    <div className="font-bold">{transfer.to}</div>
                   </div>
                   <MapPin className="w-5 h-5 text-success" />
                 </div>
@@ -146,20 +146,20 @@ export const TransferTrackingModal: React.FC<TransferTrackingModalProps> = ({
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Status</div>
-                  <Badge className="bg-primary text-primary font-black italic mt-1">
+                  <Badge className="bg-primary text-primary font-bold mt-1">
                     {transfer.status}
                   </Badge>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">ETA</div>
-                  <div className="font-black italic flex items-center gap-1 mt-1">
+                  <div className="font-bold flex items-center gap-1 mt-1">
                     <Clock className="w-4 h-4" />
                     {transfer.eta}
                   </div>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Items</div>
-                  <div className="font-black italic flex items-center gap-1 mt-1">
+                  <div className="font-bold flex items-center gap-1 mt-1">
                     <Package className="w-4 h-4" />
                     {transfer.items} Units
                   </div>
@@ -170,7 +170,7 @@ export const TransferTrackingModal: React.FC<TransferTrackingModalProps> = ({
             {/* Timeline */}
             {timeline.length > 0 && (
               <div>
-                <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-4">Shipment Timeline</div>
+                <div className="text-xs font-semibold tracking-widest text-muted-foreground mb-4">Shipment Timeline</div>
                 <div className="space-y-4">
                   {timeline.map((event, idx) => (
                     <div key={idx} className="flex gap-4">

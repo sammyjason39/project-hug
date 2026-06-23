@@ -144,7 +144,7 @@ const CFODashboardContent: React.FC = () => {
       <div className="container mx-auto space-y-8 mt-4">
         <div className="flex justify-between items-center bg-card p-4 rounded-xl border border-primary/10 shadow-sm">
           <div className="flex gap-4 items-center">
-            <h1 className="text-xl font-black uppercase tracking-widest text-primary">Intelligence Hub</h1>
+            <h1 className="text-xl font-semibold tracking-widest text-primary">Intelligence Hub</h1>
             <Badge 
               variant={healthStatus === 'HEALTHY' ? 'outline' : healthStatus === 'DEGRADED' ? 'secondary' : 'destructive'} 
               className="font-bold border-2"

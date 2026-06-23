@@ -125,7 +125,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
               <Printer className="w-5 h-5" />
             </div>
             <div>
-              <DialogTitle className="text-xl font-black italic text-muted-foreground">
+              <DialogTitle className="text-xl font-bold text-muted-foreground">
                 POSTEK PRINTER
               </DialogTitle>
               <div
@@ -151,7 +151,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
         <div className="p-5 border-b bg-muted flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Settings2 className="w-4 h-4 text-muted-foreground" />
-            <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground">
               Paper Setup
             </span>
           </div>
@@ -256,7 +256,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
 
         {/* Hardware Constraints */}
         <div className="p-5 border-b bg-white flex flex-col gap-4">
-          <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+          <span className="text-xs font-semibold tracking-widest text-muted-foreground">
             Hardware Output Config
           </span>
           <div className="grid grid-cols-2 gap-4">
@@ -313,7 +313,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
 
         {/* Barcode Config */}
         <div className="p-5 border-b bg-muted flex flex-col gap-4">
-          <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+          <span className="text-xs font-semibold tracking-widest text-muted-foreground">
             Precision Barcode
           </span>
           <div className="grid grid-cols-2 gap-4">
@@ -356,7 +356,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
 
         {/* Input Selection List */}
         <div className="px-5 py-3 bg-muted border-b flex justify-between items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
             Print Queue
           </span>
           <Badge variant="outline" className="bg-white font-mono text-[10px]">
@@ -382,7 +382,7 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
                 <Input
                   type="number"
                   min={0}
-                  className="w-16 h-8 text-xs font-black text-center"
+                  className="w-16 h-8 text-xs font-bold text-center"
                   value={quantities[item.id] ?? 0}
                   onChange={(e) => handleUpdateQty(item.id, e.target.value)}
                 />
@@ -397,12 +397,12 @@ export const PostekLeftControls: React.FC<PostekLeftControlsProps> = ({
           <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             Total Labels
           </span>
-          <span className="text-3xl font-black italic tracking-tighter text-muted-foreground leading-none mt-1">
+          <span className="text-3xl font-bold tracking-tighter text-muted-foreground leading-none mt-1">
             {totalLabels}
           </span>
         </div>
         <Button
-          className="bg-warning hover:bg-warning h-12 px-8 rounded-xl font-black italic uppercase tracking-widest text-white shadow-xl shadow-orange-500/20 active:scale-95 transition-all"
+          className="bg-warning hover:bg-warning h-12 px-8 rounded-xl font-semibold tracking-widest text-white shadow-sm shadow-orange-500/20 active:scale-95 transition-all"
           onClick={handlePrint}
           disabled={totalLabels === 0 || isPrinting}
         >

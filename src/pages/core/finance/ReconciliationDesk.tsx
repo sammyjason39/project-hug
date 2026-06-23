@@ -109,7 +109,7 @@ export const ReconciliationDesk: React.FC = () => {
     <div className="p-6 space-y-6 bg-muted min-h-screen">
       <GlobalFinancialFilterBar />
 
-      <header className="flex justify-between items-center bg-card p-4 rounded-xl border border-border shadow-sm backdrop-blur-md">
+      <header className="flex justify-between items-center bg-card p-4 rounded-xl border border-border shadow-sm">
         <div>
           <h1 className="text-2xl font-bold text-muted-foreground flex items-center gap-2">
             <Bank className="w-8 h-8 text-primary" />
@@ -141,7 +141,7 @@ export const ReconciliationDesk: React.FC = () => {
 
       <div className="grid grid-cols-12 gap-6">
         {/* Left: Bank Transactions */}
-        <Card className="col-span-12 lg:col-span-7 border-none shadow-xl bg-card/80 backdrop-blur-lg">
+        <Card className="col-span-12 lg:col-span-7 border-none shadow-sm bg-card/80 backdrop-blur-lg">
           <CardHeader className="border-b bg-muted">
             <div className="flex justify-between items-center">
               <div>
@@ -198,7 +198,7 @@ export const ReconciliationDesk: React.FC = () => {
 
         {/* Right: Matches & Ledger */}
         <div className="col-span-12 lg:col-span-5 space-y-6">
-          <Card className="border-none shadow-xl bg-card/80 backdrop-blur-lg border-l-4 border-primary">
+          <Card className="border-none shadow-sm bg-card/80 backdrop-blur-lg border-l-4 border-primary">
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
                 <LinkIcon className="w-5 h-5 text-primary" />
@@ -219,7 +219,7 @@ export const ReconciliationDesk: React.FC = () => {
                       <span>Target Difference</span>
                     </div>
                     <div className="flex justify-between items-baseline">
-                      <div className="text-2xl font-black text-primary">
+                      <div className="text-2xl font-bold text-primary">
                         {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(
                           (Array.isArray(unmatchedLedger) ? unmatchedLedger : []).filter(l => selectedLedgerIds.includes(l.id)).reduce((acc, l) => acc + l.amount, 0)
                         )}
@@ -251,7 +251,7 @@ export const ReconciliationDesk: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-none shadow-xl bg-card/80 backdrop-blur-lg">
+          <Card className="border-none shadow-sm bg-card/80 backdrop-blur-lg">
             <CardHeader className="bg-muted border-b">
               <CardTitle className="text-sm uppercase tracking-widest text-muted-foreground">Unmatched Ledger Entries</CardTitle>
             </CardHeader>
@@ -274,7 +274,7 @@ export const ReconciliationDesk: React.FC = () => {
                       <div className="text-[10px] text-muted-foreground font-mono">{entry.ref} • {entry.posting_date}</div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="text-sm font-black text-muted-foreground">
+                      <div className="text-sm font-bold text-muted-foreground">
                         {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(entry.amount)}
                       </div>
                       <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${

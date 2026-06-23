@@ -77,9 +77,9 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-md bg-white rounded-2xl p-8 border border-border shadow-2xl">
+      <DialogContent className="max-w-md bg-white rounded-2xl p-8 border border-border shadow-sm">
         <DialogHeader className="mb-6">
-          <DialogTitle className="text-xl font-black italic tracking-tighter flex items-center gap-3 text-foreground">
+          <DialogTitle className="text-xl font-bold tracking-tighter flex items-center gap-3 text-foreground">
             <div className="p-2.5 rounded-2xl bg-primary/5 text-primary">
               <User className="w-5 h-5" />
             </div>
@@ -107,7 +107,7 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
 
         <div className="space-y-6">
           <div className="space-y-2">
-            <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+            <label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Personnel
             </label>
             <Select
@@ -146,7 +146,7 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1.5">
                 <Clock className="w-3 h-3" /> Start Time
               </label>
               <Input
@@ -159,7 +159,7 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1.5">
                 <Clock className="w-3 h-3" /> End Time
               </label>
               <Input
@@ -174,7 +174,7 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+            <label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Assigned Role
             </label>
             <Input
@@ -191,7 +191,7 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
           <Button
             variant="ghost"
             onClick={handleDelete}
-            className="text-[10px] font-black italic uppercase tracking-widest text-destructive hover:text-destructive hover:bg-destructive rounded-xl h-11"
+            className="text-[10px] font-semibold tracking-widest text-destructive hover:text-destructive hover:bg-destructive rounded-xl h-11"
           >
             <Trash2 className="w-4 h-4 mr-2" /> Delete
           </Button>
@@ -199,13 +199,13 @@ export const EditShiftModal: React.FC<EditShiftModalProps> = ({
             <Button
               variant="outline"
               onClick={onClose}
-              className="text-[10px] font-black italic uppercase tracking-widest rounded-xl h-11 border-border"
+              className="text-[10px] font-semibold tracking-widest rounded-xl h-11 border-border"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSave}
-              className="text-[10px] font-black italic uppercase tracking-widest bg-primary hover:bg-primary text-foreground rounded-xl h-11 px-6 shadow-md"
+              className="text-[10px] font-semibold tracking-widest bg-primary hover:bg-primary text-foreground rounded-xl h-11 px-6 shadow-md"
             >
               Confirm
             </Button>

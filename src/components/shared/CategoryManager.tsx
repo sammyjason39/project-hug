@@ -108,17 +108,17 @@ export function CategoryManager({ isOpen, onClose, onCategoriesChange }: Categor
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="rounded-[3rem] border-white/10 bg-muted backdrop-blur-3xl shadow-2xl sm:max-w-[700px] p-0 overflow-hidden max-h-[85vh]">
-        <DialogHeader className="p-10 bg-white/5 border-b border-white/5">
+      <DialogContent className="rounded-[3rem] border-border bg-muted shadow-sm sm:max-w-[700px] p-0 overflow-hidden max-h-[85vh]">
+        <DialogHeader className="p-10 bg-white/5 border-b border-border">
           <div className="flex items-center justify-between">
             <div>
-              <DialogTitle className="flex items-center gap-5 text-3xl font-black tracking-tighter text-white uppercase italic leading-none">
-                <div className="flex h-14 w-14 items-center justify-center rounded-[1.5rem] bg-primary text-white shadow-xl shadow-indigo-600/20 border border-white/20">
+              <DialogTitle className="flex items-center gap-5 text-3xl font-bold tracking-tighter text-white uppercase italic leading-none">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary text-white shadow-sm shadow-indigo-600/20 border border-border">
                   <FolderTree className="h-7 w-7" />
                 </div>
                 Category Manager
               </DialogTitle>
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground mt-4 flex items-center gap-2">
+              <p className="text-[10px] font-semibold tracking-[0.4em] text-muted-foreground mt-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> CLASSIFICATION_ENGINE_V2
               </p>
             </div>
@@ -132,24 +132,24 @@ export function CategoryManager({ isOpen, onClose, onCategoriesChange }: Categor
           <FeedbackAlert message={success} variant="success" onClose={() => setSuccess(null)} />
           <FeedbackAlert message={error} variant="error" onClose={() => setError(null)} />
 
-          <div className="p-8 bg-white/5 rounded-[2rem] border border-white/10 space-y-6">
-            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Initialize New Node</p>
+          <div className="p-8 bg-white/5 rounded-2xl border border-border space-y-6">
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em]">Initialize New Node</p>
             <div className="flex gap-4 items-end">
               <div className="flex-1 space-y-3">
-                <Label htmlFor="new-category" className="text-[9px] font-black uppercase tracking-widest text-muted-foreground ml-2">Label Designation</Label>
+                <Label htmlFor="new-category" className="text-label text-muted-foreground ml-2">Label Designation</Label>
                 <Input
                   id="new-category"
                   placeholder="e.g. RAW_MATERIALS_01"
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleCreate()}
-                  className="h-14 rounded-xl bg-muted border-white/5 text-white shadow-inner font-black italic tracking-widest placeholder:text-muted-foreground focus:border-primary transition-all"
+                  className="h-14 rounded-xl bg-muted border-border text-white shadow-inner font-bold tracking-widest placeholder:text-muted-foreground focus:border-primary transition-all"
                 />
               </div>
               <Button 
                 onClick={handleCreate} 
                 disabled={!newName.trim()}
-                className="h-14 px-8 rounded-xl bg-white text-muted-foreground font-black italic uppercase tracking-widest text-[10px] hover:bg-muted shadow-2xl transition-all hover:scale-105"
+                className="h-14 px-8 rounded-xl bg-white text-muted-foreground font-semibold tracking-widest text-[10px] hover:bg-muted shadow-sm transition-all hover:scale-105"
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Commit
@@ -157,30 +157,30 @@ export function CategoryManager({ isOpen, onClose, onCategoriesChange }: Categor
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/5 bg-muted overflow-hidden shadow-2xl">
+          <div className="rounded-2xl border border-border bg-muted overflow-hidden shadow-sm">
             <Table>
               <TableHeader>
-                <TableRow className="border-b border-white/5 hover:bg-transparent bg-white/5">
-                  <TableHead className="p-6 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Node Label</TableHead>
-                  <TableHead className="p-6 w-[150px] text-right text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Operation</TableHead>
+                <TableRow className="border-b border-border hover:bg-transparent bg-white/5">
+                  <TableHead className="p-6 text-label text-muted-foreground">Node Label</TableHead>
+                  <TableHead className="p-6 w-[150px] text-right text-label text-muted-foreground">Operation</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {categories.length === 0 ? (
                   <TableRow className="hover:bg-transparent">
-                    <TableCell colSpan={2} className="text-center py-20 text-muted-foreground italic font-black uppercase tracking-widest text-xs">
+                    <TableCell colSpan={2} className="text-center py-20 text-muted-foreground italic font-semibold tracking-widest text-xs">
                       No classification nodes found. Initialization required.
                     </TableCell>
                   </TableRow>
                 ) : (
                   categories.map((cat, i) => (
-                    <TableRow key={cat.id} className={cn("group hover:bg-white/5 transition-all duration-300 border-white/5", i === categories.length - 1 && "border-0")}>
+                    <TableRow key={cat.id} className={cn("group hover:bg-white/5 transition-all duration-300 border-border", i === categories.length - 1 && "border-0")}>
                       <TableCell className="p-6">
                         {editingId === cat.id ? (
                           <Input
                             value={editingName}
                             onChange={(e) => setEditingName(e.target.value)}
-                            className="h-12 rounded-lg bg-white/5 border-white/10 text-white font-black italic tracking-widest"
+                            className="h-12 rounded-lg bg-white/5 border-border text-white font-bold tracking-widest"
                             autoFocus
                             onKeyDown={(e) => e.key === "Enter" && handleUpdate(cat.id)}
                           />
@@ -189,7 +189,7 @@ export function CategoryManager({ isOpen, onClose, onCategoriesChange }: Categor
                              <div className="w-8 h-8 rounded-lg bg-primary border border-primary flex items-center justify-center">
                                 <FolderTree className="h-4 w-4 text-primary" />
                              </div>
-                             <span className="font-black text-white italic tracking-tight uppercase text-base">{cat.name}</span>
+                             <span className="font-bold text-white italic tracking-tight uppercase text-base">{cat.name}</span>
                           </div>
                         )}
                       </TableCell>
@@ -247,10 +247,10 @@ export function CategoryManager({ isOpen, onClose, onCategoriesChange }: Categor
           </div>
         </div>
 
-        <DialogFooter className="p-10 bg-white/5 border-t border-white/5">
+        <DialogFooter className="p-10 bg-white/5 border-t border-border">
           <Button 
              variant="outline" 
-             className="rounded-xl font-black italic text-[10px] uppercase tracking-widest h-12 px-8 border-white/10 bg-white/5 text-white hover:bg-white/10" 
+             className="rounded-xl font-bold text-[10px] uppercase tracking-widest h-12 px-8 border-border bg-white/5 text-white hover:bg-white/10" 
              onClick={onClose}
           >
              Termination Protocol

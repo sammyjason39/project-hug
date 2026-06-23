@@ -78,14 +78,14 @@ export function QueryErrorState({
       role="alert"
       data-testid="query-error-state"
       className={cn(
-        "glass-card flex flex-col items-center justify-center rounded-[2rem] p-10 text-center",
+        "glass-card flex flex-col items-center justify-center rounded-2xl p-10 text-center",
         className,
       )}
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-destructive/10 text-destructive">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
         <AlertTriangle className="h-8 w-8" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-xl font-black uppercase tracking-tight text-foreground">
+      <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground">
         Couldn&apos;t load this data
       </h3>
       <p className="mb-8 max-w-md text-sm font-medium leading-relaxed text-muted-foreground">
@@ -121,14 +121,14 @@ export function QueryEmptyState({
     <div
       data-testid="query-empty-state"
       className={cn(
-        "glass-card flex flex-col items-center justify-center rounded-[2rem] p-10 text-center",
+        "glass-card flex flex-col items-center justify-center rounded-2xl p-10 text-center",
         className,
       )}
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-muted text-muted-foreground">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-muted text-muted-foreground">
         <Inbox className="h-8 w-8" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-xl font-black uppercase tracking-tight text-foreground">
+      <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground">
         Nothing here yet
       </h3>
       <p className="max-w-md text-sm font-medium leading-relaxed text-muted-foreground">

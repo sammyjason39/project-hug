@@ -5,25 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-black italic uppercase tracking-wider ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-95",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-lg shadow-indigo-600/20 hover:bg-primary/90 hover:shadow-primary/40",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg shadow-rose-600/20",
-        outline: "border-2 border-border bg-background hover:bg-surface-3 hover:border-primary/50 text-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/50 shadow-sm",
-        ghost: "hover:bg-primary/10 hover:text-primary",
+        default: "bg-foreground text-background hover:bg-foreground/90 shadow-sm",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-border bg-background hover:bg-muted text-foreground",
+        secondary: "bg-muted text-foreground hover:bg-muted/80 border border-border",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        premium: "grad-primary text-primary-foreground shadow-[0_10px_30px_rgba(79,70,229,0.3)] hover:scale-[1.02] border border-white/20",
-        tactical: "bg-surface-2 border border-border/50 text-foreground hover:border-primary/50 hover:bg-surface-3 shadow-xl",
+        premium: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
+        tactical: "bg-card border border-border text-foreground hover:border-foreground/20 hover:bg-muted",
       },
       size: {
         default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-lg px-3 text-[10px]",
-        lg: "h-14 rounded-2xl px-10 text-base",
-        xl: "h-16 rounded-2xl px-12 text-lg tracking-[0.2em]",
-        icon: "h-11 w-11",
+        sm: "h-9 px-4 text-xs",
+        lg: "h-12 px-8 text-base",
+        xl: "h-14 px-10 text-base",
+        icon: "h-10 w-10 rounded-full",
       },
     },
     defaultVariants: {

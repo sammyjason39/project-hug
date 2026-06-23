@@ -8,18 +8,18 @@ import { cn } from "@/lib/utils";
 /**
  * Async-state presentational primitives consumed by `QueryBoundary`.
  *
- * These are intentionally token-based (no Hardcoded_Color) and Glass_Card-consistent
- * (they share the `glass-card` surface treatment) so that the loading, empty, and error
- * presentations of every data-driven view look uniform across the Web_App.
+ * These are intentionally token-based (no Hardcoded_Color) and surface-card-consistent
+ * so that the loading, empty, and error presentations of every data-driven view
+ * look uniform across the Web_App.
  *
  * - `LoadingSkeleton` — Loading_Indicator (Requirement 4.1)
  * - `EmptyState`      — Empty_State, explanatory text, NO retry control (Requirements 4.3, 4.5)
  * - `ErrorState`      — Error_State, explanatory text WITH a retry control (Requirements 4.4, 4.5)
  */
 
-/** Shared Glass_Card-consistent surface for the empty/error presentations. */
+/** Shared surface-card treatment for empty/error presentations. */
 const asyncSurface =
-  "glass-card flex flex-col items-center justify-center rounded-[2rem] p-10 text-center";
+  "surface-card flex flex-col items-center justify-center rounded-2xl p-10 text-center";
 
 /* ─── LoadingSkeleton ─────────────────────────────────────────────── */
 
@@ -37,8 +37,8 @@ export interface LoadingSkeletonProps {
 
 /**
  * Loading_Indicator presentation: a set of token-based skeleton rows or cards rendered
- * inside a Glass_Card-consistent surface. Exposes `role="status"` + `aria-busy` so the
- * loading state is programmatically determinable (Requirements 4.1, 10.1).
+ * inside a surface-card. Exposes `role="status"` + `aria-busy` so the loading state
+ * is programmatically determinable (Requirements 4.1, 10.1).
  */
 export function LoadingSkeleton({
   variant = "rows",
@@ -64,16 +64,16 @@ export function LoadingSkeleton({
         {items.map((_, index) => (
           <div
             key={index}
-            className="glass-card flex flex-col gap-4 rounded-[2rem] p-6"
+            className="surface-card flex flex-col gap-4 p-6"
           >
             <div className="flex items-center gap-3">
-              <Skeleton className="h-10 w-10 rounded-2xl" />
+              <Skeleton className="h-10 w-10 rounded-xl" />
               <div className="flex-1 space-y-2">
                 <Skeleton className="h-3 w-1/2" />
                 <Skeleton className="h-3 w-1/3" />
               </div>
             </div>
-            <Skeleton className="h-24 w-full rounded-2xl" />
+            <Skeleton className="h-24 w-full rounded-xl" />
             <Skeleton className="h-3 w-2/3" />
           </div>
         ))}
@@ -87,17 +87,17 @@ export function LoadingSkeleton({
       aria-busy="true"
       aria-live="polite"
       data-testid="loading-skeleton"
-      className={cn("glass-card space-y-4 rounded-[2rem] p-6", className)}
+      className={cn("surface-card space-y-4 p-6", className)}
     >
       <span className="sr-only">{label}</span>
       {items.map((_, index) => (
         <div key={index} className="flex items-center gap-4">
-          <Skeleton className="h-12 w-12 rounded-2xl" />
+          <Skeleton className="h-12 w-12 rounded-xl" />
           <div className="flex-1 space-y-2">
             <Skeleton className="h-4 w-3/4" />
             <Skeleton className="h-3 w-1/2" />
           </div>
-          <Skeleton className="h-8 w-20 rounded-xl" />
+          <Skeleton className="h-8 w-20 rounded-full" />
         </div>
       ))}
     </div>
@@ -135,16 +135,16 @@ export function EmptyState({
 }: AsyncEmptyStateProps) {
   return (
     <div data-testid="empty-state" className={cn(asyncSurface, className)}>
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-muted text-muted-foreground">
-        <Icon className="h-8 w-8" aria-hidden="true" />
+      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-muted text-muted-foreground">
+        <Icon className="h-7 w-7" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-xl font-black uppercase tracking-tight text-foreground">
+      <h3 className="mb-2 text-lg font-semibold tracking-tight text-foreground">
         {title}
       </h3>
-      <p className="max-w-md text-sm font-medium leading-relaxed text-muted-foreground">
+      <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
-      {action ? <div className="mt-8">{action}</div> : null}
+      {action ? <div className="mt-6">{action}</div> : null}
     </div>
   );
 }
@@ -185,17 +185,17 @@ export function ErrorState({
       data-testid="error-state"
       className={cn(asyncSurface, className)}
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-destructive/10 text-destructive">
-        <Icon className="h-8 w-8" aria-hidden="true" />
+      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+        <Icon className="h-7 w-7" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-xl font-black uppercase tracking-tight text-foreground">
+      <h3 className="mb-2 text-lg font-semibold tracking-tight text-foreground">
         {title}
       </h3>
-      <p className="mb-8 max-w-md text-sm font-medium leading-relaxed text-muted-foreground">
+      <p className="mb-6 max-w-md text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
       {onRetry ? (
-        <Button variant="outline" onClick={onRetry} className="gap-2">
+        <Button variant="outline" onClick={onRetry} className="gap-2 rounded-full">
           <RefreshCw className="h-4 w-4" aria-hidden="true" />
           {retryLabel}
         </Button>

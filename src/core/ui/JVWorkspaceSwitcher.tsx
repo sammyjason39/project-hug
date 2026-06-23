@@ -64,7 +64,7 @@ export function JVWorkspaceSwitcher() {
           <ChevronDown className="w-3 h-3 opacity-50" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-64 glass-morphism border-border shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+      <DropdownMenuContent align="start" className="w-64 surface-card border-border shadow-sm animate-in fade-in zoom-in-95 duration-200">
         <DropdownMenuLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider px-3 py-2">
           Joint Venture Mirror
         </DropdownMenuLabel>

@@ -61,7 +61,7 @@ export const OpnameFilters: React.FC<OpnameFiltersProps> = ({
           value={filters.category}
           onValueChange={(v) => onFiltersChange({ category: v })}
         >
-          <SelectTrigger className="w-44 h-11 rounded-xl font-black italic text-xs border-border">
+          <SelectTrigger className="w-44 h-11 rounded-xl font-bold text-xs border-border">
             <SelectValue placeholder="Category" />
           </SelectTrigger>
           <SelectContent className="rounded-xl">
@@ -76,7 +76,7 @@ export const OpnameFilters: React.FC<OpnameFiltersProps> = ({
           value={filters.status}
           onValueChange={(v) => onFiltersChange({ status: v })}
         >
-          <SelectTrigger className="w-36 h-11 rounded-xl font-black italic text-xs border-border">
+          <SelectTrigger className="w-36 h-11 rounded-xl font-bold text-xs border-border">
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent className="rounded-xl">

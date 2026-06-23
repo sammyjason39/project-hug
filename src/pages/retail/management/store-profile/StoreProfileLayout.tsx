@@ -221,7 +221,7 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
     <StoreContext.Provider value={contextValue}>
       <div className="flex flex-col">
         {/* Header Section */}
-        <div className="px-6 py-3 border-b bg-background/40 backdrop-blur-md shrink-0 flex items-center justify-between gap-6">
+        <div className="px-6 py-3 border-b bg-background/40 shrink-0 flex items-center justify-between gap-6">
           <PageHeader
             title={localStore ? localStore.name : "Fleet Registry"}
             subtitle={
@@ -237,16 +237,16 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
               onValueChange={setSelectedStoreId}
               disabled={isStoreManager}
             >
-              <SelectTrigger className="w-[280px] h-10 rounded-xl border-border bg-secondary/5 font-black italic text-[11px] shadow-sm hover:bg-white transition-all">
+              <SelectTrigger className="w-[280px] h-10 rounded-xl border-border bg-secondary/5 font-bold text-[11px] shadow-sm hover:bg-white transition-all">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-border shadow-2xl p-1.5">
+              <SelectContent className="rounded-xl border-border shadow-sm p-1.5">
                 {(session.role?.toLowerCase() === "superadmin" ||
                   session.role?.toLowerCase() === "owner") && (
                   <>
                     <SelectItem
                       value="all_stores"
-                      className="font-black italic py-2.5 cursor-pointer rounded-lg text-[11px]"
+                      className="font-bold py-2.5 cursor-pointer rounded-lg text-[11px]"
                     >
                       <div className="flex items-center gap-2 text-primary">
                         <Globe className="w-3.5 h-3.5" /> GLOBAL VIEW
@@ -273,7 +273,7 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
                       <span>{s.name}</span>
                       <span
                         className={cn(
-                          "ml-auto text-[8px] font-black uppercase tracking-widest px-1.5 py-0.5 rounded",
+                          "ml-auto text-label tracking-widest px-1.5 py-0.5 rounded",
                           isVirtualBranch(s)
                             ? "bg-success/10 text-success"
                             : "bg-secondary/10 text-muted-foreground",
@@ -309,7 +309,7 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
                 onClick={saveConfig}
                 disabled={isSaving || !isDirty}
                 className={cn(
-                  "h-10 px-6 rounded-xl font-black italic uppercase tracking-widest text-[9px] gap-2 shadow-xl transition-all active:scale-95",
+                  "h-10 px-6 rounded-xl font-semibold tracking-widest text-[9px] gap-2 shadow-sm transition-all active:scale-95",
                   isDirty ? "bg-primary hover:bg-primary" : "bg-secondary",
                 )}
               >
@@ -331,7 +331,7 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
 
         {/* Tab Navigation - Hidden in Global View */}
         {selectedStoreId !== "all_stores" && (
-          <div className="px-6 bg-background/20 backdrop-blur-sm border-b shrink-0 overflow-x-auto scrollbar-none">
+          <div className="px-6 bg-background/20 border-b shrink-0 overflow-x-auto scrollbar-none">
             <Tabs value={activeTab} onValueChange={handleTabChange}>
               <TabsList className="bg-transparent h-auto p-0 gap-6 rounded-none justify-start flex-nowrap min-w-max">
                 {(Array.isArray(tabs) ? tabs : []).map((tab) => (
@@ -339,7 +339,7 @@ export const StoreProfileLayout: React.FC<{ children: React.ReactNode }> = ({
                     key={tab.id}
                     value={tab.id}
                     className={cn(
-                      "data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-b-4 font-black italic uppercase tracking-[0.2em] text-[9px] py-3 px-0 flex items-center gap-2 transition-all whitespace-nowrap",
+                      "data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-b-4 font-semibold tracking-[0.2em] text-[9px] py-3 px-0 flex items-center gap-2 transition-all whitespace-nowrap",
                       activeTab === tab.id
                         ? "border-primary text-primary"
                         : "border-transparent text-muted-foreground hover:text-muted-foreground",

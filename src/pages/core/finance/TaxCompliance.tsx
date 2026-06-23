@@ -135,24 +135,24 @@ export default function TaxCompliance() {
               <div className="flex gap-4 p-4 rounded-2xl bg-warning border border-warning/30">
                 <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-warning">VAT Discrepancy</p>
+                  <p className="text-[10px] font-semibold tracking-widest text-warning">VAT Discrepancy</p>
                   <p className="text-xs text-warning font-bold leading-relaxed mt-1">
                     Detected Rp 1.5Mn gap in vendor output tax verification for SUMMIT LTD.
                   </p>
-                  <Button disabled title="Not available yet" variant="link" className="p-0 h-auto text-[10px] font-black uppercase text-warning mt-2">Check Invoice</Button>
+                  <Button disabled title="Not available yet" variant="link" className="p-0 h-auto text-[10px] font-semibold text-warning mt-2">Check Invoice</Button>
                 </div>
               </div>
               <div className="p-4 rounded-2xl bg-muted text-white">
                 <div className="flex items-center gap-2 mb-2">
                   <Globe className="w-4 h-4 text-primary" />
-                  <p className="text-[10px] font-black uppercase tracking-widest">Regulatory Update</p>
+                  <p className="text-[10px] font-semibold tracking-widest">Regulatory Update</p>
                 </div>
                 <p className="text-xs text-muted-foreground font-medium leading-relaxed">
                   The <span className="text-white font-bold italic">Law No. 7/2021 Update</span> regarding carbon tax targets will affect Logistics OpEx starting July.
                 </p>
                 <Button 
                   onClick={() => alert("Analyzing financial exposure to Law No. 7/2021 Update...")}
-                  className="w-full h-8 bg-primary hover:bg-primary text-white font-black uppercase tracking-[0.2em] text-[8px] mt-4"
+                  className="w-full h-8 bg-primary hover:bg-primary text-white font-semibold tracking-[0.2em] text-[8px] mt-4"
                 >
                   Analyze Exposure
                 </Button>
@@ -198,12 +198,12 @@ function ComplianceSummaryCard({ label, value, status, dueDate, trend, icon: Ico
         <div className="p-2.5 rounded-2xl bg-muted border border-border h-fit">
           <Icon className="w-5 h-5 text-muted-foreground" />
         </div>
-        <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest border-primary text-primary bg-primary">
+        <Badge variant="outline" className="text-label tracking-widest border-primary text-primary bg-primary">
           {status}
         </Badge>
       </div>
-      <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{label}</p>
-      <p className="text-xl font-black text-muted-foreground tracking-tight">
+      <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">{label}</p>
+      <p className="text-xl font-bold text-muted-foreground tracking-tight">
         {typeof value === "number" ? formatCurrency(value, "IDR", "id-ID") : value}
       </p>
       {dueDate && (
@@ -213,7 +213,7 @@ function ComplianceSummaryCard({ label, value, status, dueDate, trend, icon: Ico
         </div>
       )}
       {trend && (
-        <p className="text-[10px] font-black text-success uppercase tracking-widest mt-2">{trend} Improvement</p>
+        <p className="text-[10px] font-bold text-success uppercase tracking-widest mt-2">{trend} Improvement</p>
       )}
     </div>
   );
@@ -223,13 +223,13 @@ function CalendarEventRow({ date, title, detail, status }: any) {
   return (
     <div className="flex gap-4 p-4 rounded-2xl hover:bg-muted transition-colors group border-b last:border-0 border-border">
       <div className="flex flex-col items-center justify-center h-12 w-12 bg-card rounded-xl border border-border shadow-sm group-hover:border-primary transition-colors shrink-0">
-        <p className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">{date.split(" ")[0]}</p>
-        <p className="text-sm font-black text-muted-foreground">{date.split(" ")[1]}</p>
+        <p className="text-[10px] font-semibold tracking-tighter text-muted-foreground">{date.split(" ")[0]}</p>
+        <p className="text-sm font-bold text-muted-foreground">{date.split(" ")[1]}</p>
       </div>
       <div className="flex-1">
         <div className="flex justify-between items-start">
-          <p className="text-xs font-black text-muted-foreground uppercase tracking-tight italic">{title}</p>
-          <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest px-2 h-5">
+          <p className="text-xs font-bold text-muted-foreground uppercase tracking-tight italic">{title}</p>
+          <Badge variant="outline" className="text-label tracking-widest px-2 h-5">
             {status}
           </Badge>
         </div>
@@ -248,7 +248,7 @@ function EvidenceCard({ title, count, size, date }: any) {
           <Download className="w-3 h-3" />
         </Button>
       </div>
-      <p className="text-xs font-black text-muted-foreground uppercase tracking-tight mb-1">{title}</p>
+      <p className="text-xs font-bold text-muted-foreground uppercase tracking-tight mb-1">{title}</p>
       <div className="flex justify-between items-center text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
         <p>{count} Files</p>
         <p>{size}</p>

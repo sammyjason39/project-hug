@@ -4,7 +4,7 @@
  * Centralized color mappings to ensure consistent use of global theme variables
  * across all components. All colors MUST use HSL variables defined in src/index.css.
  * 
- * Design System: Vibrant, Glassmorphic, High-Contrast Professional
+ * Design System: ConextLab — clean whitespace, Geist typography, ink/blue palette
  */
 
 // ============================================================================

@@ -353,7 +353,7 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
     <div className="flex-1 flex flex-col gap-8 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 flex-1 overflow-hidden">
         <div className="lg:col-span-3 flex flex-col gap-8 overflow-hidden">
-          <GlassCard className="bg-card/40 backdrop-blur-2xl border-border rounded-[3rem] overflow-hidden shadow-2xl relative">
+          <GlassCard className="bg-card/40 border-border rounded-[3rem] overflow-hidden shadow-sm relative">
             <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
               <Layers className="w-64 h-64 text-primary" />
             </div>
@@ -362,31 +362,31 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                 onSubmit={handleScan}
                 className="flex flex-col items-center justify-center space-y-12 max-w-2xl mx-auto"
               >
-                <div className="w-40 h-40 bg-primary rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-primary/30 relative transform hover:scale-105 transition-transform group">
+                <div className="w-40 h-40 bg-primary rounded-2xl flex items-center justify-center shadow-sm shadow-primary/30 relative transform hover:scale-105 transition-transform group">
                   <ScanLine className="w-20 h-20 text-primary-foreground animate-pulse" />
-                  <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-primary shadow-xl border-2 border-border">
+                  <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-primary shadow-sm border-2 border-border">
                     <RefreshCw className="w-6 h-6" />
                   </div>
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="text-4xl font-black text-foreground tracking-tighter italic uppercase">
+                  <h3 className="text-4xl font-bold text-foreground tracking-tighter italic uppercase">
                     {activeStore?.name || "RETAIL AUDIT TERMINAL"}
                   </h3>
-                  <p className="text-[10px] text-primary font-black tracking-[0.4em] uppercase mt-2 italic opacity-80">
+                  <p className="text-[10px] text-primary font-bold tracking-[0.4em] uppercase mt-2 italic opacity-80">
                     Scanning Zone: [MAIN_FLOOR] • Hardware Sync Active
                   </p>
                 </div>
 
                 <div className="flex flex-col items-center gap-6 w-full">
-                  <div className="flex items-center gap-3 px-6 py-3 bg-secondary/50 rounded-full border border-border backdrop-blur-xl">
+                  <div className="flex items-center gap-3 px-6 py-3 bg-secondary/50 rounded-full border border-border">
                     <Switch 
                       id="serial-mode"
                       checked={serializationMode} 
                       onCheckedChange={setSerializationMode}
                       className="data-[state=checked]:bg-primary"
                     />
-                    <Label htmlFor="serial-mode" className="text-[10px] font-black italic uppercase tracking-widest text-foreground cursor-pointer">
+                    <Label htmlFor="serial-mode" className="text-[10px] font-semibold tracking-widest text-foreground cursor-pointer">
                       Serialization Mode (Deep Tracking)
                     </Label>
                   </div>
@@ -394,10 +394,10 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                   {serializationMode && (
                     <div className="w-full max-w-lg">
                       <Select value={targetSku} onValueChange={setTargetSku}>
-                        <SelectTrigger className="h-14 bg-background/50 border-2 border-border rounded-2xl font-black italic text-[11px] uppercase tracking-widest shadow-xl">
+                        <SelectTrigger className="h-14 bg-background/50 border-2 border-border rounded-2xl font-bold text-[11px] uppercase tracking-widest shadow-sm">
                           <SelectValue placeholder="Target SKU for Unique Units..." />
                         </SelectTrigger>
-                        <SelectContent className="rounded-2xl border-border bg-card/95 backdrop-blur-3xl shadow-2xl">
+                        <SelectContent className="rounded-2xl border-border bg-card/95 shadow-sm">
                           {(Array.isArray(products) ? products : []).map(p => (
                             <SelectItem key={p.id} value={p.sku} className="font-bold italic text-xs py-3">
                               {p.name} ({p.sku})
@@ -405,7 +405,7 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                           ))}
                         </SelectContent>
                       </Select>
-                      <p className="text-[9px] text-primary font-black uppercase text-center mt-3 italic animate-pulse">
+                      <p className="text-[9px] text-primary font-semibold text-center mt-3 italic animate-pulse">
                         Next scan will register a new unique instance for this SKU
                       </p>
                     </div>
@@ -419,14 +419,14 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                     value={scanInput}
                     onChange={(e) => setScanInput(e.target.value)}
                     placeholder="SCAN BARCODE OR INPUT SKU..."
-                    className="h-24 pl-20 text-3xl font-black bg-secondary/50 border-2 border-border focus:border-primary/50 rounded-[2rem] shadow-2xl text-foreground italic uppercase tracking-widest placeholder:text-muted-foreground/30 transition-all"
+                    className="h-24 pl-20 text-3xl font-bold bg-secondary/50 border-2 border-border focus:border-primary/50 rounded-2xl shadow-sm text-foreground italic uppercase tracking-widest placeholder:text-muted-foreground/30 transition-all"
                     autoFocus
                   />
                 </div>
 
-                <div className="flex items-center gap-6 px-8 py-4 bg-secondary/50 rounded-full border border-border backdrop-blur-xl">
+                <div className="flex items-center gap-6 px-8 py-4 bg-secondary/50 rounded-full border border-border">
                   <ShieldCheck className="w-5 h-5 text-success" />
-                  <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] italic">
+                  <p className="text-[10px] text-muted-foreground font-semibold tracking-[0.2em] italic">
                     Zenvix Audit Pulse: <span className="text-success">NOMINAL</span>
                   </p>
                 </div>
@@ -435,11 +435,11 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
           </GlassCard>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1 overflow-hidden">
-            <GlassCard className="bg-card/40 backdrop-blur-2xl border-border rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col">
+            <GlassCard className="bg-card/40 border-border rounded-2xl overflow-hidden shadow-sm flex flex-col">
               <CardHeader className="p-8 border-b border-border bg-background/20">
-                <CardTitle className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.3em] flex items-center justify-between italic">
+                <CardTitle className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.3em] flex items-center justify-between italic">
                   Live Session Stream
-                  <Badge className="bg-primary text-primary-foreground font-black italic px-4 py-1">
+                  <Badge className="bg-primary text-primary-foreground font-bold px-4 py-1">
                     {history.length} SKUs
                   </Badge>
                 </CardTitle>
@@ -449,12 +449,12 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                   {isLoading ? (
                     <div className="h-full flex flex-col items-center justify-center text-muted-foreground py-20 opacity-30">
                       <RefreshCw className="w-12 h-12 mb-4 animate-spin" />
-                      <p className="text-[10px] font-black italic uppercase tracking-widest">Hydrating SKU Engine...</p>
+                      <p className="text-[10px] font-semibold tracking-widest">Hydrating SKU Engine...</p>
                     </div>
                   ) : history.length === 0 ? (
                     <div className="h-full flex flex-col items-center justify-center text-muted-foreground py-20 opacity-30">
                       <History className="w-16 h-16 mb-4" />
-                      <p className="text-[10px] font-black italic uppercase tracking-widest">Awaiting First Scan</p>
+                      <p className="text-[10px] font-semibold tracking-widest">Awaiting First Scan</p>
                     </div>
                   ) : (
                     <div className="space-y-4">
@@ -474,13 +474,13 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                                 <Box className={`w-7 h-7 ${hasVariance ? "text-warning" : "text-muted-foreground"}`} />
                               </div>
                               <div>
-                                <div className="text-base font-black text-foreground italic tracking-tight">{scan.name}</div>
+                                <div className="text-base font-bold text-foreground italic tracking-tight">{scan.name}</div>
                                 <div className="flex items-center gap-2 mt-1">
                                   <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
                                     {scan.sku} • {scan.timestamp}
                                   </div>
                                   {scan.serials && scan.serials.length > 0 && (
-                                    <Badge className="bg-primary/20 text-primary border-none text-[8px] px-2 py-0.5 font-black italic uppercase rounded-md leading-none">
+                                    <Badge className="bg-primary/20 text-primary border-none text-[8px] px-2 py-0.5 font-semibold rounded-md leading-none">
                                       {scan.serials.length} Unique Units
                                     </Badge>
                                   )}
@@ -489,7 +489,7 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                             </div>
                             <div className="flex items-center gap-4">
                               <div className="text-right">
-                                <div className="text-2xl font-black text-foreground italic tracking-tighter">x{scan.actualCount}</div>
+                                <div className="text-2xl font-bold text-foreground italic tracking-tighter">x{scan.actualCount}</div>
                                 <div className={`text-[9px] font-black uppercase tracking-widest mt-1 ${hasVariance ? "text-warning" : "text-success"}`}>
                                   {hasVariance ? "DISCREPANCY" : "IN-SYNC"}
                                 </div>
@@ -512,30 +512,30 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
               </CardContent>
             </GlassCard>
 
-            <GlassCard className="bg-card/40 backdrop-blur-2xl border-border rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col">
+            <GlassCard className="bg-card/40 border-border rounded-2xl overflow-hidden shadow-sm flex flex-col">
               <CardHeader className="p-8 border-b border-border bg-background/20">
-                <CardTitle className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.3em] italic">
+                <CardTitle className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.3em] italic">
                   Operational Metrics
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-10 space-y-10 flex-1 flex flex-col justify-between">
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-background/40 p-8 rounded-[2rem] border border-border shadow-inner">
-                    <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-2 italic">Total Units</div>
-                    <div className="text-4xl font-black italic tracking-tighter text-foreground">
+                  <div className="bg-background/40 p-8 rounded-2xl border border-border shadow-inner">
+                    <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-2 italic">Total Units</div>
+                    <div className="text-4xl font-bold tracking-tighter text-foreground">
                       {history.reduce((a, b) => a + b.actualCount, 0)}
                     </div>
                   </div>
-                  <div className="bg-background/40 p-8 rounded-[2rem] border border-border shadow-inner">
-                    <div className="text-[9px] font-black text-success uppercase tracking-widest mb-2 italic">Confirmations</div>
-                    <div className="text-4xl font-black italic tracking-tighter text-success">
+                  <div className="bg-background/40 p-8 rounded-2xl border border-border shadow-inner">
+                    <div className="text-[9px] font-bold text-success uppercase tracking-widest mb-2 italic">Confirmations</div>
+                    <div className="text-4xl font-bold tracking-tighter text-success">
                       {(Array.isArray(history) ? history : []).filter((h) => h.actualCount === h.systemCount).length}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                   <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest italic">
+                   <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest italic">
                       <span className="text-muted-foreground">Variance Vector</span>
                       <span className="text-destructive">{totalVarianceCount} Anomalies</span>
                    </div>
@@ -550,7 +550,7 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                 <div className="flex gap-4">
                   <Button
                     variant="outline"
-                    className="flex-1 h-20 bg-secondary/50 border-border text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-2xl font-black italic uppercase tracking-widest text-[10px]"
+                    className="flex-1 h-20 bg-secondary/50 border-border text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-2xl font-semibold tracking-widest text-[10px]"
                     onClick={() => {
                       setHistory([]);
                       setUnresolvedBarcodes([]);
@@ -563,7 +563,7 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                     Abort Audit
                   </Button>
                   <Button
-                    className="flex-[2] h-20 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic rounded-2xl shadow-2xl transition-all uppercase tracking-widest text-[11px]"
+                    className="flex-[2] h-20 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-2xl shadow-sm transition-all uppercase tracking-widest text-[11px]"
                     disabled={history.length === 0 || isSubmitting}
                     onClick={handleSubmit}
                   >
@@ -581,16 +581,16 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
                 <Box className="w-48 h-48 text-primary" />
              </div>
              <CardHeader className="p-10 pb-4">
-                <CardTitle className="text-[10px] font-black uppercase tracking-[0.4em] text-primary italic">Edge Pulse Monitor</CardTitle>
+                <CardTitle className="text-[10px] font-semibold tracking-[0.4em] text-primary italic">Edge Pulse Monitor</CardTitle>
              </CardHeader>
              <CardContent className="p-10 pt-0 space-y-8">
                 <div className="flex items-center gap-4">
                    <div className="w-4 h-4 rounded-full bg-success animate-ping" />
-                   <span className="text-sm font-black italic uppercase text-foreground tracking-tighter">GATEWAY_ACTIVE: [REAL_TIME]</span>
+                   <span className="text-sm font-semibold text-foreground tracking-tighter">GATEWAY_ACTIVE: [REAL_TIME]</span>
                 </div>
                 <div className="p-6 bg-secondary/40 rounded-2xl border border-border">
-                   <div className="text-[8px] font-black text-muted-foreground uppercase tracking-widest mb-2">Hardware Context</div>
-                   <div className="text-sm font-mono font-black text-primary">ZVX-SCAN-PRO-992</div>
+                   <div className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Hardware Context</div>
+                   <div className="text-sm font-mono font-bold text-primary">ZVX-SCAN-PRO-992</div>
                 </div>
                 <p className="text-[10px] text-muted-foreground font-bold leading-relaxed italic uppercase tracking-tight">
                    Audit stream is end-to-end encrypted and queued for **Zenvix Global Reconciliation**.
@@ -598,11 +598,11 @@ const StockOpnameScanner = ({ noShell = false }: { noShell?: boolean }) => {
              </CardContent>
           </GlassCard>
 
-          <GlassCard className="bg-warning/5 border-warning/20 border-2 rounded-[2.5rem]">
+          <GlassCard className="bg-warning/5 border-warning/20 border-2 rounded-2xl">
              <CardContent className="p-8 flex gap-6">
                 <AlertCircle className="w-8 h-8 text-warning shrink-0" />
                 <div>
-                   <div className="text-[10px] font-black text-warning uppercase italic tracking-widest">Operational Limit</div>
+                   <div className="text-[10px] font-bold text-warning uppercase italic tracking-widest">Operational Limit</div>
                    <p className="text-[11px] text-warning/60 font-bold mt-2 leading-relaxed italic">
                       Variance exceeding <span className="text-warning underline">±15%</span> triggers mandatory supervisor biometric validation.
                    </p>

@@ -48,7 +48,7 @@ export const KpiRibbonCard: React.FC<KpiRibbonCardProps> = ({
     <div 
       onClick={() => navigateTo && navigate(navigateTo)}
       className={cn(
-        "group relative flex flex-col gap-6 rounded-[2.5rem] glass-card p-7 card-premium overflow-hidden",
+        "group relative flex flex-col gap-6 rounded-2xl glass-card p-7 card-premium overflow-hidden",
         navigateTo && "cursor-pointer"
       )}
     >
@@ -72,14 +72,14 @@ export const KpiRibbonCard: React.FC<KpiRibbonCardProps> = ({
       </div>
 
       <div className="space-y-2 relative z-10">
-        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
-        <h3 className="text-4xl font-black tracking-tighter text-foreground">
+        <p className="text-label text-muted-foreground">{label}</p>
+        <h3 className="text-4xl font-bold tracking-tighter text-foreground">
           {currency ? (typeof value === 'number' ? `$${(value / 1000).toFixed(1)}k` : value) : value}
         </h3>
       </div>
 
       <div className="flex items-center gap-3 relative z-10">
-        <div className={cn("flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-black border", trendStyles[trend])}>
+        <div className={cn("flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold border", trendStyles[trend])}>
           <TrendIcon className="h-3 w-3" />
           {delta || (trend === 'up' ? '+12%' : trend === 'down' ? '-5%' : '0%')}
         </div>

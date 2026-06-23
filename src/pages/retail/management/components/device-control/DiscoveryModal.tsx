@@ -26,9 +26,9 @@ const DiscoveryModal = ({
   onCommit,
 }: DiscoveryModalProps) => (
   <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-    <DialogContent className="max-w-xl rounded-3xl border-none shadow-2xl bg-white max-h-[80vh] overflow-hidden flex flex-col font-sans">
+    <DialogContent className="max-w-xl rounded-3xl border-none shadow-sm bg-white max-h-[80vh] overflow-hidden flex flex-col font-sans">
       <DialogHeader>
-        <DialogTitle className="text-base font-black italic tracking-tighter flex items-center gap-2">
+        <DialogTitle className="text-base font-bold tracking-tighter flex items-center gap-2">
           <Wifi className={`w-4 h-4 ${loading ? "animate-pulse" : ""}`} />
           Network Discovery Results
         </DialogTitle>
@@ -41,7 +41,7 @@ const DiscoveryModal = ({
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4">
             <RefreshCw className="w-10 h-10 text-muted-foreground animate-spin" />
-            <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Scanning Branch LAN…
             </div>
           </div>
@@ -62,7 +62,7 @@ const DiscoveryModal = ({
                 <DeviceIcon type={r.type} cls="w-5 h-5" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[11px] font-black text-foreground truncate">
+                <div className="text-[11px] font-bold text-foreground truncate">
                   {r.name}
                 </div>
                 <div className="text-[9px] text-muted-foreground font-mono mt-0.5 truncate uppercase">
@@ -72,7 +72,7 @@ const DiscoveryModal = ({
               <Button
                 size="sm"
                 onClick={() => onCommit(r.discoveryId)}
-                className="rounded-xl h-8 bg-secondary text-foreground font-black italic uppercase text-[9px] tracking-widest px-4 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="rounded-xl h-8 bg-secondary text-foreground font-semibold text-[9px] tracking-widest px-4 opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 Onboard
               </Button>
@@ -85,7 +85,7 @@ const DiscoveryModal = ({
         <Button
           variant="outline"
           onClick={onClose}
-          className="w-full rounded-xl border-border text-muted-foreground font-black italic uppercase text-[10px] tracking-widest h-10"
+          className="w-full rounded-xl border-border text-muted-foreground font-semibold text-[10px] tracking-widest h-10"
         >
           Close
         </Button>

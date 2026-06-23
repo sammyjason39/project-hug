@@ -106,10 +106,10 @@ export default function MarketingAlerts() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-destructive rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-rose-500/20">
+          <div className="h-20 w-20 bg-destructive rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-rose-500/20">
             <Bell className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Synchronizing Tactical Alerts...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Synchronizing Tactical Alerts...</p>
         </div>
       </div>
     );
@@ -121,13 +121,13 @@ export default function MarketingAlerts() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-destructive text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Security & Operations</Badge>
+            <Badge className="bg-destructive text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Security & Operations</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <ActivitySquare className="h-4 w-4 animate-pulse" />
                Vigilance Matrix Active
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground italic leading-none">Marketing Alerts</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground italic leading-none">Marketing Alerts</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"Operational dominance is maintained through the total coordination of tactical signals."</p>
         </div>
         
@@ -136,21 +136,21 @@ export default function MarketingAlerts() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <input 
               placeholder="Search alert protocols..." 
-              className="pl-12 h-14 bg-white/50 dark:bg-muted backdrop-blur-xl border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm outline-none focus:ring-2 focus:ring-indigo-600/20 transition-all"
+              className="pl-12 h-14 bg-card dark:bg-muted border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm outline-none focus:ring-2 focus:ring-indigo-600/20 transition-all"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-110 transition-all"
+            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-110 transition-all"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
             <RefreshCw className={cn("h-6 w-6 text-primary", refreshing && "animate-spin")} />
           </Button>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
             onClick={runSweep}
             disabled={refreshing}
           >
@@ -162,60 +162,60 @@ export default function MarketingAlerts() {
 
       {/* Alert Intelligence Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-         <Card className="rounded-[3rem] border-none shadow-2xl glass-card p-10 flex items-center gap-8 group hover:shadow-rose-500/10 transition-all duration-500 overflow-hidden relative">
+         <Card className="rounded-[3rem] border-none shadow-sm glass-card p-10 flex items-center gap-8 group hover:shadow-rose-500/10 transition-all duration-500 overflow-hidden relative">
             <div className="absolute top-0 right-0 h-40 w-40 bg-destructive rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
-            <div className="h-20 w-20 rounded-[1.5rem] bg-destructive flex items-center justify-center group-hover:scale-110 transition-transform duration-500 relative z-10 shadow-inner">
+            <div className="h-20 w-20 rounded-xl bg-destructive flex items-center justify-center group-hover:scale-110 transition-transform duration-500 relative z-10 shadow-inner">
                <ShieldAlert className="h-10 w-10 text-destructive" />
             </div>
             <div className="relative z-10 space-y-1">
-               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">Unacknowledged</p>
-               <h4 className="text-5xl font-black text-destructive italic tracking-tighter">{(Array.isArray(alerts) ? alerts : []).filter(a => !a.acknowledged).length}</h4>
-               <p className="text-[9px] font-black uppercase tracking-widest text-destructive italic leading-none">Action Required</p>
+               <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">Unacknowledged</p>
+               <h4 className="text-5xl font-bold text-destructive italic tracking-tighter">{(Array.isArray(alerts) ? alerts : []).filter(a => !a.acknowledged).length}</h4>
+               <p className="text-label text-destructive italic leading-none">Action Required</p>
             </div>
          </Card>
-         <Card className="rounded-[3rem] border-none shadow-2xl glass-card p-10 flex items-center gap-8 group hover:shadow-indigo-500/10 transition-all duration-500 overflow-hidden relative">
+         <Card className="rounded-[3rem] border-none shadow-sm glass-card p-10 flex items-center gap-8 group hover:shadow-indigo-500/10 transition-all duration-500 overflow-hidden relative">
             <div className="absolute top-0 right-0 h-40 w-40 bg-primary rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
-            <div className="h-20 w-20 rounded-[1.5rem] bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-500 relative z-10 shadow-inner">
+            <div className="h-20 w-20 rounded-xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-500 relative z-10 shadow-inner">
                <ActivitySquare className="h-10 w-10 text-primary" />
             </div>
             <div className="relative z-10 space-y-1">
-               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">Total Signals</p>
-               <h4 className="text-5xl font-black italic tracking-tighter">{alerts.length}</h4>
-               <p className="text-[9px] font-black uppercase tracking-widest text-primary italic leading-none">Telemetry Logged</p>
+               <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">Total Signals</p>
+               <h4 className="text-5xl font-bold tracking-tighter">{alerts.length}</h4>
+               <p className="text-label text-primary italic leading-none">Telemetry Logged</p>
             </div>
          </Card>
-         <Card className="rounded-[3rem] border-none shadow-2xl bg-success text-white p-10 flex items-center gap-8 group hover:shadow-emerald-500/20 transition-all duration-500 relative overflow-hidden">
+         <Card className="rounded-[3rem] border-none shadow-sm bg-success text-white p-10 flex items-center gap-8 group hover:shadow-emerald-500/20 transition-all duration-500 relative overflow-hidden">
             <div className="absolute top-0 right-0 h-40 w-40 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
-            <div className="h-20 w-20 rounded-[1.5rem] bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-white/20 relative z-10 shadow-2xl">
+            <div className="h-20 w-20 rounded-xl bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-border relative z-10 shadow-sm">
                <CheckCircle2 className="h-10 w-10 text-white" />
             </div>
             <div className="relative z-10 space-y-1">
-               <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 italic">System Health</p>
-               <h4 className="text-4xl font-black uppercase italic tracking-tighter">Nominal</h4>
-               <p className="text-[9px] font-black uppercase tracking-widest opacity-40 italic leading-none">All Gateways Secure</p>
+               <p className="text-[10px] font-semibold tracking-[0.3em] opacity-60 italic">System Health</p>
+               <h4 className="text-4xl font-semibold italic tracking-tighter">Nominal</h4>
+               <p className="text-label opacity-40 italic leading-none">All Gateways Secure</p>
             </div>
          </Card>
       </div>
 
       {/* Alert Registry */}
-      <Card className="rounded-[4rem] border-none shadow-2xl glass-card overflow-hidden flex flex-col group/registry">
-        <CardHeader className="p-12 pb-6 border-b border-white/10 dark:border-border/10 flex flex-row items-center justify-between shrink-0">
+      <Card className="rounded-[4rem] border-none shadow-sm glass-card overflow-hidden flex flex-col group/registry">
+        <CardHeader className="p-12 pb-6 border-b border-border dark:border-border/10 flex flex-row items-center justify-between shrink-0">
           <div className="space-y-2">
-            <CardTitle className="text-3xl font-black tracking-tighter flex items-center gap-4 uppercase italic">
+            <CardTitle className="text-3xl font-bold tracking-tighter flex items-center gap-4 uppercase italic">
               <Bell className="h-8 w-8 text-primary group-hover/registry:rotate-12 transition-transform duration-500" />
               Strategic Alert Queue
             </CardTitle>
             <CardDescription className="text-base font-medium italic italic opacity-60">Prioritized tactical signals for campaign nodes, handoff SLAs, and token integrity.</CardDescription>
           </div>
-          <div className="flex bg-muted dark:bg-muted p-2 rounded-[2rem] shadow-inner border-none h-auto">
-             <Button variant="ghost" className="rounded-[1.5rem] px-8 py-3 font-black text-[10px] uppercase tracking-widest bg-white dark:bg-muted shadow-xl text-primary h-12 border-none transition-all">LIVE FEED</Button>
-             <Button variant="ghost" className="rounded-[1.5rem] px-8 py-3 font-black text-[10px] uppercase tracking-widest text-muted-foreground h-12 border-none transition-all">ARCHIVED LOGS</Button>
+          <div className="flex bg-muted dark:bg-muted p-2 rounded-2xl shadow-inner border-none h-auto">
+             <Button variant="ghost" className="rounded-xl px-8 py-3 font-bold text-[10px] uppercase tracking-widest bg-white dark:bg-muted shadow-sm text-primary h-12 border-none transition-all">LIVE FEED</Button>
+             <Button variant="ghost" className="rounded-xl px-8 py-3 font-bold text-[10px] uppercase tracking-widest text-muted-foreground h-12 border-none transition-all">ARCHIVED LOGS</Button>
           </div>
         </CardHeader>
         <CardContent className="p-0 flex-1 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-muted dark:bg-muted text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic sticky top-0 z-10">
+              <thead className="bg-muted dark:bg-muted text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic sticky top-0 z-10">
                 <tr>
                   <th className="px-12 py-8 text-left">Alert Node</th>
                   <th className="px-12 py-8 text-left">Severity</th>
@@ -236,14 +236,14 @@ export default function MarketingAlerts() {
                              {item.severity === "HIGH" ? <AlertTriangle className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
                           </div>
                           <div className="space-y-1">
-                             <p className="font-black text-xl uppercase tracking-tighter italic group-hover:text-primary transition-colors leading-none">{item.type.replace('_', ' ')}</p>
-                             <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground opacity-60 italic">Node Hash: {item.id.slice(-8)}</p>
+                             <p className="font-bold text-xl uppercase tracking-tighter italic group-hover:text-primary transition-colors leading-none">{item.type.replace('_', ' ')}</p>
+                             <p className="text-label text-muted-foreground opacity-60 italic">Node Hash: {item.id.slice(-8)}</p>
                           </div>
                        </div>
                     </td>
                     <td className="px-12 py-10">
                        <Badge className={cn(
-                          "rounded-full font-black text-[9px] px-4 py-1.5 border-none shadow-lg uppercase tracking-widest transition-all",
+                          "rounded-full font-bold text-[9px] px-4 py-1.5 border-none shadow-lg uppercase tracking-widest transition-all",
                           item.severity === "HIGH" ? "bg-destructive text-white shadow-rose-500/20" : "bg-white dark:bg-muted text-muted-foreground shadow-sm"
                        )}>
                           {item.severity} PRIORITY
@@ -255,8 +255,8 @@ export default function MarketingAlerts() {
                              <Layers className="h-5 w-5" />
                           </div>
                           <div className="space-y-0.5">
-                             <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic leading-none">{item.entityType}</p>
-                             <p className="text-[10px] font-black text-primary uppercase tracking-tighter italic leading-none">ID: {item.entityId.slice(-12)}</p>
+                             <p className="text-[10px] font-semibold tracking-widest text-muted-foreground italic leading-none">{item.entityType}</p>
+                             <p className="text-[10px] font-bold text-primary uppercase tracking-tighter italic leading-none">ID: {item.entityId.slice(-12)}</p>
                           </div>
                        </div>
                     </td>
@@ -270,11 +270,11 @@ export default function MarketingAlerts() {
                     <td className="px-12 py-10 text-right">
                        {item.acknowledged ? (
                           <div className="flex justify-end">
-                             <Badge className="rounded-full bg-success text-success font-black text-[9px] px-4 py-1.5 uppercase tracking-widest border border-success/10 shadow-inner italic">ARCHIVED</Badge>
+                             <Badge className="rounded-full bg-success text-success font-bold text-[9px] px-4 py-1.5 uppercase tracking-widest border border-success/10 shadow-inner italic">ARCHIVED</Badge>
                           </div>
                        ) : (
                           <Button
-                            className="rounded-2xl h-12 px-8 bg-muted dark:bg-white text-white dark:text-muted-foreground font-black text-[10px] uppercase tracking-widest shadow-2xl transition-all hover:scale-105 active:scale-95 group/btn"
+                            className="rounded-2xl h-12 px-8 bg-muted dark:bg-white text-white dark:text-muted-foreground font-bold text-[10px] uppercase tracking-widest shadow-sm transition-all hover:scale-105 active:scale-95 group/btn"
                             onClick={() => handleAcknowledge(item.id)}
                           >
                             ACKNOWLEDGE <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -297,22 +297,22 @@ export default function MarketingAlerts() {
       </Card>
       
       {/* Governance Advisory */}
-      <Card className="rounded-[4rem] border-none shadow-2xl bg-muted text-white p-12 flex flex-col lg:flex-row items-center gap-12 group overflow-hidden relative">
+      <Card className="rounded-[4rem] border-none shadow-sm bg-muted text-white p-12 flex flex-col lg:flex-row items-center gap-12 group overflow-hidden relative">
          <div className="absolute inset-0 bg-destructive opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
          <div className="h-32 w-32 bg-destructive rounded-[3rem] flex items-center justify-center shadow-[0_30px_60px_-15px_rgba(225,29,72,0.4)] group-hover:rotate-12 transition-all duration-700 shrink-0 relative z-10">
-            <Monitor className="h-16 w-16 text-white drop-shadow-2xl" />
+            <Monitor className="h-16 w-16 text-white drop-shadow-sm" />
          </div>
          <div className="flex-1 space-y-4 text-center lg:text-left relative z-10">
             <div className="flex items-center gap-4 justify-center lg:justify-start">
-               <Badge className="bg-destructive text-white font-black text-[10px] uppercase tracking-widest px-4 py-1 rounded-full">Governance Engine</Badge>
-               <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Vigilance Matrix Active</p>
+               <Badge className="bg-destructive text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1 rounded-full">Governance Engine</Badge>
+               <p className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Vigilance Matrix Active</p>
             </div>
-            <h3 className="text-3xl font-black uppercase italic tracking-tighter italic leading-none">Total Operational Governance</h3>
+            <h3 className="text-3xl font-semibold italic tracking-tighter italic leading-none">Total Operational Governance</h3>
             <p className="text-lg font-medium italic italic opacity-60 italic leading-relaxed italic max-w-4xl italic">
                "System protocols indicate <strong>100% compliance</strong> across all campaign nodes. Tactical alerts authorize <strong>immediate intervention</strong> only when SLA deltas exceed +/- 5% threshold."
             </p>
          </div>
-         <Button className="h-20 px-12 rounded-[2.5rem] bg-white text-muted-foreground hover:bg-muted shadow-2xl font-black text-sm uppercase tracking-widest gap-4 group transition-all hover:scale-105 active:scale-95 whitespace-nowrap relative z-10">
+         <Button className="h-20 px-12 rounded-2xl bg-white text-muted-foreground hover:bg-muted shadow-sm font-bold text-sm uppercase tracking-widest gap-4 group transition-all hover:scale-105 active:scale-95 whitespace-nowrap relative z-10">
             AUDIT PROTOCOLS <ChevronRight className="h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" />
          </Button>
       </Card>

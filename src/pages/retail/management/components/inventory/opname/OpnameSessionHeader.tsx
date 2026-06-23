@@ -15,15 +15,15 @@ export const OpnameSessionHeader: React.FC<OpnameSessionHeaderProps> = ({
   onSubmit,
 }) => {
   return (
-    <Card className="rounded-[2rem] bg-primary text-foreground border-none shadow-2xl p-6">
+    <Card className="rounded-2xl bg-primary text-foreground border-none shadow-sm p-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="w-3 h-3 rounded-full bg-white animate-pulse" />
           <div>
-            <div className="text-[10px] font-black uppercase tracking-[0.2em] opacity-70 italic">
+            <div className="text-label opacity-70 italic">
               ACTIVE OPNAME SESSION
             </div>
-            <div className="text-xl font-black italic tracking-tighter">
+            <div className="text-xl font-bold tracking-tighter">
               {storeName || "MAIN_TERMINAL"}
             </div>
           </div>
@@ -32,13 +32,13 @@ export const OpnameSessionHeader: React.FC<OpnameSessionHeaderProps> = ({
           <Button
             variant="ghost"
             onClick={onDiscard}
-            className="text-foreground/70 hover:text-foreground font-black italic text-xs uppercase"
+            className="text-foreground/70 hover:text-foreground font-bold text-xs uppercase"
           >
             Discard
           </Button>
           <Button
             onClick={onSubmit}
-            className="bg-white text-primary hover:bg-primary/5 font-black italic uppercase text-xs gap-2 rounded-xl px-5 h-10"
+            className="bg-white text-primary hover:bg-primary/5 font-semibold text-xs gap-2 rounded-xl px-5 h-10"
           >
             <CheckCircle2 className="w-4 h-4" /> Submit Count
           </Button>

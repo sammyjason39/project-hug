@@ -18,7 +18,7 @@ export const MarketingRoiChart: React.FC<MarketingRoiChartProps> = ({ data = [] 
 
   return (
     <div 
-      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-2xl transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
+      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-sm transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
       onClick={() => navigate('/core/marketing/analytics')}
     >
       <div className="flex items-center justify-between mb-10 relative z-10">
@@ -27,13 +27,13 @@ export const MarketingRoiChart: React.FC<MarketingRoiChartProps> = ({ data = [] 
             <Megaphone className="h-6 w-6" />
           </div>
           <div>
-            <h4 className="text-xl font-black italic uppercase tracking-tighter text-white">Marketing ROI</h4>
+            <h4 className="text-xl font-semibold tracking-tighter text-white">Marketing ROI</h4>
             <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Spend vs Gross Sales Efficiency</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/5">
+        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-border">
            <TrendingUp className="h-4 w-4 text-success" />
-           <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Growth Phase</span>
+           <span className="text-[9px] font-semibold text-muted-foreground tracking-widest">Growth Phase</span>
         </div>
       </div>
 

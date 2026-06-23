@@ -50,7 +50,7 @@ export const MetricsGrid: React.FC<MetricsGridProps> = ({ stats }) => {
       {(Array.isArray(metrics) ? metrics : []).map((m, i) => (
         <Card
           key={i}
-          className="rounded-[2rem] p-6 bg-white border-border shadow-xl group hover:border-primary transition-all cursor-pointer"
+          className="rounded-2xl p-6 bg-white border-border shadow-sm group hover:border-primary transition-all cursor-pointer"
         >
           <div className="flex justify-between items-start mb-8">
             <div
@@ -68,10 +68,10 @@ export const MetricsGrid: React.FC<MetricsGridProps> = ({ stats }) => {
               Vitals
             </Badge>
           </div>
-          <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+          <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
             {m.label}
           </div>
-          <div className="text-3xl font-black italic tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase">
+          <div className="text-3xl font-bold tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase">
             {m.val}
           </div>
           <div className="text-[10px] font-bold italic text-muted-foreground mt-2 uppercase">

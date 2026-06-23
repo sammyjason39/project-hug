@@ -174,7 +174,7 @@ export function ImportDialog({
       }}
     >
       <DialogContent 
-        className="sm:max-w-[500px] border-none shadow-2xl rounded-[2rem] overflow-hidden bg-white/95 backdrop-blur-xl"
+        className="sm:max-w-[500px] border-none shadow-sm rounded-2xl overflow-hidden bg-white/95"
         onPointerDownOutside={(e) => isProcessing && e.preventDefault()}
         onEscapeKeyDown={(e) => isProcessing && e.preventDefault()}
       >
@@ -336,7 +336,7 @@ export function ImportDialog({
                 Payload Source
               </Label>
               <div 
-                className="group border-2 border-dashed border-border rounded-[2rem] p-10 flex flex-col items-center justify-center gap-4 hover:border-primary hover:bg-muted transition-all cursor-pointer relative"
+                className="group border-2 border-dashed border-border rounded-2xl p-10 flex flex-col items-center justify-center gap-4 hover:border-primary hover:bg-muted transition-all cursor-pointer relative"
                 onClick={() => document.getElementById('file-upload')?.click()}
               >
                 <div className="h-20 w-20 rounded-3xl bg-muted group-hover:bg-primary/10 flex items-center justify-center transition-colors">

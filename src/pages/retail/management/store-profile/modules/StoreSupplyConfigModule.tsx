@@ -19,7 +19,7 @@ export const StoreSupplyConfigModule: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
         <PackageCheck className="w-16 h-16 mb-4 opacity-20" />
-        <h3 className="text-xl font-black italic tracking-wider">
+        <h3 className="text-xl font-bold tracking-wider">
           GLOBAL SUPPLY ROUTING
         </h3>
         <p className="text-sm mt-2 max-w-md text-center">
@@ -47,7 +47,7 @@ export const StoreSupplyConfigModule: React.FC = () => {
           <PackageCheck className="w-5 h-5" />
         </div>
         <div>
-          <h2 className="text-lg font-black italic uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-lg font-semibold tracking-wider text-muted-foreground">
             Logistics & Routing
           </h2>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -59,7 +59,7 @@ export const StoreSupplyConfigModule: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Inbound Supply */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <Truck className="w-4 h-4 text-muted-foreground" /> Inbound Logistics
           </h3>
 
@@ -139,7 +139,7 @@ export const StoreSupplyConfigModule: React.FC = () => {
 
         {/* Outbound & Fulfillment */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <ArrowRightLeft className="w-4 h-4 text-muted-foreground" /> Outbound
             Routing
           </h3>

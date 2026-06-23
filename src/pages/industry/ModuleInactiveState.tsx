@@ -28,12 +28,12 @@ export function ModuleInactiveState({
     <GlassCard
       data-testid="module-inactive-state"
       role="status"
-      className="flex flex-col items-center justify-center rounded-[2rem] p-12 text-center"
+      className="flex flex-col items-center justify-center rounded-2xl p-12 text-center"
     >
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-muted text-muted-foreground">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-muted text-muted-foreground">
         <Lock className="h-8 w-8" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-xl font-black uppercase tracking-tight text-foreground">
+      <h3 className="mb-2 text-xl font-semibold tracking-tight text-foreground">
         {moduleName} is not active
       </h3>
       <p className="max-w-md text-sm font-medium leading-relaxed text-muted-foreground">

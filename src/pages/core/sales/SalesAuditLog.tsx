@@ -73,10 +73,10 @@ export default function SalesAuditLog() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-muted dark:bg-white rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl">
+          <div className="h-20 w-20 bg-muted dark:bg-white rounded-2xl animate-pulse flex items-center justify-center shadow-sm">
             <ShieldCheck className="h-10 w-10 text-white dark:text-muted-foreground" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Verifying Immutable Ledger...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Verifying Immutable Ledger...</p>
         </div>
       </div>
     );
@@ -88,21 +88,21 @@ export default function SalesAuditLog() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-muted dark:bg-white text-white dark:text-muted-foreground border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Compliance Black Box</Badge>
+            <Badge className="bg-muted dark:bg-white text-white dark:text-muted-foreground border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Compliance Black Box</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Real-time Audit Stream Active
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground italic">Audit Log</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground italic">Audit Log</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"Integrity is the bedrock of every enterprise transaction."</p>
         </div>
         
-        <div className="flex items-center bg-white/50 dark:bg-muted backdrop-blur-xl p-2 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-2xl">
+        <div className="flex items-center bg-card dark:bg-muted p-2 rounded-2xl border border-border dark:border-border/20 shadow-sm">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              className="pl-11 h-14 w-[300px] rounded-[1.5rem] bg-transparent border-none focus-visible:ring-0 text-base font-medium"
+              className="pl-11 h-14 w-[300px] rounded-xl bg-transparent border-none focus-visible:ring-0 text-base font-medium"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search audit trail..."
@@ -110,7 +110,7 @@ export default function SalesAuditLog() {
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-[1.5rem] bg-muted dark:bg-white text-white dark:text-muted-foreground hover:bg-muted dark:hover:bg-muted transition-all shadow-xl"
+            className="h-14 w-14 rounded-xl bg-muted dark:bg-white text-white dark:text-muted-foreground hover:bg-muted dark:hover:bg-muted transition-all shadow-sm"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
@@ -121,51 +121,51 @@ export default function SalesAuditLog() {
 
       {/* Audit Intelligence Overlay */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-         <GlassCard className="rounded-[2.5rem] border-none shadow-xl p-8 flex items-center gap-6 group hover:shadow-indigo-500/10 transition-all">
+         <GlassCard className="rounded-2xl border-none shadow-sm p-8 flex items-center gap-6 group hover:shadow-indigo-500/10 transition-all">
             <div className="h-14 w-14 rounded-2xl bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                <Lock className="h-7 w-7 text-primary" />
             </div>
             <div>
-               <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">LEDGER STATUS</p>
-               <h4 className="text-2xl font-black">IMMUTABLE</h4>
+               <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">LEDGER STATUS</p>
+               <h4 className="text-2xl font-bold">IMMUTABLE</h4>
             </div>
          </GlassCard>
-         <GlassCard className="rounded-[2.5rem] border-none shadow-xl p-8 flex items-center gap-6 group hover:shadow-emerald-500/10 transition-all">
+         <GlassCard className="rounded-2xl border-none shadow-sm p-8 flex items-center gap-6 group hover:shadow-emerald-500/10 transition-all">
             <div className="h-14 w-14 rounded-2xl bg-success flex items-center justify-center group-hover:scale-110 transition-transform">
                <FileSearch className="h-7 w-7 text-success" />
             </div>
             <div>
-               <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">EVENTS RECORDED</p>
-               <h4 className="text-2xl font-black text-success">{events.length}</h4>
+               <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">EVENTS RECORDED</p>
+               <h4 className="text-2xl font-bold text-success">{events.length}</h4>
             </div>
          </GlassCard>
-         <Card className="rounded-[2.5rem] border-none shadow-xl bg-muted dark:bg-white p-8 flex items-center gap-6 group hover:shadow-slate-500/20 transition-all">
-            <div className="h-14 w-14 rounded-2xl bg-white/10 dark:bg-muted backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+         <Card className="rounded-2xl border-none shadow-sm bg-muted dark:bg-white p-8 flex items-center gap-6 group hover:shadow-slate-500/20 transition-all">
+            <div className="h-14 w-14 rounded-2xl bg-white/10 dark:bg-muted flex items-center justify-center group-hover:scale-110 transition-transform">
                <ShieldCheck className="h-7 w-7 text-white dark:text-muted-foreground" />
             </div>
             <div>
-               <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground dark:text-muted-foreground opacity-60">COMPLIANCE RATING</p>
-               <h4 className="text-2xl font-black text-white dark:text-muted-foreground font-black">100% SECURE</h4>
+               <p className="text-[10px] font-semibold tracking-widest text-muted-foreground dark:text-muted-foreground opacity-60">COMPLIANCE RATING</p>
+               <h4 className="text-2xl font-bold text-white dark:text-muted-foreground font-bold">100% SECURE</h4>
             </div>
          </Card>
       </div>
 
       {/* Main Audit Registry */}
-      <GlassCard className="rounded-[3rem] border-none shadow-2xl overflow-hidden">
-        <CardHeader className="p-10 pb-6 border-b border-white/20 dark:border-border/20">
+      <GlassCard className="rounded-[3rem] border-none shadow-sm overflow-hidden">
+        <CardHeader className="p-10 pb-6 border-b border-border dark:border-border/20">
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3">
+              <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3">
                 <History className="h-6 w-6 text-muted-foreground dark:text-white" />
                 Strategic Operation Trail
               </CardTitle>
               <CardDescription className="text-sm font-medium">Global auditable events for stage transitions, approval nodes, and high-stakes engagements.</CardDescription>
             </div>
             <div className="flex gap-4">
-               <div className="flex bg-muted dark:bg-muted p-1.5 rounded-[1.5rem] shadow-inner">
-                  <Button variant="ghost" size="sm" className="h-10 rounded-xl px-4 font-black text-[10px] tracking-widest bg-white dark:bg-muted shadow-md text-muted-foreground dark:text-white">ALL OPERATIONS</Button>
-                  <Button variant="ghost" size="sm" onClick={() => navigate("/core/compliance")} className="h-10 rounded-xl px-4 font-black text-[10px] tracking-widest text-muted-foreground hover:text-muted-foreground transition-colors">FINANCIAL</Button>
-                  <Button variant="ghost" size="sm" onClick={() => navigate("/core/compliance")} className="h-10 rounded-xl px-4 font-black text-[10px] tracking-widest text-muted-foreground hover:text-muted-foreground transition-colors">SECURITY</Button>
+               <div className="flex bg-muted dark:bg-muted p-1.5 rounded-xl shadow-inner">
+                  <Button variant="ghost" size="sm" className="h-10 rounded-xl px-4 font-bold text-[10px] tracking-widest bg-white dark:bg-muted shadow-md text-muted-foreground dark:text-white">ALL OPERATIONS</Button>
+                  <Button variant="ghost" size="sm" onClick={() => navigate("/core/compliance")} className="h-10 rounded-xl px-4 font-bold text-[10px] tracking-widest text-muted-foreground hover:text-muted-foreground transition-colors">FINANCIAL</Button>
+                  <Button variant="ghost" size="sm" onClick={() => navigate("/core/compliance")} className="h-10 rounded-xl px-4 font-bold text-[10px] tracking-widest text-muted-foreground hover:text-muted-foreground transition-colors">SECURITY</Button>
                </div>
             </div>
           </div>
@@ -175,11 +175,11 @@ export default function SalesAuditLog() {
             <table className="w-full">
               <thead className="bg-muted dark:bg-muted">
                 <tr>
-                  <th className="px-10 py-6 text-left text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Timestamp</th>
-                  <th className="px-10 py-6 text-left text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Operation</th>
-                  <th className="px-10 py-6 text-left text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Entity Matrix</th>
-                  <th className="px-10 py-6 text-left text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Actor Node</th>
-                  <th className="px-10 py-6 text-left text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Technical Context</th>
+                  <th className="px-10 py-6 text-left text-label text-muted-foreground">Timestamp</th>
+                  <th className="px-10 py-6 text-left text-label text-muted-foreground">Operation</th>
+                  <th className="px-10 py-6 text-left text-label text-muted-foreground">Entity Matrix</th>
+                  <th className="px-10 py-6 text-left text-label text-muted-foreground">Actor Node</th>
+                  <th className="px-10 py-6 text-left text-label text-muted-foreground">Technical Context</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 dark:divide-slate-800/10">
@@ -187,12 +187,12 @@ export default function SalesAuditLog() {
                   <tr key={item.id} className="group hover:bg-muted dark:hover:bg-muted transition-all cursor-default">
                     <td className="px-10 py-8">
                        <div className="space-y-1">
-                          <p className="text-xs font-black uppercase tracking-tight text-muted-foreground dark:text-white">{formatDate(item.createdAt)}</p>
+                          <p className="text-xs font-semibold tracking-tight text-muted-foreground dark:text-white">{formatDate(item.createdAt)}</p>
                           <p className="text-[10px] font-bold text-muted-foreground">{new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</p>
                        </div>
                     </td>
                     <td className="px-10 py-8">
-                       <Badge variant="outline" className="rounded-full font-black text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-[0.1em] text-muted-foreground dark:text-white bg-white dark:bg-muted shadow-sm">{item.action}</Badge>
+                       <Badge variant="outline" className="rounded-full font-bold text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-[0.1em] text-muted-foreground dark:text-white bg-white dark:bg-muted shadow-sm">{item.action}</Badge>
                     </td>
                     <td className="px-10 py-8">
                        <div className="flex items-center gap-3">
@@ -200,17 +200,17 @@ export default function SalesAuditLog() {
                              <Layers className="h-4 w-4 text-primary" />
                           </div>
                           <div>
-                             <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{item.entityType}</p>
+                             <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">{item.entityType}</p>
                              <p className="text-[10px] font-bold text-primary uppercase tracking-tighter italic">ID: {item.entityId.slice(-12)}</p>
                           </div>
                        </div>
                     </td>
                     <td className="px-10 py-8">
                        <div className="flex items-center gap-3">
-                          <div className="h-8 w-8 rounded-xl bg-muted dark:bg-muted flex items-center justify-center font-black text-[10px]">
+                          <div className="h-8 w-8 rounded-xl bg-muted dark:bg-muted flex items-center justify-center font-bold text-[10px]">
                              {item.actorId.charAt(0)}
                           </div>
-                          <p className="text-xs font-black uppercase tracking-tight text-muted-foreground dark:text-muted-foreground">Custodian {item.actorId.slice(0, 8)}</p>
+                          <p className="text-xs font-semibold tracking-tight text-muted-foreground dark:text-muted-foreground">Custodian {item.actorId.slice(0, 8)}</p>
                        </div>
                     </td>
                     <td className="px-10 py-8">

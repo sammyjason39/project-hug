@@ -103,20 +103,20 @@ export default function RoleGovernance() {
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
       <div className="flex items-end justify-between border-b border-border pb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.3em]">
             <Lock className="h-3 w-3" /> Security Governance
           </div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase italic">
+          <h1 className="text-4xl font-bold tracking-tighter uppercase italic">
             Role Orchestration
           </h1>
           <p className="text-sm text-muted-foreground font-medium">Granular capability mapping and hierarchical access logic.</p>
         </div>
 
         <div className="flex items-center gap-3">
-           <Button variant="outline" className="rounded-2xl border-border font-black text-[10px] uppercase tracking-widest px-6 h-12 gap-2">
+           <Button variant="outline" className="rounded-2xl border-border font-bold text-[10px] uppercase tracking-widest px-6 h-12 gap-2">
              <History className="h-4 w-4" /> Policy History
            </Button>
-           <Button className="rounded-2xl bg-primary text-white font-black text-[10px] uppercase tracking-widest px-6 h-12 shadow-xl shadow-primary/20 gap-2">
+           <Button className="rounded-2xl bg-primary text-white font-bold text-[10px] uppercase tracking-widest px-6 h-12 shadow-sm shadow-primary/20 gap-2">
              <Plus className="h-4 w-4" /> Create Custom Role
            </Button>
         </div>
@@ -125,16 +125,16 @@ export default function RoleGovernance() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
         {/* Role Selection Sidebar */}
         <div className="space-y-4">
-           <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground px-4">Inheritance Matrix</p>
+           <p className="text-[10px] font-semibold tracking-widest text-muted-foreground px-4">Inheritance Matrix</p>
            <div className="space-y-2">
               {(Array.isArray(roles) ? roles : []).map((role) => (
                 <button
                   key={role.id}
                   onClick={() => setSelectedRoleId(role.id)}
                   className={cn(
-                    "w-full p-6 rounded-[2rem] text-left transition-all duration-500 border group",
+                    "w-full p-6 rounded-2xl text-left transition-all duration-500 border group",
                     selectedRoleId === role.id 
-                      ? "bg-card border-primary shadow-xl shadow-primary/10 -translate-y-1" 
+                      ? "bg-card border-primary shadow-sm shadow-primary/10 -translate-y-1" 
                       : "bg-transparent border-transparent hover:bg-muted/50"
                   )}
                 >
@@ -145,12 +145,12 @@ export default function RoleGovernance() {
                      )}>
                         <Shield className="h-5 w-5" />
                      </div>
-                     <Badge variant="outline" className="text-[8px] font-black uppercase tracking-widest">
+                     <Badge variant="outline" className="text-label tracking-widest">
                         {role.level}
                      </Badge>
                   </div>
                   <h3 className={cn(
-                    "font-black text-lg tracking-tighter uppercase italic mb-1 transition-colors",
+                    "font-bold text-lg tracking-tighter uppercase italic mb-1 transition-colors",
                     selectedRoleId === role.id ? "" : "text-muted-foreground"
                   )}>
                     {role.name}
@@ -177,10 +177,10 @@ export default function RoleGovernance() {
               ))}
            </div>
 
-           <div className="p-6 rounded-[2rem] bg-warning/5 border border-warning/10 space-y-3">
+           <div className="p-6 rounded-2xl bg-warning/5 border border-warning/10 space-y-3">
               <div className="flex items-center gap-2 text-warning">
                  <ShieldAlert className="h-4 w-4" />
-                 <span className="text-[10px] font-black uppercase tracking-widest">Security Advisory</span>
+                 <span className="text-[10px] font-semibold tracking-widest">Security Advisory</span>
               </div>
               <p className="text-[10px] text-muted-foreground font-bold leading-relaxed">
                 Changes to the <span className="text-warning">System Super-Admin</span> role are audited globally and require MFA re-verification.
@@ -192,39 +192,39 @@ export default function RoleGovernance() {
         <WorkspacePanel 
           title="Capability Matrix" 
           description={`Fine-tuning permissions for ${selectedRole.name}.`}
-          className="rounded-[2.5rem] border-muted dark:border-muted shadow-xl"
+          className="rounded-2xl border-muted dark:border-muted shadow-sm"
         >
            <div className="space-y-8 pt-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                  <div className="p-6 rounded-3xl bg-muted border border-border space-y-2">
                     <Fingerprint className="h-6 w-6 text-primary" />
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Identity Hook</p>
-                    <p className="text-lg font-black tracking-tight uppercase italic">Active</p>
+                    <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Identity Hook</p>
+                    <p className="text-lg font-bold tracking-tight uppercase italic">Active</p>
                  </div>
                  <div className="p-6 rounded-3xl bg-muted border border-border space-y-2">
                     <FileKey className="h-6 w-6 text-success" />
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Key Rotation</p>
-                    <p className="text-lg font-black tracking-tight uppercase italic">30 Days</p>
+                    <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Key Rotation</p>
+                    <p className="text-lg font-bold tracking-tight uppercase italic">30 Days</p>
                  </div>
                  <div className="p-6 rounded-3xl bg-muted border border-border space-y-2">
                     <Activity className="h-6 w-6 text-destructive" />
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Audit Status</p>
-                    <p className="text-lg font-black tracking-tight uppercase italic">Immutable</p>
+                    <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Audit Status</p>
+                    <p className="text-lg font-bold tracking-tight uppercase italic">Immutable</p>
                  </div>
               </div>
 
               <div className="space-y-4">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Granular Capabilities</p>
+                 <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Granular Capabilities</p>
                  <div className="space-y-2">
                     {(Array.isArray(selectedRole.capabilities) ? selectedRole.capabilities : []).map((cap) => (
                       <div key={cap.id} className="p-6 rounded-3xl bg-card border border-border flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
                          <div className="space-y-1">
-                            <h4 className="font-black text-sm uppercase tracking-tight">{cap.label}</h4>
+                            <h4 className="font-bold text-sm uppercase tracking-tight">{cap.label}</h4>
                             <p className="text-xs text-muted-foreground font-medium max-w-md">{cap.description}</p>
                          </div>
                          <div className="flex items-center gap-6">
                             <div className="text-right hidden md:block">
-                               <p className="text-[8px] font-black uppercase tracking-[0.2em] text-muted-foreground">Last Audit</p>
+                               <p className="text-label tracking-[0.2em] text-muted-foreground">Last Audit</p>
                                <p className="text-[10px] font-mono text-muted-foreground">2026.04.28 14:32</p>
                             </div>
                             <Switch 
@@ -240,14 +240,14 @@ export default function RoleGovernance() {
 
               <div className="pt-8 border-t border-border flex justify-between items-center">
                  <div className="flex items-center gap-4">
-                    <Button variant="ghost" className="rounded-xl text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-destructive">
+                    <Button variant="ghost" className="rounded-xl text-[10px] font-semibold tracking-widest text-muted-foreground hover:text-destructive">
                        <Trash2 className="h-4 w-4 mr-2" /> Decommission Role
                     </Button>
-                    <Button variant="ghost" className="rounded-xl text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <Button variant="ghost" className="rounded-xl text-[10px] font-semibold tracking-widest text-muted-foreground">
                        <Eye className="h-4 w-4 mr-2" /> View Audit Trail
                     </Button>
                  </div>
-                 <Button className="rounded-2xl bg-primary text-white font-black text-[10px] uppercase tracking-widest px-8 h-14 shadow-xl shadow-primary/20 gap-2">
+                 <Button className="rounded-2xl bg-primary text-white font-bold text-[10px] uppercase tracking-widest px-8 h-14 shadow-sm shadow-primary/20 gap-2">
                    <ShieldCheck className="h-4 w-4" /> Commit Security State
                  </Button>
               </div>

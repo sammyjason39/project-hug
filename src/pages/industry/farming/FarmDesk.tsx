@@ -117,7 +117,7 @@ export default function FarmDesk() {
         />
       ) : (
         <Tabs defaultValue="livestock" className="space-y-6">
-          <TabsList className="bg-muted/50 border backdrop-blur-sm p-1">
+          <TabsList className="bg-muted/50 border p-1">
             <TabsTrigger value="livestock" className="gap-2">
               <Beef className="h-4 w-4" /> Livestock
             </TabsTrigger>
@@ -207,7 +207,7 @@ export default function FarmDesk() {
                         </p>
                         <div className="flex items-center justify-between">
                           <Thermometer className="h-8 w-8 text-warning" />
-                          <span className="text-3xl font-black">
+                          <span className="text-3xl font-bold">
                             {safeText(sensor.reading)}
                           </span>
                         </div>

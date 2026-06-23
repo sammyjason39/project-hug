@@ -284,7 +284,7 @@ export const ItemCreationTab: React.FC<Props> = ({
       {/* ── Page Intro ── */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-black italic tracking-tighter text-foreground uppercase">
+          <h2 className="text-3xl font-bold tracking-tighter text-foreground uppercase">
             Manual Batch Creation
           </h2>
           <p className="text-muted-foreground font-medium mt-2">
@@ -295,7 +295,7 @@ export const ItemCreationTab: React.FC<Props> = ({
           <Button
             onClick={addRow}
             variant="outline"
-            className="rounded-2xl h-12 px-6 font-black italic text-xs uppercase tracking-widest gap-2 bg-white/[0.04] border-white/15 hover:bg-white/10 text-foreground shadow-sm backdrop-blur-sm"
+            className="rounded-2xl h-12 px-6 font-bold text-xs uppercase tracking-widest gap-2 bg-white/[0.04] border-white/15 hover:bg-white/10 text-foreground shadow-sm"
           >
             <Plus className="w-4 h-4" /> Add Another Item
           </Button>
@@ -333,7 +333,7 @@ export const ItemCreationTab: React.FC<Props> = ({
         <Button
           onClick={handleSubmit}
           disabled={!canWrite || rows.some((r) => !r.name || !r.sku)}
-          className="rounded-[2rem] h-16 px-12 font-black italic uppercase tracking-[0.2em] text-sm gap-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-2xl shadow-primary/20 transition-all hover:scale-105"
+          className="rounded-2xl h-16 px-12 font-semibold tracking-[0.2em] text-sm gap-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm shadow-primary/20 transition-all hover:scale-105"
         >
           <Send className="w-5 h-5" /> Submit Batch to Core Repository
         </Button>
@@ -341,13 +341,13 @@ export const ItemCreationTab: React.FC<Props> = ({
 
       {/* ── CSV Import (Secondary) ── */}
       <div className="grid md:grid-cols-2 gap-8 mt-12">
-        <Card className="rounded-[3rem] border border-white/10 shadow-sm bg-white/[0.04] backdrop-blur-xl">
+        <Card className="rounded-[3rem] border border-border shadow-sm bg-white/[0.04]">
           <CardContent className="p-10 flex flex-col items-center text-center gap-6">
-            <div className="w-20 h-20 rounded-[2rem] bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+            <div className="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
               <Upload className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-black italic tracking-tight uppercase text-foreground">
+              <h3 className="text-lg font-bold tracking-tight uppercase text-foreground">
                 Bulk Import CSV
               </h3>
               <p className="text-muted-foreground text-[10px] font-medium mt-1 px-4 leading-relaxed">
@@ -370,7 +370,7 @@ export const ItemCreationTab: React.FC<Props> = ({
                 />
                 <Button 
                   onClick={() => csvInputRef.current?.click()}
-                  className="rounded-2xl h-11 px-8 font-black italic uppercase tracking-widest text-[10px] gap-3 bg-foreground hover:bg-foreground/90 text-background"
+                  className="rounded-2xl h-11 px-8 font-semibold tracking-widest text-[10px] gap-3 bg-foreground hover:bg-foreground/90 text-background"
                 >
                   <Upload className="w-4 h-4" /> Select CSV
                 </Button>
@@ -380,13 +380,13 @@ export const ItemCreationTab: React.FC<Props> = ({
         </Card>
 
         {/* ── Bulk Image Matching (NEW) ── */}
-        <Card className="rounded-[3rem] border border-white/10 shadow-sm bg-white/[0.04] backdrop-blur-xl">
+        <Card className="rounded-[3rem] border border-border shadow-sm bg-white/[0.04]">
           <CardContent className="p-10 flex flex-col items-center text-center gap-6">
-            <div className="w-20 h-20 rounded-[2rem] bg-warning border border-warning/20 flex items-center justify-center shrink-0">
+            <div className="w-20 h-20 rounded-2xl bg-warning border border-warning/20 flex items-center justify-center shrink-0">
               <Plus className="w-8 h-8 text-warning" />
             </div>
             <div>
-              <h3 className="text-lg font-black italic tracking-tight uppercase text-foreground">
+              <h3 className="text-lg font-bold tracking-tight uppercase text-foreground">
                 Bulk Image Match
               </h3>
               <p className="text-muted-foreground text-[10px] font-medium mt-1 px-4 leading-relaxed">
@@ -403,7 +403,7 @@ export const ItemCreationTab: React.FC<Props> = ({
                 />
                 <Button 
                   onClick={() => imageInputRef.current?.click()}
-                  className="rounded-2xl h-11 px-8 font-black italic uppercase tracking-widest text-[10px] gap-3 bg-warning hover:bg-warning text-white"
+                  className="rounded-2xl h-11 px-8 font-semibold tracking-widest text-[10px] gap-3 bg-warning hover:bg-warning text-white"
                 >
                   <Upload className="w-4 h-4" /> Drop SKU Images
                 </Button>

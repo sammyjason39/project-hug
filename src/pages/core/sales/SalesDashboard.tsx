@@ -98,10 +98,10 @@ export default function SalesDashboard() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-bounce flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-bounce flex items-center justify-center shadow-sm shadow-indigo-500/20">
             <Zap className="h-10 w-10 text-white fill-white" />
           </div>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground">Syncing Command Center...</p>
+          <p className="text-xs font-semibold tracking-[0.3em] text-muted-foreground">Syncing Command Center...</p>
         </div>
       </div>
     );
@@ -113,21 +113,21 @@ export default function SalesDashboard() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full shadow-lg shadow-indigo-500/20">LIVE TELEMETRY</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full shadow-lg shadow-indigo-500/20">LIVE TELEMETRY</Badge>
             <div className="flex items-center gap-1.5 text-success font-bold text-xs uppercase tracking-widest">
                <div className="h-2 w-2 rounded-full bg-success animate-pulse" />
                Operational
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground">Sales Command</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground">Sales Command</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"The art of war is of vital importance to the State. In sales, it is the art of the deal." — Neural Strategist.</p>
         </div>
         
-        <div className="flex items-center gap-4 bg-white/50 dark:bg-muted backdrop-blur-xl p-2 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-2xl">
+        <div className="flex items-center gap-4 bg-card dark:bg-muted p-2 rounded-2xl border border-border dark:border-border/20 shadow-sm">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              className="pl-11 h-14 w-[300px] rounded-[1.5rem] bg-transparent border-none focus-visible:ring-0 text-base font-medium"
+              className="pl-11 h-14 w-[300px] rounded-xl bg-transparent border-none focus-visible:ring-0 text-base font-medium"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               placeholder="Search leads..."
@@ -135,7 +135,7 @@ export default function SalesDashboard() {
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-[1.5rem] bg-primary text-white hover:bg-primary transition-all shadow-xl shadow-indigo-500/20"
+            className="h-14 w-14 rounded-xl bg-primary text-white hover:bg-primary transition-all shadow-sm shadow-indigo-500/20"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
@@ -152,18 +152,18 @@ export default function SalesDashboard() {
           { label: "Open Leads", value: metrics.openLeads, sub: "UNQUALIFIED DEMAND", icon: Users, color: "blue" },
           { label: "SLA Pressure", value: metrics.slaDueToday, sub: "DUE WITHIN 24H", icon: Clock, color: "rose" },
         ].map((stat, i) => (
-          <Card key={i} className="group relative overflow-hidden rounded-[2.5rem] border-none bg-white dark:bg-muted shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+          <Card key={i} className="group relative overflow-hidden rounded-2xl border-none bg-white dark:bg-muted shadow-sm transition-all duration-500 hover:shadow-sm hover:-translate-y-1">
             <div className={cn("absolute top-0 right-0 h-32 w-32 -mr-8 -mt-8 rounded-full blur-3xl opacity-10", `bg-${stat.color}-500`)} />
             <CardContent className="p-8">
               <div className="flex justify-between items-start mb-6">
                 <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center shadow-inner", `bg-${stat.color}-500/10`)}>
                   <stat.icon className={cn("h-7 w-7", `text-${stat.color}-500`)} />
                 </div>
-                <Badge variant="outline" className="rounded-full font-black text-[9px] px-2 py-0.5 border-border uppercase tracking-widest">+4.2%</Badge>
+                <Badge variant="outline" className="rounded-full font-bold text-[9px] px-2 py-0.5 border-border uppercase tracking-widest">+4.2%</Badge>
               </div>
               <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.sub}</p>
-                <h3 className="text-4xl font-black tracking-tighter">{stat.value}</h3>
+                <p className="text-label text-muted-foreground">{stat.sub}</p>
+                <h3 className="text-4xl font-bold tracking-tighter">{stat.value}</h3>
                 <p className="text-xs font-bold text-muted-foreground">{stat.label}</p>
               </div>
             </CardContent>
@@ -175,17 +175,17 @@ export default function SalesDashboard() {
         {/* Main Content Area */}
         <div className="col-span-12 lg:col-span-8 space-y-8">
           {/* Today's Priority Queue */}
-          <GlassCard className="rounded-[3rem] border-none shadow-2xl overflow-hidden">
-            <CardHeader className="p-10 pb-6 border-b border-white/20 dark:border-border/20">
+          <GlassCard className="rounded-[3rem] border-none shadow-sm overflow-hidden">
+            <CardHeader className="p-10 pb-6 border-b border-border dark:border-border/20">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3">
+                  <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3">
                     <Activity className="h-6 w-6 text-primary" />
                     High-Priority Lead Queue
                   </CardTitle>
                   <CardDescription className="text-sm font-medium">SLA-aware lead pool requiring immediate executive engagement.</CardDescription>
                 </div>
-                <Button variant="outline" className="rounded-2xl h-12 font-black text-xs gap-2 border-border hover:bg-white" onClick={async () => {
+                <Button variant="outline" className="rounded-2xl h-12 font-bold text-xs gap-2 border-border hover:bg-white" onClick={async () => {
                    await salesService.runSlaSweep(session.tenant_id, session);
                    refresh(true);
                 }}>
@@ -198,23 +198,23 @@ export default function SalesDashboard() {
                 <table className="w-full">
                   <thead className="bg-muted dark:bg-muted">
                     <tr>
-                      <th className="px-8 py-5 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Company Protocol</th>
-                      <th className="px-8 py-5 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Owner</th>
-                      <th className="px-8 py-5 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Risk Level</th>
-                      <th className="px-8 py-5 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">SLA Expiry</th>
-                      <th className="px-8 py-5 text-right text-[10px] font-black uppercase tracking-widest text-muted-foreground">Actions</th>
+                      <th className="px-8 py-5 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Company Protocol</th>
+                      <th className="px-8 py-5 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Owner</th>
+                      <th className="px-8 py-5 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Risk Level</th>
+                      <th className="px-8 py-5 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">SLA Expiry</th>
+                      <th className="px-8 py-5 text-right text-[10px] font-semibold tracking-widest text-muted-foreground">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/10 dark:divide-slate-800/10">
                     {filteredLeads.slice(0, 6).map((item) => (
-                      <tr key={item.id} className="group hover:bg-white/40 dark:hover:bg-muted transition-colors">
+                      <tr key={item.id} className="group hover:bg-card dark:hover:bg-muted transition-colors">
                         <td className="px-8 py-6">
                           <div className="flex items-center gap-4">
-                            <div className="h-10 w-10 rounded-xl bg-muted dark:bg-muted flex items-center justify-center font-black text-xs shadow-sm">
+                            <div className="h-10 w-10 rounded-xl bg-muted dark:bg-muted flex items-center justify-center font-bold text-xs shadow-sm">
                               {item.companyName.charAt(0)}
                             </div>
                             <div>
-                              <p className="font-black text-sm">{item.companyName}</p>
+                              <p className="font-bold text-sm">{item.companyName}</p>
                               <p className="text-[10px] font-bold text-muted-foreground uppercase">{item.contactName}</p>
                             </div>
                           </div>
@@ -228,7 +228,7 @@ export default function SalesDashboard() {
                         <td className="px-8 py-6">
                           <Badge 
                             variant={item.priority === "URGENT" || item.priority === "HIGH" ? "destructive" : "secondary"}
-                            className="rounded-full font-black text-[9px] px-3 py-1 border-none shadow-sm uppercase tracking-widest"
+                            className="rounded-full font-bold text-[9px] px-3 py-1 border-none shadow-sm uppercase tracking-widest"
                           >
                             {item.priority}
                           </Badge>
@@ -261,8 +261,8 @@ export default function SalesDashboard() {
                   className="m-8"
                 />
               )}
-              <div className="p-8 border-t border-white/20 dark:border-border/20 text-center">
-                 <Button variant="link" className="text-primary font-black uppercase tracking-widest text-[10px] h-auto p-0 gap-2">
+              <div className="p-8 border-t border-border dark:border-border/20 text-center">
+                 <Button variant="link" className="text-primary font-semibold tracking-widest text-[10px] h-auto p-0 gap-2">
                     Access Complete Lead Registry <ArrowUpRight className="h-4 w-4" />
                  </Button>
               </div>
@@ -273,32 +273,32 @@ export default function SalesDashboard() {
         {/* Sidebar Actions */}
         <div className="col-span-12 lg:col-span-4 space-y-8">
           {/* AI Advisor Panel */}
-          <Card className="rounded-[3rem] border-none shadow-2xl bg-primary shadow-indigo-600/30 text-white overflow-hidden group">
+          <Card className="rounded-[3rem] border-none shadow-sm bg-primary shadow-indigo-600/30 text-white overflow-hidden group">
             <div className="absolute top-0 right-0 h-40 w-40 -mr-10 -mt-10 bg-white/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000" />
             <CardHeader className="p-10 pb-6">
                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/20">
+                  <div className="h-10 w-10 rounded-2xl bg-white/20 flex items-center justify-center border border-border">
                      <Zap className="h-6 w-6 text-white fill-white" />
                   </div>
-                  <CardTitle className="text-xl font-black tracking-tight">Neural Sales Advisor</CardTitle>
+                  <CardTitle className="text-xl font-bold tracking-tight">Neural Sales Advisor</CardTitle>
                </div>
                <CardDescription className="text-white/70 font-medium">Real-time predictive analytics and next-best-action orchestration.</CardDescription>
             </CardHeader>
             <CardContent className="px-10 pb-10 space-y-6">
               {(Array.isArray(nextActions) ? nextActions : []).map((item) => (
-                <div key={item.id} className="relative p-5 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/10 space-y-4 hover:bg-white/20 transition-all cursor-pointer">
+                <div key={item.id} className="relative p-5 rounded-3xl bg-white/10 border border-border space-y-4 hover:bg-white/20 transition-all cursor-pointer">
                   <div className="flex justify-between items-start">
-                    <Badge className="bg-white text-primary border-none font-black text-[9px] px-2 py-0.5 rounded-full">{item.priority}</Badge>
+                    <Badge className="bg-white text-primary border-none font-bold text-[9px] px-2 py-0.5 rounded-full">{item.priority}</Badge>
                     <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
                        <CheckCircle2 className="h-4 w-4" />
                     </div>
                   </div>
                   <div className="space-y-1">
-                    <p className="font-black text-sm leading-tight">{item.title}</p>
+                    <p className="font-bold text-sm leading-tight">{item.title}</p>
                     <p className="text-[11px] font-medium text-white/60 leading-relaxed italic line-clamp-2">"{item.detail}"</p>
                   </div>
                   <Button 
-                    className="w-full bg-white text-primary hover:bg-primary font-black rounded-xl h-11 text-xs"
+                    className="w-full bg-white text-primary hover:bg-primary font-bold rounded-xl h-11 text-xs"
                     onClick={() => navigate("/core/sales/intelligence")}
                   >
                     EXECUTE RECOMMENDATION
@@ -307,14 +307,14 @@ export default function SalesDashboard() {
               ))}
               
               <div className="pt-4 space-y-4">
-                 <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">System Intelligence</p>
+                 <p className="text-label opacity-60">System Intelligence</p>
                  <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                       <p className="text-2xl font-black">94%</p>
+                       <p className="text-2xl font-bold">94%</p>
                        <p className="text-[9px] font-bold uppercase opacity-60">Confidence</p>
                     </div>
                     <div className="space-y-1">
-                       <p className="text-2xl font-black">12.4m</p>
+                       <p className="text-2xl font-bold">12.4m</p>
                        <p className="text-[9px] font-bold uppercase opacity-60">Avg Close</p>
                     </div>
                  </div>
@@ -323,9 +323,9 @@ export default function SalesDashboard() {
           </Card>
 
           {/* Activity Pulse */}
-          <GlassCard className="rounded-[3rem] border-none shadow-2xl overflow-hidden">
-            <CardHeader className="p-10 pb-6 border-b border-white/20 dark:border-border/20">
-               <CardTitle className="text-xl font-black tracking-tight flex items-center gap-3">
+          <GlassCard className="rounded-[3rem] border-none shadow-sm overflow-hidden">
+            <CardHeader className="p-10 pb-6 border-b border-border dark:border-border/20">
+               <CardTitle className="text-xl font-bold tracking-tight flex items-center gap-3">
                   <BarChart3 className="h-5 w-5 text-primary" />
                   Secondary KPI Pulse
                </CardTitle>
@@ -342,18 +342,18 @@ export default function SalesDashboard() {
                           <item.icon className={cn("h-6 w-6", `text-${item.color}-500`)} />
                        </div>
                        <div>
-                          <p className="text-sm font-black text-muted-foreground dark:text-white">{item.label}</p>
+                          <p className="text-sm font-bold text-muted-foreground dark:text-white">{item.label}</p>
                           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">Current Lifecycle Stat</p>
                        </div>
                     </div>
-                    <span className="text-2xl font-black tracking-tighter">{item.value}</span>
+                    <span className="text-2xl font-bold tracking-tighter">{item.value}</span>
                  </div>
                ))}
                
-               <div className="pt-6 border-t border-white/20 dark:border-border/20">
+               <div className="pt-6 border-t border-border dark:border-border/20">
                   <div className="flex items-center gap-3 text-success mb-4">
                      <TrendingUp className="h-5 w-5" />
-                     <span className="text-xs font-black uppercase tracking-widest">Growth Vector: Positive</span>
+                     <span className="text-xs font-semibold tracking-widest">Growth Vector: Positive</span>
                   </div>
                   <div className="h-2 w-full bg-muted dark:bg-muted rounded-full overflow-hidden">
                      <div className="h-full bg-success w-[78%] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]" />

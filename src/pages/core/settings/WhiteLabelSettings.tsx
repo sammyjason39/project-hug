@@ -73,7 +73,7 @@ export default function WhiteLabelSettings() {
             </TabsList>
 
             <TabsContent value="branding" className="space-y-6">
-              <Card className="border-border/60 dark:border-border/60 shadow-sm overflow-hidden bg-white/50 dark:bg-muted backdrop-blur-sm">
+              <Card className="border-border/60 dark:border-border/60 shadow-sm overflow-hidden bg-card dark:bg-muted">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
                     <Layout className="h-5 w-5 text-primary" />
@@ -127,7 +127,7 @@ export default function WhiteLabelSettings() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/60 dark:border-border/60 shadow-sm bg-white/50 dark:bg-muted backdrop-blur-sm">
+              <Card className="border-border/60 dark:border-border/60 shadow-sm bg-card dark:bg-muted">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
                     <Type className="h-5 w-5 text-primary" />
@@ -149,7 +149,7 @@ export default function WhiteLabelSettings() {
             </TabsContent>
 
             <TabsContent value="domain" className="space-y-6">
-              <Card className="border-border/60 dark:border-border/60 shadow-sm bg-white/50 dark:bg-muted backdrop-blur-sm">
+              <Card className="border-border/60 dark:border-border/60 shadow-sm bg-card dark:bg-muted">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
                     <Globe className="h-5 w-5 text-primary" />
@@ -211,7 +211,7 @@ export default function WhiteLabelSettings() {
             </TabsContent>
 
             <TabsContent value="advanced" className="space-y-6">
-               <Card className="border-border/60 dark:border-border/60 shadow-sm bg-white/50 dark:bg-muted backdrop-blur-sm">
+               <Card className="border-border/60 dark:border-border/60 shadow-sm bg-card dark:bg-muted">
                 <CardHeader>
                   <CardTitle className="text-lg">Advanced Settings</CardTitle>
                 </CardHeader>
@@ -253,7 +253,7 @@ export default function WhiteLabelSettings() {
             </CardHeader>
             <CardContent className="p-0">
               <div className="aspect-[4/5] w-full bg-muted dark:bg-muted p-4">
-                <div className="h-full w-full bg-white dark:bg-muted rounded-lg shadow-2xl border border-border dark:border-border overflow-hidden flex flex-col">
+                <div className="h-full w-full bg-white dark:bg-muted rounded-lg shadow-sm border border-border dark:border-border overflow-hidden flex flex-col">
                   {/* Top Nav Preview */}
                   <div className="h-10 border-b border-border dark:border-border px-3 flex items-center justify-between">
                     <img src={config.logoUrl} className="h-5 object-contain" alt="Logo" />

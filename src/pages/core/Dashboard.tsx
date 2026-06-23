@@ -96,13 +96,13 @@ export default function CoreDashboard() {
       <div className="flex h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-8">
           <div className="relative h-24 w-24">
-             <div className="absolute inset-0 bg-primary/20 rounded-[2.5rem] blur-2xl animate-pulse" />
-             <div className="relative h-full w-full bg-primary rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-primary/40 border border-border">
+             <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl animate-pulse" />
+             <div className="relative h-full w-full bg-primary rounded-2xl flex items-center justify-center shadow-sm shadow-primary/40 border border-border">
                 <LayoutDashboard className="h-12 w-12 text-primary-foreground" />
              </div>
           </div>
           <div className="flex flex-col items-center gap-2">
-             <p className="text-[11px] font-black uppercase tracking-[0.4em] text-foreground italic">ZENVIX INTELLIGENCE ENGINE</p>
+             <p className="text-[11px] font-semibold tracking-[0.4em] text-foreground italic">ZENVIX INTELLIGENCE ENGINE</p>
              <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-muted-foreground">Synchronizing Executive Telemetry...</p>
           </div>
         </div>
@@ -115,23 +115,23 @@ export default function CoreDashboard() {
       <Tabs defaultValue="overview" className="space-y-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8 glass-card p-6 rounded-[3rem]">
           <TabsList className="bg-secondary/50 p-1.5 rounded-2xl h-14 border border-border/50">
-            <TabsTrigger value="overview" className="rounded-xl px-10 h-11 data-[state=active]:bg-primary data-[state=active]:shadow-lg data-[state=active]:text-primary-foreground font-black text-[10px] uppercase tracking-[0.25em] transition-all duration-300 text-muted-foreground">
+            <TabsTrigger value="overview" className="rounded-xl px-10 h-11 data-[state=active]:bg-primary data-[state=active]:shadow-lg data-[state=active]:text-primary-foreground font-bold text-[10px] uppercase tracking-[0.25em] transition-all duration-300 text-muted-foreground">
               Strategic Overview
             </TabsTrigger>
-            <TabsTrigger value="operations" className="rounded-xl px-10 h-11 data-[state=active]:bg-primary data-[state=active]:shadow-lg data-[state=active]:text-primary-foreground font-black text-[10px] uppercase tracking-[0.25em] transition-all duration-300 text-muted-foreground">
+            <TabsTrigger value="operations" className="rounded-xl px-10 h-11 data-[state=active]:bg-primary data-[state=active]:shadow-lg data-[state=active]:text-primary-foreground font-bold text-[10px] uppercase tracking-[0.25em] transition-all duration-300 text-muted-foreground">
               Tactical Flow
             </TabsTrigger>
           </TabsList>
 
           <div className="hidden lg:flex items-center gap-6 pr-4">
              <div className="flex flex-col items-end">
-                <span className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground">Governance Tier</span>
+                <span className="text-label text-muted-foreground">Governance Tier</span>
                 <div className="flex items-center gap-2 mt-0.5">
                    <div className="h-1.5 w-1.5 rounded-full bg-success shadow-success/50 shadow-lg" />
-                   <span className="text-[11px] font-black text-foreground italic tracking-tighter">L4 COMMANDER</span>
+                   <span className="text-[11px] font-bold text-foreground italic tracking-tighter">L4 COMMANDER</span>
                 </div>
              </div>
-             <div className="h-12 w-12 rounded-2xl grad-primary p-[1px]">
+             <div className="h-12 w-12 rounded-2xl bg-primary text-primary-foreground p-[1px]">
                 <div className="h-full w-full bg-card rounded-[0.9rem] flex items-center justify-center">
                   <LayoutDashboard className="h-5 w-5 text-primary" />
                 </div>
@@ -196,17 +196,17 @@ export default function CoreDashboard() {
              </div>
              <div className="space-y-8">
                 <MarketingRoiChart data={dashboardData.timeseries.campaignCorrelation} />
-                <div className="rounded-[2.5rem] bg-card p-8 text-card-foreground shadow-2xl relative overflow-hidden group border border-border/50">
+                <div className="rounded-2xl bg-card p-8 text-card-foreground shadow-sm relative overflow-hidden group border border-border/50">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="relative z-10 space-y-6">
-                     <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center backdrop-blur-xl border border-primary/20">
+                     <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20">
                         <Briefcase className="h-5 w-5 text-primary" />
                      </div>
                      <div className="space-y-1">
-                        <h4 className="text-lg font-black italic uppercase tracking-tighter">Strategic Support</h4>
+                        <h4 className="text-lg font-semibold tracking-tighter">Strategic Support</h4>
                         <p className="text-[10px] text-muted-foreground font-medium">Tactical assistance and complex modeling ready.</p>
                      </div>
-                     <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-black text-[9px] uppercase tracking-[0.2em] rounded-xl h-10 transition-all active:scale-95">
+                     <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-[9px] uppercase tracking-[0.2em] rounded-xl h-10 transition-all active:scale-95">
                         CONNECT NOW
                      </Button>
                   </div>
@@ -238,7 +238,7 @@ export default function CoreDashboard() {
         <div className="flex items-center gap-2 md:gap-4">
           <Button 
             variant="outline" 
-            className="h-10 w-10 md:h-12 md:w-12 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-card transition-all p-0"
+            className="h-10 w-10 md:h-12 md:w-12 rounded-xl bg-card/50 hover:bg-card transition-all p-0"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >

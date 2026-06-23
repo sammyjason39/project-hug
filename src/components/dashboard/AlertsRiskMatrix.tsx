@@ -40,10 +40,10 @@ export const AlertsRiskMatrix: React.FC<AlertsRiskMatrixProps> = ({ data = [] })
   };
 
   return (
-    <div className="flex flex-col h-full rounded-[2.5rem] border border-border bg-card p-8 shadow-2xl transition-all duration-500 group overflow-hidden relative">
+    <div className="flex flex-col h-full rounded-2xl border border-border bg-card p-8 shadow-sm transition-all duration-500 group overflow-hidden relative">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h4 className="text-lg font-black italic uppercase tracking-tighter text-foreground">Alerts Risk Matrix</h4>
+          <h4 className="text-lg font-semibold tracking-tighter text-foreground">Alerts Risk Matrix</h4>
           <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Active issues by module and severity</p>
         </div>
       </div>

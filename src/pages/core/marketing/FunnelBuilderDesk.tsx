@@ -110,11 +110,11 @@ function SortableStep({ step, index, onRemove, onEdit }: { step: FunnelStep; ind
 
   return (
     <div ref={setNodeRef} style={style} className={cn("relative group pb-10", isDragging && "opacity-50")}>
-        <div className="absolute -left-6 top-8 h-12 w-12 bg-white dark:bg-muted border-4 border-primary rounded-2xl flex items-center justify-center font-black text-xs shadow-2xl z-20 group-hover:scale-110 transition-transform italic">
+        <div className="absolute -left-6 top-8 h-12 w-12 bg-white dark:bg-muted border-4 border-primary rounded-2xl flex items-center justify-center font-bold text-xs shadow-sm z-20 group-hover:scale-110 transition-transform italic">
            {index + 1}
         </div>
         <Card className={cn(
-          "ml-6 rounded-[2rem] border-none shadow-2xl transition-all duration-500 cursor-default overflow-hidden glass-card relative",
+          "ml-6 rounded-2xl border-none shadow-sm transition-all duration-500 cursor-default overflow-hidden glass-card relative",
           step.isABTest ? "ring-2 ring-indigo-500/40" : "hover:ring-2 hover:ring-indigo-500/20"
         )}>
            {step.isABTest && (
@@ -136,19 +136,19 @@ function SortableStep({ step, index, onRemove, onEdit }: { step: FunnelStep; ind
                     </div>
                     <div className="space-y-1">
                        <div className="flex items-center gap-3">
-                          <p className="font-black text-xl tracking-tighter uppercase italic">{step.name}</p>
-                          {step.isABTest && <Badge className="bg-primary text-[9px] font-black h-5 px-3 rounded-full animate-pulse tracking-widest border-none">A/B TEST ACTIVE</Badge>}
+                          <p className="font-bold text-xl tracking-tighter uppercase italic">{step.name}</p>
+                          {step.isABTest && <Badge className="bg-primary text-[9px] font-bold h-5 px-3 rounded-full animate-pulse tracking-widest border-none">A/B TEST ACTIVE</Badge>}
                        </div>
-                       <p className="text-[10px] text-muted-foreground uppercase font-black tracking-[0.3em] leading-none">{step.type} NODE</p>
+                       <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-[0.3em] leading-none">{step.type} NODE</p>
                     </div>
                  </div>
                  
                  <div className="flex items-center gap-12 w-full md:w-auto border-t md:border-t-0 md:border-l border-border dark:border-border pt-6 md:pt-0 md:pl-12">
                     <div className="text-right space-y-1">
-                       <p className="text-[10px] uppercase font-black text-muted-foreground tracking-[0.2em] italic">Conversion Yield</p>
+                       <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-[0.2em] italic">Conversion Yield</p>
                        <div className="flex items-center justify-end gap-2">
                           <TrendingUp className="h-5 w-5 text-success" />
-                          <span className="text-3xl font-black tracking-tighter text-muted-foreground dark:text-white">{step.conversionRate}%</span>
+                          <span className="text-3xl font-bold tracking-tighter text-muted-foreground dark:text-white">{step.conversionRate}%</span>
                        </div>
                     </div>
                     <div className="flex gap-3">
@@ -303,10 +303,10 @@ export default function FunnelBuilderDesk() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
              <Layers className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Booting Conversion Orchestrator...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Booting Conversion Orchestrator...</p>
         </div>
       </div>
     );
@@ -318,29 +318,29 @@ export default function FunnelBuilderDesk() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6 shrink-0">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Flow Automation</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Flow Automation</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Orchestrator Online
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground text-left">Funnel Builder</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground text-left">Funnel Builder</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic text-left">"Architect multi-dimensional conversion pathways with elite precision."</p>
         </div>
         
         <div className="flex items-center gap-4">
-          <div className="flex items-center bg-white/50 dark:bg-muted backdrop-blur-xl p-2 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-2xl">
+          <div className="flex items-center bg-card dark:bg-muted p-2 rounded-2xl border border-border dark:border-border/20 shadow-sm">
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="ghost" className="h-14 px-8 rounded-2xl font-black text-[10px] uppercase tracking-widest gap-3 transition-all hover:bg-white dark:hover:bg-muted">
+                <Button variant="ghost" className="h-14 px-8 rounded-2xl font-bold text-[10px] uppercase tracking-widest gap-3 transition-all hover:bg-white dark:hover:bg-muted">
                   <Layers className="h-5 w-5 text-primary" /> ARCHIVE TEMPLATES
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl rounded-[3rem] border-none shadow-2xl p-0 overflow-hidden bg-white dark:bg-muted">
+              <DialogContent className="max-w-4xl rounded-[3rem] border-none shadow-sm p-0 overflow-hidden bg-white dark:bg-muted">
                  <div className="h-2 bg-primary" />
                  <div className="p-12 space-y-10">
                     <DialogHeader>
-                       <DialogTitle className="text-4xl font-black tracking-tighter uppercase italic">Strategic Topology Archive</DialogTitle>
+                       <DialogTitle className="text-4xl font-bold tracking-tighter uppercase italic">Strategic Topology Archive</DialogTitle>
                        <DialogDescription className="text-base font-medium italic">Select a proven conversion architecture to initialize your strategic pathway.</DialogDescription>
                     </DialogHeader>
                     <FunnelTemplates onSelect={(id) => {
@@ -351,7 +351,7 @@ export default function FunnelBuilderDesk() {
             </Dialog>
             <Button
               variant="secondary"
-              className="h-14 w-14 rounded-2xl bg-primary text-white hover:bg-primary transition-all shadow-xl shadow-indigo-500/20"
+              className="h-14 w-14 rounded-2xl bg-primary text-white hover:bg-primary transition-all shadow-sm shadow-indigo-500/20"
               onClick={() => refresh(true)}
               disabled={refreshing}
             >
@@ -359,7 +359,7 @@ export default function FunnelBuilderDesk() {
             </Button>
           </div>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
             onClick={() => setNewFunnelOpen(true)}
           >
             <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> 
@@ -371,11 +371,11 @@ export default function FunnelBuilderDesk() {
       <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
         {/* Left: Registry */}
         <div className="col-span-12 lg:col-span-3 flex flex-col gap-6 overflow-hidden">
-          <Card className="flex-1 rounded-[3rem] border-none shadow-2xl glass-card overflow-hidden flex flex-col">
-            <CardHeader className="p-8 pb-4 border-b border-white/10 dark:border-border/10">
+          <Card className="flex-1 rounded-[3rem] border-none shadow-sm glass-card overflow-hidden flex flex-col">
+            <CardHeader className="p-8 pb-4 border-b border-border dark:border-border/10">
                <div className="flex items-center justify-between">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Path Registry</p>
-                  <Badge variant="outline" className="rounded-full font-black text-[9px] px-2 py-0 h-5 border-border dark:border-border text-muted-foreground uppercase tracking-widest">{funnels.length} FLOWS</Badge>
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Path Registry</p>
+                  <Badge variant="outline" className="rounded-full font-bold text-[9px] px-2 py-0 h-5 border-border dark:border-border text-muted-foreground uppercase tracking-widest">{funnels.length} FLOWS</Badge>
                </div>
             </CardHeader>
             <ScrollArea className="flex-1">
@@ -385,10 +385,10 @@ export default function FunnelBuilderDesk() {
                     key={f.id}
                     onClick={() => setSelectedFunnel(f)}
                     className={cn(
-                      "w-full flex items-center gap-4 p-5 rounded-[1.5rem] text-left transition-all duration-300 group relative overflow-hidden",
+                      "w-full flex items-center gap-4 p-5 rounded-xl text-left transition-all duration-300 group relative overflow-hidden",
                       selectedFunnel?.id === f.id 
-                        ? "bg-white dark:bg-muted shadow-xl shadow-indigo-500/10 translate-x-2" 
-                        : "hover:bg-white/50 dark:hover:bg-muted hover:translate-x-1"
+                        ? "bg-white dark:bg-muted shadow-sm shadow-indigo-500/10 translate-x-2" 
+                        : "hover:bg-card dark:hover:bg-muted hover:translate-x-1"
                     )}
                   >
                     {selectedFunnel?.id === f.id && (
@@ -401,10 +401,10 @@ export default function FunnelBuilderDesk() {
                        <Layers className="h-6 w-6" />
                     </div>
                     <div className="flex-1 min-w-0 space-y-1">
-                      <p className="text-sm font-black uppercase tracking-tight group-hover:text-primary transition-colors italic truncate">{f.name}</p>
+                      <p className="text-sm font-semibold tracking-tight group-hover:text-primary transition-colors italic truncate">{f.name}</p>
                       <div className="flex items-center gap-3">
-                         <Badge className="bg-muted dark:bg-muted text-[8px] font-black px-2 py-0 h-4 border-none text-muted-foreground uppercase tracking-widest">{f.status}</Badge>
-                         <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{f.steps?.length || 0} NODES</span>
+                         <Badge className="bg-muted dark:bg-muted text-[8px] font-bold px-2 py-0 h-4 border-none text-muted-foreground uppercase tracking-widest">{f.status}</Badge>
+                         <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">{f.steps?.length || 0} NODES</span>
                       </div>
                     </div>
                     <ChevronRight className={cn("h-4 w-4 transition-transform", selectedFunnel?.id === f.id ? "text-primary translate-x-1" : "text-muted-foreground")} />
@@ -426,16 +426,16 @@ export default function FunnelBuilderDesk() {
         <div className="col-span-12 lg:col-span-6 flex flex-col gap-6 overflow-hidden">
            {selectedFunnel ? (
               <div className="h-full flex flex-col gap-6">
-                 <Card className="shrink-0 rounded-[2.5rem] border-none bg-primary shadow-2xl p-1 relative overflow-hidden group">
+                 <Card className="shrink-0 rounded-2xl border-none bg-primary shadow-sm p-1 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 h-64 w-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 group-hover:scale-150 transition-transform duration-1000" />
                     <CardContent className="p-8 flex items-center justify-between text-white relative z-10">
                         <div className="flex items-center gap-6">
-                           <div className="h-16 w-16 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center shadow-xl border border-white/20">
+                           <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center shadow-sm border border-border">
                               <Activity className="h-8 w-8 text-white" />
                            </div>
                            <div className="space-y-1">
-                              <h2 className="text-3xl font-black tracking-tighter uppercase italic">{selectedFunnel.name}</h2>
-                              <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest opacity-60">
+                              <h2 className="text-3xl font-bold tracking-tighter uppercase italic">{selectedFunnel.name}</h2>
+                              <div className="flex items-center gap-4 text-[10px] font-semibold tracking-widest opacity-60">
                                  <span className="flex items-center gap-2"><ExternalLink className="h-4 w-4" /> NODE /f/{selectedFunnel.id}</span>
                                  <span className="flex items-center gap-2 text-success"><CheckCircle2 className="h-4 w-4" /> TOPOLOGY SECURE</span>
                               </div>
@@ -443,7 +443,7 @@ export default function FunnelBuilderDesk() {
                         </div>
                         <div className="flex items-center gap-4">
                            <Button 
-                             className="bg-white text-primary hover:bg-muted font-black rounded-2xl h-14 px-8 shadow-2xl text-[10px] uppercase tracking-widest gap-3"
+                             className="bg-white text-primary hover:bg-muted font-bold rounded-2xl h-14 px-8 shadow-sm text-[10px] uppercase tracking-widest gap-3"
                              onClick={handleSave}
                              disabled={refreshing}
                            >
@@ -454,7 +454,7 @@ export default function FunnelBuilderDesk() {
                     </CardContent>
                  </Card>
 
-                 <Card className="flex-1 rounded-[4rem] border-none shadow-2xl glass-card overflow-hidden relative">
+                 <Card className="flex-1 rounded-[4rem] border-none shadow-sm glass-card overflow-hidden relative">
                     <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.07] pointer-events-none" 
                          style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     <ScrollArea className="h-full">
@@ -482,11 +482,11 @@ export default function FunnelBuilderDesk() {
                                             <div className="h-16 w-16 rounded-full bg-muted dark:bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-md">
                                               <Plus className="h-8 w-8 group-hover:rotate-90 transition-transform duration-500" />
                                             </div>
-                                            <span className="font-black text-[10px] uppercase tracking-[0.3em]">Integrate Strategic Node</span>
+                                            <span className="font-bold text-[10px] uppercase tracking-[0.3em]">Integrate Strategic Node</span>
                                          </Button>
                                        </DropdownMenuTrigger>
-                                       <DropdownMenuContent className="w-72 rounded-[2rem] p-3 shadow-2xl border-none" align="center">
-                                          <DropdownMenuLabel className="font-black text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Node Selection Protocol</DropdownMenuLabel>
+                                       <DropdownMenuContent className="w-72 rounded-2xl p-3 shadow-sm border-none" align="center">
+                                          <DropdownMenuLabel className="font-bold text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Node Selection Protocol</DropdownMenuLabel>
                                           <DropdownMenuSeparator />
                                           <DropdownMenuItem className="gap-4 py-4 rounded-2xl font-bold" onClick={() => addStep('landing')}><Layout className="h-5 w-5 text-primary" /> Landing Protocol</DropdownMenuItem>
                                           <DropdownMenuItem className="gap-4 py-4 rounded-2xl font-bold" onClick={() => addStep('checkout')}><MousePointer2 className="h-5 w-5 text-success" /> Transaction Gateway</DropdownMenuItem>
@@ -503,19 +503,19 @@ export default function FunnelBuilderDesk() {
                  </Card>
               </div>
            ) : (
-              <div className="h-full flex flex-col items-center justify-center rounded-[4rem] border-2 border-dashed border-white/20 dark:border-border/20 bg-white/10 dark:bg-muted grayscale opacity-30 space-y-10 animate-in zoom-in duration-1000">
+              <div className="h-full flex flex-col items-center justify-center rounded-[4rem] border-2 border-dashed border-border dark:border-border/20 bg-white/10 dark:bg-muted grayscale opacity-30 space-y-10 animate-in zoom-in duration-1000">
                  <div className="relative">
                     <div className="absolute inset-0 bg-primary blur-3xl rounded-full scale-150 animate-pulse" />
-                    <div className="relative h-40 w-40 bg-white dark:bg-muted rounded-[2.5rem] flex items-center justify-center shadow-2xl border border-white/10">
+                    <div className="relative h-40 w-40 bg-white dark:bg-muted rounded-2xl flex items-center justify-center shadow-sm border border-border">
                        <Layers className="h-20 w-20 text-primary" />
                     </div>
                  </div>
                  <div className="text-center space-y-4">
-                   <h3 className="text-4xl font-black uppercase tracking-tighter italic">Workspace Inactive</h3>
-                   <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground max-w-[350px] mx-auto leading-relaxed italic italic">Select a conversion pathway from the registry to authorize total intelligence synchronization.</p>
+                   <h3 className="text-4xl font-semibold tracking-tighter italic">Workspace Inactive</h3>
+                   <p className="text-[10px] font-semibold tracking-widest text-muted-foreground max-w-[350px] mx-auto leading-relaxed italic italic">Select a conversion pathway from the registry to authorize total intelligence synchronization.</p>
                  </div>
                  <Button 
-                   className="h-16 px-10 rounded-2xl bg-primary hover:bg-primary shadow-2xl font-black text-xs gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
+                   className="h-16 px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm font-bold text-xs gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
                    onClick={() => setNewFunnelOpen(true)}
                  >
                    <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> INITIALIZE NEW PATHWAY
@@ -526,48 +526,48 @@ export default function FunnelBuilderDesk() {
 
         {/* Right: Insights & Analytics */}
         <div className="col-span-12 lg:col-span-3 flex flex-col gap-10 overflow-hidden">
-           <Card className="rounded-[3rem] border-none shadow-2xl glass-card overflow-hidden flex flex-col">
-              <CardHeader className="p-8 pb-4 border-b border-white/10 dark:border-border/10">
+           <Card className="rounded-[3rem] border-none shadow-sm glass-card overflow-hidden flex flex-col">
+              <CardHeader className="p-8 pb-4 border-b border-border dark:border-border/10">
                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl font-black uppercase tracking-tight flex items-center gap-3">
+                    <CardTitle className="text-xl font-semibold tracking-tight flex items-center gap-3">
                        <BarChart3 className="h-6 w-6 text-primary" />
                        Intelligence
                     </CardTitle>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Live Yield</p>
+                    <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Live Yield</p>
                  </div>
               </CardHeader>
               <CardContent className="p-8 space-y-10">
                  <div className="grid grid-cols-2 gap-6">
-                    <div className="space-y-2 p-5 rounded-[1.5rem] bg-white/50 dark:bg-muted shadow-sm border border-white/10 group hover:shadow-md transition-all">
-                       <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest italic leading-none block mb-1">Global Traffic</span>
-                       <p className="text-2xl font-black tracking-tighter group-hover:text-primary transition-colors">12.4k</p>
+                    <div className="space-y-2 p-5 rounded-xl bg-card dark:bg-muted shadow-sm border border-border group hover:shadow-md transition-all">
+                       <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest italic leading-none block mb-1">Global Traffic</span>
+                       <p className="text-2xl font-bold tracking-tighter group-hover:text-primary transition-colors">12.4k</p>
                     </div>
-                    <div className="space-y-2 p-5 rounded-[1.5rem] bg-white/50 dark:bg-muted shadow-sm border border-white/10 group hover:shadow-md transition-all">
-                       <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest italic leading-none block mb-1">Conversions</span>
-                       <p className="text-2xl font-black tracking-tighter text-primary">842</p>
+                    <div className="space-y-2 p-5 rounded-xl bg-card dark:bg-muted shadow-sm border border-border group hover:shadow-md transition-all">
+                       <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest italic leading-none block mb-1">Conversions</span>
+                       <p className="text-2xl font-bold tracking-tighter text-primary">842</p>
                     </div>
                  </div>
 
-                 <div className="p-8 rounded-[2rem] bg-primary text-white shadow-2xl shadow-indigo-600/30 relative overflow-hidden group">
+                 <div className="p-8 rounded-2xl bg-primary text-white shadow-sm shadow-indigo-600/30 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 h-32 w-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000" />
                     <div className="relative z-10 flex justify-between items-center mb-4">
-                       <span className="text-[10px] font-black uppercase tracking-widest opacity-60 italic">Strategic ROI Yield</span>
+                       <span className="text-[10px] font-semibold tracking-widest opacity-60 italic">Strategic ROI Yield</span>
                        <TrendingUp className="h-5 w-5 text-success" />
                     </div>
                     <div className="relative z-10 flex items-baseline gap-3">
-                       <span className="text-5xl font-black tracking-tighter">6.74%</span>
-                       <Badge className="bg-success text-success border-none text-[9px] font-black h-5 px-2">+1.2%</Badge>
+                       <span className="text-5xl font-bold tracking-tighter">6.74%</span>
+                       <Badge className="bg-success text-success border-none text-[9px] font-bold h-5 px-2">+1.2%</Badge>
                     </div>
                  </div>
 
                  <div className="space-y-8">
-                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] flex items-center gap-3 italic">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] flex items-center gap-3 italic">
                        <History className="h-4 w-4 text-primary" /> Depletion Analysis
                     </p>
                     <div className="space-y-8">
                        {selectedFunnel?.steps.slice(0, -1).map((step, i) => (
                           <div key={step.id} className="space-y-3 group/bar">
-                             <div className="flex justify-between text-[10px] font-black uppercase tracking-tight">
+                             <div className="flex justify-between text-[10px] font-semibold tracking-tight">
                                 <span className="text-muted-foreground italic">NODE {i+1} → {i+2}</span>
                                 <span className="text-destructive">-{100 - step.conversionRate}% DEPLETION</span>
                              </div>
@@ -581,17 +581,17 @@ export default function FunnelBuilderDesk() {
               </CardContent>
            </Card>
 
-           <Card className="rounded-[2.5rem] border-none shadow-2xl bg-primary text-white p-8 relative overflow-hidden group">
+           <Card className="rounded-2xl border-none shadow-sm bg-primary text-white p-8 relative overflow-hidden group">
               <div className="absolute top-0 right-0 h-32 w-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000" />
               <div className="relative z-10 space-y-6">
                  <div className="flex items-center gap-3">
                     <Rocket className="h-5 w-5 text-warning animate-bounce" />
-                    <p className="text-[10px] font-black uppercase tracking-widest opacity-60">Neural Advisory</p>
+                    <p className="text-[10px] font-semibold tracking-widest opacity-60">Neural Advisory</p>
                  </div>
                  <p className="text-xs font-medium italic italic leading-relaxed opacity-80">
                     "Variation B of the <strong>Transaction Gateway</strong> is outperforming Variation A by <strong>+14.7%</strong> in mobile sessions. Action: Scale B traffic."
                  </p>
-                 <Button variant="link" className="text-[9px] font-black uppercase tracking-widest h-auto p-0 text-warning hover:text-white transition-colors">EXPAND ARCHIVE DATA</Button>
+                 <Button variant="link" className="text-label h-auto p-0 text-warning hover:text-white transition-colors">EXPAND ARCHIVE DATA</Button>
               </div>
            </Card>
         </div>

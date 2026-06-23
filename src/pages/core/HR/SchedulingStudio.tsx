@@ -163,11 +163,11 @@ export default function SchedulingStudio() {
               </div>
             }
           >
-            <div className="overflow-x-auto rounded-xl border bg-card/50 backdrop-blur-sm shadow-sm relative">
+            <div className="overflow-x-auto rounded-xl border bg-card/50 shadow-sm relative">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-muted/30">
-                    <th className="p-4 text-left border-b sticky left-0 z-10 bg-muted/30 min-w-[200px] backdrop-blur-md">Professional</th>
+                    <th className="p-4 text-left border-b sticky left-0 z-10 bg-muted/30 min-w-[200px]">Professional</th>
                     {(Array.isArray(weekDays) ? weekDays : []).map((date) => (
                       <th key={date.toISOString()} className={`p-4 text-center border-b border-l min-w-[140px] ${isSameDay(date, new Date()) ? "bg-primary/5" : ""}`}>
                         <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{format(date, "EEE")}</div>
@@ -186,7 +186,7 @@ export default function SchedulingStudio() {
                     </tr>
                   ) : (Array.isArray(employees) ? employees : []).map((emp) => (
                     <tr key={emp.id} className="group hover:bg-primary/5 transition-colors duration-150">
-                      <td className="p-4 border-b sticky left-0 z-10 bg-card/80 group-hover:bg-primary/5 backdrop-blur-md transition-colors duration-150">
+                      <td className="p-4 border-b sticky left-0 z-10 bg-card/80 group-hover:bg-primary/5 transition-colors duration-150">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary/20 to-primary/5 flex items-center justify-center border border-primary/10 shadow-inner">
                             <span className="text-[10px] font-bold text-primary">{emp.fullName?.split(" ").map(n => n[0]).join("") || "?"}</span>
@@ -241,7 +241,7 @@ export default function SchedulingStudio() {
             <Card className="p-4 bg-gradient-to-br from-card to-background shadow-none border-dashed flex items-center justify-between group hover:border-primary/50 transition-all duration-300">
               <div>
                 <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest mb-1">Weekly Coverage</p>
-                <p className="text-2xl font-black text-foreground">98.4%</p>
+                <p className="text-2xl font-bold text-foreground">98.4%</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-success flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Badge className="bg-success hover:bg-success">Optimal</Badge>
@@ -250,7 +250,7 @@ export default function SchedulingStudio() {
             <Card className="p-4 bg-gradient-to-br from-card to-background shadow-none border-dashed flex items-center justify-between group hover:border-primary/50 transition-all duration-300">
               <div>
                 <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest mb-1">Open Shifts</p>
-                <p className="text-2xl font-black text-foreground">12</p>
+                <p className="text-2xl font-bold text-foreground">12</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-warning flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-warning/20">
                 <AlertTriangle className="w-5 h-5 text-warning" />
@@ -259,7 +259,7 @@ export default function SchedulingStudio() {
             <Card className="p-4 bg-gradient-to-br from-card to-background shadow-none border-dashed flex items-center justify-between group hover:border-primary/50 transition-all duration-300">
               <div>
                 <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest mb-1">Pending Swaps</p>
-                <p className="text-2xl font-black text-foreground">4</p>
+                <p className="text-2xl font-bold text-foreground">4</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-primary/20">
                 <ArrowLeftRight className="w-5 h-5 text-primary" />
@@ -311,7 +311,7 @@ export default function SchedulingStudio() {
 
       {/* Emergency Override Dialog */}
       <Dialog open={isOverrideOpen} onOpenChange={setIsOverrideOpen}>
-        <DialogContent className="max-w-md border-destructive/20 shadow-2xl shadow-destructive/10">
+        <DialogContent className="max-w-md border-destructive/20 shadow-sm shadow-destructive/10">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <ShieldAlert className="w-5 h-5" />

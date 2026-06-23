@@ -102,8 +102,8 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogOverlay className="bg-background/40 backdrop-blur-md" />
-      <DialogContent className="sm:max-w-[440px] glass-morphism border-white/20 dark:border-white/5 rounded-[2.5rem] shadow-2xl p-0 overflow-hidden">
+      <DialogOverlay className="bg-background/40" />
+      <DialogContent className="sm:max-w-[440px] surface-card border-border dark:border-border rounded-2xl shadow-sm p-0 overflow-hidden">
         {/* Progress Bar */}
         <div className="h-1.5 w-full bg-muted flex">
           <div className={`h-full bg-primary transition-all duration-500 ${step === 'EMAIL' ? 'w-1/3' : step === 'RESET' ? 'w-2/3' : 'w-full'}`} />
@@ -118,7 +118,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
               {step === 'RESET' && <KeyRound className="w-8 h-8" />}
               {step === 'SUCCESS' && <CheckCircle2 className="w-8 h-8" />}
             </div>
-            <DialogTitle className="text-3xl font-black italic tracking-tighter uppercase text-foreground leading-none">
+            <DialogTitle className="text-3xl font-bold tracking-tighter uppercase text-foreground leading-none">
               {step === 'EMAIL' && "Account Recovery"}
               {step === 'RESET' && "Secure Reset"}
               {step === 'SUCCESS' && "All Set!"}
@@ -126,7 +126,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
             <DialogDescription className="sr-only">
               Forgot password recovery and reset flow.
             </DialogDescription>
-            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-relaxed ml-1 opacity-70">
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-relaxed ml-1 opacity-70">
               {step === 'EMAIL' && "Enter your work email to verify your identity."}
               {step === 'RESET' && "Establish a new secure credential for your workspace."}
               {step === 'SUCCESS' && "Your password has been updated successfully."}
@@ -136,7 +136,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
           {step === 'EMAIL' && (
             <div className="space-y-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">Work Email</label>
+                <label className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">Work Email</label>
                 <div className="relative">
                   <Input
                     type="email"
@@ -150,7 +150,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
               <Button
                 onClick={handleVerifyEmail}
                 disabled={isLoading || !email}
-                className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-black italic tracking-widest uppercase gap-3 shadow-xl shadow-primary/20 active:scale-95 transition-all"
+                className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-bold tracking-widest uppercase gap-3 shadow-sm shadow-primary/20 active:scale-95 transition-all"
               >
                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>Continue <ChevronRight className="w-5 h-5" /></>}
               </Button>
@@ -161,7 +161,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
             <div className="space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">New Password</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">New Password</label>
                   <Input
                     type="password"
                     placeholder="••••••••"
@@ -171,7 +171,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">Confirm Password</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">Confirm Password</label>
                   <Input
                     type="password"
                     placeholder="••••••••"
@@ -184,7 +184,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
 
               <div className="p-4 rounded-2xl bg-warning/10 border border-warning/20 flex gap-3">
                 <ShieldAlert className="w-5 h-5 text-warning shrink-0" />
-                <p className="text-[10px] font-black text-warning leading-relaxed uppercase tracking-tight opacity-90">
+                <p className="text-[10px] font-bold text-warning leading-relaxed uppercase tracking-tight opacity-90">
                   Choose a strong password to protect your corporate identity and access.
                 </p>
               </div>
@@ -192,7 +192,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
               <Button
                 onClick={handleResetPassword}
                 disabled={isLoading || !newPassword || !confirmPassword}
-                className="w-full h-14 bg-foreground text-background hover:bg-foreground/90 rounded-2xl font-black italic tracking-widest uppercase gap-3 shadow-xl active:scale-95 transition-all"
+                className="w-full h-14 bg-foreground text-background hover:bg-foreground/90 rounded-2xl font-bold tracking-widest uppercase gap-3 shadow-sm active:scale-95 transition-all"
               >
                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Update Password"}
               </Button>
@@ -206,14 +206,14 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
                   <CheckCircle2 className="w-14 h-14" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black italic tracking-tighter text-foreground uppercase">Update Confirmed</h3>
+                  <h3 className="text-2xl font-bold tracking-tighter text-foreground uppercase">Update Confirmed</h3>
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mt-2">Identity Access Restored</p>
                 </div>
               </div>
 
               <Button
                 onClick={handleClose}
-                className="w-full h-14 bg-success hover:bg-success/90 text-success-foreground rounded-2xl font-black italic tracking-widest uppercase shadow-xl shadow-success/20 active:scale-95 transition-all"
+                className="w-full h-14 bg-success hover:bg-success/90 text-success-foreground rounded-2xl font-bold tracking-widest uppercase shadow-sm shadow-success/20 active:scale-95 transition-all"
               >
                 Back to Login
               </Button>
@@ -223,7 +223,7 @@ export const ForgotPasswordModal: React.FC<ForgotPasswordModalProps> = ({
           <div className="pt-4 text-center">
             <button
               onClick={handleClose}
-              className="text-[10px] font-black uppercase text-muted-foreground hover:text-foreground tracking-widest transition-colors"
+              className="text-[10px] font-semibold text-muted-foreground hover:text-foreground tracking-widest transition-colors"
             >
               Cancel and Return
             </button>

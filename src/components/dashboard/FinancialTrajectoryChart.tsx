@@ -43,20 +43,20 @@ export const FinancialTrajectoryChart: React.FC<FinancialTrajectoryChartProps> =
   }));
 
   return (
-    <div className="flex flex-col h-full rounded-[2.5rem] bg-card border border-border p-8 shadow-2xl card-premium">
+    <div className="flex flex-col h-full rounded-2xl bg-card border border-border p-8 shadow-sm card-premium">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h4 className="text-xl font-black italic uppercase tracking-tighter text-foreground">Financial Trajectory</h4>
+          <h4 className="text-xl font-semibold tracking-tighter text-foreground">Financial Trajectory</h4>
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Revenue vs OpEx vs Gross Profit</p>
         </div>
-        <div className="flex gap-2 bg-secondary/50 p-1.5 rounded-2xl border border-border/50 backdrop-blur-xl">
+        <div className="flex gap-2 bg-secondary/50 p-1.5 rounded-2xl border border-border/50">
           {['3M', '6M', '12M'].map((p) => (
             <Button 
               key={p}
               variant="ghost" 
               size="sm" 
               className={cn(
-                "h-8 px-5 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all duration-300",
+                "h-8 px-5 text-[10px] font-semibold tracking-widest rounded-xl transition-all duration-300",
                 period === p 
                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"

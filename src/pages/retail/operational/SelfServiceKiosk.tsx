@@ -184,21 +184,21 @@ const SelfServiceKiosk = () => {
       <div className="h-screen flex flex-col items-center justify-center bg-background p-8 space-y-12 animate-in zoom-in-95 duration-500 overflow-hidden selection:bg-success/30">
         <div className="relative">
           <div className="absolute inset-0 bg-success/10 blur-3xl animate-pulse rounded-full" />
-          <div className="relative w-48 h-48 bg-success rounded-[3rem] flex items-center justify-center shadow-2xl shadow-success/40 transform rotate-12 transition-transform hover:rotate-0 duration-500">
+          <div className="relative w-48 h-48 bg-success rounded-[3rem] flex items-center justify-center shadow-sm shadow-success/40 transform rotate-12 transition-transform hover:rotate-0 duration-500">
             <CheckCircle className="w-24 h-24 text-foreground" />
           </div>
         </div>
         <div className="text-center space-y-6">
-          <h1 className="text-6xl font-black italic tracking-tighter text-foreground uppercase">
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground uppercase">
             Transaction Sealed
           </h1>
-          <p className="text-success font-black uppercase tracking-[0.4em] text-xs italic">
+          <p className="text-success font-semibold tracking-[0.4em] text-xs italic">
             Vault Hash: ZVX-KIOSK-{(activeStore?.id || "").slice(-8).toUpperCase()} • PCI Verified
           </p>
         </div>
         <div className="flex flex-col gap-6 w-full max-w-md">
            <Button
-             className="h-28 bg-primary text-primary-foreground hover:bg-primary/90 font-black italic rounded-[2.5rem] text-2xl shadow-2xl transition-all uppercase tracking-widest active:scale-95"
+             className="h-28 bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-2xl text-2xl shadow-sm transition-all uppercase tracking-widest active:scale-95"
              onClick={() => setStep("scanning")}
            >
              New Customer
@@ -221,28 +221,28 @@ const SelfServiceKiosk = () => {
 
       <div className="flex-1 overflow-hidden relative z-10 flex flex-col p-8 gap-8">
         {/* TACTICAL KIOSK HEADER */}
-        <div className="flex justify-between items-center bg-secondary/40 p-8 rounded-[2.5rem] border border-border backdrop-blur-3xl shrink-0">
+        <div className="flex justify-between items-center bg-secondary/40 p-8 rounded-2xl border border-border shrink-0">
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/40">
+            <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-sm shadow-primary/40">
               <Monitor className="w-9 h-9 text-foreground" />
             </div>
             <div>
-              <h1 className="text-3xl font-black italic tracking-tighter text-foreground uppercase">
+              <h1 className="text-3xl font-bold tracking-tighter text-foreground uppercase">
                 {activeStore?.name || "Zenvix Self-Checkout"}
               </h1>
-              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mt-1 italic">
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] mt-1 italic">
                 Node Context: [KIOSK_ALPHA_9] • {activeStore?.location || "Main Terminal"}
               </p>
             </div>
           </div>
           <div className="flex items-center gap-6">
             <div className="hidden md:block text-right">
-              <div className="text-[9px] font-black text-primary uppercase tracking-[0.3em] mb-1 italic text-right">
+              <div className="text-[9px] font-bold text-primary uppercase tracking-[0.3em] mb-1 italic text-right">
                 Infrastructure Link
               </div>
               <div className="flex items-center gap-2 justify-end">
                 <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                <span className="text-[10px] font-black italic uppercase text-success tracking-widest">
+                <span className="text-[10px] font-semibold text-success tracking-widest">
                   EDGE_VAULT: CONNECTED
                 </span>
               </div>
@@ -296,7 +296,7 @@ const SelfServiceKiosk = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1 overflow-hidden">
           {/* LEFT: SCANNING & PRODUCT GRID */}
           <div className="lg:col-span-8 flex flex-col gap-8 overflow-hidden">
-            <GlassCard className="bg-secondary/40 border-border backdrop-blur-3xl rounded-[3rem] overflow-hidden shadow-2xl shrink-0">
+            <GlassCard className="bg-secondary/40 border-border rounded-[3rem] overflow-hidden shadow-sm shrink-0">
               <CardContent className="p-10">
                 <form onSubmit={handleScan} className="relative group">
                   <Scan className="absolute left-10 top-1/2 -translate-y-1/2 w-10 h-10 text-primary group-focus-within:scale-110 transition-transform" />
@@ -305,7 +305,7 @@ const SelfServiceKiosk = () => {
                     value={scanInput}
                     onChange={(e) => setScanInput(e.target.value)}
                     placeholder="PLACE BARCODE UNDER SCANNER..."
-                    className="h-28 pl-24 text-3xl font-black bg-secondary/40 border-2 border-border focus:border-primary/50 rounded-[2rem] shadow-inner text-foreground italic uppercase tracking-[0.2em] placeholder:text-muted-foreground/30 transition-all"
+                    className="h-28 pl-24 text-3xl font-bold bg-secondary/40 border-2 border-border focus:border-primary/50 rounded-2xl shadow-inner text-foreground italic uppercase tracking-[0.2em] placeholder:text-muted-foreground/30 transition-all"
                     autoFocus
                   />
                 </form>
@@ -315,15 +315,15 @@ const SelfServiceKiosk = () => {
                     <button
                       key={p.id}
                       onClick={() => addToCart(p)}
-                      className="p-6 bg-secondary/40 border border-border rounded-[2.5rem] hover:bg-secondary/60 hover:border-primary/50 transition-all group flex flex-col items-center"
+                      className="p-6 bg-secondary/40 border border-border rounded-2xl hover:bg-secondary/60 hover:border-primary/50 transition-all group flex flex-col items-center"
                     >
                       <div className="w-full aspect-square bg-secondary/40 rounded-3xl mb-6 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
                         <ShoppingBag className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors" />
                       </div>
-                      <div className="text-[11px] font-black italic text-foreground truncate uppercase tracking-tighter w-full text-center">
+                      <div className="text-[11px] font-bold text-foreground truncate uppercase tracking-tighter w-full text-center">
                         {p.name}
                       </div>
-                      <div className="text-[10px] font-black text-primary mt-2 italic tracking-widest">
+                      <div className="text-[10px] font-bold text-primary mt-2 italic tracking-widest">
                         {formatCurrency(p.price, "IDR", "id-ID")}
                       </div>
                     </button>
@@ -333,9 +333,9 @@ const SelfServiceKiosk = () => {
             </GlassCard>
 
             {/* SELECTION VAULT / CART */}
-            <GlassCard className="bg-secondary/40 border-border backdrop-blur-3xl rounded-[3rem] overflow-hidden shadow-2xl flex flex-col flex-1">
+            <GlassCard className="bg-secondary/40 border-border rounded-[3rem] overflow-hidden shadow-sm flex flex-col flex-1">
               <CardHeader className="p-10 border-b border-border/40 bg-background/40">
-                <CardTitle className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.4em] italic flex items-center gap-4">
+                <CardTitle className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.4em] italic flex items-center gap-4">
                    <ShoppingBag className="w-5 h-5" /> Active Tray Consolidations
                 </CardTitle>
               </CardHeader>
@@ -344,7 +344,7 @@ const SelfServiceKiosk = () => {
                   {cart.length === 0 ? (
                     <div className="h-full flex flex-col items-center justify-center py-32 text-muted-foreground/30 opacity-20">
                       <ShoppingBag className="w-32 h-32 mb-8" />
-                      <p className="text-sm font-black italic uppercase tracking-[0.4em]">Tray Is Empty</p>
+                      <p className="text-sm font-semibold tracking-[0.4em]">Tray Is Empty</p>
                     </div>
                   ) : (
                     <div className="divide-y divide-border/40">
@@ -358,7 +358,7 @@ const SelfServiceKiosk = () => {
                               <ShoppingBag className="w-12 h-12 text-muted-foreground" />
                             </div>
                             <div className="flex flex-col justify-center">
-                              <div className="text-2xl font-black italic text-foreground uppercase tracking-tighter">
+                              <div className="text-2xl font-bold text-foreground uppercase tracking-tighter">
                                 {item.name}
                               </div>
                               <div className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em] mt-2 italic">
@@ -367,10 +367,10 @@ const SelfServiceKiosk = () => {
                             </div>
                           </div>
                           <div className="flex items-center gap-16">
-                            <div className="flex items-center gap-6 bg-background/40 border-2 border-border p-3 rounded-[1.5rem] shadow-xl">
+                            <div className="flex items-center gap-6 bg-background/40 border-2 border-border p-3 rounded-xl shadow-sm">
                               <Button
                                 variant="ghost"
-                                className="h-12 w-12 p-0 rounded-xl bg-secondary/40 hover:bg-secondary/60 text-foreground font-black"
+                                className="h-12 w-12 p-0 rounded-xl bg-secondary/40 hover:bg-secondary/60 text-foreground font-bold"
                                 onClick={() =>
                                   setCart((prev) =>
                                     (Array.isArray(prev) ? prev : []).map((i) =>
@@ -383,12 +383,12 @@ const SelfServiceKiosk = () => {
                               >
                                 <Minus className="w-6 h-6" />
                               </Button>
-                              <div className="w-12 text-center text-3xl font-black italic text-foreground tracking-tighter">
+                              <div className="w-12 text-center text-3xl font-bold text-foreground tracking-tighter">
                                 {item.quantity}
                               </div>
                               <Button
                                 variant="ghost"
-                                className="h-12 w-12 p-0 rounded-xl bg-secondary/40 hover:bg-secondary/60 text-foreground font-black"
+                                className="h-12 w-12 p-0 rounded-xl bg-secondary/40 hover:bg-secondary/60 text-foreground font-bold"
                                 onClick={() =>
                                   setCart((prev) =>
                                     (Array.isArray(prev) ? prev : []).map((i) =>
@@ -403,12 +403,12 @@ const SelfServiceKiosk = () => {
                               </Button>
                             </div>
                             <div className="text-right min-w-[160px]">
-                              <div className="text-4xl font-black italic text-foreground tracking-tighter">
+                              <div className="text-4xl font-bold text-foreground tracking-tighter">
                                 {formatCurrency(item.price * item.quantity, "IDR", "id-ID")}
                               </div>
                               <button
                                 onClick={() => removeFromCart(item.id)}
-                                className="text-[10px] font-black text-destructive uppercase tracking-widest hover:text-destructive/70 transition-colors mt-3 italic"
+                                className="text-[10px] font-bold text-destructive uppercase tracking-widest hover:text-destructive/70 transition-colors mt-3 italic"
                               >
                                 Remove From Tray
                               </button>
@@ -428,15 +428,15 @@ const SelfServiceKiosk = () => {
             <GlassCard className="bg-secondary border-none shadow-3xl text-foreground rounded-[3.5rem] overflow-hidden flex flex-col shrink-0">
               <CardContent className="p-12 space-y-12">
                 <div className="space-y-6">
-                  <div className="text-[10px] font-black text-primary uppercase tracking-[0.4em] italic">
+                  <div className="text-[10px] font-bold text-primary uppercase tracking-[0.4em] italic">
                     Final Assessment Total
                   </div>
-                  <div className="text-7xl font-black italic tracking-tighter text-foreground">
+                  <div className="text-7xl font-bold tracking-tighter text-foreground">
                     {formatCurrency(total, "IDR", "id-ID")}
                   </div>
                   <div className="flex items-center gap-4 p-5 bg-secondary/40 rounded-3xl border border-border shadow-inner">
                     <ShieldCheck className="w-6 h-6 text-success" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground italic">
+                    <span className="text-label text-muted-foreground italic">
                       Hardware Encryption Hash: [SECURE]
                     </span>
                   </div>
@@ -455,7 +455,7 @@ const SelfServiceKiosk = () => {
                       <div className="w-16 h-16 rounded-2xl bg-secondary/60 flex items-center justify-center">
                          <CreditCard className="w-9 h-9" />
                       </div>
-                      <span className="text-[11px] font-black uppercase tracking-widest italic">Electronic Card</span>
+                      <span className="text-[11px] font-semibold tracking-widest italic">Electronic Card</span>
                     </button>
                     <button
                       onClick={() => setPaymentMethod("qr")}
@@ -468,12 +468,12 @@ const SelfServiceKiosk = () => {
                       <div className="w-16 h-16 rounded-2xl bg-secondary/60 flex items-center justify-center">
                          <QrCode className="w-9 h-9" />
                       </div>
-                      <span className="text-[11px] font-black uppercase tracking-widest italic">QR / E-Wallet</span>
+                      <span className="text-[11px] font-semibold tracking-widest italic">QR / E-Wallet</span>
                     </button>
                   </div>
 
                   <Button
-                    className="w-full h-32 bg-primary text-primary-foreground hover:bg-primary/90 font-black italic rounded-[2.5rem] text-3xl shadow-2xl uppercase tracking-[0.2em] transition-all disabled:opacity-20 active:scale-[0.98]"
+                    className="w-full h-32 bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-2xl text-3xl shadow-sm uppercase tracking-[0.2em] transition-all disabled:opacity-20 active:scale-[0.98]"
                     disabled={cart.length === 0 || !paymentMethod || isProcessing}
                     onClick={handleCheckout}
                   >
@@ -495,16 +495,16 @@ const SelfServiceKiosk = () => {
               </CardContent>
             </GlassCard>
 
-            <GlassCard className="bg-secondary/40 border border-border backdrop-blur-3xl rounded-[2.5rem] shadow-2xl overflow-hidden shrink-0">
+            <GlassCard className="bg-secondary/40 border border-border rounded-2xl shadow-sm overflow-hidden shrink-0">
               <CardContent className="p-8 flex gap-6 items-center">
                 <div className="w-16 h-16 bg-secondary/40 rounded-3xl flex items-center justify-center border-2 border-border">
                   <Monitor className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic mb-1">
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic mb-1">
                     Node Telemetry
                   </div>
-                  <div className="text-base font-black italic text-foreground uppercase tracking-tighter">
+                  <div className="text-base font-bold text-foreground uppercase tracking-tighter">
                     Printer Status: [SYNCED]
                   </div>
                 </div>

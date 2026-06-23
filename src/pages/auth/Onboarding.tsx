@@ -119,23 +119,23 @@ export default function Onboarding() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-pulse pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary rounded-full blur-[120px] animate-pulse pointer-events-none" />
-
-      <div className="sm:mx-auto sm:w-full sm:max-w-xl z-10 px-4">
-        <h2 className="text-center text-4xl font-black italic tracking-tighter text-foreground uppercase leading-none">
-          Initialize Workspace
+    <div className="min-h-screen bg-background flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-xl px-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border text-label text-primary mb-6">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          Company setup
+        </div>
+        <h2 className="text-3xl font-bold tracking-tight text-foreground">
+          Initialize workspace
         </h2>
-        <p className="mt-4 text-center text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] max-w-xs mx-auto leading-relaxed">
-          Provisioning a dedicated cloud environment tailored to your operation structure.
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-md">
+          Provision a dedicated environment tailored to your operation.
         </p>
       </div>
 
-      <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-xl z-10 px-4">
-        <GlassCard variant="morphism" className="rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-white/5 overflow-hidden p-1 transition-all duration-500">
-          <div className="bg-background/40 backdrop-blur-md rounded-[2.1rem] py-10 px-6 sm:px-12">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-xl px-4">
+        <GlassCard className="overflow-hidden">
+          <div className="py-10 px-6 sm:px-10">
           {/* Progress Indicator */}
           <div className="mb-10">
             <div className="overflow-hidden h-1.5 rounded-full bg-muted shadow-inner">
@@ -144,7 +144,7 @@ export default function Onboarding() {
                 style={{ width: `${(step / 2) * 100}%` }}
               />
             </div>
-            <div className="grid grid-cols-2 text-[10px] font-black uppercase tracking-[0.2em] mt-3 text-center">
+            <div className="grid grid-cols-2 text-label mt-3 text-center">
               <span className={step >= 1 ? "text-primary" : "text-muted-foreground opacity-50"}>
                 Identity
               </span>
@@ -174,7 +174,7 @@ export default function Onboarding() {
           {step === 1 && (
             <div className="space-y-8 animate-in fade-in slide-in-from-right-8 duration-500">
               <div className="space-y-2">
-                <label htmlFor="onboarding-company-name" className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">
+                <label htmlFor="onboarding-company-name" className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">
                   Company Name
                 </label>
                 <div className="relative">
@@ -182,7 +182,7 @@ export default function Onboarding() {
                     id="onboarding-company-name"
                     type="text"
                     required
-                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 backdrop-blur-sm shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold"
+                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold"
                     placeholder="e.g. Zenvix Corp"
                     value={formData.name}
                     onChange={(e) =>
@@ -193,7 +193,7 @@ export default function Onboarding() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="onboarding-address" className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">
+                <label htmlFor="onboarding-address" className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">
                   Office / HQ Address
                 </label>
                 <div className="relative">
@@ -201,7 +201,7 @@ export default function Onboarding() {
                     id="onboarding-address"
                     required
                     rows={3}
-                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 backdrop-blur-sm shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold resize-none"
+                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold resize-none"
                     placeholder="Enter full physical address"
                     value={formData.address}
                     onChange={(e) =>
@@ -212,29 +212,29 @@ export default function Onboarding() {
               </div>
 
               {/* Geospatial Geofence Section */}
-              <div className="p-6 bg-primary/5 rounded-[2rem] border border-primary/10 space-y-6 shadow-inner">
+              <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10 space-y-6 shadow-inner">
                 <div className="flex items-center justify-between">
-                  <label className="text-[10px] font-black uppercase text-primary tracking-[0.2em] flex items-center gap-2">
+                  <label className="text-[10px] font-semibold text-primary tracking-[0.2em] flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     Geospatial Anchoring
                   </label>
-                  <span className="text-[9px] font-black px-3 py-1 bg-primary text-primary-foreground rounded-full uppercase tracking-widest shadow-lg shadow-primary/20">
+                  <span className="text-[9px] font-bold px-3 py-1 bg-primary text-primary-foreground rounded-full uppercase tracking-widest shadow-lg shadow-primary/20">
                     HQ Geofence
                   </span>
                 </div>
 
                 {/* Location Search — powered by Nominatim (OpenStreetMap, free) */}
                 <div ref={searchRef} className="relative space-y-2">
-                  <label className="block text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">
+                  <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">
                     Search Location
                   </label>
                   <div className="relative group">
                     <input
                       type="text"
-                      className="block w-full pl-12 pr-12 py-4 rounded-2xl border border-border bg-background/80 backdrop-blur-sm shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold"
+                      className="block w-full pl-12 pr-12 py-4 rounded-2xl border border-border bg-background/80 shadow-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold"
                       placeholder="Search area, address…"
                       value={locationQuery}
                       onChange={(e) => {
@@ -266,7 +266,7 @@ export default function Onboarding() {
 
                   {/* Dropdown results */}
                   {showDropdown && locationResults.length > 0 && (
-                    <div className="absolute z-50 mt-3 w-full glass-morphism rounded-2xl shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden animate-in fade-in zoom-in duration-200">
+                    <div className="absolute z-50 mt-3 w-full surface-card rounded-2xl shadow-sm border border-border dark:border-border overflow-hidden animate-in fade-in zoom-in duration-200">
                       {(Array.isArray(locationResults) ? locationResults : []).map((r) => (
                         <button
                           key={r.place_id}
@@ -283,8 +283,8 @@ export default function Onboarding() {
                         </button>
                       ))}
                       <div className="px-5 py-2 bg-muted/30 border-t border-border/50 flex justify-between items-center">
-                        <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">Public Geospatial Index</span>
-                        <span className="text-[9px] font-black uppercase text-primary tracking-widest opacity-50">OSM Powered</span>
+                        <span className="text-[9px] font-semibold text-muted-foreground tracking-widest">Public Geospatial Index</span>
+                        <span className="text-[9px] font-semibold text-primary tracking-widest opacity-50">OSM Powered</span>
                       </div>
                     </div>
                   )}
@@ -293,7 +293,7 @@ export default function Onboarding() {
                 {/* Coordinates display (read-only after selection, editable fallback) */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="block text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">Latitude</label>
+                    <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">Latitude</label>
                     <input
                       type="number" step="any"
                       className={`block w-full px-4 py-3 rounded-xl border text-sm transition-all duration-300 font-bold ${locationSelected ? "bg-primary/10 border-primary/20 text-primary" : "bg-background/50 border-border text-foreground"}`}
@@ -303,7 +303,7 @@ export default function Onboarding() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="block text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">Longitude</label>
+                    <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1 opacity-70">Longitude</label>
                     <input
                       type="number" step="any"
                       className={`block w-full px-4 py-3 rounded-xl border text-sm transition-all duration-300 font-bold ${locationSelected ? "bg-primary/10 border-primary/20 text-primary" : "bg-background/50 border-border text-foreground"}`}
@@ -320,16 +320,16 @@ export default function Onboarding() {
                     <svg className="w-5 h-5 text-success flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-[10px] text-success font-black uppercase tracking-widest">
+                    <span className="text-[10px] text-success font-semibold tracking-widest">
                       Pinned: {formData.latitude.toFixed(5)}, {formData.longitude.toFixed(5)}
                     </span>
                   </div>
                 )}
 
                 <div className="space-y-4">
-                  <label className="block text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1 flex justify-between">
+                  <label className="block text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1 flex justify-between">
                     <span>Geofence Radius</span>
-                    <span className="text-primary font-black italic">{formData.geofence_radius}m</span>
+                    <span className="text-primary font-bold">{formData.geofence_radius}m</span>
                   </label>
                   <input
                     type="range"
@@ -344,12 +344,12 @@ export default function Onboarding() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">
+                <label className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">
                   Industry
                 </label>
                 <div className="relative">
                   <select
-                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold appearance-none cursor-pointer"
+                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold appearance-none cursor-pointer"
                     value={formData.industry}
                     onChange={(e) =>
                       setFormData({ ...formData, industry: e.target.value })
@@ -374,12 +374,12 @@ export default function Onboarding() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] ml-1">
+                <label className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] ml-1">
                   Operation Region
                 </label>
                 <div className="relative">
                   <select
-                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold appearance-none cursor-pointer"
+                    className="block w-full px-5 py-4 rounded-2xl border border-border bg-background/50 shadow-sm focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 font-bold appearance-none cursor-pointer"
                     value={formData.country}
                     onChange={(e) =>
                       setFormData({ ...formData, country: e.target.value })
@@ -401,20 +401,20 @@ export default function Onboarding() {
                 {/* Live Currency Preview */}
                 {selectedCountry && (
                   <div className="mt-4 inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-primary/5 border border-primary/10 shadow-sm">
-                    <span className="text-sm font-black text-foreground">
+                    <span className="text-sm font-bold text-foreground">
                       {selectedCountry.flag} {selectedCountry.name}
                     </span>
                     <span className="text-muted-foreground/30">•</span>
-                    <span className="text-sm font-black italic text-primary uppercase tracking-wider">
+                    <span className="text-sm font-bold text-primary uppercase tracking-wider">
                       {selectedCountry.currency}
                     </span>
-                    <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-60">
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest opacity-60">
                       — {selectedCountry.symbol}
                     </span>
                   </div>
                 )}
 
-                <p className="mt-4 text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-50 leading-relaxed ml-1">
+                <p className="mt-4 text-[10px] font-bold text-muted-foreground uppercase tracking-widest opacity-50 leading-relaxed ml-1">
                   Initial compliance configuration derived from regional selection.
                 </p>
               </div>
@@ -425,7 +425,7 @@ export default function Onboarding() {
                   size="lg"
                   disabled={!formData.name || !formData.address}
                   onClick={() => setStep(2)}
-                  className="w-full py-5 rounded-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/30 tracking-[0.15em]"
+                  className="w-full py-5 rounded-2xl shadow-sm shadow-primary/20 hover:shadow-primary/30 tracking-[0.15em]"
                 >
                   <span>Initialization Protocol</span>
                   <ArrowRight className="w-5 h-5" />
@@ -436,7 +436,7 @@ export default function Onboarding() {
 
           {step === 2 && (
             <div className="space-y-10 text-center animate-in fade-in slide-in-from-right-8 duration-500 py-4">
-              <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-[2rem] bg-primary/10 text-primary shadow-xl shadow-primary/10 mb-8 group transition-transform duration-500 hover:scale-110">
+              <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-2xl bg-primary/10 text-primary shadow-sm shadow-primary/10 mb-8 group transition-transform duration-500 hover:scale-110">
                 <svg
                   className="h-10 w-10 group-hover:rotate-12 transition-transform duration-500"
                   fill="none"
@@ -453,40 +453,40 @@ export default function Onboarding() {
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-2xl font-black italic tracking-tighter text-foreground uppercase leading-tight">
+                <h3 className="text-2xl font-bold tracking-tighter text-foreground uppercase leading-tight">
                   Finalizing Parameters
                 </h3>
-                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] opacity-60">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] opacity-60">
                   Verify your partition configuration before deployment.
                 </p>
               </div>
 
-              <div className="bg-muted/30 rounded-[2rem] p-8 text-left text-xs space-y-4 border border-border/50 shadow-inner">
+              <div className="bg-muted/30 rounded-2xl p-8 text-left text-xs space-y-4 border border-border/50 shadow-inner">
                 <div className="grid grid-cols-3 gap-y-4 items-center">
-                  <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">ID Entity</div>
-                  <div className="col-span-2 font-black text-foreground uppercase tracking-tight">
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">ID Entity</div>
+                  <div className="col-span-2 font-bold text-foreground uppercase tracking-tight">
                     {formData.name}
                   </div>
 
-                  <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Industry</div>
-                  <div className="col-span-2 font-black text-primary uppercase tracking-wider italic">
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Industry</div>
+                  <div className="col-span-2 font-bold text-primary uppercase tracking-wider italic">
                     {formData.industry}
                   </div>
 
-                  <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Geo Anchor</div>
-                  <div className="col-span-2 font-black text-foreground uppercase tracking-tight truncate">
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Geo Anchor</div>
+                  <div className="col-span-2 font-bold text-foreground uppercase tracking-tight truncate">
                     {formatNumber(formData.latitude, { maximumFractionDigits: 5 })},{" "}
                     {formatNumber(formData.longitude, { maximumFractionDigits: 5 })}
                   </div>
 
-                  <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Compliance</div>
-                  <div className="col-span-2 font-black text-foreground uppercase tracking-tight">
+                  <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Compliance</div>
+                  <div className="col-span-2 font-bold text-foreground uppercase tracking-tight">
                     {selectedCountry?.flag} {selectedCountry?.name}
                   </div>
                 </div>
               </div>
 
-              <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest opacity-50 leading-relaxed max-w-sm mx-auto">
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest opacity-50 leading-relaxed max-w-sm mx-auto">
                 Initialization creates your isolated tenant partition and wires up the initial executive organization structure.
               </p>
 
@@ -506,7 +506,7 @@ export default function Onboarding() {
                   size="lg"
                   onClick={handleProvision}
                   disabled={loading}
-                  className="w-2/3 py-5 rounded-2xl shadow-2xl shadow-primary/20 hover:shadow-primary/30 tracking-[0.15em]"
+                  className="w-2/3 py-5 rounded-2xl shadow-sm shadow-primary/20 hover:shadow-primary/30 tracking-[0.15em]"
                 >
                   {loading ? (
                     <>

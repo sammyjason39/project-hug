@@ -150,50 +150,50 @@ export const StockOpnameSummaryModal = ({
         handleFinalCommit();
       }
     }}>
-      <DialogContent className="max-w-5xl rounded-[2.5rem] p-0 overflow-hidden bg-muted dark:bg-muted border-none shadow-2xl">
+      <DialogContent className="max-w-5xl rounded-2xl p-0 overflow-hidden bg-muted dark:bg-muted border-none shadow-sm">
         <div className="flex h-[80vh]">
           {/* Left Panel: Summary & Actions */}
           <div className="w-1/3 bg-muted flex flex-col text-white">
             <ScrollArea className="flex-1">
               <div className="p-10 space-y-8">
                 <div className="space-y-2">
-                  <Badge className="bg-primary text-primary border-none font-black italic uppercase tracking-widest text-[9px]">
+                  <Badge className="bg-primary text-primary border-none font-semibold tracking-widest text-[9px]">
                     Audit Protocol v2.4
                   </Badge>
-                  <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-none">
+                  <h2 className="text-4xl font-bold tracking-tighter uppercase leading-none">
                     Review <br /> Commit
                   </h2>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">Auditor</div>
+                  <div className="p-6 bg-white/5 rounded-2xl border border-border">
+                    <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Auditor</div>
                     <div className="font-bold italic text-lg">{auditorName}</div>
                   </div>
-                  <div className="p-6 bg-white/5 rounded-2xl border border-white/10">
-                    <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">Location</div>
+                  <div className="p-6 bg-white/5 rounded-2xl border border-border">
+                    <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Location</div>
                     <div className="font-bold italic text-lg">{locationName}</div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-success rounded-2xl border border-success/20">
-                    <div className="text-[8px] font-black text-success uppercase tracking-widest mb-1">Units</div>
-                    <div className="text-2xl font-black italic">{totalItemsCount}</div>
+                    <div className="text-[8px] font-bold text-success uppercase tracking-widest mb-1">Units</div>
+                    <div className="text-2xl font-bold">{totalItemsCount}</div>
                   </div>
                   <div className="p-4 bg-destructive rounded-2xl border border-destructive/20">
-                    <div className="text-[8px] font-black text-destructive uppercase tracking-widest mb-1">Variances</div>
-                    <div className="text-2xl font-black italic">{variances}</div>
+                    <div className="text-[8px] font-bold text-destructive uppercase tracking-widest mb-1">Variances</div>
+                    <div className="text-2xl font-bold">{variances}</div>
                   </div>
                 </div>
               </div>
             </ScrollArea>
 
-            <div className="p-10 pt-0 space-y-4 bg-muted backdrop-blur-md border-t border-white/5">
+            <div className="p-10 pt-0 space-y-4 bg-muted border-t border-border">
               <Button 
                 onClick={handleFinalCommit}
                 disabled={isSaving}
-                className="w-full h-16 rounded-2xl bg-primary text-primary-foreground font-black italic uppercase tracking-widest text-xs gap-3 shadow-xl">
+                className="w-full h-16 rounded-2xl bg-primary text-primary-foreground font-semibold tracking-widest text-xs gap-3 shadow-sm">
                 {isSaving ? <Clock className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 Finalize & Archive
               </Button>
@@ -201,13 +201,13 @@ export const StockOpnameSummaryModal = ({
                 <Button 
                   variant="outline" 
                   onClick={handleExportPDF}
-                  className="h-12 rounded-xl bg-white/5 border-white/10 hover:bg-white/10 text-white font-bold italic text-[10px] uppercase tracking-widest gap-2">
+                  className="h-12 rounded-xl bg-white/5 border-border hover:bg-white/10 text-white font-bold italic text-[10px] uppercase tracking-widest gap-2">
                   <FileText className="w-3 h-3" /> PDF
                 </Button>
                 <Button 
                   variant="outline" 
                   onClick={handleExportCSV}
-                  className="h-12 rounded-xl bg-white/5 border-white/10 hover:bg-white/10 text-white font-bold italic text-[10px] uppercase tracking-widest gap-2">
+                  className="h-12 rounded-xl bg-white/5 border-border hover:bg-white/10 text-white font-bold italic text-[10px] uppercase tracking-widest gap-2">
                   <FileSpreadsheet className="w-3 h-3" /> CSV
                 </Button>
               </div>
@@ -216,8 +216,8 @@ export const StockOpnameSummaryModal = ({
 
           {/* Right Panel: Item List */}
           <div className="flex-1 flex flex-col">
-            <div className="p-8 border-b border-border dark:border-border flex justify-between items-center bg-white/50 dark:bg-black/50 backdrop-blur-xl">
-              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">
+            <div className="p-8 border-b border-border dark:border-border flex justify-between items-center bg-card dark:bg-black/50">
+              <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">
                 Final Audit Manifest
               </div>
               <Button variant="ghost" size="icon" onClick={() => !hasActioned && handleFinalCommit()} className="rounded-xl hover:bg-muted dark:hover:bg-muted transition-all">
@@ -229,10 +229,10 @@ export const StockOpnameSummaryModal = ({
               <Table>
                 <TableHeader>
                   <TableRow className="border-none hover:bg-transparent">
-                    <TableHead className="text-[9px] font-black uppercase tracking-widest text-muted-foreground italic">Item</TableHead>
-                    <TableHead className="text-center text-[9px] font-black uppercase tracking-widest text-muted-foreground italic">Expected</TableHead>
-                    <TableHead className="text-center text-[9px] font-black uppercase tracking-widest text-muted-foreground italic">Actual</TableHead>
-                    <TableHead className="text-right text-[9px] font-black uppercase tracking-widest text-muted-foreground italic">Variance</TableHead>
+                    <TableHead className="text-label text-muted-foreground italic">Item</TableHead>
+                    <TableHead className="text-center text-label text-muted-foreground italic">Expected</TableHead>
+                    <TableHead className="text-center text-label text-muted-foreground italic">Actual</TableHead>
+                    <TableHead className="text-right text-label text-muted-foreground italic">Variance</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -250,7 +250,7 @@ export const StockOpnameSummaryModal = ({
                               )}
                             </div>
                             <div>
-                              <div className="text-sm font-black italic text-muted-foreground dark:text-white uppercase tracking-tight">{item.name}</div>
+                              <div className="text-sm font-bold text-muted-foreground dark:text-white uppercase tracking-tight">{item.name}</div>
                               <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{item.sku}</div>
                             </div>
                           </div>
@@ -259,7 +259,7 @@ export const StockOpnameSummaryModal = ({
                           {item.systemCount || 0}
                         </TableCell>
                         <TableCell className="text-center">
-                          <div className="inline-flex h-10 w-16 items-center justify-center rounded-xl bg-muted dark:bg-muted text-sm font-black italic">
+                          <div className="inline-flex h-10 w-16 items-center justify-center rounded-xl bg-muted dark:bg-muted text-sm font-bold">
                             {item.actualCount}
                           </div>
                         </TableCell>
@@ -267,7 +267,7 @@ export const StockOpnameSummaryModal = ({
                           <Badge 
                             variant="outline"
                             className={cn(
-                              "rounded-lg px-3 py-1 font-black italic border-none uppercase text-[10px] tracking-widest",
+                              "rounded-lg px-3 py-1 font-bold border-none uppercase text-[10px] tracking-widest",
                               variance === 0 ? "bg-success text-success" : 
                               variance > 0 ? "bg-primary text-primary" : "bg-destructive text-destructive"
                             )}

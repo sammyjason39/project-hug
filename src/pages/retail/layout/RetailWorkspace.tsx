@@ -90,13 +90,13 @@ const RetailWorkspace = () => {
     <GenesisGuard>
       <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
         {/* 1. Welcoming Hero */}
-        <div className="bg-secondary rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl">
+        <div className="bg-secondary rounded-2xl p-8 text-white relative overflow-hidden shadow-sm">
           <div className="absolute top-0 right-0 p-12 opacity-5">
             <Layout className="w-80 h-80" />
           </div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-4">
-              <Badge className="bg-primary hover:bg-primary px-3 py-1 font-black italic">
+              <Badge className="bg-primary hover:bg-primary px-3 py-1 font-bold">
                 GENESIS_MODE
               </Badge>
               <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
@@ -104,7 +104,7 @@ const RetailWorkspace = () => {
                 Zenvix Governance Active
               </span>
             </div>
-            <h2 className="text-4xl font-black italic tracking-tighter mb-2">
+            <h2 className="text-4xl font-bold tracking-tighter mb-2">
               Welcome to Retail Authority
             </h2>
             <p className="text-muted-foreground max-w-xl font-medium">
@@ -120,7 +120,7 @@ const RetailWorkspace = () => {
         <div className="space-y-12">
           {appSections.map((section) => (
             <div key={section.title} className="space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-[0.25em] text-muted-foreground px-4 flex items-center gap-3">
+              <h3 className="text-xs font-semibold tracking-[0.25em] text-muted-foreground px-4 flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/50 shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
                 {section.title}
               </h3>
@@ -128,7 +128,7 @@ const RetailWorkspace = () => {
                 {section.apps.map((app) => (
                   <Card
                     key={app.id}
-                    className="group hover:border-primary hover:shadow-2xl transition-all cursor-pointer bg-white/[0.03] border border-white/5 rounded-[2rem] overflow-hidden backdrop-blur-3xl"
+                    className="group hover:border-primary hover:shadow-sm transition-all cursor-pointer bg-white/[0.03] border border-border rounded-2xl overflow-hidden"
                     onClick={() => navigate(app.route)}
                   >
                     <CardContent className="p-6 space-y-4">
@@ -138,7 +138,7 @@ const RetailWorkspace = () => {
                         <app.icon className="w-7 h-7" />
                       </div>
                       <div>
-                        <div className="font-black text-foreground leading-tight uppercase tracking-tighter italic text-sm">
+                        <div className="font-bold text-foreground leading-tight uppercase tracking-tighter italic text-sm">
                           {app.title}
                         </div>
                         <div className="text-[10px] leading-tight text-muted-foreground mt-1 font-bold italic truncate">
@@ -154,13 +154,13 @@ const RetailWorkspace = () => {
         </div>
 
         {/* 3. Operational Quick-Jump */}
-        <div className="p-1 border border-white/5 mt-12 bg-white/[0.02] rounded-[2.5rem] shadow-2xl flex items-center justify-between backdrop-blur-3xl">
+        <div className="p-1 border border-border mt-12 bg-white/[0.02] rounded-2xl shadow-sm flex items-center justify-between">
           <div className="px-8 flex items-center gap-4">
             <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
               <Monitor className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <div className="text-xs font-black uppercase tracking-tighter text-foreground italic">
+              <div className="text-xs font-semibold tracking-tighter text-foreground italic">
                 Looking for the frontline?
               </div>
               <div className="text-[10px] text-muted-foreground font-bold">

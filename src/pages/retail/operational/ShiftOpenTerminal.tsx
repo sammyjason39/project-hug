@@ -76,10 +76,10 @@ const ShiftOpenTerminal = () => {
           {/* Left: Protocol & Identity */}
           <div className="flex flex-col justify-center space-y-8">
             <div className="space-y-4">
-              <div className="w-16 h-16 rounded-[1.75rem] bg-primary flex items-center justify-center text-foreground shadow-2xl shadow-primary/30">
+              <div className="w-16 h-16 rounded-[1.75rem] bg-primary flex items-center justify-center text-foreground shadow-sm shadow-primary/30">
                 <Power className="w-8 h-8" />
               </div>
-              <h1 className="text-5xl font-black text-foreground italic tracking-tighter uppercase leading-[0.9]">
+              <h1 className="text-5xl font-bold text-foreground italic tracking-tighter uppercase leading-[0.9]">
                 Shift<br />Initialize
               </h1>
               <p className="text-muted-foreground font-bold uppercase tracking-widest text-xs flex items-center gap-2">
@@ -89,7 +89,7 @@ const ShiftOpenTerminal = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="flex gap-4 p-4 rounded-2xl bg-secondary/40 border border-border backdrop-blur-md">
+              <div className="flex gap-4 p-4 rounded-2xl bg-secondary/40 border border-border">
                 <ShieldCheck className="w-6 h-6 text-success shrink-0" />
                 <div className="space-y-1">
                   <p className="text-sm font-bold text-foreground uppercase tracking-tight">Fiscal Compliance Ready</p>
@@ -97,7 +97,7 @@ const ShiftOpenTerminal = () => {
                 </div>
               </div>
               
-              <div className="flex gap-4 p-4 rounded-2xl bg-secondary/40 border border-border backdrop-blur-md">
+              <div className="flex gap-4 p-4 rounded-2xl bg-secondary/40 border border-border">
                 <Fingerprint className="w-6 h-6 text-primary shrink-0" />
                 <div className="space-y-1">
                   <p className="text-sm font-bold text-foreground uppercase tracking-tight">Staff Auth: {session.user_id?.slice(0, 8) || "UNVERIFIED"}</p>
@@ -108,16 +108,16 @@ const ShiftOpenTerminal = () => {
           </div>
 
           {/* Right: Input Terminal */}
-          <GlassCard className="bg-card/40 border-border backdrop-blur-2xl rounded-[3rem] shadow-[0_40px_100px_-20px_hsl(var(--foreground)/0.5)] overflow-hidden">
+          <GlassCard className="bg-card/40 border-border rounded-[3rem] shadow-[0_40px_100px_-20px_hsl(var(--foreground)/0.5)] overflow-hidden">
             <CardContent className="p-10 space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.3em] italic">Declaration</span>
+                  <span className="text-[10px] font-semibold text-muted-foreground tracking-[0.3em] italic">Declaration</span>
                   <Banknote className="w-5 h-5 text-primary" />
                 </div>
                 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Opening Cash Float (Rp)</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-widest">Opening Cash Float (Rp)</label>
                   <div className="relative group">
                     <Input
                       type="tel"
@@ -130,10 +130,10 @@ const ShiftOpenTerminal = () => {
                           setOpeningCash("");
                         }
                       }}
-                      className="h-20 bg-secondary/40 border-2 border-border text-3xl font-black text-foreground rounded-2xl px-6 focus:border-primary/50 focus:ring-0 transition-all placeholder:text-muted-foreground/30"
+                      className="h-20 bg-secondary/40 border-2 border-border text-3xl font-bold text-foreground rounded-2xl px-6 focus:border-primary/50 focus:ring-0 transition-all placeholder:text-muted-foreground/30"
                       placeholder="0"
                     />
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground font-black italic tracking-tighter">IDR</div>
+                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground font-bold tracking-tighter">IDR</div>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@ const ShiftOpenTerminal = () => {
                   }`}>
                     {isAcknowledged && <ShieldCheck className="w-4 h-4 text-foreground" />}
                   </div>
-                  <span className="text-xs font-black uppercase tracking-wider italic text-left">
+                  <span className="text-xs font-semibold tracking-wider italic text-left">
                     I acknowledge full fiscal responsibility for this shift's cash flow.
                   </span>
                 </button>
@@ -163,7 +163,7 @@ const ShiftOpenTerminal = () => {
               <Button
                 onClick={handleOpenShift}
                 disabled={isOpening}
-                className="w-full h-20 bg-primary hover:bg-primary/90 text-primary-foreground rounded-[1.5rem] font-black italic text-xl uppercase tracking-tighter shadow-2xl shadow-primary/20 active:scale-95 transition-all group"
+                className="w-full h-20 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-bold text-xl uppercase tracking-tighter shadow-sm shadow-primary/20 active:scale-95 transition-all group"
               >
                 {isOpening ? (
                   <RefreshCw className="w-8 h-8 animate-spin" />

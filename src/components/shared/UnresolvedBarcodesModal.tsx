@@ -157,7 +157,7 @@ export const UnresolvedBarcodesModal: React.FC<UnresolvedBarcodesModalProps> = (
           setShowItemCreation(false);
         }
       }}>
-        <DialogContent className="max-w-[95vw] h-[90vh] rounded-[2rem] border-none shadow-2xl bg-muted dark:bg-muted p-0 overflow-y-auto">
+        <DialogContent className="max-w-[95vw] h-[90vh] rounded-2xl border-none shadow-sm bg-muted dark:bg-muted p-0 overflow-y-auto">
           <div className="p-8">
             <ItemCreationTab 
               canWrite={true} 
@@ -187,23 +187,23 @@ export const UnresolvedBarcodesModal: React.FC<UnresolvedBarcodesModalProps> = (
     <Dialog open={isOpen} onOpenChange={(open) => {
       if (!open) handleClose();
     }}>
-      <DialogContent className="sm:max-w-[700px] p-0 overflow-hidden border-none rounded-[2rem] shadow-2xl">
+      <DialogContent className="sm:max-w-[700px] p-0 overflow-hidden border-none rounded-2xl shadow-sm">
         <div className="relative h-32 bg-muted flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-[-10%] left-[-10%] w-40 h-40 bg-primary rounded-full blur-3xl" />
             <div className="absolute bottom-[-20%] right-[-10%] w-60 h-60 bg-warning rounded-full blur-3xl" />
           </div>
           <div className="relative z-10 flex flex-col items-center text-white">
-            <div className="bg-white/10 backdrop-blur-md p-3 rounded-2xl mb-2">
+            <div className="bg-white/10 p-3 rounded-2xl mb-2">
               <Barcode className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-xl font-black italic uppercase tracking-widest">Unresolved Scans</h2>
+            <h2 className="text-xl font-semibold tracking-widest">Unresolved Scans</h2>
           </div>
         </div>
 
         <div className="p-8 space-y-6">
           <div>
-            <h3 className="font-black text-lg italic text-muted-foreground uppercase">Action Required</h3>
+            <h3 className="font-bold text-lg italic text-muted-foreground uppercase">Action Required</h3>
             <p className="text-sm text-muted-foreground font-medium">
               You scanned {unresolvedBarcodes.length} barcode(s) that are not in the master list. 
               Please resolve them before finalizing the audit.
@@ -219,7 +219,7 @@ export const UnresolvedBarcodesModal: React.FC<UnresolvedBarcodesModalProps> = (
                   <Square className="w-5 h-5" />
                 )}
               </button>
-              <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+              <span className="text-xs font-semibold tracking-widest text-muted-foreground">
                 {selected.length} Selected
               </span>
             </div>
@@ -249,21 +249,21 @@ export const UnresolvedBarcodesModal: React.FC<UnresolvedBarcodesModalProps> = (
 
           <div className="space-y-3 pt-4">
             <p className="text-[11px] text-muted-foreground font-medium italic">
-              Tip: Use <span className="font-black text-primary not-italic">Quick Register</span> to create
+              Tip: Use <span className="font-bold text-primary not-italic">Quick Register</span> to create
               stub items instantly (no details required) so the audit isn't blocked. They land in the
               "{ANOMALY_CATEGORY_NAME}" category and can be completed later.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
                 variant="outline"
-                className="flex-1 min-w-[180px] h-14 rounded-xl border-warning text-warning bg-warning hover:bg-warning hover:text-warning font-black italic uppercase tracking-widest text-xs"
+                className="flex-1 min-w-[180px] h-14 rounded-xl border-warning text-warning bg-warning hover:bg-warning hover:text-warning font-semibold tracking-widest text-xs"
                 disabled={selected.length === 0 || isQuickRegistering}
                 onClick={handleFlagSelected}
               >
                 <AlertTriangle className="w-4 h-4 mr-2" /> Flag as Anomalies
               </Button>
               <Button
-                className="flex-1 min-w-[180px] h-14 rounded-xl bg-success hover:bg-success/90 text-white font-black italic uppercase tracking-widest text-xs shadow-xl relative"
+                className="flex-1 min-w-[180px] h-14 rounded-xl bg-success hover:bg-success/90 text-white font-semibold tracking-widest text-xs shadow-sm relative"
                 disabled={selected.length === 0 || isQuickRegistering}
                 onClick={handleQuickRegisterIncomplete}
               >
@@ -281,7 +281,7 @@ export const UnresolvedBarcodesModal: React.FC<UnresolvedBarcodesModalProps> = (
               </Button>
               <Button
                 variant="outline"
-                className="flex-1 min-w-[180px] h-14 rounded-xl border-primary/30 text-primary bg-primary/5 hover:bg-primary/10 font-black italic uppercase tracking-widest text-xs"
+                className="flex-1 min-w-[180px] h-14 rounded-xl border-primary/30 text-primary bg-primary/5 hover:bg-primary/10 font-semibold tracking-widest text-xs"
                 disabled={selected.length === 0 || isQuickRegistering}
                 onClick={() => setShowItemCreation(true)}
               >

@@ -96,10 +96,10 @@ export default function ProcurementInsights() {
       {/* Tactical Header */}
       <div className="flex items-end justify-between border-b border-muted dark:border-muted pb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-warning font-black text-[10px] uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2 text-warning font-bold text-[10px] uppercase tracking-[0.3em]">
             <Activity className="h-3 w-3" /> Supply Intelligence Node
           </div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase italic text-muted-foreground dark:text-white">
+          <h1 className="text-4xl font-bold tracking-tighter uppercase italic text-muted-foreground dark:text-white">
             Procurement Insights
           </h1>
           <p className="text-sm text-muted-foreground font-medium">Strategic spend analytics and cross-departmental integration telemetry.</p>
@@ -129,7 +129,7 @@ export default function ProcurementInsights() {
         {Object.entries(integrationMetrics).map(([key, data]) => {
           const Icon = data.icon;
           return (
-            <div key={key} className="group relative p-6 rounded-[2rem] bg-white dark:bg-muted border border-muted dark:border-muted shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+            <div key={key} className="group relative p-6 rounded-2xl bg-white dark:bg-muted border border-muted dark:border-muted shadow-sm hover:shadow-sm transition-all duration-500 hover:-translate-y-1">
               <div className={cn(
                 "absolute top-6 right-6 h-12 w-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12",
                 data.color === 'rose' ? "bg-destructive text-destructive" :
@@ -140,9 +140,9 @@ export default function ProcurementInsights() {
                 <Icon className="h-6 w-6" />
               </div>
               <div className="space-y-4">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{data.label}</p>
+                <p className="text-label text-muted-foreground">{data.label}</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-muted-foreground dark:text-white leading-none">
+                  <span className="text-4xl font-bold tracking-tighter text-muted-foreground dark:text-white leading-none">
                     {loading ? "..." : data.count}
                   </span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">Units Pending</span>
@@ -173,10 +173,10 @@ export default function ProcurementInsights() {
         {/* Spend Insights List */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
-             <h3 className="text-lg font-black tracking-tight uppercase italic text-muted-foreground dark:text-muted-foreground flex items-center gap-3">
+             <h3 className="text-lg font-bold tracking-tight uppercase italic text-muted-foreground dark:text-muted-foreground flex items-center gap-3">
                <TrendingUp className="h-5 w-5 text-warning" /> Strategic Spend Insights
              </h3>
-             <Badge className="bg-warning text-warning border-none px-3 py-1 text-[8px] font-black uppercase tracking-widest">Global Scan Active</Badge>
+             <Badge className="bg-warning text-warning border-none px-3 py-1 text-label tracking-widest">Global Scan Active</Badge>
           </div>
           
           <div className="grid gap-4">
@@ -198,19 +198,19 @@ export default function ProcurementInsights() {
               />
             ) : (
               (Array.isArray(insights) ? insights : []).map((insight) => (
-                <div key={insight.id} className="group flex items-center justify-between p-6 rounded-3xl bg-white dark:bg-muted border border-muted dark:border-muted hover:border-warning/30 hover:shadow-xl transition-all duration-500">
+                <div key={insight.id} className="group flex items-center justify-between p-6 rounded-3xl bg-white dark:bg-muted border border-muted dark:border-muted hover:border-warning/30 hover:shadow-sm transition-all duration-500">
                   <div className="flex items-center gap-6">
                     <div className="h-12 w-12 rounded-2xl bg-muted dark:bg-muted flex items-center justify-center group-hover:bg-warning group-hover:text-white transition-all duration-500 shadow-inner">
                       <Zap className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm font-black text-muted-foreground dark:text-white tracking-tight uppercase">{insight.label}</p>
+                      <p className="text-sm font-bold text-muted-foreground dark:text-white tracking-tight uppercase">{insight.label}</p>
                       <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-0.5">{insight.category}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-8">
                     <div className="text-right">
-                      <p className="text-xl font-black tracking-tighter text-muted-foreground dark:text-white leading-none">{insight.value}</p>
+                      <p className="text-xl font-bold tracking-tighter text-muted-foreground dark:text-white leading-none">{insight.value}</p>
                       <p className="text-[9px] font-bold text-success uppercase tracking-widest mt-1">Calculated</p>
                     </div>
                     <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-warning transition-colors" />
@@ -224,23 +224,23 @@ export default function ProcurementInsights() {
         {/* Integration Telemetry */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-             <h3 className="text-lg font-black tracking-tight uppercase italic text-muted-foreground dark:text-muted-foreground flex items-center gap-3">
+             <h3 className="text-lg font-bold tracking-tight uppercase italic text-muted-foreground dark:text-muted-foreground flex items-center gap-3">
                <Activity className="h-5 w-5 text-primary" /> Node Telemetry
              </h3>
           </div>
 
-          <div className="p-8 rounded-[2.5rem] bg-primary text-white relative overflow-hidden group shadow-2xl shadow-primary/20">
+          <div className="p-8 rounded-2xl bg-primary text-white relative overflow-hidden group shadow-sm shadow-primary/20">
              <div className="absolute top-0 right-0 h-40 w-40 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-150 transition-transform duration-1000" />
              <div className="relative z-10 space-y-6">
                 <div className="space-y-2">
-                   <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40">Integration Health</p>
+                   <p className="text-[10px] font-semibold tracking-[0.4em] opacity-40">Integration Health</p>
                    <div className="flex items-center justify-between">
-                      <span className="text-3xl font-black tracking-tighter uppercase italic leading-none">94.2%</span>
+                      <span className="text-3xl font-bold tracking-tighter uppercase italic leading-none">94.2%</span>
                       <CheckCircle2 className="h-6 w-6 text-success" />
                    </div>
                 </div>
 
-                <div className="space-y-4 pt-4 border-t border-white/10">
+                <div className="space-y-4 pt-4 border-t border-border">
                    {[
                      { label: "Legal API", status: "Online", latency: "42ms" },
                      { label: "Inventory Hub", status: "Online", latency: "128ms" },
@@ -251,12 +251,12 @@ export default function ProcurementInsights() {
                            <div className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
                            <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">{node.label}</span>
                         </div>
-                        <span className="text-[10px] font-black tracking-widest">{node.latency}</span>
+                        <span className="text-[10px] font-bold tracking-widest">{node.latency}</span>
                      </div>
                    ))}
                 </div>
 
-                <Button className="w-full bg-white/10 hover:bg-white/20 border-white/10 text-[9px] font-black uppercase tracking-widest py-6 rounded-2xl">
+                <Button className="w-full bg-white/10 hover:bg-white/20 border-border text-label py-6 rounded-2xl">
                    View Handoff Ledger
                 </Button>
              </div>
@@ -266,7 +266,7 @@ export default function ProcurementInsights() {
           <div className="p-6 rounded-3xl bg-destructive border border-destructive/20 space-y-4">
              <div className="flex items-center gap-3 text-destructive">
                 <AlertCircle className="h-5 w-5" />
-                <span className="text-xs font-black uppercase tracking-widest">Critical SLA Alerts</span>
+                <span className="text-xs font-semibold tracking-widest">Critical SLA Alerts</span>
              </div>
              <p className="text-[10px] text-muted-foreground font-medium leading-relaxed">
                 {integrationMetrics.risk.count} Integration events have exceeded the target SLA thresholds. Immediate manual override or escalation required.

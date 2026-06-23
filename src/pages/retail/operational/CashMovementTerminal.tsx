@@ -92,11 +92,11 @@ const CashMovementTerminal = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 bg-secondary/40 rounded-2xl flex items-center justify-center border border-border backdrop-blur-xl">
+            <div className="w-16 h-16 bg-secondary/40 rounded-2xl flex items-center justify-center border border-border">
               <Banknote className="w-8 h-8 text-primary" />
             </div>
             <div>
-              <h1 className="text-4xl font-black text-foreground italic tracking-tighter uppercase leading-none mb-2">
+              <h1 className="text-4xl font-bold text-foreground italic tracking-tighter uppercase leading-none mb-2">
                 Cash Movement
               </h1>
               <p className="text-muted-foreground font-bold uppercase tracking-[0.3em] text-[10px] flex items-center gap-3">
@@ -116,11 +116,11 @@ const CashMovementTerminal = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 flex-1">
           {/* Main Controls */}
           <div className="lg:col-span-12 space-y-8">
-            <GlassCard className="bg-secondary/40 border-border backdrop-blur-2xl rounded-[3rem] overflow-hidden shadow-2xl">
+            <GlassCard className="bg-secondary/40 border-border rounded-[3rem] overflow-hidden shadow-sm">
               <CardContent className="p-12 space-y-12">
                 
                 {/* Movement Type Toggle */}
-                <div className="flex p-2 bg-card/50 rounded-[2rem] border border-border/40">
+                <div className="flex p-2 bg-card/50 rounded-2xl border border-border/40">
                   <button
                     onClick={() => setType('CASH_OUT')}
                     className={`flex-1 h-20 rounded-[1.5rem] flex items-center justify-center gap-4 transition-all ${
@@ -130,7 +130,7 @@ const CashMovementTerminal = () => {
                     }`}
                   >
                     <ArrowDownCircle className={`w-6 h-6 ${type === 'CASH_OUT' ? 'text-foreground' : 'text-destructive'}`} />
-                    <span className="font-black uppercase tracking-widest italic">Cash Out</span>
+                    <span className="font-semibold tracking-widest italic">Cash Out</span>
                   </button>
                   <button
                     onClick={() => setType('CASH_IN')}
@@ -141,21 +141,21 @@ const CashMovementTerminal = () => {
                     }`}
                   >
                     <ArrowUpCircle className={`w-6 h-6 ${type === 'CASH_IN' ? 'text-foreground' : 'text-success'}`} />
-                    <span className="font-black uppercase tracking-widest italic">Cash In</span>
+                    <span className="font-semibold tracking-widest italic">Cash In</span>
                   </button>
                 </div>
 
                 {/* Amount Input */}
                 <div className="relative group bg-secondary/40 border border-border rounded-3xl p-8 hover:bg-accent/40 transition-colors focus-within:border-primary">
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-4 italic text-center">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-primary mb-4 italic text-center">
                     Enter Amount
                   </div>
                   <div className="relative">
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 text-5xl font-black text-muted-foreground italic tracking-tighter">
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 text-5xl font-bold text-muted-foreground italic tracking-tighter">
                       Rp
                     </span>
                     <Input
-                      className="h-32 pl-24 text-7xl font-black text-center border-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/30 text-foreground tracking-tighter italic"
+                      className="h-32 pl-24 text-7xl font-bold text-center border-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-muted-foreground/30 text-foreground tracking-tighter italic"
                       placeholder="0"
                       type="tel"
                       value={amount}
@@ -174,7 +174,7 @@ const CashMovementTerminal = () => {
                 {/* Details */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic px-4 flex items-center gap-3">
+                    <label className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic px-4 flex items-center gap-3">
                       <AlertCircle className="w-4 h-4" /> Primary Reason
                     </label>
                     <Input 
@@ -185,7 +185,7 @@ const CashMovementTerminal = () => {
                     />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic px-4 flex items-center gap-3">
+                    <label className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic px-4 flex items-center gap-3">
                       <History className="w-4 h-4" /> Additional Context
                     </label>
                     <Input 
@@ -211,7 +211,7 @@ const CashMovementTerminal = () => {
                     <RefreshCw className="w-12 h-12 animate-spin" />
                   ) : (
                     <div className="flex items-center gap-8">
-                      <div className="w-16 h-16 rounded-2xl bg-foreground/20 flex items-center justify-center text-foreground shadow-xl">
+                      <div className="w-16 h-16 rounded-2xl bg-foreground/20 flex items-center justify-center text-foreground shadow-sm">
                         {type === 'CASH_OUT' ? <ArrowDownCircle className="w-9 h-9" /> : <ArrowUpCircle className="w-9 h-9" />}
                       </div>
                       <span>Authorize {type === 'CASH_OUT' ? 'Cash Out' : 'Cash In'}</span>
@@ -222,9 +222,9 @@ const CashMovementTerminal = () => {
               </CardContent>
             </GlassCard>
 
-            <div className="flex items-center justify-center gap-6 px-12 py-5 bg-secondary/40 rounded-full border border-border backdrop-blur-xl max-w-fit mx-auto">
+            <div className="flex items-center justify-center gap-6 px-12 py-5 bg-secondary/40 rounded-full border border-border max-w-fit mx-auto">
               <ShieldCheck className="w-6 h-6 text-primary" />
-              <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] italic">
+              <p className="text-[10px] text-muted-foreground font-semibold tracking-[0.2em] italic">
                 This transaction will be appended to the <span className="text-foreground italic">Fiscal Audit Ledger</span>
               </p>
             </div>

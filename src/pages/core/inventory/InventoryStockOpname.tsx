@@ -445,7 +445,7 @@ export default function InventoryStockOpname() {
           <Button 
             variant="ghost" 
             onClick={() => navigate("/core/inventory/hub")}
-            className="rounded-2xl font-black italic text-[10px] uppercase tracking-widest gap-2"
+            className="rounded-2xl font-bold text-[10px] uppercase tracking-widest gap-2"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Hub
           </Button>
@@ -454,22 +454,22 @@ export default function InventoryStockOpname() {
 
       {!activeCycleId ? (
         <div className="flex-1 flex items-center justify-center">
-          <Card className="w-full max-w-2xl bg-white/70 dark:bg-muted backdrop-blur-2xl border-none shadow-2xl rounded-[3rem] overflow-hidden">
+          <Card className="w-full max-w-2xl bg-card dark:bg-muted border-none shadow-sm rounded-[3rem] overflow-hidden">
             <CardContent className="p-16 text-center space-y-8">
-              <div className="w-24 h-24 bg-primary/10 rounded-[2rem] flex items-center justify-center mx-auto">
+              <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
                 <ShieldCheck className="w-12 h-12 text-primary" />
               </div>
               <div className="space-y-2">
-                <h2 className="text-3xl font-black italic tracking-tighter uppercase">Initialize Audit Cycle</h2>
+                <h2 className="text-3xl font-bold tracking-tighter uppercase">Initialize Audit Cycle</h2>
                 <p className="text-sm text-muted-foreground font-medium italic">Select a target location to begin the physical count verification.</p>
               </div>
 
               <div className="space-y-4 max-w-sm mx-auto">
                 <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                  <SelectTrigger className="h-16 rounded-2xl bg-background border-2 border-muted font-black italic text-sm">
+                  <SelectTrigger className="h-16 rounded-2xl bg-background border-2 border-muted font-bold text-sm">
                     <SelectValue placeholder="Select Target Location..." />
                   </SelectTrigger>
-                  <SelectContent className="rounded-2xl border-none shadow-2xl">
+                  <SelectContent className="rounded-2xl border-none shadow-sm">
                     {locations.map(loc => (
                       <SelectItem key={loc.id} value={loc.id} className="font-bold italic">{loc.name}</SelectItem>
                     ))}
@@ -479,7 +479,7 @@ export default function InventoryStockOpname() {
                 <Button 
                   onClick={startAudit} 
                   disabled={isLoading}
-                  className="w-full h-16 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase tracking-widest text-xs gap-3 shadow-xl shadow-primary/20"
+                  className="w-full h-16 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold tracking-widest text-xs gap-3 shadow-sm shadow-primary/20"
                 >
                   {isLoading ? <RefreshCw className="w-5 h-5 animate-spin" /> : <Layers className="w-5 h-5" />}
                   Begin Physical Audit
@@ -491,10 +491,10 @@ export default function InventoryStockOpname() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 flex-1 overflow-hidden">
           <div className="lg:col-span-2 flex flex-col gap-8 overflow-hidden">
-            <Card className="bg-white/70 dark:bg-muted backdrop-blur-2xl border-none shadow-2xl rounded-[2.5rem] overflow-hidden">
+            <Card className="bg-card dark:bg-muted border-none shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-12">
                 <form onSubmit={handleManualScan} className="flex flex-col items-center gap-10 max-w-xl mx-auto">
-                  <div className="w-24 h-24 bg-primary rounded-[1.5rem] flex items-center justify-center shadow-2xl shadow-primary/30 animate-pulse">
+                  <div className="w-24 h-24 bg-primary rounded-xl flex items-center justify-center shadow-sm shadow-primary/30 animate-pulse">
                     <ScanLine className="w-12 h-12 text-primary-foreground" />
                   </div>
                   
@@ -505,24 +505,24 @@ export default function InventoryStockOpname() {
                       value={scanInput}
                       onChange={(e) => setScanInput(e.target.value)}
                       placeholder="SCAN BARCODE OR SKU..."
-                      className="h-20 pl-16 text-2xl font-black bg-muted dark:bg-muted border-none rounded-3xl shadow-inner italic uppercase tracking-widest"
+                      className="h-20 pl-16 text-2xl font-bold bg-muted dark:bg-muted border-none rounded-3xl shadow-inner italic uppercase tracking-widest"
                       autoFocus
                     />
                   </div>
 
                   <div className="flex items-center gap-4 px-6 py-3 bg-success rounded-full border border-success/20">
                     <div className="w-2 h-2 rounded-full bg-success animate-ping" />
-                    <span className="text-[10px] font-black italic uppercase tracking-widest text-success">Scanner Engine: Active & Calibrated</span>
+                    <span className="text-[10px] font-semibold tracking-widest text-success">Scanner Engine: Active & Calibrated</span>
                   </div>
                 </form>
               </CardContent>
             </Card>
 
-            <Card className="flex-1 bg-white/70 dark:bg-muted backdrop-blur-2xl border-none shadow-2xl rounded-[2.5rem] overflow-hidden flex flex-col">
+            <Card className="flex-1 bg-card dark:bg-muted border-none shadow-sm rounded-2xl overflow-hidden flex flex-col">
               <CardHeader className="p-8 border-b border-muted dark:border-muted">
-                <CardTitle className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground flex items-center justify-between italic">
+                <CardTitle className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground flex items-center justify-between italic">
                   Live Audit Stream
-                  <Badge variant="outline" className="rounded-lg border-primary/20 text-primary font-black italic">{history.length} Unique SKUs</Badge>
+                  <Badge variant="outline" className="rounded-lg border-primary/20 text-primary font-bold">{history.length} Unique SKUs</Badge>
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0 flex-1 overflow-hidden">
@@ -530,7 +530,7 @@ export default function InventoryStockOpname() {
                   {history.length === 0 ? (
                     <div className="h-full flex flex-col items-center justify-center opacity-20 py-20">
                       <Package className="w-20 h-20 mb-4 stroke-[1]" />
-                      <p className="text-xs font-black italic uppercase tracking-widest">Awaiting First Scan...</p>
+                      <p className="text-xs font-semibold tracking-widest">Awaiting First Scan...</p>
                     </div>
                   ) : (
                     <div className="space-y-4">
@@ -541,14 +541,14 @@ export default function InventoryStockOpname() {
                               <Box className="w-6 h-6 text-muted-foreground" />
                             </div>
                             <div>
-                              <div className="text-sm font-black italic text-muted-foreground dark:text-white">{entry.name}</div>
+                              <div className="text-sm font-bold text-muted-foreground dark:text-white">{entry.name}</div>
                               <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mt-1">{entry.sku} • {entry.timestamp}</div>
                             </div>
                           </div>
                           <div className="flex items-center gap-8">
                              <div className="text-right">
-                                <div className="text-2xl font-black italic text-primary">x{entry.actualCount}</div>
-                                <div className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">Physical Count</div>
+                                <div className="text-2xl font-bold text-primary">x{entry.actualCount}</div>
+                                <div className="text-label text-muted-foreground">Physical Count</div>
                              </div>
                              <Button 
                               variant="ghost" 
@@ -569,36 +569,36 @@ export default function InventoryStockOpname() {
           </div>
 
           <div className="flex flex-col gap-8">
-            <Card className="bg-muted border-none shadow-2xl rounded-[3rem] overflow-hidden relative">
+            <Card className="bg-muted border-none shadow-sm rounded-[3rem] overflow-hidden relative">
               <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                 <BarChart className="w-32 h-32 text-primary" />
               </div>
               <CardHeader className="p-10 pb-4">
-                <CardTitle className="text-[10px] font-black uppercase tracking-[0.4em] text-primary italic">Session Intelligence</CardTitle>
+                <CardTitle className="text-[10px] font-semibold tracking-[0.4em] text-primary italic">Session Intelligence</CardTitle>
               </CardHeader>
               <CardContent className="p-10 pt-0 space-y-10">
                 <div className="space-y-6">
-                  <div className="bg-muted p-6 rounded-2xl border border-white/5">
-                    <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1 italic">Audit Target</div>
-                    <div className="text-lg font-black text-white italic">{locations.find(l => l.id === selectedLocation)?.name}</div>
+                  <div className="bg-muted p-6 rounded-2xl border border-border">
+                    <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1 italic">Audit Target</div>
+                    <div className="text-lg font-bold text-white italic">{locations.find(l => l.id === selectedLocation)?.name}</div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-muted p-6 rounded-2xl border border-white/5">
-                      <div className="text-[9px] font-black text-success uppercase tracking-widest mb-1 italic">Total Units</div>
-                      <div className="text-3xl font-black text-white italic tracking-tighter">
+                    <div className="bg-muted p-6 rounded-2xl border border-border">
+                      <div className="text-[9px] font-bold text-success uppercase tracking-widest mb-1 italic">Total Units</div>
+                      <div className="text-3xl font-bold text-white italic tracking-tighter">
                         {history.reduce((a, b) => a + b.actualCount, 0)}
                       </div>
                     </div>
-                    <div className="bg-muted p-6 rounded-2xl border border-white/5">
-                      <div className="text-[9px] font-black text-destructive uppercase tracking-widest mb-1 italic">SKUs Scanned</div>
-                      <div className="text-3xl font-black text-white italic tracking-tighter">{history.length}</div>
+                    <div className="bg-muted p-6 rounded-2xl border border-border">
+                      <div className="text-[9px] font-bold text-destructive uppercase tracking-widest mb-1 italic">SKUs Scanned</div>
+                      <div className="text-3xl font-bold text-white italic tracking-tighter">{history.length}</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                   <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest italic">
+                   <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest italic">
                       <span className="text-muted-foreground">Anomaly Vector</span>
                       <span className="text-warning">{totalVariances} Mismatches</span>
                    </div>
@@ -613,7 +613,7 @@ export default function InventoryStockOpname() {
                 <div className="flex gap-4 pt-4">
                   <Button
                     variant="outline"
-                    className="flex-1 h-16 bg-transparent border-white/10 text-muted-foreground hover:text-destructive hover:bg-destructive rounded-2xl font-black italic uppercase tracking-widest text-[10px]"
+                    className="flex-1 h-16 bg-transparent border-border text-muted-foreground hover:text-destructive hover:bg-destructive rounded-2xl font-semibold tracking-widest text-[10px]"
                     onClick={() => {
                       if (confirm("Abort current audit session? Data will not be saved.")) {
                         setActiveCycleId(null);
@@ -633,7 +633,7 @@ export default function InventoryStockOpname() {
                     Abort
                   </Button>
                   <Button
-                    className="flex-[2] h-16 bg-primary hover:bg-primary/90 text-primary-foreground font-black italic rounded-2xl shadow-xl transition-all uppercase tracking-widest text-xs"
+                    className="flex-[2] h-16 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-2xl shadow-sm transition-all uppercase tracking-widest text-xs"
                     disabled={history.length === 0 || isSubmitting}
                     onClick={commitAudit}
                   >
@@ -643,11 +643,11 @@ export default function InventoryStockOpname() {
               </CardContent>
             </Card>
 
-            <Card className="bg-primary border-primary border-2 rounded-[2.5rem]">
+            <Card className="bg-primary border-primary border-2 rounded-2xl">
               <CardContent className="p-8 flex gap-5">
                 <AlertCircle className="w-6 h-6 text-primary shrink-0" />
                 <div>
-                  <div className="text-[10px] font-black text-primary uppercase italic tracking-widest">Protocol Intelligence</div>
+                  <div className="text-[10px] font-bold text-primary uppercase italic tracking-widest">Protocol Intelligence</div>
                   <p className="text-[11px] text-primary font-bold mt-2 leading-relaxed italic">
                     Audit data is buffered locally and reconciled upon commit. Mismatches will trigger automated variance logs.
                   </p>

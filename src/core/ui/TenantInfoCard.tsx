@@ -57,7 +57,7 @@ export const TenantInfoCard: React.FC = () => {
                 <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70 text-right">
                   Role
                 </p>
-                <p className="text-[10px] font-black text-primary uppercase text-right">
+                <p className="text-[10px] font-bold text-primary uppercase text-right">
                   {getRoleLabel(session.role)}
                 </p>
              </div>

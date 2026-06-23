@@ -56,19 +56,19 @@ export default function ReceiptStudio() {
     <div className="min-h-screen bg-muted p-4 md:p-8">
       <div className="max-w-[1600px] mx-auto space-y-8">
         {/* Studio Header */}
-        <div className="flex justify-between items-end border-b border-white/10 pb-8">
+        <div className="flex justify-between items-end border-b border-border pb-8">
           <div className="space-y-1">
-            <h1 className="text-4xl font-black text-white tracking-tighter uppercase italic flex items-center gap-3">
+            <h1 className="text-4xl font-bold text-white tracking-tighter uppercase italic flex items-center gap-3">
               <Printer className="w-10 h-10 text-primary" />
               Receipt Studio
             </h1>
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-[0.2em]">Thermal Architecture & Hardware Profiling</p>
           </div>
           <div className="flex gap-3">
-             <Button variant="outline" className="h-12 px-6 rounded-xl font-black uppercase italic tracking-widest text-[10px] bg-white/5 border-white/10 text-white hover:bg-white/10 gap-2">
+             <Button variant="outline" className="h-12 px-6 rounded-xl font-semibold italic tracking-widest text-[10px] bg-white/5 border-border text-white hover:bg-white/10 gap-2">
                 <Eye className="w-4 h-4" /> Hardware Ping
              </Button>
-             <Button className="h-12 px-8 rounded-xl font-black uppercase italic tracking-widest text-[10px] bg-primary hover:bg-primary gap-2 shadow-lg shadow-indigo-600/20">
+             <Button className="h-12 px-8 rounded-xl font-semibold italic tracking-widest text-[10px] bg-primary hover:bg-primary gap-2 shadow-lg shadow-indigo-600/20">
                 <Save className="w-4 h-4" /> Push to Terminal
              </Button>
           </div>
@@ -76,9 +76,9 @@ export default function ReceiptStudio() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr_400px] gap-8 h-[calc(100vh-250px)]">
           {/* Left Sidebar: Components Tree */}
-          <Card className="bg-muted border-white/5 shadow-2xl overflow-hidden flex flex-col">
-            <CardHeader className="p-6 bg-muted text-white shrink-0 border-b border-white/5">
-               <CardTitle className="text-sm font-black uppercase italic tracking-wider">Thermal Stack</CardTitle>
+          <Card className="bg-muted border-border shadow-sm overflow-hidden flex flex-col">
+            <CardHeader className="p-6 bg-muted text-white shrink-0 border-b border-border">
+               <CardTitle className="text-sm font-semibold italic tracking-wider">Thermal Stack</CardTitle>
                <CardDescription className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Ordered Layout Nodes</CardDescription>
             </CardHeader>
             <ScrollArea className="flex-1 p-4">
@@ -88,14 +88,14 @@ export default function ReceiptStudio() {
                       key={comp.id} 
                       className={cn(
                         "group flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer",
-                        activeComponentId === comp.id ? "bg-primary border-primary" : "bg-white/5 border-white/5 hover:border-white/10"
+                        activeComponentId === comp.id ? "bg-primary border-primary" : "bg-white/5 border-border hover:border-border"
                       )}
                       onClick={() => setActiveComponentId(comp.id)}
                     >
                       <div className="flex items-center gap-3">
                          <GripVertical className="w-4 h-4 text-muted-foreground group-hover:text-muted-foreground" />
                          <div className="space-y-0.5">
-                            <p className={cn("text-xs font-black uppercase tracking-tight", activeComponentId === comp.id ? "text-primary" : "text-muted-foreground")}>{comp.title}</p>
+                            <p className={cn("text-xs font-semibold tracking-tight", activeComponentId === comp.id ? "text-primary" : "text-muted-foreground")}>{comp.title}</p>
                             <p className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest">{comp.type}</p>
                          </div>
                       </div>
@@ -108,7 +108,7 @@ export default function ReceiptStudio() {
 
           {/* Center: Live Thermal Preview */}
           <div className="flex flex-col items-center justify-center overflow-hidden">
-             <div className="bg-white p-8 shadow-2xl flex flex-col transition-all duration-300 relative group" style={{ width: paperWidth === '80mm' ? '380px' : '300px', minHeight: '600px' }}>
+             <div className="bg-white p-8 shadow-sm flex flex-col transition-all duration-300 relative group" style={{ width: paperWidth === '80mm' ? '380px' : '300px', minHeight: '600px' }}>
                 <div className="absolute -top-1 left-0 w-full h-1 bg-muted flex gap-1 overflow-hidden opacity-50">
                    {Array.from({ length: 40 }).map((_, i) => <div key={i} className="w-4 h-1 bg-muted shrink-0" />)}
                 </div>
@@ -187,7 +187,7 @@ export default function ReceiptStudio() {
                                   displayValue={false} 
                                   background="transparent"
                                />
-                               <p className="text-[7px] mt-1 tracking-widest font-black italic">ZEN-88291</p>
+                               <p className="text-[7px] mt-1 tracking-widest font-bold">ZEN-88291</p>
                             </div>
                          )}
 
@@ -209,14 +209,14 @@ export default function ReceiptStudio() {
              <div className="mt-8 flex gap-4">
                 <Button 
                   variant={paperWidth === '58mm' ? 'default' : 'outline'} 
-                  className={cn("h-10 px-8 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all", paperWidth === '58mm' ? "bg-primary" : "bg-white/5 border-white/10 text-white")}
+                  className={cn("h-10 px-8 rounded-xl font-semibold text-[10px] tracking-widest transition-all", paperWidth === '58mm' ? "bg-primary" : "bg-white/5 border-border text-white")}
                   onClick={() => setPaperWidth('58mm')}
                 >
                    58mm Profiler
                 </Button>
                 <Button 
                   variant={paperWidth === '80mm' ? 'default' : 'outline'} 
-                  className={cn("h-10 px-8 rounded-xl font-black uppercase text-[10px] tracking-widest transition-all", paperWidth === '80mm' ? "bg-primary" : "bg-white/5 border-white/10 text-white")}
+                  className={cn("h-10 px-8 rounded-xl font-semibold text-[10px] tracking-widest transition-all", paperWidth === '80mm' ? "bg-primary" : "bg-white/5 border-border text-white")}
                   onClick={() => setPaperWidth('80mm')}
                 >
                    80mm Profiler
@@ -225,11 +225,11 @@ export default function ReceiptStudio() {
           </div>
 
           {/* Right Sidebar: Component Config */}
-          <Card className="bg-muted border-white/5 shadow-2xl overflow-hidden flex flex-col">
-             <CardHeader className="p-6 bg-muted text-white shrink-0 border-b border-white/5">
+          <Card className="bg-muted border-border shadow-sm overflow-hidden flex flex-col">
+             <CardHeader className="p-6 bg-muted text-white shrink-0 border-b border-border">
                 <div className="flex items-center gap-2 mb-1">
                    <Settings className="w-4 h-4 text-muted-foreground" />
-                   <CardTitle className="text-sm font-black uppercase italic tracking-wider">Node Config</CardTitle>
+                   <CardTitle className="text-sm font-semibold italic tracking-wider">Node Config</CardTitle>
                 </div>
                 <CardDescription className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Thermal Precision Tuning</CardDescription>
              </CardHeader>
@@ -239,16 +239,16 @@ export default function ReceiptStudio() {
                    <div className="p-6 space-y-6">
                       <div className="space-y-4">
                          <div className="space-y-2">
-                            <Label className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Block Identity</Label>
+                            <Label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Block Identity</Label>
                             <Input 
                                value={activeComponent.title} 
                                onChange={(e) => updateComponent(activeComponent.id, { title: e.target.value })}
-                               className="h-10 rounded-xl bg-white/5 border-white/10 text-white font-bold text-xs"
+                               className="h-10 rounded-xl bg-white/5 border-border text-white font-bold text-xs"
                             />
                          </div>
 
                          <div className="space-y-2">
-                            <Label className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Alignment</Label>
+                            <Label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Alignment</Label>
                             <div className="flex gap-2">
                                {[
                                  { icon: AlignLeft, val: 'left' },
@@ -258,7 +258,7 @@ export default function ReceiptStudio() {
                                  <Button 
                                     key={align.val}
                                     variant="outline" 
-                                    className={cn("flex-1 h-12 bg-white/5 border-white/10 text-white", activeComponent.config?.alignment === align.val && "bg-primary border-primary")}
+                                    className={cn("flex-1 h-12 bg-white/5 border-border text-white", activeComponent.config?.alignment === align.val && "bg-primary border-primary")}
                                     onClick={() => updateComponent(activeComponent.id, { config: { ...activeComponent.config, alignment: align.val as any } })}
                                  >
                                     <align.icon className="w-4 h-4" />
@@ -269,10 +269,10 @@ export default function ReceiptStudio() {
 
                          {activeComponent.type === 'header' && (
                            <div className="space-y-2">
-                              <Label className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Logo Image URL</Label>
+                              <Label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Logo Image URL</Label>
                               <Input 
                                  placeholder="https://example.com/logo.png"
-                                 className="h-10 rounded-xl bg-white/5 border-white/10 text-white font-bold text-xs"
+                                 className="h-10 rounded-xl bg-white/5 border-border text-white font-bold text-xs"
                                  value={activeComponent.config?.logoUrl || ''}
                                  onChange={(e) => updateComponent(activeComponent.id, { config: { ...activeComponent.config, logoUrl: e.target.value } })}
                               />
@@ -282,9 +282,9 @@ export default function ReceiptStudio() {
 
                       {activeComponent.type === 'footer_text' && (
                         <div className="space-y-2">
-                           <Label className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">Marketing Copy</Label>
+                           <Label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Marketing Copy</Label>
                            <textarea 
-                              className="w-full h-24 p-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                              className="w-full h-24 p-3 rounded-xl bg-white/5 border border-border text-white font-medium text-xs outline-none focus:ring-1 focus:ring-indigo-500"
                               value={activeComponent.config?.content}
                               onChange={(e) => updateComponent(activeComponent.id, { config: { ...activeComponent.config, content: e.target.value } })}
                            />
@@ -302,7 +302,7 @@ export default function ReceiptStudio() {
                 ) : (
                    <div className="h-full flex flex-col items-center justify-center text-muted-foreground p-12 text-center opacity-30">
                       <Settings className="w-12 h-12 mb-4" />
-                      <p className="text-xs font-black uppercase tracking-widest">Select a thermal node to tune its telemetry.</p>
+                      <p className="text-xs font-semibold tracking-widest">Select a thermal node to tune its telemetry.</p>
                    </div>
                 )}
              </ScrollArea>

@@ -25,7 +25,7 @@ export function NavWidget({
       className={cn(
         "group relative w-full text-left overflow-hidden rounded-3xl border border-border bg-white",
         "p-7 shadow-sm transition-all duration-300",
-        "hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/60 hover:border-border",
+        "hover:-translate-y-1.5 hover:shadow-sm hover:shadow-slate-200/60 hover:border-border",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
       )}
     >
@@ -59,10 +59,10 @@ export function NavWidget({
 
         {/* Content */}
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-muted-foreground mb-1">
+          <p className="text-[11px] font-semibold tracking-[0.18em] text-muted-foreground mb-1">
             {label}
           </p>
-          <p className="text-3xl font-black tracking-tighter text-muted-foreground leading-none">
+          <p className="text-3xl font-bold tracking-tighter text-muted-foreground leading-none">
             {value}
           </p>
 
@@ -71,7 +71,7 @@ export function NavWidget({
               {trend && (
                 <span
                   className={cn(
-                    "inline-flex items-center gap-1 text-[10px] font-black uppercase rounded-full px-2.5 py-1",
+                    "inline-flex items-center gap-1 text-[10px] font-semibold rounded-full px-2.5 py-1",
                     trendUp
                       ? "bg-success text-success"
                       : "bg-destructive text-destructive",
@@ -109,7 +109,7 @@ export function SectionLabel({
   return (
     <div className="mb-5 flex items-end gap-3">
       <div>
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
+        <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground">
           {label}
         </p>
         {sub && (
@@ -133,7 +133,7 @@ export function SimpleKpi({
 }) {
   return (
     <div className="text-center">
-      <p className={cn("text-xl font-black tracking-tighter", color)}>
+      <p className={cn("text-xl font-bold tracking-tighter", color)}>
         {value}
       </p>
       <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-0.5">
@@ -167,7 +167,7 @@ export function EmptyState({
       >
         <Icon className={cn("h-8 w-8", color)} />
       </div>
-      <h3 className="text-base font-black tracking-tight text-muted-foreground">
+      <h3 className="text-base font-bold tracking-tight text-muted-foreground">
         {title}
       </h3>
       <p className="text-sm font-medium text-muted-foreground mt-1 max-w-xs">

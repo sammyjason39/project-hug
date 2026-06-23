@@ -32,7 +32,7 @@ export const RetailGlobalAdminBar = () => {
   const session = useSession();
 
   return (
-    <div className="bg-secondary text-white h-10 px-4 flex items-center justify-between text-[10px] font-black uppercase tracking-widest border-b border-border z-[60]">
+    <div className="bg-secondary text-white h-10 px-4 flex items-center justify-between text-[10px] font-semibold tracking-widest border-b border-border z-[60]">
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2 text-primary">
           <ShieldCheck className="w-3.5 h-3.5" />
@@ -60,16 +60,16 @@ export const RetailGlobalAdminBar = () => {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 px-2 hover:bg-white/10 text-[9px] font-black italic"
+                className="h-6 px-2 hover:bg-white/10 text-[9px] font-bold"
               >
                 [ Switch ]
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
-              className="w-56 bg-white border-2 border-border shadow-2xl rounded-xl"
+              className="w-56 bg-white border-2 border-border shadow-sm rounded-xl"
             >
-              <DropdownMenuLabel className="text-[10px] uppercase font-black italic tracking-widest text-muted-foreground">
+              <DropdownMenuLabel className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
                 Physical Stores
               </DropdownMenuLabel>
               {(Array.isArray(stores) ? stores : []).map((store) => (
@@ -95,7 +95,7 @@ export const RetailGlobalAdminBar = () => {
               )}
 
               <DropdownMenuSeparator />
-              <DropdownMenuLabel className="text-[10px] uppercase font-black italic tracking-widest text-muted-foreground">
+              <DropdownMenuLabel className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
                 Digital Channels
               </DropdownMenuLabel>
               {(Array.isArray(channels) ? channels : []).map((channel) => (
@@ -116,7 +116,7 @@ export const RetailGlobalAdminBar = () => {
 
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                className="gap-2 text-primary focus:bg-primary/5 font-black italic uppercase text-[10px] tracking-tighter"
+                className="gap-2 text-primary focus:bg-primary/5 font-semibold text-[10px] tracking-tighter"
                 onClick={() =>
                   (window.location.href = "/m/retail/management/profile")
                 }

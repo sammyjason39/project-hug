@@ -272,7 +272,7 @@ export const HeadlessSettingsPanel: React.FC<Props> = ({
     <div className="space-y-6">
       {/* Framework header */}
       <div className="space-y-1">
-        <h3 className="font-black italic text-foreground text-base">
+        <h3 className="font-bold text-foreground text-base">
           {config.label} Integration
         </h3>
         <p className="text-[11px] font-bold text-muted-foreground leading-relaxed">
@@ -284,7 +284,7 @@ export const HeadlessSettingsPanel: React.FC<Props> = ({
       <div className="space-y-4">
         {(Array.isArray(config.fields) ? config.fields : []).map((f) => (
           <div key={f.key} className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               {f.label}
             </Label>
             <Input
@@ -310,7 +310,7 @@ export const HeadlessSettingsPanel: React.FC<Props> = ({
       <Button
         onClick={handleSave}
         disabled={isSaving}
-        className="w-full h-11 rounded-xl font-black italic bg-secondary gap-2"
+        className="w-full h-11 rounded-xl font-bold bg-secondary gap-2"
       >
         {isSaving ? (
           <RefreshCw className="w-4 h-4 animate-spin" />
@@ -324,12 +324,12 @@ export const HeadlessSettingsPanel: React.FC<Props> = ({
       {(showSnippet || Object.keys(fields).length > 0) && snippet && (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <div className="flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground">
               <Code2 className="w-3.5 h-3.5" /> Integration Snippet
             </div>
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-primary hover:text-primary transition-colors"
+              className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-primary hover:text-primary transition-colors"
             >
               {copied ? (
                 <>

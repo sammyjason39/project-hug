@@ -78,36 +78,36 @@ export default function JVDesk() {
       />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="glass-panel p-5 rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm relative overflow-hidden group">
+        <div className="glass-panel p-5 rounded-2xl border bg-card/50 shadow-sm relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <Users className="h-12 w-12 text-primary" />
           </div>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Active Participants</p>
-          <p className="text-3xl font-black text-primary mt-1">{profiles.length || 0}</p>
+          <p className="text-3xl font-bold text-primary mt-1">{profiles.length || 0}</p>
           <div className="mt-4 flex items-center gap-2 text-xs text-success font-medium">
             <ArrowUpRight className="h-3 w-3" />
             <span>2 new this month</span>
           </div>
         </div>
 
-        <div className="glass-panel p-5 rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm relative overflow-hidden group">
+        <div className="glass-panel p-5 rounded-2xl border bg-card/50 shadow-sm relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <HandCoins className="h-12 w-12 text-primary" />
           </div>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">MTD Allocated Revenue</p>
-          <p className="text-3xl font-black text-primary mt-1">Rp 1.2B</p>
+          <p className="text-3xl font-bold text-primary mt-1">Rp 1.2B</p>
           <div className="mt-4 flex items-center gap-2 text-xs text-primary font-medium">
             <History className="h-3 w-3" />
             <span>Last sync: 10m ago</span>
           </div>
         </div>
 
-        <div className="glass-panel p-5 rounded-2xl border bg-card/50 backdrop-blur-sm shadow-sm relative overflow-hidden group">
+        <div className="glass-panel p-5 rounded-2xl border bg-card/50 shadow-sm relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <Scale className="h-12 w-12 text-destructive" />
           </div>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Pending Cost Burden</p>
-          <p className="text-3xl font-black text-destructive mt-1">Rp 450M</p>
+          <p className="text-3xl font-bold text-destructive mt-1">Rp 450M</p>
           <div className="mt-4 flex items-center gap-2 text-xs text-destructive font-medium">
             <ArrowDownRight className="h-3 w-3" />
             <span>Category: Marketing (55%)</span>

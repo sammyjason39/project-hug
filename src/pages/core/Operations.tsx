@@ -173,7 +173,7 @@ export default function CoreOperations() {
       <div className="flex h-screen items-center justify-center bg-muted">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-12 w-12 animate-spin text-warning" />
-          <p className="text-xs font-black uppercase tracking-widest text-muted-foreground italic">Accessing Operations Command...</p>
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground italic">Accessing Operations Command...</p>
         </div>
       </div>
     );
@@ -194,7 +194,7 @@ export default function CoreOperations() {
                     <Database className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-muted-foreground dark:text-white">Persistence Queue</p>
+                    <p className="text-xs font-semibold tracking-widest text-muted-foreground dark:text-white">Persistence Queue</p>
                     <p className="text-[10px] font-bold text-muted-foreground mt-1">{syncStatus.pending_count} pending / {syncStatus.failed_count} failed</p>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function CoreOperations() {
                   {syncStatus.status}
                 </Badge>
               </div>
-              <div className="flex items-center justify-between text-[10px] px-2 font-black uppercase tracking-widest text-muted-foreground">
+              <div className="flex items-center justify-between text-[10px] px-2 font-semibold tracking-widest text-muted-foreground">
                 <span>Sync Latency</span>
                 <span className="font-mono text-primary">{syncStatus.sync_latency_min === -1 ? 'N/A' : `${syncStatus.sync_latency_min}m`}</span>
               </div>
@@ -219,20 +219,20 @@ export default function CoreOperations() {
            <div className="space-y-6 pt-2">
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center p-4 rounded-2xl bg-card border border-border shadow-sm">
-                  <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">Online</p>
-                  <p className="text-2xl font-black italic text-success">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'ONLINE' || d.status === 'ACTIVE').length}</p>
+                  <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Online</p>
+                  <p className="text-2xl font-bold text-success">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'ONLINE' || d.status === 'ACTIVE').length}</p>
                 </div>
                 <div className="text-center p-4 rounded-2xl bg-card border border-border shadow-sm">
-                  <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">Offline</p>
-                  <p className="text-2xl font-black italic text-destructive">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'OFFLINE' || d.status === 'DISCONNECTED').length}</p>
+                  <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Offline</p>
+                  <p className="text-2xl font-bold text-destructive">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'OFFLINE' || d.status === 'DISCONNECTED').length}</p>
                 </div>
                 <div className="text-center p-4 rounded-2xl bg-card border border-border shadow-sm">
-                  <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">Alerts</p>
-                  <p className="text-2xl font-black italic text-warning">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'ALERT' || d.status === 'WARNING').length}</p>
+                  <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Alerts</p>
+                  <p className="text-2xl font-bold text-warning">{(Array.isArray(iotDevices) ? iotDevices : []).filter(d => d.status === 'ALERT' || d.status === 'WARNING').length}</p>
                 </div>
               </div>
               <div className="text-right">
-                <Button variant="ghost" className="text-[10px] h-8 font-black uppercase tracking-widest text-primary hover:bg-primary" onClick={() => handleInspect("Edge")}>
+                <Button variant="ghost" className="text-[10px] h-8 font-semibold tracking-widest text-primary hover:bg-primary" onClick={() => handleInspect("Edge")}>
                   Inspect Edge Nodes
                 </Button>
               </div>
@@ -249,13 +249,13 @@ export default function CoreOperations() {
           <div className="grid gap-4 md:grid-cols-3 pt-2">
             <div className="rounded-2xl border border-primary bg-primary p-6">
               <div className="flex items-center justify-between text-primary mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   POS Devices Online
                 </span>
                 <Globe2 className="h-4 w-4" />
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black italic tracking-tighter text-primary dark:text-primary">
+                <span className="text-3xl font-bold tracking-tighter text-primary dark:text-primary">
                   {retailStats.posDevices?.online || 0}
                 </span>
                 <span className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">
@@ -273,7 +273,7 @@ export default function CoreOperations() {
               <div
                 className={`flex items-center justify-between mb-4 ${retailStats.posDevices?.offline > 0 ? "text-destructive" : "text-muted-foreground"}`}
               >
-                <span className="text-[10px] font-black uppercase tracking-widest">Offline Devices</span>
+                <span className="text-[10px] font-semibold tracking-widest">Offline Devices</span>
                 <ServerCrash className="h-4 w-4" />
               </div>
               <div className="flex items-baseline gap-2">
@@ -294,13 +294,13 @@ export default function CoreOperations() {
 
             <div className="rounded-2xl border p-6 bg-card shadow-sm border-border">
               <div className="flex items-center justify-between text-muted-foreground mb-4">
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   Ecommerce Channels
                 </span>
                 <Link2 className="h-4 w-4" />
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black italic tracking-tighter text-muted-foreground dark:text-white">
+                <span className="text-3xl font-bold tracking-tighter text-muted-foreground dark:text-white">
                   {retailStats.ecommerceChannels?.active || 0}
                 </span>
                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
@@ -329,7 +329,7 @@ export default function CoreOperations() {
             <div key={module.id} className="rounded-2xl border p-5 bg-white dark:bg-muted shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-widest text-muted-foreground dark:text-white">
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground dark:text-white">
                     {module.name}
                   </p>
                   <p className="text-[10px] font-bold text-muted-foreground mt-1 uppercase tracking-tighter">
@@ -348,7 +348,7 @@ export default function CoreOperations() {
                   <Timer className="h-3.5 w-3.5" />
                   {module.latency}
                 </div>
-                <Button onClick={() => handleInspect(module.name)} size="sm" variant="ghost" className="h-7 text-[9px] font-black uppercase tracking-widest text-primary">
+                <Button onClick={() => handleInspect(module.name)} size="sm" variant="ghost" className="h-7 text-label text-primary">
                   Inspect
                 </Button>
               </div>
@@ -371,21 +371,21 @@ export default function CoreOperations() {
               <div key={alertItem.id} className="rounded-2xl border p-5 bg-card shadow-sm hover:border-destructive/30 transition-colors">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-muted-foreground dark:text-white mb-1">
+                    <p className="text-xs font-semibold tracking-widest text-muted-foreground dark:text-white mb-1">
                       {alertItem.title}
                     </p>
                     <p className="text-[10px] font-medium text-muted-foreground leading-relaxed italic">
                       "{alertItem.detail}"
                     </p>
                   </div>
-                  <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-[9px] font-black uppercase tracking-widest bg-destructive text-destructive-foreground border-none shadow-sm shadow-destructive/20">{alertItem.severity}</Badge>
+                  <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-label bg-destructive text-destructive-foreground border-none shadow-sm shadow-destructive/20">{alertItem.severity}</Badge>
                 </div>
                 <div className="flex items-center justify-between pt-3 border-t border-border mt-2">
                   <div className="flex items-center gap-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
                     <AlertTriangle className="h-3.5 w-3.5 text-warning" />
                     {alertItem.time}
                   </div>
-                  <Button onClick={(e) => { e.preventDefault(); toast({ title: "Alert Review", description: `Opening investigation for: ${alertItem.title}` }); }} variant="outline" className="h-8 rounded-xl px-4 text-[9px] font-black uppercase tracking-widest">
+                  <Button onClick={(e) => { e.preventDefault(); toast({ title: "Alert Review", description: `Opening investigation for: ${alertItem.title}` }); }} variant="outline" className="h-8 rounded-xl px-4 text-label">
                     Review
                   </Button>
                 </div>
@@ -419,7 +419,7 @@ export default function CoreOperations() {
                     )}
                   </div>
                   <div>
-                    <p className="text-[11px] font-black uppercase tracking-widest text-muted-foreground dark:text-white">
+                    <p className="text-[11px] font-semibold tracking-widest text-muted-foreground dark:text-white">
                       {item.label}
                     </p>
                     <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-tighter mt-1">
@@ -451,7 +451,7 @@ export default function CoreOperations() {
             <div key={tenant.id} className="rounded-2xl border p-6 bg-card shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <p className="text-sm font-black uppercase tracking-widest text-muted-foreground dark:text-white mb-1">
+                  <p className="text-sm font-semibold tracking-widest text-muted-foreground dark:text-white mb-1">
                     {tenant.name}
                   </p>
                   <div className="flex items-center gap-2">
@@ -464,8 +464,8 @@ export default function CoreOperations() {
                 <Globe2 className="h-6 w-6 text-muted-foreground" />
               </div>
               <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="text-[10px] font-black text-destructive uppercase tracking-widest">{tenant.incidents}</span>
-                <Button onClick={() => handleInspect(tenant.name)} variant="outline" className="h-8 rounded-xl px-4 text-[9px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-bold text-destructive uppercase tracking-widest">{tenant.incidents}</span>
+                <Button onClick={() => handleInspect(tenant.name)} variant="outline" className="h-8 rounded-xl px-4 text-label">
                   Drill in
                 </Button>
               </div>
@@ -493,14 +493,14 @@ export default function CoreOperations() {
         <div className="flex gap-2">
           <Button 
             variant="outline" 
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest"
             onClick={(e) => { e.preventDefault(); const c = "data:text/csv;charset=utf-8,Fallback Data\nExported Row"; const l = document.createElement("a"); l.href = encodeURI(c); l.download = "export.csv"; l.click(); }}
           >
             Export daily log
           </Button>
           <Button 
             onClick={() => setIsModalOpen(true)}
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest bg-destructive hover:bg-destructive/90 text-destructive-foreground shadow-xl shadow-destructive/20"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest bg-destructive hover:bg-destructive/90 text-destructive-foreground shadow-sm shadow-destructive/20"
           >
             <AlertTriangle className="h-3 w-3 mr-2" /> Launch bridge
           </Button>

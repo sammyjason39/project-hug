@@ -207,7 +207,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
             <ArrowDownToLine className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <h3 className="font-black italic text-foreground text-sm">
+            <h3 className="font-bold text-foreground text-sm">
               Inbound Webhook
             </h3>
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -219,7 +219,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
         <div className="rounded-2xl border border-border overflow-hidden divide-y divide-slate-100">
           {/* Inbound URL */}
           <div className="p-4 space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Listening Endpoint
             </Label>
             <div className="flex items-center gap-2">
@@ -237,7 +237,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
 
           {/* HMAC Key */}
           <div className="p-4 space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               HMAC Signing Key
             </Label>
             <div className="flex items-center gap-2">
@@ -253,7 +253,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
                 variant="outline"
                 onClick={handleRotateHmac}
                 disabled={isRotating}
-                className="rounded-xl font-black italic text-xs gap-1.5 border-warning text-warning hover:bg-warning shrink-0"
+                className="rounded-xl font-bold text-xs gap-1.5 border-warning text-warning hover:bg-warning shrink-0"
               >
                 <RotateCcw
                   className={cn("w-3.5 h-3.5", isRotating && "animate-spin")}
@@ -280,7 +280,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
             <ArrowUpFromLine className="w-4 h-4 text-success" />
           </div>
           <div>
-            <h3 className="font-black italic text-foreground text-sm">
+            <h3 className="font-bold text-foreground text-sm">
               Outbound Webhook
             </h3>
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -291,7 +291,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
 
         <div className="space-y-4">
           <div className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Target URL
             </Label>
             <Input
@@ -304,7 +304,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Authorization Header
               </Label>
               <Input
@@ -316,7 +316,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
               />
             </div>
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Retry Policy
               </Label>
               <Select value={retryPolicy} onValueChange={setRetryPolicy}>
@@ -344,7 +344,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
 
           {/* Event Toggles */}
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Events to Forward
             </Label>
             <div className="rounded-2xl border border-border overflow-hidden divide-y divide-slate-50">
@@ -356,14 +356,14 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
                   <div className="flex items-center gap-3">
                     <Badge
                       className={cn(
-                        "text-[9px] font-black border-none px-2 py-0.5",
+                        "text-[9px] font-bold border-none px-2 py-0.5",
                         CATEGORY_COLORS[ev.category],
                       )}
                     >
                       {ev.category}
                     </Badge>
                     <div>
-                      <div className="font-black italic text-muted-foreground text-xs">
+                      <div className="font-bold text-muted-foreground text-xs">
                         {ev.label}
                       </div>
                       <div className="text-[10px] text-muted-foreground font-bold">
@@ -386,7 +386,7 @@ export const WebhookSettingsPanel: React.FC<Props> = ({
       <Button
         onClick={handleSave}
         disabled={isSaving}
-        className="w-full h-11 rounded-xl font-black italic bg-secondary gap-2"
+        className="w-full h-11 rounded-xl font-bold bg-secondary gap-2"
       >
         {isSaving ? (
           <RefreshCw className="w-4 h-4 animate-spin" />

@@ -230,11 +230,11 @@ export default function InventoryAdjustments() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Reference</th>
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Item Info</th>
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Storage Node</th>
-                    <th className="p-4 text-right text-[10px] font-black uppercase tracking-widest text-muted-foreground">Delta Impact</th>
-                    <th className="p-4 text-center text-[10px] font-black uppercase tracking-widest text-muted-foreground">Verification</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Reference</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Item Info</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Storage Node</th>
+                    <th className="p-4 text-right text-[10px] font-semibold tracking-widest text-muted-foreground">Delta Impact</th>
+                    <th className="p-4 text-center text-[10px] font-semibold tracking-widest text-muted-foreground">Verification</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/50">
@@ -275,7 +275,7 @@ export default function InventoryAdjustments() {
                         </td>
                         <td className="p-4 text-right">
                           <span className={cn(
-                            "font-black text-sm",
+                            "font-bold text-sm",
                             item.requested_delta > 0 ? "text-success" : "text-destructive"
                           )}>
                             {item.requested_delta > 0 ? "+" : ""}{item.requested_delta} Units
@@ -283,7 +283,7 @@ export default function InventoryAdjustments() {
                         </td>
                         <td className="p-4 text-center">
                           <Badge variant="outline" className={cn(
-                            "font-black text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full border-none shadow-sm",
+                            "font-bold text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full border-none shadow-sm",
                             item.status.toUpperCase() === "APPROVED" ? "bg-success/10 text-success" :
                             item.status.toUpperCase() === "REJECTED" ? "bg-destructive/10 text-destructive" :
                             "bg-primary/10 text-primary animate-pulse"
@@ -310,11 +310,11 @@ export default function InventoryAdjustments() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Reference</th>
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Item Info</th>
-                    <th className="p-4 text-left text-[10px] font-black uppercase tracking-widest text-muted-foreground">Storage Node</th>
-                    <th className="p-4 text-right text-[10px] font-black uppercase tracking-widest text-muted-foreground">Delta Impact</th>
-                    <th className="p-4 text-center text-[10px] font-black uppercase tracking-widest text-muted-foreground">Status</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Reference</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Item Info</th>
+                    <th className="p-4 text-left text-[10px] font-semibold tracking-widest text-muted-foreground">Storage Node</th>
+                    <th className="p-4 text-right text-[10px] font-semibold tracking-widest text-muted-foreground">Delta Impact</th>
+                    <th className="p-4 text-center text-[10px] font-semibold tracking-widest text-muted-foreground">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/50">
@@ -354,7 +354,7 @@ export default function InventoryAdjustments() {
                         </td>
                         <td className="p-4 text-right">
                           <span className={cn(
-                            "font-black text-sm",
+                            "font-bold text-sm",
                             item.requested_delta > 0 ? "text-success/80" : "text-destructive/80"
                           )}>
                             {item.requested_delta > 0 ? "+" : ""}{item.requested_delta} Units
@@ -362,7 +362,7 @@ export default function InventoryAdjustments() {
                         </td>
                         <td className="p-4 text-center">
                           <Badge variant="outline" className={cn(
-                            "font-black text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full border-none shadow-sm",
+                            "font-bold text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full border-none shadow-sm",
                             item.status.toUpperCase() === "APPROVED" ? "bg-success/10 text-success" :
                             "bg-destructive/10 text-destructive"
                           )}>
@@ -387,7 +387,7 @@ export default function InventoryAdjustments() {
           >
             <div className="max-w-2xl space-y-8 p-4">
               <div className="space-y-4">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Target Product</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-1">Target Product</label>
                 <Select value={itemId} onValueChange={setItemId}>
                   <SelectTrigger className="w-full bg-secondary/40 border-border rounded-xl font-bold h-14">
                     <SelectValue placeholder="Identify product to adjust..." />
@@ -404,7 +404,7 @@ export default function InventoryAdjustments() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Location / Node</label>
+                  <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-1">Location / Node</label>
                   <Select value={locationId} onValueChange={setLocationId}>
                     <SelectTrigger className="w-full bg-secondary/40 border-border rounded-xl font-bold h-14">
                       <SelectValue placeholder="Select warehouse..." />
@@ -419,7 +419,7 @@ export default function InventoryAdjustments() {
                   </Select>
                 </div>
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Department</label>
+                  <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-1">Department</label>
                   <Select value={departmentId} onValueChange={setDepartmentId}>
                     <SelectTrigger className="w-full bg-secondary/40 border-border rounded-xl font-bold h-14">
                       <SelectValue placeholder="Departmental scope..." />
@@ -437,17 +437,17 @@ export default function InventoryAdjustments() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
                 <div className="md:col-span-1 space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Delta Delta (+/-)</label>
+                  <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-1">Delta Delta (+/-)</label>
                   <UIInput
                     type="number"
                     placeholder="0"
                     value={delta}
                     onChange={(e) => setDelta(e.target.value)}
-                    className="h-14 bg-secondary/40 border-border rounded-xl font-black text-2xl text-center text-primary focus:border-primary"
+                    className="h-14 bg-secondary/40 border-border rounded-xl font-bold text-2xl text-center text-primary focus:border-primary"
                   />
                 </div>
                 <div className="md:col-span-2 space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Justification Reason</label>
+                  <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-1">Justification Reason</label>
                   <UIInput
                     placeholder="Briefly explain this correction..."
                     value={reason}
@@ -460,7 +460,7 @@ export default function InventoryAdjustments() {
               <Button 
                 onClick={handleRequest} 
                 disabled={submitting}
-                className="w-full h-14 rounded-2xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 font-black uppercase tracking-widest shadow-xl shadow-primary/10 group transition-all transform hover:scale-[1.01] active:scale-[0.99] text-foreground"
+                className="w-full h-14 rounded-2xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 font-semibold tracking-widest shadow-sm shadow-primary/10 group transition-all transform hover:scale-[1.01] active:scale-[0.99] text-foreground"
               >
                 {submitting ? "Processing Correction..." : "Authenticate & Request"}
                 {!submitting && <Activity className="ml-2 h-5 w-5 group-hover:animate-pulse" />}
@@ -472,14 +472,14 @@ export default function InventoryAdjustments() {
 
       {/* Details Modal */}
       <Dialog open={!!selectedAdj} onOpenChange={(open) => !open && setSelectedAdj(null)}>
-        <DialogContent className="max-w-xl bg-background border-border rounded-[2.5rem] p-0 overflow-hidden shadow-2xl">
+        <DialogContent className="max-w-xl bg-background border-border rounded-2xl p-0 overflow-hidden shadow-sm">
           {selectedAdj && (
             <>
               <DialogHeader className="h-24 bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border p-8 flex flex-row items-end justify-between m-0 space-y-0 rounded-t-[2.5rem]">
                 <div>
-                  <DialogTitle className="text-2xl font-black italic uppercase tracking-tighter text-foreground">Adjustment Analysis</DialogTitle>
+                  <DialogTitle className="text-2xl font-semibold tracking-tighter text-foreground">Adjustment Analysis</DialogTitle>
                   <DialogDescription className="sr-only">Detailed analysis of the requested inventory adjustment.</DialogDescription>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary mt-1">Request ID #{selectedAdj.id.slice(0, 8)}</p>
+                  <p className="text-[10px] font-semibold tracking-widest text-primary mt-1">Request ID #{selectedAdj.id.slice(0, 8)}</p>
                 </div>
               </DialogHeader>
               
@@ -491,7 +491,7 @@ export default function InventoryAdjustments() {
                         <Box className="h-5 w-5 text-primary" />
                       </div>
                       <div className="overflow-hidden">
-                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Product</p>
+                        <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Product</p>
                         <p className="font-bold text-foreground truncate">{items.find(i => i.id === selectedAdj.item_id)?.name || "Unknown"}</p>
                       </div>
                     </div>
@@ -501,7 +501,7 @@ export default function InventoryAdjustments() {
                         <MapPin className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Location</p>
+                        <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Location</p>
                         <p className="font-bold text-foreground">{locations.find(l => l.id === selectedAdj.location_id)?.name || "N/A"}</p>
                       </div>
                     </div>
@@ -513,8 +513,8 @@ export default function InventoryAdjustments() {
                         <Activity className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Delta Impact</p>
-                        <p className={cn("font-black text-2xl tracking-tighter", selectedAdj.requested_delta > 0 ? "text-success" : "text-destructive")}>
+                        <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Delta Impact</p>
+                        <p className={cn("font-bold text-2xl tracking-tighter", selectedAdj.requested_delta > 0 ? "text-success" : "text-destructive")}>
                           {selectedAdj.requested_delta > 0 ? "+" : ""}{selectedAdj.requested_delta} Units
                         </p>
                       </div>
@@ -525,18 +525,18 @@ export default function InventoryAdjustments() {
                         <User className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Requested By</p>
+                        <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Requested By</p>
                         <p className="font-bold text-foreground text-sm">{getRequesterInfo(selectedAdj.requested_by).name}</p>
-                        <p className="text-[9px] font-black uppercase text-primary/70">{getRequesterInfo(selectedAdj.requested_by).role}</p>
+                        <p className="text-[9px] font-semibold text-primary/70">{getRequesterInfo(selectedAdj.requested_by).role}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-6 bg-secondary/40 rounded-[2rem] border border-border space-y-3 shadow-inner">
+                <div className="p-6 bg-secondary/40 rounded-2xl border border-border space-y-3 shadow-inner">
                   <div className="flex items-center gap-2">
                     <FileText className="h-3 w-3 text-primary" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-primary">Justification Statement</span>
+                    <span className="text-[10px] font-semibold tracking-widest text-primary">Justification Statement</span>
                   </div>
                   <p className="text-sm font-bold text-foreground leading-relaxed italic opacity-90">
                     "{selectedAdj.reason}"
@@ -550,7 +550,7 @@ export default function InventoryAdjustments() {
                     <Button 
                       variant="outline" 
                       onClick={() => setSelectedAdj(null)}
-                      className="rounded-xl font-black uppercase tracking-widest border-border px-6"
+                      className="rounded-xl font-semibold tracking-widest border-border px-6"
                     >
                       Hold
                     </Button>
@@ -559,13 +559,13 @@ export default function InventoryAdjustments() {
                       onClick={() => {
                         toast({ title: "Feature Pending", description: "Rejection logic coming soon." });
                       }}
-                      className="rounded-xl font-black uppercase tracking-widest px-6"
+                      className="rounded-xl font-semibold tracking-widest px-6"
                     >
                       Reject
                     </Button>
                     <Button 
                       onClick={() => handleApprove(selectedAdj.id)}
-                      className="rounded-xl font-black uppercase tracking-widest bg-success hover:bg-success/90 text-white shadow-lg shadow-success/20 flex-1 h-12"
+                      className="rounded-xl font-semibold tracking-widest bg-success hover:bg-success/90 text-white shadow-lg shadow-success/20 flex-1 h-12"
                     >
                       Approve & Apply
                     </Button>
@@ -574,7 +574,7 @@ export default function InventoryAdjustments() {
                   <Button 
                     variant="outline" 
                     onClick={() => setSelectedAdj(null)}
-                    className="w-full h-12 rounded-xl font-black uppercase tracking-widest border-border"
+                    className="w-full h-12 rounded-xl font-semibold tracking-widest border-border"
                   >
                     Close Record
                   </Button>

@@ -96,13 +96,13 @@ export const StockOpnameTab: React.FC<Props> = ({
 
   if (!opnameActive) {
     return (
-      <Card className="rounded-2xl border border-white/10 shadow-xl bg-white/[0.03] backdrop-blur-xl overflow-hidden">
+      <Card className="rounded-2xl border border-border shadow-sm bg-white/[0.03] overflow-hidden">
         <CardContent className="p-6 text-center space-y-6">
           <div className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto border border-primary/20">
             <ClipboardCheck className="w-10 h-10 text-primary" />
           </div>
           <div>
-            <h2 className="text-2xl font-black italic tracking-tighter uppercase text-foreground">
+            <h2 className="text-2xl font-bold tracking-tighter uppercase text-foreground">
               Stock Opname
             </h2>
             <p className="text-sm text-muted-foreground font-bold italic mt-2">
@@ -130,10 +130,10 @@ export const StockOpnameTab: React.FC<Props> = ({
             ].map((m, i) => (
               <div
                 key={i}
-                className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 text-center space-y-2 backdrop-blur-sm"
+                className="bg-white/[0.04] border border-border rounded-2xl p-5 text-center space-y-2"
               >
                 <m.icon className="w-5 h-5 text-primary mx-auto" />
-                <div className="text-xs font-black italic uppercase text-foreground">
+                <div className="text-xs font-semibold text-foreground">
                   {m.label}
                 </div>
                 <div className="text-[10px] text-muted-foreground font-bold">
@@ -144,7 +144,7 @@ export const StockOpnameTab: React.FC<Props> = ({
           </div>
           <Button
             onClick={onStart}
-            className="h-14 px-12 rounded-2xl bg-primary text-primary-foreground font-black italic uppercase tracking-widest text-xs gap-2 shadow-xl hover:bg-primary/90 transition-all"
+            className="h-14 px-12 rounded-2xl bg-primary text-primary-foreground font-semibold tracking-widest text-xs gap-2 shadow-sm hover:bg-primary/90 transition-all"
           >
             <Zap className="w-5 h-5" /> Start Opname Session
           </Button>

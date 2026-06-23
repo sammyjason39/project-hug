@@ -57,10 +57,10 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
   showExtended = false,
 }) => {
   return (
-    <div className="rounded-[1.5rem] border border-border bg-white p-6 shadow-sm hover:shadow-md transition-all space-y-4">
+    <div className="rounded-xl border border-border bg-white p-6 shadow-sm hover:shadow-md transition-all space-y-4">
       {/* Row header */}
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-black italic uppercase tracking-widest text-primary">
+        <span className="text-[10px] font-semibold tracking-widest text-primary">
           New Item
         </span>
         <div className="flex items-center gap-2">
@@ -96,7 +96,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
             showExtended ? "md:col-span-8" : "md:col-span-12",
           )}
         >
-          <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
             Product Name *
           </Label>
           <Input
@@ -110,7 +110,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
         {/* 2. Category, Price, Qty/Unit */}
         <div className="md:col-span-12 grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div className="space-y-1.5 sm:col-span-1">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Category *
             </Label>
             <Select
@@ -141,7 +141,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
           </div>
 
           <div className="space-y-1.5 sm:col-span-1">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               Base Price
             </Label>
             <Input
@@ -160,7 +160,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
 
           {showQty && (
             <div className="space-y-1.5 sm:col-span-1">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Quantity *
               </Label>
               <Input
@@ -179,7 +179,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
 
           {showExtended && (
             <div className="space-y-1.5 sm:col-span-1">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Unit (UoM)
               </Label>
               <Input
@@ -197,12 +197,12 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
         {/* 3. SKU & Barcode */}
         <div className="md:col-span-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center justify-between">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <Barcode className="w-3.5 h-3.5" /> SKU
               </div>
               {line.categoryId && (
-                <span className="text-[9px] text-success italic font-black">
+                <span className="text-[9px] text-success italic font-bold">
                   AUTO-GENERATED
                 </span>
               )}
@@ -251,10 +251,10 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
           </div>
 
           <div className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center justify-between">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center justify-between">
               <div>Barcode</div>
               {line.sku && (
-                <span className="text-[9px] text-success italic font-black">
+                <span className="text-[9px] text-success italic font-bold">
                   SYNCED WITH SKU
                 </span>
               )}
@@ -274,7 +274,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
         {showExtended && (
           <div className="md:col-span-12 space-y-4">
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Description
               </Label>
               <textarea
@@ -289,7 +289,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Item Type
                 </Label>
                 <Select
@@ -310,7 +310,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
               </div>
 
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Default Status
                 </Label>
                 <Select
@@ -336,7 +336,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
 
         {/* 5. Image Upload Section */}
         <div className="md:col-span-12 space-y-3 pt-2 border-t border-border">
-          <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+          <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-2">
             <ImageIcon className="w-3.5 h-3.5" /> Product Images
           </Label>
           
@@ -385,7 +385,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
                 </button>
 
                 {line.primaryImageIndex === idx && (
-                  <div className="absolute top-1 left-1 px-1.5 py-0.5 bg-primary text-[8px] font-black text-white rounded-md uppercase tracking-tighter">
+                  <div className="absolute top-1 left-1 px-1.5 py-0.5 bg-primary text-[8px] font-bold text-white rounded-md uppercase tracking-tighter">
                     Main
                   </div>
                 )}
@@ -395,7 +395,7 @@ export const NewItemFormRow: React.FC<NewItemFormRowProps> = ({
             {/* Upload Placeholder */}
             <label className="w-24 h-24 rounded-2xl border-2 border-dashed border-border bg-muted flex flex-col items-center justify-center cursor-pointer hover:bg-white hover:border-primary transition-all text-muted-foreground hover:text-primary group">
               <Upload className="w-6 h-6 mb-1 group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-black uppercase tracking-tighter">Add Photo</span>
+              <span className="text-[9px] font-semibold tracking-tighter">Add Photo</span>
               <input 
                 type="file" 
                 multiple 

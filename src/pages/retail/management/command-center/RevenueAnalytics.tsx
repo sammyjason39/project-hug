@@ -24,28 +24,28 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
       {/* Revenue Trend Area */}
-      <div className="xl:col-span-3 bg-white/[0.03] backdrop-blur-3xl p-6 rounded-[2rem] border border-white/5 shadow-2xl hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-700 relative overflow-hidden group">
+      <div className="xl:col-span-3 bg-white/[0.03] p-6 rounded-2xl border border-border shadow-sm hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-700 relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary/10 rounded-full blur-[130px] -mr-[15%] -mt-[15%] group-hover:bg-primary/20 transition-all duration-1000" />
 
         <div className="flex items-center justify-between mb-12 relative z-10">
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-foreground shadow-xl shadow-indigo-600/20 group-hover:rotate-6 transition-transform duration-500">
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-foreground shadow-sm shadow-indigo-600/20 group-hover:rotate-6 transition-transform duration-500">
               <TrendingUp className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">
+              <h3 className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">
                 Revenue Flow Matrix
               </h3>
-              <p className="text-2xl font-black italic text-foreground tracking-tighter">
+              <p className="text-2xl font-bold text-foreground tracking-tighter">
                 Live Performance
               </p>
             </div>
           </div>
-          <div className="bg-success/10 backdrop-blur-3xl px-8 py-4 rounded-2xl border border-success/20 text-right group/growth shadow-xl">
-            <p className="text-[10px] font-black uppercase tracking-widest text-success mb-1 italic">
+          <div className="bg-success/10 px-8 py-4 rounded-2xl border border-success/20 text-right group/growth shadow-sm">
+            <p className="text-[10px] font-semibold tracking-widest text-success mb-1 italic">
               Velocity Uptick
             </p>
-            <p className="text-3xl font-black italic text-success leading-none group-hover/growth:scale-110 transition-transform origin-right tracking-tighter">
+            <p className="text-3xl font-bold text-success leading-none group-hover/growth:scale-110 transition-transform origin-right tracking-tighter">
               +{data.growthPercentage}%
             </p>
           </div>
@@ -90,9 +90,9 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
                 content={({ active, payload, label }) => {
                   if (active && payload && payload.length) {
                     return (
-                      <div className="bg-secondary/90 backdrop-blur-3xl border border-border p-6 rounded-[2rem] shadow-3xl">
-                        <p className="text-[10px] font-black italic text-muted-foreground uppercase tracking-widest mb-2">{label}</p>
-                        <p className="text-2xl font-black italic text-foreground tracking-tighter">
+                      <div className="bg-secondary/90 border border-border p-6 rounded-2xl shadow-3xl">
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">{label}</p>
+                        <p className="text-2xl font-bold text-foreground tracking-tighter">
                           Rp {payload[0].value?.toLocaleString()}
                         </p>
                       </div>
@@ -119,9 +119,9 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
       {/* Side Insights */}
       <div className="space-y-10 flex flex-col">
         {/* Payment Mix Widget */}
-        <div className="bg-white/[0.03] backdrop-blur-3xl p-8 rounded-[2rem] border border-white/5 shadow-2xl flex-1 flex flex-col hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-700 group">
+        <div className="bg-white/[0.03] p-8 rounded-2xl border border-border shadow-sm flex-1 flex flex-col hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-700 group">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">
+            <h3 className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">
               Payment Typology
             </h3>
             <Wallet className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -152,10 +152,10 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
                 </PieChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest leading-none mb-1">
+                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1">
                   Active
                 </span>
-                <span className="text-2xl font-black italic text-foreground leading-none tracking-tighter">
+                <span className="text-2xl font-bold text-foreground leading-none tracking-tighter">
                   {data.paymentMethodDistribution.length}
                 </span>
               </div>
@@ -176,7 +176,7 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
                       {item.method}
                     </span>
                   </div>
-                  <span className="text-[11px] font-black text-foreground bg-secondary/40 px-3 py-1 rounded-xl group-hover/item:bg-primary transition-all shadow-inner">
+                  <span className="text-[11px] font-bold text-foreground bg-secondary/40 px-3 py-1 rounded-xl group-hover/item:bg-primary transition-all shadow-inner">
                     {item.percentage}%
                   </span>
                 </div>
@@ -186,35 +186,35 @@ export const RevenueAnalytics: React.FC<RevenueAnalyticsProps> = ({ data }) => {
         </div>
 
         {/* Refund & Anomaly Card */}
-        <div className="bg-primary p-8 rounded-[2rem] text-foreground shadow-3xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-700 border-none">
+        <div className="bg-primary p-8 rounded-2xl text-foreground shadow-3xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-700 border-none">
           <div className="absolute top-0 right-0 w-48 h-48 bg-white/20 blur-[90px] -mr-20 -mt-20 group-hover:scale-150 transition-all duration-1000" />
           <div className="absolute bottom-[-20%] left-[-10%] w-32 h-32 bg-success/20 blur-[70px] pointer-events-none" />
 
           <div className="flex items-center justify-between mb-6 relative z-10">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary italic">
+            <h3 className="text-[10px] font-semibold tracking-[0.3em] text-primary italic">
               Loss Prevention
             </h3>
             <Receipt className="w-6 h-6 text-foreground opacity-50 group-hover:rotate-12 transition-transform duration-500" />
           </div>
 
           <div className="flex items-baseline gap-3 relative z-10">
-            <p className="text-6xl font-black italic tracking-tighter text-foreground">
+            <p className="text-6xl font-bold tracking-tighter text-foreground">
               {data.refundRatio}
             </p>
-            <p className="text-2xl font-black text-foreground/40 tracking-tighter">%</p>
+            <p className="text-2xl font-bold text-foreground/40 tracking-tighter">%</p>
           </div>
 
           <div className="mt-12 relative z-10">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em] italic">
+              <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] italic">
                 Refund Ratio
               </span>
-              <span className="px-4 py-1.5 rounded-xl bg-white/10 border border-white/20 text-[9px] font-black text-foreground uppercase tracking-widest flex items-center gap-2">
+              <span className="px-4 py-1.5 rounded-xl bg-white/10 border border-border text-[9px] font-bold text-foreground uppercase tracking-widest flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />{" "}
                 NOMINAL
               </span>
             </div>
-            <div className="w-full bg-black/20 h-3 rounded-full overflow-hidden p-0.5 border border-white/5 shadow-inner">
+            <div className="w-full bg-black/20 h-3 rounded-full overflow-hidden p-0.5 border border-border shadow-inner">
               <div
                 className="bg-white h-full rounded-full shadow-[0_0_15px_rgba(255,255,255,0.6)] transition-all duration-2000 ease-out"
                 style={{

@@ -90,10 +90,10 @@ export const RetailContextSwitcher = () => {
             )}
           </div>
           <div className="text-left hidden md:block">
-            <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground leading-none mb-1">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground leading-none mb-1">
               Active Entity
             </div>
-            <div className="text-xs font-black italic uppercase tracking-tighter text-foreground flex items-center gap-1">
+            <div className="text-xs font-semibold tracking-tighter text-foreground flex items-center gap-1">
               {currentSelection}
               <ChevronDown className="w-3 h-3" />
             </div>
@@ -101,11 +101,11 @@ export const RetailContextSwitcher = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-64 rounded-2xl p-2 shadow-2xl border-2 border-border"
+        className="w-64 rounded-2xl p-2 shadow-sm border-2 border-border"
         align="start"
       >
         <DropdownMenuLabel className="px-3 py-2">
-          <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <div className="text-[10px] font-semibold tracking-widest text-muted-foreground">
             Retail Governance
           </div>
           <div className="text-xs font-bold italic mt-1">
@@ -116,7 +116,7 @@ export const RetailContextSwitcher = () => {
         <DropdownMenuSeparator className="my-2" />
 
         <DropdownMenuGroup>
-          <div className="px-3 py-1 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <div className="px-3 py-1 flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground">
             <Building2 className="w-3 h-3" />
             Physical Branches
           </div>
@@ -146,7 +146,7 @@ export const RetailContextSwitcher = () => {
         <DropdownMenuSeparator className="my-2" />
 
         <DropdownMenuGroup>
-          <div className="px-3 py-1 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+          <div className="px-3 py-1 flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground">
             <ShoppingBag className="w-3 h-3" />
             Ecommerce Channels
           </div>

@@ -19,7 +19,7 @@ You are the Zenvix Lead Architect AI. Your goal is to maintain the modular, mult
 - Use the `shared` module for cross-cutting concerns (logging, security, etc.).
 
 ## 4. UI/UX Standard
-- **Aesthetic:** Glassmorphism, premium dark/light modes, high data density.
+- **Aesthetic:** ConextLab brand — clean whitespace, Geist + JetBrains Mono, ink/blue palette, hairline borders.
 - **Framework:** React + Vite + TailwindCSS + Shadcn UI.
 - **Wizards:** Implement logical, multi-step wizards for complex workflows.
 

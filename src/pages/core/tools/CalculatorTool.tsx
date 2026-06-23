@@ -81,7 +81,7 @@ export default function CalculatorTool() {
               <div className="mt-6 space-y-6">
                 <div className="relative group">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-primary/10 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-                  <div className="relative rounded-xl border bg-background/50 backdrop-blur-sm p-6 shadow-sm overflow-hidden">
+                  <div className="relative rounded-xl border bg-background/50 p-6 shadow-sm overflow-hidden">
                     <div className="text-xs text-muted-foreground text-right mb-1 h-4 font-mono">
                       {mode === "scientific" ? "RAD" : "DEG"}
                     </div>

@@ -143,7 +143,7 @@ export const Empty = ({
       <Button
         variant="outline"
         onClick={onAdd}
-        className="rounded-xl border-border font-black italic uppercase text-[10px] tracking-widest gap-2"
+        className="rounded-xl border-border font-semibold text-[10px] tracking-widest gap-2"
       >
         <PlusCircle className="w-4 h-4" /> Register
       </Button>
@@ -151,7 +151,7 @@ export const Empty = ({
         <Button
           variant="outline"
           onClick={onScan}
-          className="rounded-xl border-border font-black italic uppercase text-[10px] tracking-widest gap-2"
+          className="rounded-xl border-border font-semibold text-[10px] tracking-widest gap-2"
         >
           <RefreshCw className="w-4 h-4" /> Scan Network
         </Button>

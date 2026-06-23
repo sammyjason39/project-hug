@@ -43,7 +43,7 @@ export const FiltersBar: React.FC<Props> = ({
         value={filters.category}
         onValueChange={(v) => onFiltersChange({ category: v })}
       >
-        <SelectTrigger className="w-44 h-11 rounded-xl font-black italic text-xs border-border">
+        <SelectTrigger className="w-44 h-11 rounded-xl font-bold text-xs border-border">
           <SelectValue placeholder="Category" />
         </SelectTrigger>
         <SelectContent className="rounded-xl">
@@ -60,7 +60,7 @@ export const FiltersBar: React.FC<Props> = ({
           onFiltersChange({ sortBy: v })
         }
       >
-        <SelectTrigger className="w-40 h-11 rounded-xl font-black italic text-xs border-border">
+        <SelectTrigger className="w-40 h-11 rounded-xl font-bold text-xs border-border">
           <SelectValue placeholder="Sort" />
         </SelectTrigger>
         <SelectContent className="rounded-xl">
@@ -88,7 +88,7 @@ export const FiltersBar: React.FC<Props> = ({
         value={filters.type}
         onValueChange={(v) => onFiltersChange({ type: v })}
       >
-        <SelectTrigger className="w-36 h-11 rounded-xl font-black italic text-xs border-border">
+        <SelectTrigger className="w-36 h-11 rounded-xl font-bold text-xs border-border">
           <SelectValue placeholder="Type" />
         </SelectTrigger>
         <SelectContent className="rounded-xl">
@@ -108,7 +108,7 @@ export const FiltersBar: React.FC<Props> = ({
       </Select>
 
       <div className="flex items-center gap-2 border border-border rounded-xl px-2 h-11 bg-secondary/5">
-        <span className="text-[10px] font-black italic text-muted-foreground uppercase">
+        <span className="text-[10px] font-bold text-muted-foreground uppercase">
           Price
         </span>
         <Input
@@ -140,7 +140,7 @@ export const FiltersBar: React.FC<Props> = ({
         value={filters.status}
         onValueChange={(v) => onFiltersChange({ status: v })}
       >
-        <SelectTrigger className="w-36 h-11 rounded-xl font-black italic text-xs border-border">
+        <SelectTrigger className="w-36 h-11 rounded-xl font-bold text-xs border-border">
           <SelectValue placeholder="Status" />
         </SelectTrigger>
         <SelectContent className="rounded-xl">
@@ -156,13 +156,13 @@ export const FiltersBar: React.FC<Props> = ({
           <Button
             variant="outline"
             onClick={onManageCategories}
-            className="h-11 px-4 rounded-xl font-black italic text-xs uppercase tracking-widest gap-2"
+            className="h-11 px-4 rounded-xl font-bold text-xs uppercase tracking-widest gap-2"
           >
             Categories
           </Button>
           <Button
             onClick={onAddSku}
-            className="h-11 px-5 rounded-xl bg-secondary text-foreground font-black italic text-xs uppercase tracking-widest gap-2"
+            className="h-11 px-5 rounded-xl bg-secondary text-foreground font-bold text-xs uppercase tracking-widest gap-2"
           >
             <Plus className="w-4 h-4" /> Add SKU
           </Button>

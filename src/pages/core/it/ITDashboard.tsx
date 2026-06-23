@@ -58,11 +58,11 @@ export default function ITDashboard() {
           <div className="flex items-center gap-2">
             <Button
               onClick={() => setTicketModalOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-white rounded-xl font-black italic tracking-widest uppercase gap-3 shadow-lg shadow-primary/20 active:scale-95 transition-all"
+              className="bg-primary hover:bg-primary/90 text-white rounded-xl font-bold tracking-widest uppercase gap-3 shadow-lg shadow-primary/20 active:scale-95 transition-all"
             >
               <Plus className="w-4 h-4" /> New Ticket
             </Button>
-            <Button variant="outline" className="rounded-xl font-black italic tracking-widest uppercase gap-3 active:scale-95 transition-all">
+            <Button variant="outline" className="rounded-xl font-bold tracking-widest uppercase gap-3 active:scale-95 transition-all">
               <Terminal className="w-4 h-4" /> System Console
             </Button>
           </div>
@@ -146,13 +146,13 @@ function KPICard({ title, value, status, icon: Icon }: any) {
   return (
     <Card className="bg-white border-muted shadow-sm rounded-2xl overflow-hidden group hover:shadow-md transition-all">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-[10px] font-black uppercase text-muted-foreground tracking-widest leading-none">
+        <CardTitle className="text-[10px] font-semibold text-muted-foreground tracking-widest leading-none">
           {title}
         </CardTitle>
         <Icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-black italic tracking-tighter">{value}</div>
+        <div className="text-2xl font-bold tracking-tighter">{value}</div>
         <Badge className={`mt-2 border-none text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest ${
           status === 'OPTIMAL' || status === 'SYNCED' || status === 'SECURE' 
             ? 'bg-success/10 text-success' 
@@ -178,8 +178,8 @@ function ServiceStatus({ name, status, icon: Icon, latency }: any) {
         </div>
       </div>
       <div className="text-right">
-        <p className="text-[10px] font-black text-muted-foreground italic uppercase">Latency</p>
-        <p className="text-xs font-black text-primary">{latency}</p>
+        <p className="text-[10px] font-bold text-muted-foreground italic uppercase">Latency</p>
+        <p className="text-xs font-bold text-primary">{latency}</p>
       </div>
     </div>
   );

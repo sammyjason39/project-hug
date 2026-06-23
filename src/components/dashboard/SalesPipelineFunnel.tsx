@@ -16,7 +16,7 @@ export const SalesPipelineFunnel: React.FC = () => {
 
   return (
     <div 
-      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-2xl transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
+      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-sm transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
       onClick={() => navigate('/core/sales/pipeline')}
     >
       <div className="flex items-center justify-between mb-10 relative z-10">
@@ -25,11 +25,11 @@ export const SalesPipelineFunnel: React.FC = () => {
             <BarChart3 className="h-6 w-6" />
           </div>
           <div>
-            <h4 className="text-xl font-black italic uppercase tracking-tighter text-white">Sales Pipeline</h4>
+            <h4 className="text-xl font-semibold tracking-tighter text-white">Sales Pipeline</h4>
             <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Conversion from lead to closed-won</p>
           </div>
         </div>
-        <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary transition-all">
+        <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center border border-border group-hover:bg-primary transition-all">
           <Target className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
         </div>
       </div>
@@ -40,12 +40,12 @@ export const SalesPipelineFunnel: React.FC = () => {
             <div 
               style={{ width: s.width }} 
               className={cn(
-                "h-10 rounded-2xl shadow-2xl transition-all duration-500 group-hover/stage:scale-[1.03] flex items-center justify-between px-6 border border-white/10",
+                "h-10 rounded-2xl shadow-sm transition-all duration-500 group-hover/stage:scale-[1.03] flex items-center justify-between px-6 border border-border",
                 s.color, s.glow
               )}
             >
-              <span className="text-[10px] font-black text-white uppercase tracking-widest">{s.label}</span>
-              <span className="text-xs font-black text-white">{s.value}</span>
+              <span className="text-[10px] font-bold text-white uppercase tracking-widest">{s.label}</span>
+              <span className="text-xs font-bold text-white">{s.value}</span>
             </div>
             {i < stages.length - 1 && (
               <div className="h-2 w-0.5 bg-white/5 group-hover/stage:bg-white/20 transition-colors" />
@@ -54,12 +54,12 @@ export const SalesPipelineFunnel: React.FC = () => {
         ))}
       </div>
       
-      <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between opacity-50">
+      <div className="mt-8 pt-6 border-t border-border flex items-center justify-between opacity-50">
          <div className="flex items-center gap-2">
             <TrendingUp className="h-4 w-4 text-success" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Win Rate</span>
+            <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">Win Rate</span>
          </div>
-         <span className="text-lg font-black text-white">7.1%</span>
+         <span className="text-lg font-bold text-white">7.1%</span>
       </div>
       
       {/* Subtle background glow */}

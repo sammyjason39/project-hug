@@ -40,10 +40,10 @@ export default function TechShop() {
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
       <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border pb-8 gap-4">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.3em]">
             <ShoppingBag className="h-3 w-3" /> Hardware Catalog
           </div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase italic">
+          <h1 className="text-4xl font-bold tracking-tighter uppercase italic">
             Zenvix Tech Shop
           </h1>
           <p className="text-sm text-muted-foreground font-medium">Official hardware and provisioning hub for Zenvix infrastructure.</p>
@@ -78,10 +78,10 @@ export default function TechShop() {
         {(Array.isArray(filteredItems) ? filteredItems : []).map((item) => (
           <div 
             key={item.id} 
-            className="group relative bg-card border border-border rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 p-8"
+            className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:shadow-sm hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 p-8"
           >
              <div className="absolute top-0 right-0 p-8">
-                <Badge className="bg-primary/10 text-primary border-primary/20 font-black text-[8px] tracking-[0.2em] uppercase px-3">
+                <Badge className="bg-primary/10 text-primary border-primary/20 font-bold text-[8px] tracking-[0.2em] uppercase px-3">
                    {item.sku}
                 </Badge>
              </div>
@@ -95,7 +95,7 @@ export default function TechShop() {
              </div>
 
              <div className="space-y-2 mb-8">
-                <h3 className="text-xl font-black tracking-tight uppercase italic group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold tracking-tight uppercase italic group-hover:text-primary transition-colors">
                   {item.name}
                 </h3>
                 <p className="text-sm text-muted-foreground font-medium leading-relaxed line-clamp-2">
@@ -104,7 +104,7 @@ export default function TechShop() {
              </div>
 
              <div className="p-4 rounded-3xl bg-muted mb-8 space-y-3 border border-border">
-                <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <div className="flex items-center justify-between text-[10px] font-semibold tracking-widest text-muted-foreground">
                    <span>Administrative Note</span>
                    <Info className="h-3 w-3" />
                 </div>
@@ -115,14 +115,14 @@ export default function TechShop() {
 
              <div className="flex items-center justify-between mt-auto">
                 <div>
-                   <p className="text-[8px] font-black uppercase tracking-[0.2em] text-muted-foreground">Est. Cost</p>
-                   <p className="text-lg font-black">
+                   <p className="text-label tracking-[0.2em] text-muted-foreground">Est. Cost</p>
+                   <p className="text-lg font-bold">
                       Rp {(item.estimatedCost / 1000000).toFixed(1)}M
                    </p>
                 </div>
                 
                 <Button
-                  className="rounded-2xl bg-foreground dark:bg-primary text-background font-black text-[10px] uppercase tracking-widest px-6 h-12 group-hover:scale-105 transition-all"
+                  className="rounded-2xl bg-foreground dark:bg-primary text-background font-bold text-[10px] uppercase tracking-widest px-6 h-12 group-hover:scale-105 transition-all"
                   onClick={() => {
                     setActiveItem(item);
                     setIsDialogOpen(true);
@@ -135,15 +135,15 @@ export default function TechShop() {
         ))}
       </div>
 
-      <WorkspacePanel title="Deployment Flow" description="Understanding the orchestration sequence." className="rounded-[2.5rem] border-border shadow-xl overflow-hidden p-0">
+      <WorkspacePanel title="Deployment Flow" description="Understanding the orchestration sequence." className="rounded-2xl border-border shadow-sm overflow-hidden p-0">
          <div className="grid grid-cols-1 md:grid-cols-4">
             <div className="p-8 border-r border-border flex flex-col items-center text-center space-y-4 group">
                <div className="h-12 w-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
                   <ShoppingBag className="h-6 w-6" />
                </div>
                <div className="space-y-1">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Step 01</p>
-                  <p className="text-sm font-black uppercase italic">Catalog Selection</p>
+                  <p className="text-label text-muted-foreground">Step 01</p>
+                  <p className="text-sm font-semibold italic">Catalog Selection</p>
                </div>
             </div>
             <div className="p-8 border-r border-border flex flex-col items-center text-center space-y-4 group">
@@ -151,8 +151,8 @@ export default function TechShop() {
                   <Layers className="h-6 w-6" />
                </div>
                <div className="space-y-1">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Step 02</p>
-                  <p className="text-sm font-black uppercase italic">Stock Check Bridge</p>
+                  <p className="text-label text-muted-foreground">Step 02</p>
+                  <p className="text-sm font-semibold italic">Stock Check Bridge</p>
                </div>
             </div>
             <div className="p-8 border-r border-border flex flex-col items-center text-center space-y-4 group">
@@ -160,8 +160,8 @@ export default function TechShop() {
                   <Truck className="h-6 w-6" />
                </div>
                <div className="space-y-1">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Step 03</p>
-                  <p className="text-sm font-black uppercase italic">Fulfill or Procure</p>
+                  <p className="text-label text-muted-foreground">Step 03</p>
+                  <p className="text-sm font-semibold italic">Fulfill or Procure</p>
                </div>
             </div>
             <div className="p-8 flex flex-col items-center text-center space-y-4 group">
@@ -169,8 +169,8 @@ export default function TechShop() {
                   <Package className="h-6 w-6" />
                </div>
                <div className="space-y-1">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Step 04</p>
-                  <p className="text-sm font-black uppercase italic">Asset Registration</p>
+                  <p className="text-label text-muted-foreground">Step 04</p>
+                  <p className="text-sm font-semibold italic">Asset Registration</p>
                </div>
             </div>
          </div>

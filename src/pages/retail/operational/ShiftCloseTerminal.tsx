@@ -132,7 +132,7 @@ const ShiftCloseTerminal = () => {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center bg-background text-muted-foreground font-black italic uppercase tracking-[0.25em]">
+      <div className="h-screen flex flex-col items-center justify-center bg-background text-muted-foreground font-semibold tracking-[0.25em]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-[50%] h-[50%] bg-primary/20 blur-[150px] rounded-full animate-pulse" />
         </div>
@@ -145,10 +145,10 @@ const ShiftCloseTerminal = () => {
   if (!activeShift && !isClosed) {
     return (
       <div className="h-screen flex flex-col items-center justify-center bg-background text-muted-foreground">
-        <div className="w-24 h-24 bg-secondary/40 rounded-3xl flex items-center justify-center mb-8 border border-border shadow-2xl">
+        <div className="w-24 h-24 bg-secondary/40 rounded-3xl flex items-center justify-center mb-8 border border-border shadow-sm">
           <Lock className="w-10 h-10 text-muted-foreground" />
         </div>
-        <h2 className="text-3xl font-black italic text-foreground tracking-tighter uppercase mb-2">
+        <h2 className="text-3xl font-bold text-foreground tracking-tighter uppercase mb-2">
           Node Locked
         </h2>
         <p className="font-bold uppercase tracking-widest text-[10px] text-muted-foreground">
@@ -161,31 +161,31 @@ const ShiftCloseTerminal = () => {
   if (isClosed) {
     return (
       <div className="h-[calc(100vh-64px)] flex items-center justify-center bg-background p-8">
-        <GlassCard className="max-w-2xl w-full border-none bg-success/5 backdrop-blur-3xl shadow-2xl rounded-[3rem] overflow-hidden">
+        <GlassCard className="max-w-2xl w-full border-none bg-success/5 shadow-sm rounded-[3rem] overflow-hidden">
           <CardContent className="p-16 text-center space-y-10">
-            <div className="w-32 h-32 bg-success rounded-[2.5rem] flex items-center justify-center mx-auto shadow-2xl shadow-success/30 transform rotate-12 transition-transform hover:rotate-0 duration-500">
+            <div className="w-32 h-32 bg-success rounded-2xl flex items-center justify-center mx-auto shadow-sm shadow-success/30 transform rotate-12 transition-transform hover:rotate-0 duration-500">
               <ShieldCheck className="w-16 h-16 text-foreground" />
             </div>
             <div>
-              <h2 className="text-4xl font-black italic text-foreground tracking-tighter uppercase">
+              <h2 className="text-4xl font-bold text-foreground tracking-tighter uppercase">
                 Reconciled & Sealed
               </h2>
-              <p className="text-success font-black mt-3 tracking-[0.3em] text-[10px] uppercase italic">
+              <p className="text-success font-bold mt-3 tracking-[0.3em] text-[10px] uppercase italic">
                 Compliance ID: <span className="text-foreground">ZVX-RECON-{(activeShift?.id || "").slice(-8).toUpperCase()}</span>
               </p>
             </div>
             <Separator className="bg-success/20" />
             <div className="grid grid-cols-2 gap-8 text-left">
-              <div className="p-8 bg-secondary/40 rounded-[2rem] border border-success/20 shadow-inner">
-                <div className="text-[9px] font-black text-success/60 uppercase tracking-widest mb-2 italic">
+              <div className="p-8 bg-secondary/40 rounded-2xl border border-success/20 shadow-inner">
+                <div className="text-[9px] font-bold text-success/60 uppercase tracking-widest mb-2 italic">
                   Physical Tender
                 </div>
-                <div className="text-3xl font-black italic tracking-tighter text-foreground">
+                <div className="text-3xl font-bold tracking-tighter text-foreground">
                   {formatCurrency(parseAmountInput(actualCash), "IDR", "id-ID")}
                 </div>
               </div>
-              <div className="p-8 bg-secondary/40 rounded-[2rem] border border-success/20 shadow-inner">
-                <div className="text-[9px] font-black text-success/60 uppercase tracking-widest mb-2 italic">
+              <div className="p-8 bg-secondary/40 rounded-2xl border border-success/20 shadow-inner">
+                <div className="text-[9px] font-bold text-success/60 uppercase tracking-widest mb-2 italic">
                   Ledger Variance
                 </div>
                 <div className={`text-3xl font-black italic tracking-tighter ${variance < 0 ? "text-destructive" : variance > 0 ? "text-warning" : "text-success"}`}>
@@ -194,7 +194,7 @@ const ShiftCloseTerminal = () => {
               </div>
             </div>
             <Button
-              className="w-full h-20 bg-success hover:bg-success text-foreground font-black italic gap-4 rounded-2xl shadow-2xl shadow-success/20 transition-all uppercase tracking-[0.2em] text-sm"
+              className="w-full h-20 bg-success hover:bg-success text-foreground font-bold gap-4 rounded-2xl shadow-sm shadow-success/20 transition-all uppercase tracking-[0.2em] text-sm"
               onClick={async () => {
                 await refreshState();
                 window.location.href = "/m/retail/operational/gateway";
@@ -223,7 +223,7 @@ const ShiftCloseTerminal = () => {
                 <Landmark className="w-7 h-7" />
               </div>
               <div>
-                <h1 className="text-3xl font-black italic uppercase tracking-tighter text-foreground">
+                <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
                   Shift Reconciliation
                 </h1>
                 <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] ml-1">
@@ -235,7 +235,7 @@ const ShiftCloseTerminal = () => {
             <div className="flex items-center gap-3">
               <div className="px-4 py-2 bg-success/10 border border-success/20 rounded-xl flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-success" />
-                <span className="text-[10px] font-black italic uppercase text-success tracking-widest">
+                <span className="text-[10px] font-semibold text-success tracking-widest">
                   Compliance: ACTIVE
                 </span>
               </div>
@@ -243,17 +243,17 @@ const ShiftCloseTerminal = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <GlassCard className="border-none bg-primary/10 backdrop-blur-3xl shadow-2xl rounded-[2.5rem] relative overflow-hidden group">
+            <GlassCard className="border-none bg-primary/10 shadow-sm rounded-2xl relative overflow-hidden group">
               <div className="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-125 transition-transform">
                 <Banknote className="w-32 h-32 text-primary" />
               </div>
               <CardHeader className="pb-4 p-10">
-                <CardTitle className="text-[10px] font-black text-primary uppercase tracking-[0.3em] leading-none flex items-center gap-3 italic">
+                <CardTitle className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] leading-none flex items-center gap-3 italic">
                   <Calculator className="w-4 h-4" /> Expected Cash Tender
                 </CardTitle>
               </CardHeader>
               <CardContent className="px-10 pb-10">
-                <div className="text-6xl font-black text-foreground tracking-tighter italic">
+                <div className="text-6xl font-bold text-foreground tracking-tighter italic">
                   {formatCurrency(expectedCash, "IDR", "id-ID")}
                 </div>
                 {netAdjustments !== 0 && (
@@ -262,34 +262,34 @@ const ShiftCloseTerminal = () => {
                     Petty Cash: {netAdjustments < 0 ? "-" : "+"}{formatCurrency(Math.abs(netAdjustments), "IDR", "id-ID")}
                   </div>
                 )}
-                <p className="text-[10px] text-primary mt-4 uppercase font-black italic tracking-widest opacity-60">
+                <p className="text-[10px] text-primary mt-4 uppercase font-bold tracking-widest opacity-60">
                   Aggregated from Live Transaction Stream
                 </p>
               </CardContent>
             </GlassCard>
 
-            <GlassCard className="border-none bg-secondary/40 backdrop-blur-3xl shadow-2xl rounded-[2.5rem] group overflow-hidden">
+            <GlassCard className="border-none bg-secondary/40 shadow-sm rounded-2xl group overflow-hidden">
               <CardHeader className="pb-4 p-10">
-                <CardTitle className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] leading-none flex items-center gap-3 italic">
+                <CardTitle className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] leading-none flex items-center gap-3 italic">
                   <ChevronRight className="w-4 h-4 text-primary" /> Electronic Settlements
                 </CardTitle>
               </CardHeader>
               <CardContent className="px-10 pb-10">
-                <div className="text-6xl font-black text-foreground tracking-tighter italic">
+                <div className="text-6xl font-bold text-foreground tracking-tighter italic">
                   {formatCurrency(expectedCard, "IDR", "id-ID")}
                 </div>
-                <p className="text-[10px] text-muted-foreground mt-4 uppercase font-black italic tracking-widest opacity-60 text-right">
+                <p className="text-[10px] text-muted-foreground mt-4 uppercase font-bold tracking-widest opacity-60 text-right">
                   Verified PCI Gateway Consolidations
                 </p>
               </CardContent>
             </GlassCard>
           </div>
 
-          <GlassCard className="shadow-2xl border-none bg-secondary/40 backdrop-blur-3xl overflow-hidden rounded-[3rem]">
+          <GlassCard className="shadow-sm border-none bg-secondary/40 overflow-hidden rounded-[3rem]">
             <CardHeader className="bg-background text-foreground p-12 border-b border-border/40">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-3xl font-black italic tracking-tighter uppercase">
+                  <CardTitle className="text-3xl font-bold tracking-tighter uppercase">
                     Physical Tender Audit
                   </CardTitle>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] mt-1">
@@ -301,15 +301,15 @@ const ShiftCloseTerminal = () => {
             </CardHeader>
             <CardContent className="p-12 space-y-12">
               <div className="flex flex-col items-center justify-center p-16 bg-primary/[0.02] rounded-[3.5rem] border-4 border-dashed border-border relative group transition-all hover:bg-primary/[0.04] hover:border-primary/30">
-                <div className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.4em] mb-10 italic">
+                <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.4em] mb-10 italic">
                   Input Final Physical Count (IDR)
                 </div>
                 <div className="relative w-full max-w-xl">
-                  <span className="absolute left-8 top-1/2 -translate-y-1/2 text-6xl font-black text-foreground/10 italic tracking-tighter transition-colors group-focus-within:text-primary/30">
+                  <span className="absolute left-8 top-1/2 -translate-y-1/2 text-6xl font-bold text-foreground/10 italic tracking-tighter transition-colors group-focus-within:text-primary/30">
                     Rp
                   </span>
                   <Input
-                    className="h-32 pl-32 text-8xl font-black text-center border-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-foreground/5 text-foreground tracking-tighter italic"
+                    className="h-32 pl-32 text-8xl font-bold text-center border-none bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-foreground/5 text-foreground tracking-tighter italic"
                     placeholder="0"
                     type="tel"
                     value={actualCash}
@@ -328,24 +328,24 @@ const ShiftCloseTerminal = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground flex items-center gap-3 italic px-2">
+                  <label className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground flex items-center gap-3 italic px-2">
                     <FileCheck className="w-5 h-5 text-primary" /> Operational Summary
                   </label>
                   <Textarea
                     placeholder="Handover notes, operational remarks, or shift highlights..."
-                    className="min-h-[120px] border-none bg-secondary/40 focus:bg-primary/10 p-8 rounded-[2rem] text-sm font-bold italic text-foreground transition-all custom-scrollbar"
+                    className="min-h-[120px] border-none bg-secondary/40 focus:bg-primary/10 p-8 rounded-2xl text-sm font-bold italic text-foreground transition-all custom-scrollbar"
                     value={closingNote}
                     onChange={(e) => setClosingNote(e.target.value)}
                   />
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-destructive flex items-center gap-3 italic px-2">
+                  <label className="text-[10px] font-semibold tracking-[0.3em] text-destructive flex items-center gap-3 italic px-2">
                     <ShieldAlert className="w-5 h-5" /> Fiscal Compliance Declaration
                   </label>
                   <Textarea
                     placeholder="Declare overrides, confirm tax integrity, and sign-off on totals..."
-                    className="min-h-[120px] border-none bg-secondary/40 focus:bg-primary/10 p-8 rounded-[2rem] text-sm font-bold italic text-foreground transition-all custom-scrollbar"
+                    className="min-h-[120px] border-none bg-secondary/40 focus:bg-primary/10 p-8 rounded-2xl text-sm font-bold italic text-foreground transition-all custom-scrollbar"
                     value={complianceNote}
                     onChange={(e) => setComplianceNote(e.target.value)}
                   />
@@ -356,7 +356,7 @@ const ShiftCloseTerminal = () => {
                 <div className={`p-10 rounded-[2.5rem] border-2 flex flex-col justify-center transition-all animate-in slide-in-from-bottom-8 duration-700 ${needsExplanation ? "bg-destructive/10 border-destructive/30 shadow-[0_0_50px_hsl(var(--destructive)/0.1)]" : "bg-success/10 border-success/30 shadow-[0_0_50px_hsl(var(--success)/0.1)]"}`}>
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     <div>
-                      <div className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground mb-2 italic">
+                      <div className="text-[10px] font-semibold tracking-[0.4em] text-muted-foreground mb-2 italic">
                         Calculated Reconciliation Delta
                       </div>
                       <div className={`text-6xl font-black italic tracking-tighter ${variance < 0 ? "text-destructive" : variance > 0 ? "text-warning" : "text-success"}`}>
@@ -365,7 +365,7 @@ const ShiftCloseTerminal = () => {
                     </div>
                     {needsExplanation && (
                       <div className="flex-1 max-w-md space-y-4">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-destructive flex items-center gap-3 italic">
+                        <label className="text-label text-destructive flex items-center gap-3 italic">
                           <AlertCircle className="w-5 h-5 animate-pulse" /> Discrepancy Justification Mandatory
                         </label>
                         <Textarea
@@ -384,7 +384,7 @@ const ShiftCloseTerminal = () => {
 
           <div className="flex flex-col items-center gap-8 pb-12">
             <Button
-              className="w-full h-28 text-3xl font-black italic uppercase tracking-[0.3em] bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xl rounded-[2.5rem] group relative overflow-hidden transition-all active:scale-[0.98]"
+              className="w-full h-28 text-3xl font-semibold tracking-[0.3em] bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm rounded-2xl group relative overflow-hidden transition-all active:scale-[0.98]"
               onClick={handleCloseShift}
               disabled={isClosing}
             >
@@ -392,16 +392,16 @@ const ShiftCloseTerminal = () => {
                 <RefreshCw className="w-12 h-12 animate-spin text-primary" />
               ) : (
                 <div className="flex items-center gap-8">
-                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-foreground shadow-xl group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-foreground shadow-sm group-hover:scale-110 transition-transform">
                     <Lock className="w-9 h-9" />
                   </div>
                   <span>Seal & Commit Shift</span>
                 </div>
               )}
             </Button>
-            <div className="flex items-center gap-6 px-12 py-5 bg-secondary/40 rounded-full border border-border backdrop-blur-xl">
+            <div className="flex items-center gap-6 px-12 py-5 bg-secondary/40 rounded-full border border-border">
               <ShieldCheck className="w-6 h-6 text-success" />
-              <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] italic">
+              <p className="text-[10px] text-muted-foreground font-semibold tracking-[0.2em] italic">
                 Secure Hash will be appended to the <span className="text-foreground">Zenvix Fiscal Ledger</span>
               </p>
             </div>

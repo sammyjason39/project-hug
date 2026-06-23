@@ -143,14 +143,14 @@ export const ChannelProductWizard: React.FC<Props> = ({
       {[1, 2, 3].map((s) => (
         <div key={s} className="flex items-center gap-2">
           <div className={cn(
-            "w-8 h-8 rounded-full flex items-center justify-center font-black italic transition-all",
+            "w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all",
             step === s ? "bg-secondary text-foreground scale-110 shadow-lg" : 
             step > s ? "bg-success text-foreground" : "bg-secondary/10 text-muted-foreground"
           )}>
             {step > s ? <CheckCircle2 className="w-4 h-4" /> : s}
           </div>
           <span className={cn(
-            "text-[10px] font-black uppercase tracking-widest",
+            "text-[10px] font-semibold tracking-widest",
             step === s ? "text-foreground" : "text-muted-foreground"
           )}>
             {s === 1 ? "Categories" : s === 2 ? "Items" : "Parameters"}
@@ -165,7 +165,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
     return (
       <div className="p-6 flex flex-col items-center justify-center space-y-4">
         <RefreshCw className="w-8 h-8 animate-spin text-primary" />
-        <p className="text-xs font-black italic text-muted-foreground uppercase tracking-widest">
+        <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
           Synchronizing Global Ledger...
         </p>
       </div>
@@ -177,7 +177,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
       <div className="p-8 border-b bg-secondary/5">
         <StepIndicator />
         <div className="space-y-1">
-          <h2 className="text-2xl font-black italic uppercase tracking-tighter text-foreground">
+          <h2 className="text-2xl font-semibold tracking-tighter text-foreground">
             {step === 1 ? "Select Channel Categories" : 
              step === 2 ? "Refine Product Selection" : 
              "Configure Sync Parameters"}
@@ -198,7 +198,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
               <Card 
                 key={cat.id} 
                 className={cn(
-                  "cursor-pointer transition-all rounded-[2rem] border-2 flex items-center p-6 gap-4",
+                  "cursor-pointer transition-all rounded-2xl border-2 flex items-center p-6 gap-4",
                   selectedCats.includes(cat.id) ? "border-border bg-secondary/5" : "border-border hover:border-border"
                 )}
                 onClick={() => toggleStep1(cat.id)}
@@ -210,7 +210,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
                   <Layers className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-black italic uppercase text-foreground">{cat.name}</p>
+                  <p className="text-sm font-semibold text-foreground">{cat.name}</p>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{(Array.isArray(products) ? products : []).filter(p => p.category_id === cat.id).length} Items Available</p>
                 </div>
                 <Checkbox checked={selectedCats.includes(cat.id)} className="rounded-full h-5 w-5" />
@@ -240,17 +240,17 @@ export const ChannelProductWizard: React.FC<Props> = ({
                       <Package className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-black italic uppercase truncate">{p.name}</p>
+                      <p className="text-xs font-semibold truncate">{p.name}</p>
                       <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{p.sku}</p>
                     </div>
                     <div className="text-right mr-4">
-                      <Badge variant="outline" className="text-[10px] font-black">{p.categoryName || "Uncategorized"}</Badge>
+                      <Badge variant="outline" className="text-[10px] font-bold">{p.categoryName || "Uncategorized"}</Badge>
                     </div>
                     <Button 
                       size="sm"
                       variant={selectedProds[p.id]?.visible ? "default" : "outline"}
                       className={cn(
-                        "rounded-xl font-black italic uppercase text-[10px] px-6 h-10 transition-all",
+                        "rounded-xl font-semibold text-[10px] px-6 h-10 transition-all",
                         selectedProds[p.id]?.visible ? "bg-success hover:bg-success border-none" : ""
                       )}
                       onClick={() => toggleProduct(p.id)}
@@ -263,7 +263,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
               {filteredProducts.length === 0 && (
                 <div className="text-center p-6 space-y-4">
                   <AlertCircle className="w-12 h-12 text-muted-foreground mx-auto" />
-                  <p className="text-xs font-black italic text-muted-foreground uppercase tracking-widest">No matching assets found in selected categories</p>
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">No matching assets found in selected categories</p>
                 </div>
               )}
             </div>
@@ -276,7 +276,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
             <div className="p-6 bg-primary/5 rounded-3xl border border-primary flex gap-4">
               <Settings2 className="w-10 h-10 text-primary" />
               <div>
-                <h4 className="font-black italic text-primary text-sm">Sync Logic Override</h4>
+                <h4 className="font-bold text-primary text-sm">Sync Logic Override</h4>
                 <p className="text-[11px] font-bold text-primary leading-relaxed max-w-xl">
                   Assigning stock here updates the **Master Inventory**. Changes by non-HOD users 
                   will be cached for approval. Website reservations occur only at checkout.
@@ -288,17 +288,17 @@ export const ChannelProductWizard: React.FC<Props> = ({
               {(Array.isArray(filteredProducts) ? filteredProducts : []).filter(p => selectedProds[p.id]?.visible).map((p) => (
                 <div key={p.id} className="py-6 flex items-center gap-8 group">
                   <div className="flex-1 space-y-1">
-                    <p className="text-sm font-black italic uppercase">{p.name}</p>
+                    <p className="text-sm font-semibold">{p.name}</p>
                     <div className="flex items-center gap-3">
-                      <Badge variant="secondary" className="text-[9px] font-black uppercase">SOH: {p.stock}</Badge>
-                      <Badge className="bg-success/10 text-success hover:bg-success/10 text-[9px] font-black border-none uppercase">Published</Badge>
+                      <Badge variant="secondary" className="text-[9px] font-semibold">SOH: {p.stock}</Badge>
+                      <Badge className="bg-success/10 text-success hover:bg-success/10 text-[9px] font-bold border-none uppercase">Published</Badge>
                     </div>
                   </div>
                   <div className="w-48 space-y-2">
-                    <label className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1">Website Stock</label>
+                    <label className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] ml-1">Website Stock</label>
                     <Input 
                       type="number"
-                      className="h-12 rounded-xl font-black italic text-sm text-center"
+                      className="h-12 rounded-xl font-bold text-sm text-center"
                       value={selectedProds[p.id]?.stock}
                       onChange={(e) => updateProductStock(p.id, e.target.value)}
                     />
@@ -307,7 +307,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
               ))}
               {(Array.isArray(filteredProducts) ? filteredProducts : []).filter(p => selectedProds[p.id]?.visible).length === 0 && (
                 <div className="text-center py-12">
-                   <p className="text-xs font-black italic text-muted-foreground uppercase tracking-widest">No items selected for visibility</p>
+                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">No items selected for visibility</p>
                 </div>
               )}
             </div>
@@ -318,7 +318,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
       <div className="p-8 border-t flex justify-between items-center bg-secondary/5">
         <Button 
           variant="ghost" 
-          className="h-14 px-8 rounded-2xl font-black italic uppercase text-xs text-muted-foreground hover:text-destructive transition-colors"
+          className="h-14 px-8 rounded-2xl font-semibold text-xs text-muted-foreground hover:text-destructive transition-colors"
           onClick={onFinished}
         >
           {step === 1 ? "Exit Wizard" : "Back"}
@@ -327,7 +327,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
           {step > 1 && (
             <Button 
               variant="outline" 
-              className="h-14 px-10 rounded-2xl font-black italic uppercase text-xs border-2 border-border"
+              className="h-14 px-10 rounded-2xl font-semibold text-xs border-2 border-border"
               onClick={() => setStep(step - 1)}
             >
               Previous Node
@@ -335,7 +335,7 @@ export const ChannelProductWizard: React.FC<Props> = ({
           )}
           <Button 
             className={cn(
-              "h-14 px-12 rounded-2xl font-black italic uppercase text-xs gap-3 shadow-xl",
+              "h-14 px-12 rounded-2xl font-semibold text-xs gap-3 shadow-sm",
               step === 3 ? "bg-success hover:bg-success" : "bg-secondary hover:bg-secondary/60"
             )}
             onClick={step === 3 ? handleFinish : () => setStep(step + 1)}

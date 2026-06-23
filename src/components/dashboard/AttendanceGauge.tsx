@@ -46,8 +46,8 @@ export const AttendanceGauge: React.FC = () => {
           </PieChart>
         </ResponsiveContainer>
         <div className="absolute inset-0 top-12 flex flex-col items-center justify-center">
-          <p className="text-3xl font-black text-muted-foreground">{value}%</p>
-          <p className="text-[10px] font-black uppercase text-muted-foreground">Optimal</p>
+          <p className="text-3xl font-bold text-muted-foreground">{value}%</p>
+          <p className="text-[10px] font-semibold text-muted-foreground">Optimal</p>
         </div>
       </div>
       <div className="text-center mt-[-20px]">

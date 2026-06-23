@@ -34,10 +34,10 @@ export const ArApWaterfallChart: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col h-full rounded-[2.5rem] glass-card p-8 card-premium overflow-hidden group">
+    <div className="flex flex-col h-full rounded-2xl glass-card p-8 card-premium overflow-hidden group">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h4 className="text-xl font-black italic uppercase tracking-tighter text-foreground">AR/AP Aging Waterfall</h4>
+          <h4 className="text-xl font-semibold tracking-tighter text-foreground">AR/AP Aging Waterfall</h4>
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Accounts Receivable vs Payable Aging Buckets</p>
         </div>
         <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
@@ -93,17 +93,17 @@ export const ArApWaterfallChart: React.FC = () => {
 
       <div className="mt-6 grid grid-cols-2 gap-6 border-t border-border/50 pt-6">
         <div className="group/metric flex flex-col items-center text-center p-4 rounded-2xl bg-secondary/30 transition-all hover:bg-secondary/50">
-          <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover/metric:text-success transition-colors">Net Working Cap</p>
+          <p className="text-[10px] font-semibold tracking-widest text-muted-foreground group-hover/metric:text-success transition-colors">Net Working Cap</p>
           <div className="flex items-center gap-2 mt-2">
             <ArrowUpRight className="h-4 w-4 text-success" />
-            <p className="text-2xl font-black text-foreground">$27.0k</p>
+            <p className="text-2xl font-bold text-foreground">$27.0k</p>
           </div>
         </div>
         <div className="group/metric flex flex-col items-center text-center p-4 rounded-2xl bg-secondary/30 transition-all hover:bg-secondary/50">
-          <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover/metric:text-primary transition-colors">Collection Ratio</p>
+          <p className="text-[10px] font-semibold tracking-widest text-muted-foreground group-hover/metric:text-primary transition-colors">Collection Ratio</p>
           <div className="flex items-center gap-2 mt-2">
             <TrendingUp className="h-4 w-4 text-primary" />
-            <p className="text-2xl font-black text-foreground">92.4%</p>
+            <p className="text-2xl font-bold text-foreground">92.4%</p>
           </div>
         </div>
       </div>

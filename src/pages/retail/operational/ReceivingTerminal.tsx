@@ -202,7 +202,7 @@ const ReceivingTerminal = () => {
               <Truck className="w-7 h-7" />
             </div>
             <div>
-              <h1 className="text-3xl font-black italic uppercase tracking-tighter text-foreground">
+              <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
                 Receiving Terminal
               </h1>
               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] ml-1">
@@ -214,7 +214,7 @@ const ReceivingTerminal = () => {
           <div className="flex items-center gap-3">
             <div className="px-4 py-2 bg-primary/10 border border-primary rounded-xl flex items-center gap-2">
               <Activity className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-[10px] font-black italic uppercase text-primary tracking-widest">
+              <span className="text-[10px] font-semibold text-primary tracking-widest">
                 Port Status: Optimal
               </span>
             </div>
@@ -222,7 +222,7 @@ const ReceivingTerminal = () => {
               variant="outline" 
               size="sm" 
               onClick={() => window.location.reload()}
-              className="h-10 rounded-xl bg-secondary/40 border-border text-foreground hover:bg-accent font-black italic uppercase text-[10px] tracking-widest gap-2"
+              className="h-10 rounded-xl bg-secondary/40 border-border text-foreground hover:bg-accent font-semibold text-[10px] tracking-widest gap-2"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} /> Refresh Manifests
             </Button>
@@ -242,10 +242,10 @@ const ReceivingTerminal = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 flex-1 overflow-hidden">
           <div className="lg:col-span-3 flex flex-col gap-6 overflow-hidden">
             {!activeShipment ? (
-              <GlassCard className="flex-1 flex flex-col bg-secondary/40 backdrop-blur-3xl border-border rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <GlassCard className="flex-1 flex flex-col bg-secondary/40 border-border rounded-2xl overflow-hidden shadow-sm">
                 <CardHeader className="flex flex-row items-center justify-between border-b border-border p-8">
                   <div className="space-y-1">
-                    <CardTitle className="text-2xl font-black italic text-foreground tracking-tighter uppercase">
+                    <CardTitle className="text-2xl font-bold text-foreground tracking-tighter uppercase">
                       Inbound Queue
                     </CardTitle>
                     <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -254,7 +254,7 @@ const ReceivingTerminal = () => {
                   </div>
                   <Button
                     variant="outline"
-                    className="gap-3 font-black italic bg-primary border-none text-foreground rounded-xl px-8 h-14 shadow-lg shadow-primary/20 hover:bg-primary/50 transition-all uppercase text-[11px] tracking-widest"
+                    className="gap-3 font-bold bg-primary border-none text-foreground rounded-xl px-8 h-14 shadow-lg shadow-primary/20 hover:bg-primary/50 transition-all uppercase text-[11px] tracking-widest"
                     onClick={() => {
                       const first = shipments.find((s) => s.status === "pending");
                       if (first) {
@@ -273,7 +273,7 @@ const ReceivingTerminal = () => {
                     {isLoading ? (
                       <div className="flex flex-col items-center justify-center h-64 text-muted-foreground gap-4">
                         <RefreshCw className="w-12 h-12 animate-spin text-primary" />
-                        <p className="font-black italic uppercase tracking-[0.3em] text-xs">
+                        <p className="font-semibold tracking-[0.3em] text-xs">
                           Syncing Manifest Repository...
                         </p>
                       </div>
@@ -282,7 +282,7 @@ const ReceivingTerminal = () => {
                         .map((shipment) => (
                           <div
                             key={shipment.id}
-                            className="p-6 rounded-[2rem] border border-border/40 bg-muted/10 flex items-center justify-between hover:bg-muted/20 hover:border-primary transition-all cursor-pointer group"
+                            className="p-6 rounded-2xl border border-border/40 bg-muted/10 flex items-center justify-between hover:bg-muted/20 hover:border-primary transition-all cursor-pointer group"
                             onClick={() => startIntake(shipment)}
                           >
                             <div className="flex gap-6">
@@ -290,20 +290,20 @@ const ReceivingTerminal = () => {
                                 <Package2 className="w-8 h-8" />
                               </div>
                               <div className="flex flex-col justify-center">
-                                <div className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">
+                                <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] mb-1">
                                   Manifest ID: <span className="text-primary">{shipment.id}</span>
                                 </div>
-                                <div className="text-2xl font-black italic text-foreground tracking-tighter">
+                                <div className="text-2xl font-bold text-foreground tracking-tighter">
                                   {shipment.vendor}
                                 </div>
                               </div>
                             </div>
                             <div className="flex items-center gap-12">
                               <div className="text-right">
-                                <div className="text-2xl font-black text-foreground italic tracking-tighter">
+                                <div className="text-2xl font-bold text-foreground italic tracking-tighter">
                                   {shipment.items.reduce((a, b) => a + b.expected, 0)} SKUs
                                 </div>
-                                <div className="text-[9px] text-muted-foreground font-black uppercase tracking-widest">
+                                <div className="text-[9px] text-muted-foreground font-semibold tracking-widest">
                                   {shipment.status === "pending" ? "UNPROCESSED" : "RECEIVING"}
                                 </div>
                               </div>
@@ -327,7 +327,7 @@ const ReceivingTerminal = () => {
                     {!isLoading && (Array.isArray(shipments) ? shipments : []).filter((s) => s.status !== "completed").length === 0 && (
                       <div className="flex flex-col items-center justify-center h-64 text-muted-foreground gap-4">
                         <CheckCircle2 className="w-16 h-16 text-success opacity-20" />
-                        <p className="font-black italic uppercase tracking-[0.3em] text-[10px]">
+                        <p className="font-semibold tracking-[0.3em] text-[10px]">
                           All Dock Manifests Cleared
                         </p>
                       </div>
@@ -336,17 +336,17 @@ const ReceivingTerminal = () => {
                 </CardContent>
               </GlassCard>
             ) : (
-              <GlassCard className="flex-1 flex flex-col bg-secondary/40 backdrop-blur-3xl border-border rounded-[2.5rem] overflow-hidden shadow-2xl animate-in fade-in slide-in-from-right-12 duration-700">
+              <GlassCard className="flex-1 flex flex-col bg-secondary/40 border-border rounded-2xl overflow-hidden shadow-sm animate-in fade-in slide-in-from-right-12 duration-700">
                 <CardHeader className="bg-background text-foreground flex flex-row items-center justify-between p-8 border-b border-border/40">
                   <div className="flex items-center gap-6">
                     <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
                       <Truck className="w-8 h-8" />
                     </div>
                     <div>
-                      <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary italic">
+                      <div className="text-[10px] font-semibold tracking-[0.3em] text-primary italic">
                         Live Intake Protocol
                       </div>
-                      <CardTitle className="text-3xl font-black italic tracking-tighter">
+                      <CardTitle className="text-3xl font-bold tracking-tighter">
                         {activeShipment.id}
                       </CardTitle>
                       <div className="text-xs font-bold text-muted-foreground uppercase tracking-tighter">
@@ -380,7 +380,7 @@ const ReceivingTerminal = () => {
                                 <Package2 className={`w-8 h-8 ${hasVariance && item.received > 0 ? "text-destructive" : "text-muted-foreground"}`} />
                               </div>
                               <div className="flex flex-col justify-center">
-                                <div className="text-lg font-black text-foreground italic tracking-tight">
+                                <div className="text-lg font-bold text-foreground italic tracking-tight">
                                   {item.name}
                                 </div>
                                 <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
@@ -390,25 +390,25 @@ const ReceivingTerminal = () => {
                             </div>
                             <div className="flex items-center gap-16">
                               <div className="text-center">
-                                <div className="text-[9px] font-black text-muted-foreground uppercase tracking-widest mb-1">
+                                <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">
                                   Manifested
                                 </div>
-                                <div className="text-2xl font-black italic text-muted-foreground">
+                                <div className="text-2xl font-bold text-muted-foreground">
                                   {item.expected}
                                 </div>
                               </div>
                               <div className="flex items-center gap-4 bg-background/40 p-2 rounded-2xl border border-border shadow-inner">
                                 <button
-                                  className="h-12 w-12 bg-secondary/40 hover:bg-accent text-foreground rounded-xl font-black text-xl transition-all active:scale-90"
+                                  className="h-12 w-12 bg-secondary/40 hover:bg-accent text-foreground rounded-xl font-bold text-xl transition-all active:scale-90"
                                   onClick={() => updateReceived(item.itemId, -1)}
                                 >
                                   -
                                 </button>
-                                <div className="w-20 text-center text-3xl font-black italic tracking-tighter text-foreground">
+                                <div className="w-20 text-center text-3xl font-bold tracking-tighter text-foreground">
                                   {item.received}
                                 </div>
                                 <button
-                                  className="h-12 w-12 bg-secondary/40 hover:bg-accent text-foreground rounded-xl font-black text-xl transition-all active:scale-90"
+                                  className="h-12 w-12 bg-secondary/40 hover:bg-accent text-foreground rounded-xl font-bold text-xl transition-all active:scale-90"
                                   onClick={() => updateReceived(item.itemId, 1)}
                                 >
                                   +
@@ -416,7 +416,7 @@ const ReceivingTerminal = () => {
                               </div>
                               <div className="w-24 flex justify-end">
                                 {hasVariance && item.received > 0 && (
-                                  <Badge className="bg-destructive text-foreground border-none text-[9px] font-black italic px-3 py-1 shadow-lg shadow-destructive/20 animate-pulse">
+                                  <Badge className="bg-destructive text-foreground border-none text-[9px] font-bold px-3 py-1 shadow-lg shadow-destructive/20 animate-pulse">
                                     {item.received - item.expected > 0 ? `+${item.received - item.expected}` : item.received - item.expected} DELTA
                                   </Badge>
                                 )}
@@ -435,10 +435,10 @@ const ReceivingTerminal = () => {
                   <div className="p-10 bg-background text-foreground flex justify-between items-center border-t border-border relative overflow-hidden">
                     <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
                     <div>
-                      <div className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-2 italic">
+                      <div className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-2 italic">
                         Intake Summation
                       </div>
-                      <div className="text-5xl font-black italic tracking-tighter">
+                      <div className="text-5xl font-bold tracking-tighter">
                         {activeShipment.items.reduce((a, b) => a + b.received, 0)}{" "}
                         <span className="text-lg text-muted-foreground not-italic">
                           / {activeShipment.items.reduce((a, b) => a + b.expected, 0)} UNITS
@@ -447,7 +447,7 @@ const ReceivingTerminal = () => {
                     </div>
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/50 font-black italic h-20 px-16 rounded-[1.5rem] shadow-2xl shadow-primary/20 text-xl transition-transform active:scale-95 uppercase tracking-widest"
+                      className="bg-primary hover:bg-primary/50 font-bold h-20 px-16 rounded-xl shadow-sm shadow-primary/20 text-xl transition-transform active:scale-95 uppercase tracking-widest"
                       onClick={completeIntake}
                       disabled={isProcessing}
                     >
@@ -460,9 +460,9 @@ const ReceivingTerminal = () => {
           </div>
 
           <div className="flex flex-col gap-8">
-            <GlassCard className="border-none bg-destructive/10 backdrop-blur-3xl shadow-2xl rounded-[2.5rem] overflow-hidden group">
+            <GlassCard className="border-none bg-destructive/10 shadow-sm rounded-2xl overflow-hidden group">
               <CardHeader className="py-6 px-8 border-b border-destructive/20">
-                <CardTitle className="flex items-center gap-3 text-destructive text-[11px] uppercase font-black tracking-[0.3em] leading-none italic">
+                <CardTitle className="flex items-center gap-3 text-destructive text-[11px] uppercase font-bold tracking-[0.3em] leading-none italic">
                   <AlertTriangle className="w-5 h-5" /> Variance Watch
                 </CardTitle>
               </CardHeader>
@@ -472,26 +472,26 @@ const ReceivingTerminal = () => {
                 </p>
                 <Button 
                   onClick={() => navigate("/core/logistics")}
-                  className="w-full text-[10px] font-black italic uppercase h-12 bg-destructive text-foreground hover:bg-destructive transition-all rounded-xl shadow-lg shadow-destructive/20 tracking-widest"
+                  className="w-full text-[10px] font-semibold h-12 bg-destructive text-foreground hover:bg-destructive transition-all rounded-xl shadow-lg shadow-destructive/20 tracking-widest"
                 >
                   Flag Intake Errors
                 </Button>
               </CardContent>
             </GlassCard>
 
-            <GlassCard className="flex-1 bg-secondary/40 backdrop-blur-3xl border-border rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col">
+            <GlassCard className="flex-1 bg-secondary/40 border-border rounded-2xl shadow-sm overflow-hidden flex flex-col">
               <CardHeader className="border-b border-border/40 p-8">
-                <CardTitle className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.4em] italic">
+                <CardTitle className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.4em] italic">
                   Intake Velocity
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-8 flex-1 flex flex-col justify-between gap-12">
                 <div className="space-y-4">
                   <div className="flex justify-between items-end">
-                    <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">
                       Efficiency
                     </span>
-                    <span className="text-3xl font-black italic text-foreground tracking-tighter">
+                    <span className="text-3xl font-bold text-foreground tracking-tighter">
                       92%
                     </span>
                   </div>
@@ -503,19 +503,19 @@ const ReceivingTerminal = () => {
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-3 h-3 rounded-full bg-success shadow-[0_0_15px_hsl(var(--success)/0.5)]" />
-                    <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest italic">
+                    <span className="text-[10px] font-semibold text-muted-foreground tracking-widest italic">
                       Ledger Status: PURE_SYNC
                     </span>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-3 h-3 rounded-full bg-primary/50 shadow-[0_0_15px_hsl(var(--primary)/0.5)]" />
-                    <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest italic">
+                    <span className="text-[10px] font-semibold text-muted-foreground tracking-widest italic">
                       Node: {activeStore?.name || "LOCAL_DOCK"}
                     </span>
                   </div>
                   <div className="flex items-center gap-4">
                     <Layers className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest italic">
+                    <span className="text-[10px] font-semibold text-muted-foreground tracking-widest italic">
                       Buffer: OPTIMAL
                     </span>
                   </div>

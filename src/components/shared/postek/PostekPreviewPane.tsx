@@ -83,7 +83,7 @@ export const PostekPreviewPane: React.FC<PostekPreviewPaneProps> = ({
         return item.price ? (
           <div className="w-full h-full flex items-center justify-center overflow-hidden">
             <span
-              className="font-black text-center leading-none"
+              className="font-bold text-center leading-none"
               style={{
                 fontSize: `${Math.max(8, block.height * PREVIEW_SCALE * 0.7)}px`,
               }}
@@ -105,7 +105,7 @@ export const PostekPreviewPane: React.FC<PostekPreviewPaneProps> = ({
         <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
           Postek Engine Preview Layout (Physical Mode)
         </span>
-        <Badge variant="outline" className="bg-white/50 text-[10px] font-bold">
+        <Badge variant="outline" className="bg-card text-[10px] font-bold">
           1 mm = {PREVIEW_SCALE} px
         </Badge>
       </div>
@@ -121,7 +121,7 @@ export const PostekPreviewPane: React.FC<PostekPreviewPaneProps> = ({
         </div>
 
         <DndContext onDragEnd={handleDragEnd}>
-          <div className="flex flex-col items-center shadow-2xl rounded-sm">
+          <div className="flex flex-col items-center shadow-sm rounded-sm">
             {/* Vertical Gap Feed */}
             {gap > 0 && (
               <div

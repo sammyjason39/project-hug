@@ -143,16 +143,16 @@ export default function DeviceDesk() {
       />
 
       <Dialog open={!!selectedDevice} onOpenChange={() => setSelectedDevice(null)}>
-        <DialogContent className="max-w-md bg-background p-0 overflow-hidden border-none shadow-2xl">
+        <DialogContent className="max-w-md bg-background p-0 overflow-hidden border-none shadow-sm">
           <div className="bg-primary p-8 text-white relative">
              <div className="absolute top-0 right-0 p-8 opacity-10">
                 <Laptop className="h-24 w-24" />
              </div>
-             <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 mb-2">Device Management</p>
-             <h3 className="text-3xl font-black tracking-tighter uppercase italic">{selectedDevice?.deviceName}</h3>
+             <p className="text-[10px] font-semibold tracking-[0.3em] opacity-60 mb-2">Device Management</p>
+             <h3 className="text-3xl font-bold tracking-tighter uppercase italic">{selectedDevice?.deviceName}</h3>
           </div>
           <div className="p-8 space-y-6">
-            <div className="grid grid-cols-2 text-[10px] font-black uppercase tracking-widest gap-y-4">
+            <div className="grid grid-cols-2 text-[10px] font-semibold tracking-widest gap-y-4">
               <div className="space-y-1">
                  <span className="text-muted-foreground">Node Identity</span>
                  <p className="text-xs font-mono font-bold">{selectedDevice?.id}</p>
@@ -178,7 +178,7 @@ export default function DeviceDesk() {
             <div className="flex flex-col gap-2 pt-2">
               <Button
                 variant="outline"
-                className="w-full rounded-xl font-black text-[10px] uppercase tracking-widest py-6 border-muted dark:border-muted"
+                className="w-full rounded-xl font-bold text-[10px] uppercase tracking-widest py-6 border-muted dark:border-muted"
                 onClick={async () => {
                   try {
                     if (selectedDevice) {
@@ -196,7 +196,7 @@ export default function DeviceDesk() {
               </Button>
               <Button
                 variant="destructive"
-                className="w-full rounded-xl font-black text-[10px] uppercase tracking-widest py-6 shadow-xl shadow-destructive/20"
+                className="w-full rounded-xl font-bold text-[10px] uppercase tracking-widest py-6 shadow-sm shadow-destructive/20"
                 onClick={async () => {
                   try {
                     if (selectedDevice) {

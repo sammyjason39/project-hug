@@ -184,11 +184,11 @@ const DeveloperConsole = ({
         <div className="space-y-4 bg-secondary/5 p-6 rounded-3xl border border-border flex-1">
           <div className="flex items-center gap-2 mb-2">
             <Server className="w-5 h-5 text-muted-foreground" />
-            <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">Request Configuration</span>
+            <span className="text-xs font-semibold tracking-widest text-muted-foreground">Request Configuration</span>
           </div>
 
           <div className="grid grid-cols-[100px_1fr] gap-2">
-            <div className="bg-muted/20 rounded-xl flex items-center justify-center font-black text-muted-foreground">
+            <div className="bg-muted/20 rounded-xl flex items-center justify-center font-bold text-muted-foreground">
                {method}
             </div>
             <Select value={endpoint} onValueChange={handleEndpointChange}>
@@ -208,7 +208,7 @@ const DeveloperConsole = ({
 
           <div className="space-y-3">
              <div className="flex justify-between">
-                <Label className="text-[10px] font-black uppercase text-muted-foreground">Client Credentials</Label>
+                <Label className="text-[10px] font-semibold text-muted-foreground">Client Credentials</Label>
              </div>
              <div className="grid grid-cols-1 gap-2">
                <Input
@@ -230,7 +230,7 @@ const DeveloperConsole = ({
           {method === "POST" && (
             <div className="flex-1 flex flex-col min-h-[200px]">
               <div className="flex justify-between mb-2">
-                 <Label className="text-[10px] font-black uppercase text-muted-foreground">Request Body (JSON)</Label>
+                 <Label className="text-[10px] font-semibold text-muted-foreground">Request Body (JSON)</Label>
                  <Braces className="w-3 h-3 text-muted-foreground" />
               </div>
               <textarea
@@ -246,7 +246,7 @@ const DeveloperConsole = ({
         <Button 
           onClick={executeRequest}
           disabled={isLoading}
-          className="h-14 bg-primary hover:bg-primary/95 text-foreground rounded-2xl font-black italic uppercase tracking-widest shadow-xl"
+          className="h-14 bg-primary hover:bg-primary/95 text-foreground rounded-2xl font-semibold tracking-widest shadow-sm"
         >
            {isLoading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Play className="w-5 h-5 mr-2 fill-current" />}
            Send Request
@@ -258,7 +258,7 @@ const DeveloperConsole = ({
          <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
                <Code2 className="w-5 h-5 text-primary" />
-               <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">Response Output</span>
+               <span className="text-xs font-semibold tracking-widest text-muted-foreground">Response Output</span>
             </div>
             {status && (
                <div className={`px-2 py-1 rounded-md text-[10px] font-black ${status >= 200 && status < 300 ? 'bg-success/20 text-success' : 'bg-destructive/20 text-destructive'}`}>
@@ -267,7 +267,7 @@ const DeveloperConsole = ({
             )}
          </div>
 
-         <div className="flex-1 bg-black/50 rounded-xl p-4 overflow-auto border border-white/5 relative group">
+         <div className="flex-1 bg-black/50 rounded-xl p-4 overflow-auto border border-border relative group">
             <Button 
               size="icon" 
               variant="ghost" 

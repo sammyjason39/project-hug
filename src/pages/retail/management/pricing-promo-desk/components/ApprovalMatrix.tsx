@@ -44,10 +44,10 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
   const isQuorum = governanceState.quorumReached;
 
   return (
-    <Card className="p-8 bg-secondary border-border text-foreground rounded-2xl shadow-2xl">
+    <Card className="p-8 bg-secondary border-border text-foreground rounded-2xl shadow-sm">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h3 className="text-xs font-black italic uppercase tracking-widest text-primary">
+          <h3 className="text-xs font-semibold tracking-widest text-primary">
             Signatory Gatekeeping
           </h3>
           <div className="text-[10px] font-bold text-muted-foreground mt-1 uppercase">
@@ -58,7 +58,7 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
         </div>
         <Badge
           className={cn(
-            "font-black italic text-[10px] tracking-widest border-none px-3 py-1",
+            "font-bold text-[10px] tracking-widest border-none px-3 py-1",
             isQuorum
               ? "bg-success/20 text-success"
               : "bg-warning text-warning",
@@ -75,28 +75,28 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
             return (
               <div
                 key={dept}
-                className="flex flex-col items-center p-5 rounded-3xl bg-secondary/60 border border-white/5 space-y-4 hover:bg-secondary/60 transition-colors"
+                className="flex flex-col items-center p-5 rounded-3xl bg-secondary/60 border border-border space-y-4 hover:bg-secondary/60 transition-colors"
               >
                 {signature ? (
                   <CheckCircle2 className="w-8 h-8 text-success drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]" />
                 ) : (
                   <Lock className="w-8 h-8 text-muted-foreground" />
                 )}
-                <span className="text-[10px] font-black italic uppercase tracking-widest text-center h-8 flex items-center">
+                <span className="text-[10px] font-semibold tracking-widest text-center h-8 flex items-center">
                   {dept}
                 </span>
                 {!signature && !isQuorum ? (
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-8 w-full text-[9px] uppercase font-black italic tracking-widest text-primary hover:text-primary hover:bg-primary rounded-xl"
+                    className="h-8 w-full text-[9px] uppercase font-bold tracking-widest text-primary hover:text-primary hover:bg-primary rounded-xl"
                     onClick={() => onSign(dept, false)}
                   >
                     Authenticate
                   </Button>
                 ) : signature ? (
                   <div className="h-8 flex flex-col items-center justify-center">
-                    <span className="text-[9px] font-black text-success/70 uppercase italic">
+                    <span className="text-[9px] font-bold text-success/70 uppercase italic">
                       Verified
                     </span>
                   </div>
@@ -113,7 +113,7 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
             <div className="flex items-center gap-4 text-destructive">
               <ShieldAlert className="w-8 h-8 animate-pulse" />
               <div>
-                <span className="block text-sm font-black italic uppercase tracking-widest text-destructive">
+                <span className="block text-sm font-semibold tracking-widest text-destructive">
                   Superadmin Override Activated
                 </span>
                 <span className="text-[10px] font-bold text-destructive uppercase">
@@ -121,7 +121,7 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
                 </span>
               </div>
             </div>
-            <Badge className="bg-destructive text-foreground font-black italic text-[9px] uppercase border-none animate-pulse">
+            <Badge className="bg-destructive text-foreground font-bold text-[9px] uppercase border-none animate-pulse">
               HIGH PRIVILEGE
             </Badge>
           </div>
@@ -135,7 +135,7 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
       )}
 
       <div className="space-y-3 mb-8">
-        <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+        <div className="flex justify-between text-[10px] font-semibold tracking-widest text-muted-foreground">
           <span>Consensus Progress</span>
           <span className={isQuorum ? "text-success" : "text-primary"}>
             {Math.round(progress)}%
@@ -153,7 +153,7 @@ export const ApprovalMatrix: React.FC<ApprovalMatrixProps> = ({
           variant="ghost"
           onClick={onToggleBypass}
           className={cn(
-            "text-[10px] uppercase font-black italic tracking-widest h-10 px-6 rounded-xl transition-all",
+            "text-[10px] uppercase font-bold tracking-widest h-10 px-6 rounded-xl transition-all",
             governanceState.isBypassMode
               ? "text-muted-foreground hover:text-foreground bg-secondary/60 hover:bg-secondary/60"
               : "text-destructive hover:text-destructive hover:bg-destructive",

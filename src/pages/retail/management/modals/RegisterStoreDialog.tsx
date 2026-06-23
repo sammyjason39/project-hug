@@ -166,15 +166,15 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
           <Button
             variant="ghost"
             size="sm"
-            className="h-8 text-primary font-black italic gap-1"
+            className="h-8 text-primary font-bold gap-1"
           >
             <Plus className="w-4 h-4" /> Register New
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="rounded-[2rem] max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="rounded-2xl max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="font-black italic text-2xl uppercase tracking-tighter text-primary">
+          <DialogTitle className="font-bold text-2xl uppercase tracking-tighter text-primary">
             Establishing New Branch
           </DialogTitle>
           <DialogDescription className="font-bold italic">
@@ -186,7 +186,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
             {/* Basic Info */}
             <div className="space-y-4">
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Store Name
                 </Label>
                 <input
@@ -199,7 +199,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Unique Code
                 </Label>
                 <input
@@ -211,7 +211,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                 />
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Store Type
                 </Label>
                 <select
@@ -227,7 +227,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                 </select>
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Primary Contact (Phone)
                 </Label>
                 <div className="relative">
@@ -241,7 +241,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                 </div>
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Contact Email
                 </Label>
                 <div className="relative">
@@ -259,7 +259,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
             {/* Operational & Location */}
             <div className="space-y-4">
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1">
                   <MapPin className="w-3 h-3" /> Location Assignment
                 </Label>
                 <select
@@ -273,7 +273,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                   </option>
                   <option
                     value="placeholder"
-                    className="text-primary font-black"
+                    className="text-primary font-bold"
                   >
                     + Create New Physical Location
                   </option>
@@ -300,12 +300,12 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                   />
                   <Label
                     htmlFor="office-address"
-                    className="text-[10px] font-black uppercase tracking-widest text-primary cursor-pointer"
+                    className="text-[10px] font-semibold tracking-widest text-primary cursor-pointer"
                   >
                     Same as Office Address
                   </Label>
                 </div>
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Physical Address
                 </Label>
                 <textarea
@@ -325,14 +325,14 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
               {/* Geospatial Section */}
               <div className="p-4 bg-primary/5 rounded-2xl border border-primary space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-[10px] font-black text-primary uppercase tracking-widest flex items-center gap-2">
+                  <label className="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                     <Globe className="w-3.5 h-3.5" /> Geospatial Anchoring
                   </label>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Latitude</Label>
+                    <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Latitude</Label>
                     <input
                       type="number"
                       step="any"
@@ -342,7 +342,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                     />
                   </div>
                   <div className="space-y-1">
-                    <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Longitude</Label>
+                    <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Longitude</Label>
                     <input
                       type="number"
                       step="any"
@@ -354,7 +354,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Geofence Radius (m)</Label>
+                  <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Geofence Radius (m)</Label>
                   <input
                     type="range"
                     min="50"
@@ -368,7 +368,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
               </div>
 
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Regulatory Region (Optional)
                 </Label>
                 <select
@@ -386,7 +386,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
 
                 {selectedCountry && (
                   <div className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-primary bg-primary/5">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-primary">
+                    <span className="text-[10px] font-semibold tracking-widest text-primary">
                       Currency:
                     </span>
                     <span className="text-xs font-bold text-primary">
@@ -400,7 +400,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
               </div>
 
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1">
                   <User className="w-3 h-3" /> Branch Manager
                 </Label>
                 <select
@@ -417,7 +417,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
               </div>
 
               <div className="space-y-1">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1">
                   <Database className="w-3 h-3" /> Inventory Pool
                 </Label>
                 <select
@@ -438,7 +438,7 @@ export const RegisterStoreDialog: React.FC<RegisterStoreDialogProps> = ({
           <DialogFooter className="mt-4">
             <Button
               type="submit"
-              className="w-full h-14 bg-primary hover:bg-primary text-foreground font-black italic rounded-xl shadow-xl uppercase tracking-widest"
+              className="w-full h-14 bg-primary hover:bg-primary text-foreground font-bold rounded-xl shadow-sm uppercase tracking-widest"
               disabled={isRegistering || isLoadingData}
             >
               {isRegistering ? (

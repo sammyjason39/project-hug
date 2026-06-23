@@ -190,13 +190,13 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
               <TabsTrigger
                 key={tab.key}
                 value={tab.key}
-                className="group relative bg-transparent h-12 rounded-none border-b-2 border-transparent data-[state=active]:border-border data-[state=active]:bg-transparent px-0 font-black italic uppercase tracking-widest text-[10px] flex items-center gap-1.5"
+                className="group relative bg-transparent h-12 rounded-none border-b-2 border-transparent data-[state=active]:border-border data-[state=active]:bg-transparent px-0 font-semibold tracking-widest text-[10px] flex items-center gap-1.5"
               >
                 {tab.label}
                 {tabCount[tab.key] > 0 && (
                   <span
                     className={cn(
-                      "ml-1 rounded-full px-1.5 py-0.5 text-[8px] font-black",
+                      "ml-1 rounded-full px-1.5 py-0.5 text-[8px] font-bold",
                       activeQueue === tab.key
                         ? "bg-secondary text-foreground"
                         : "bg-secondary/10 text-muted-foreground",
@@ -222,20 +222,20 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
 
         <TabsContent value={activeQueue} className="m-0">
           {filteredOrders.length === 0 ? (
-            <Card className="rounded-2xl shadow-2xl border-none bg-white overflow-hidden">
+            <Card className="rounded-2xl shadow-sm border-none bg-white overflow-hidden">
               <div className="flex flex-col items-center justify-center py-20 gap-4">
                 <Package className="w-12 h-12 text-muted-foreground" />
-                <p className="text-xs font-black italic uppercase tracking-widest text-muted-foreground/60">
+                <p className="text-xs font-semibold tracking-widest text-muted-foreground/60">
                   No orders in this queue
                 </p>
               </div>
             </Card>
           ) : (
-            <Card className="rounded-2xl shadow-2xl border-none bg-white overflow-hidden">
+            <Card className="rounded-2xl shadow-sm border-none bg-white overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b bg-secondary/5 text-[10px] uppercase font-black tracking-widest text-muted-foreground italic">
+                    <tr className="border-b bg-secondary/5 text-[10px] uppercase font-bold tracking-widest text-muted-foreground italic">
                       <th className="px-6 py-5 text-left">Order Token</th>
                       <th className="px-6 py-5 text-left">Channel</th>
                       <th className="px-6 py-5 text-center">Payload Cost</th>
@@ -276,7 +276,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                             <div className="flex items-center gap-4">
                               <div
                                 className={cn(
-                                  "w-10 h-10 rounded-2xl flex items-center justify-center font-black italic text-[10px] shadow-inner",
+                                  "w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-[10px] shadow-inner",
                                   (order.totalAmount || 0) > 1000000
                                     ? "bg-warning text-warning"
                                     : "bg-secondary/5 text-muted-foreground",
@@ -285,7 +285,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                                 #{order.id.split("-").pop()?.substring(0, 4)}
                               </div>
                               <div>
-                                <div className="text-xs font-black tracking-tight text-foreground">
+                                <div className="text-xs font-bold tracking-tight text-foreground">
                                   {(order.id || "").split("-")[0].toUpperCase()}
                                 </div>
                                 <div className="text-[10px] text-muted-foreground font-bold uppercase mt-0.5">
@@ -302,7 +302,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                                 <ChannelIcon className="w-4 h-4" />
                               </div>
                               <div>
-                                <div className="text-xs font-black text-muted-foreground italic leading-tight uppercase">
+                                <div className="text-xs font-bold text-muted-foreground italic leading-tight uppercase">
                                   {channel.source}
                                 </div>
                                 <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-tighter">
@@ -316,7 +316,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
 
                           {/* Payload Cost */}
                           <td className="px-6 py-5 text-center">
-                            <div className="text-sm font-black italic tracking-tighter text-foreground">
+                            <div className="text-sm font-bold tracking-tighter text-foreground">
                               Rp{" "}
                               {(order.totalAmount || 0).toLocaleString("id-ID")}
                             </div>
@@ -330,7 +330,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                           <td className="px-6 py-5 text-center">
                             <Badge
                               className={cn(
-                                "text-[9px] font-black italic border-none h-5 px-2",
+                                "text-[9px] font-bold border-none h-5 px-2",
                                 statusMeta.className,
                               )}
                             >
@@ -346,14 +346,14 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                             {order.status === "complete" ? (
                               <div className="flex items-center gap-2 text-success">
                                 <CheckCircle className="w-3.5 h-3.5" />
-                                <span className="text-[10px] font-black italic uppercase">
+                                <span className="text-[10px] font-semibold">
                                   Delivered
                                 </span>
                               </div>
                             ) : channel.source === "POS" ||
                               order.status === "ready_for_pickup" ? (
                               <div className="flex items-center gap-2">
-                                <Badge className="bg-success text-success border-none text-[9px] font-black italic uppercase">
+                                <Badge className="bg-success text-success border-none text-[9px] font-semibold">
                                   Ready for Pickup
                                 </Badge>
                                 <Button
@@ -372,7 +372,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
                                 </Button>
                               </div>
                             ) : existingAwb ? (
-                              <div className="text-[10px] font-black text-muted-foreground uppercase">
+                              <div className="text-[10px] font-bold text-muted-foreground uppercase">
                                 AWB: {existingAwb}
                               </div>
                             ) : order.status === "cancelled" ||
@@ -423,7 +423,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
 
                                 <Button
                                   size="sm"
-                                  className="h-8 bg-secondary text-foreground font-black italic text-xs px-3 rounded-md uppercase hover:bg-secondary/60 disabled:opacity-40"
+                                  className="h-8 bg-secondary text-foreground font-bold text-xs px-3 rounded-md uppercase hover:bg-secondary/60 disabled:opacity-40"
                                   disabled={!tempInput.awb.trim()}
                                   onClick={(e) => {
                                     e.stopPropagation();
@@ -444,7 +444,7 @@ export const OrderRacetrack: React.FC<OrderRacetrackProps> = ({
 
                           {/* Gate Entry */}
                           <td className="px-6 py-5 text-right">
-                            <div className="text-[10px] font-black italic text-muted-foreground uppercase mb-0.5">
+                            <div className="text-[10px] font-bold text-muted-foreground uppercase mb-0.5">
                               Ingested
                             </div>
                             <div className="text-[9px] font-bold text-muted-foreground uppercase">

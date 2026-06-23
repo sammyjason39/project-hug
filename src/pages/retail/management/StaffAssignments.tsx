@@ -188,7 +188,7 @@ const StaffAssignments = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <div className="px-6 py-3 border-b bg-background/40 backdrop-blur-md shrink-0 flex items-center justify-between gap-6">
+      <div className="px-6 py-3 border-b bg-background/40 shrink-0 flex items-center justify-between gap-6">
         <PageHeader
           title="Staff & Access Governance"
           subtitle={`${session.location_id || "GLOBAL"} • ${staff.length} Personnel • Access Control`}
@@ -196,13 +196,13 @@ const StaffAssignments = () => {
         <div className="flex items-center gap-3">
           <Button
             variant="outline"
-            className="h-10 rounded-xl px-4 font-black italic border-border text-[10px] uppercase tracking-widest gap-2 hover:bg-secondary/5 text-muted-foreground"
+            className="h-10 rounded-xl px-4 font-bold border-border text-[10px] uppercase tracking-widest gap-2 hover:bg-secondary/5 text-muted-foreground"
             onClick={() => setIsAuditModalOpen(true)}
           >
             <FileText className="w-3 h-3" /> SECURITY LOG
           </Button>
           <Button
-            className="h-10 rounded-xl px-4 font-black italic border-border bg-secondary text-foreground text-[10px] uppercase tracking-widest gap-2"
+            className="h-10 rounded-xl px-4 font-bold border-border bg-secondary text-foreground text-[10px] uppercase tracking-widest gap-2"
             onClick={handleProvision}
           >
             <UserPlus className="w-3 h-3" /> PROVISION
@@ -246,7 +246,7 @@ const StaffAssignments = () => {
             ].map((m, i) => (
               <Card
                 key={i}
-                className="rounded-[2rem] bg-card border-none shadow-xl p-6 group hover:shadow-2xl transition-all"
+                className="rounded-2xl bg-card border-none shadow-sm p-6 group hover:shadow-sm transition-all"
               >
                 <div className="flex justify-between items-start mb-6">
                   <div
@@ -254,14 +254,14 @@ const StaffAssignments = () => {
                   >
                     <m.icon className="w-5 h-5" />
                   </div>
-                  <Badge className="bg-secondary/5 text-muted-foreground font-black italic text-[8px] uppercase tracking-widest border-none">
+                  <Badge className="bg-secondary/5 text-muted-foreground font-bold text-[8px] uppercase tracking-widest border-none">
                     Live
                   </Badge>
                 </div>
-                <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+                <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                   {m.label}
                 </div>
-                <div className="text-3xl font-black italic tracking-tighter text-foreground uppercase">
+                <div className="text-3xl font-bold tracking-tighter text-foreground uppercase">
                   {m.val}
                 </div>
                 <div className="text-[10px] font-bold italic text-muted-foreground mt-1 uppercase">
@@ -276,7 +276,7 @@ const StaffAssignments = () => {
             {/* Personnel Table */}
             <div className="lg:col-span-3 space-y-6">
               {/* Search Bar */}
-              <div className="flex items-center gap-3 bg-card rounded-[2rem] p-3 border border-border shadow-lg">
+              <div className="flex items-center gap-3 bg-card rounded-2xl p-3 border border-border shadow-lg">
                 <div className="relative flex-1">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
                   <Input
@@ -297,24 +297,24 @@ const StaffAssignments = () => {
                     }
                   }}
                   variant="outline"
-                  className="h-12 px-5 rounded-xl gap-2 font-black italic border-border hover:bg-secondary/5 text-[10px] uppercase tracking-widest"
+                  className="h-12 px-5 rounded-xl gap-2 font-bold border-border hover:bg-secondary/5 text-[10px] uppercase tracking-widest"
                 >
                   <Filter className="w-4 h-4" /> Groups
                 </Button>
               </div>
 
               {/* Table Shell */}
-              <Card className="rounded-2xl border-none shadow-xl overflow-hidden bg-card">
+              <Card className="rounded-2xl border-none shadow-sm overflow-hidden bg-card">
                 <div className="px-8 py-6 border-b border-border flex items-center justify-between">
                   <div>
-                    <h3 className="text-base font-black italic uppercase tracking-tight text-foreground">
+                    <h3 className="text-base font-semibold tracking-tight text-foreground">
                       Store Personnel Registry
                     </h3>
                     <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-0.5">
                       Access governance for this location
                     </p>
                   </div>
-                  <Badge className="bg-secondary text-foreground border-none font-black italic text-[9px] uppercase tracking-widest px-4 py-2">
+                  <Badge className="bg-secondary text-foreground border-none font-bold text-[9px] uppercase tracking-widest px-4 py-2">
                     {filteredStaff.length} Records
                   </Badge>
                 </div>
@@ -332,7 +332,7 @@ const StaffAssignments = () => {
                         ].map((h, i) => (
                           <th
                             key={i}
-                            className="px-8 py-5 text-left text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground italic"
+                            className="px-8 py-5 text-left text-label text-muted-foreground italic"
                           >
                             {h}
                           </th>
@@ -345,7 +345,7 @@ const StaffAssignments = () => {
                           <td colSpan={6} className="px-8 py-20 text-center">
                             <div className="flex flex-col items-center gap-3">
                               <RefreshCw className="w-6 h-6 text-primary animate-spin" />
-                              <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                              <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                                 Syncing Personnel Data...
                               </span>
                             </div>
@@ -356,7 +356,7 @@ const StaffAssignments = () => {
                           <td colSpan={6} className="px-8 py-16 text-center">
                             <div className="flex flex-col items-center gap-4">
                               <ShieldAlert className="w-8 h-8 text-destructive" />
-                              <span className="text-[11px] font-black italic uppercase tracking-widest text-foreground">
+                              <span className="text-[11px] font-semibold tracking-widest text-foreground">
                                 Couldn't load personnel
                               </span>
                               <span className="text-[10px] font-bold text-muted-foreground max-w-sm">
@@ -365,7 +365,7 @@ const StaffAssignments = () => {
                               <Button
                                 variant="outline"
                                 onClick={fetchData}
-                                className="h-9 rounded-xl gap-2 font-black italic text-[10px] uppercase tracking-widest"
+                                className="h-9 rounded-xl gap-2 font-bold text-[10px] uppercase tracking-widest"
                               >
                                 <RefreshCw className="w-3.5 h-3.5" /> Retry
                               </Button>
@@ -376,7 +376,7 @@ const StaffAssignments = () => {
                         <tr>
                           <td
                             colSpan={6}
-                            className="px-8 py-20 text-center text-[10px] font-black italic uppercase tracking-widest text-muted-foreground"
+                            className="px-8 py-20 text-center text-[10px] font-semibold tracking-widest text-muted-foreground"
                           >
                             No personnel found
                           </td>
@@ -390,7 +390,7 @@ const StaffAssignments = () => {
                           >
                             <td className="px-8 py-5">
                               <div className="flex items-center gap-4">
-                                  <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center font-black italic text-primary text-sm shadow-inner group-hover:bg-primary group-hover:text-foreground transition-all">
+                                  <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center font-bold text-primary text-sm shadow-inner group-hover:bg-primary group-hover:text-foreground transition-all">
                                     {(s.fullName || "")
                                       .split(" ")
                                       .filter(Boolean)
@@ -399,7 +399,7 @@ const StaffAssignments = () => {
                                       .slice(0, 2)}
                                   </div>
                                 <div>
-                                  <div className="font-black italic text-sm text-foreground group-hover:text-primary transition-colors">
+                                  <div className="font-bold text-sm text-foreground group-hover:text-primary transition-colors">
                                     {s.fullName}
                                   </div>
                                   <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -409,7 +409,7 @@ const StaffAssignments = () => {
                               </div>
                             </td>
                             <td className="px-8 py-5">
-                              <div className="text-xs font-black italic text-muted-foreground">
+                              <div className="text-xs font-bold text-muted-foreground">
                                 {s.roleTitle}
                               </div>
                               <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter mt-0.5">
@@ -419,7 +419,7 @@ const StaffAssignments = () => {
                             <td className="px-8 py-5">
                               <div className="flex items-center gap-2">
                                 <ShieldCheck className="w-3.5 h-3.5 text-success" />
-                                <span className="text-[10px] font-black italic text-success uppercase">
+                                <span className="text-[10px] font-bold text-success uppercase">
                                   VERIFIED
                                 </span>
                               </div>
@@ -429,7 +429,7 @@ const StaffAssignments = () => {
                                 {["RETAIL_CORE", "POS_EXEC"].map((acc, idx) => (
                                   <Badge
                                     key={idx}
-                                    className="bg-secondary/10 text-muted-foreground border-none text-[8px] font-black italic tracking-widest"
+                                    className="bg-secondary/10 text-muted-foreground border-none text-[8px] font-bold tracking-widest"
                                   >
                                     {acc}
                                   </Badge>
@@ -441,7 +441,7 @@ const StaffAssignments = () => {
                                 <div
                                   className={`w-2 h-2 rounded-full ${s.status === "active" ? "bg-success shadow-[0_0_8px_rgba(34,197,94,0.5)]" : "bg-muted/30"}`}
                                 />
-                                <span className="text-[10px] font-black italic uppercase text-muted-foreground">
+                                <span className="text-[10px] font-semibold text-muted-foreground">
                                   {s.status}
                                 </span>
                               </div>
@@ -460,10 +460,10 @@ const StaffAssignments = () => {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent
                                   align="end"
-                                  className="w-48 p-2 rounded-2xl border-none shadow-2xl"
+                                  className="w-48 p-2 rounded-2xl border-none shadow-sm"
                                 >
                                   <DropdownMenuItem
-                                    className="rounded-xl gap-2 font-black italic text-xs py-3 cursor-pointer"
+                                    className="rounded-xl gap-2 font-bold text-xs py-3 cursor-pointer"
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       setSelectedStaffForDetails(s);
@@ -473,7 +473,7 @@ const StaffAssignments = () => {
                                     View Details
                                   </DropdownMenuItem>
                                   <DropdownMenuItem
-                                    className="rounded-xl gap-2 font-black italic text-xs py-3 cursor-pointer"
+                                    className="rounded-xl gap-2 font-bold text-xs py-3 cursor-pointer"
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       setSelectedStaffForRoleEdit(s);
@@ -482,13 +482,13 @@ const StaffAssignments = () => {
                                     <ShieldHalf className="w-4 h-4 text-primary" />{" "}
                                     Modify Permissions
                                   </DropdownMenuItem>
-                                  <DropdownMenuItem className="rounded-xl gap-2 font-black italic text-xs py-3 cursor-pointer">
+                                  <DropdownMenuItem className="rounded-xl gap-2 font-bold text-xs py-3 cursor-pointer">
                                     <Key className="w-4 h-4 text-warning" />{" "}
                                     Reset Credentials
                                   </DropdownMenuItem>
                                   <Separator className="my-1" />
                                   <DropdownMenuItem
-                                    className="rounded-xl gap-2 font-black italic text-xs py-3 cursor-pointer text-destructive focus:text-destructive focus:bg-destructive"
+                                    className="rounded-xl gap-2 font-bold text-xs py-3 cursor-pointer text-destructive focus:text-destructive focus:bg-destructive"
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       handleDelete(s.id);
@@ -511,15 +511,15 @@ const StaffAssignments = () => {
             {/* Right Sidebar */}
             <div className="space-y-6">
               {/* Critical Alerts */}
-              <Card className="bg-secondary text-foreground shadow-2xl rounded-2xl overflow-hidden">
+              <Card className="bg-secondary text-foreground shadow-sm rounded-2xl overflow-hidden">
                 <CardHeader className="p-7 pb-0">
-                  <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-warning italic flex items-center gap-2">
+                  <CardTitle className="text-label text-warning italic flex items-center gap-2">
                     <ShieldAlert className="w-4 h-4" /> Critical Alerts
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-7 space-y-4">
                   <div className="p-5 rounded-2xl bg-secondary/40 border border-border">
-                    <div className="text-[10px] text-warning font-black uppercase mb-2 flex items-center gap-2 italic">
+                    <div className="text-[10px] text-warning font-semibold mb-2 flex items-center gap-2 italic">
                       <Clock className="w-3 h-3" /> Policy Verification
                     </div>
                     <div className="text-xs font-bold leading-relaxed text-foreground/80 mb-4">
@@ -544,7 +544,7 @@ const StaffAssignments = () => {
                       }}
                       variant="ghost"
                       size="sm"
-                      className="h-8 w-full border border-border text-foreground font-black italic text-[9px] gap-1 hover:bg-white/10 rounded-xl uppercase tracking-widest"
+                      className="h-8 w-full border border-border text-foreground font-bold text-[9px] gap-1 hover:bg-white/10 rounded-xl uppercase tracking-widest"
                     >
                       Send Reminder <ExternalLink className="w-3 h-3" />
                     </Button>
@@ -553,19 +553,19 @@ const StaffAssignments = () => {
               </Card>
 
               {/* Vault Sync Status */}
-              <Card className="bg-primary text-foreground shadow-2xl rounded-2xl overflow-hidden group border-none">
+              <Card className="bg-primary text-foreground shadow-sm rounded-2xl overflow-hidden group border-none">
                 <CardContent className="p-8 text-center space-y-4">
                   <div className="w-16 h-16 bg-white/20 rounded-3xl flex items-center justify-center mx-auto group-hover:rotate-6 transition-transform">
                     <ShieldCheck className="w-8 h-8" />
                   </div>
-                  <div className="text-xl font-black italic tracking-tighter">
+                  <div className="text-xl font-bold tracking-tighter">
                     Vault Sync Active
                   </div>
                   <p className="text-[10px] opacity-70 leading-relaxed font-bold italic uppercase tracking-widest">
                     Synchronized with Global HR directory. All changes reflect
                     in core reports.
                   </p>
-                  <Button onClick={() => window.location.reload()} className="w-full bg-white text-primary hover:bg-secondary/10 font-black italic h-12 rounded-2xl shadow-xl uppercase tracking-widest text-[10px]">
+                  <Button onClick={() => window.location.reload()} className="w-full bg-white text-primary hover:bg-secondary/10 font-bold h-12 rounded-2xl shadow-sm uppercase tracking-widest text-[10px]">
                     Force Sync
                   </Button>
                 </CardContent>

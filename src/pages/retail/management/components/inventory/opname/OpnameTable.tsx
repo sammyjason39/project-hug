@@ -28,7 +28,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
   statusBadge,
 }) => {
   return (
-    <div className="rounded-2xl border-none shadow-xl overflow-hidden bg-white">
+    <div className="rounded-2xl border-none shadow-sm overflow-hidden bg-white">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -44,7 +44,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
               ].map((h, i) => (
                 <th
                   key={i}
-                  className="px-6 py-4 text-left text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground italic"
+                  className="px-6 py-4 text-left text-label text-muted-foreground italic"
                 >
                   {h}
                 </th>
@@ -57,7 +57,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
                 <td colSpan={7} className="px-6 py-16 text-center">
                   <div className="flex flex-col items-center gap-2">
                     <RefreshCw className="w-6 h-6 text-primary animate-spin" />
-                    <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                    <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                       Syncing Inventory State...
                     </span>
                   </div>
@@ -71,7 +71,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
                       <ScanLine className="w-8 h-8 text-muted-foreground" />
                     </div>
                     <div>
-                      <div className="text-sm font-black italic uppercase tracking-tighter">
+                      <div className="text-sm font-semibold tracking-tighter">
                         Awaiting Scans
                       </div>
                       <p className="text-[10px] font-bold uppercase tracking-widest mt-1">
@@ -99,7 +99,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
                       {entry.sku}
                     </td>
                     <td className="px-6 py-4">
-                      <div className="font-black italic text-sm text-foreground">
+                      <div className="font-bold text-sm text-foreground">
                         {entry.name}
                       </div>
                     </td>
@@ -112,14 +112,14 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
                         min="0"
                         value={entry.counted}
                         onChange={(e) => onCountChange(i, e.target.value)}
-                        className="w-24 h-10 rounded-xl font-black italic text-center border-border focus:ring-blue-600 bg-secondary/5"
+                        className="w-24 h-10 rounded-xl font-bold text-center border-border focus:ring-blue-600 bg-secondary/5"
                       />
                     </td>
                     <td className="px-6 py-4">
                       {variance !== null ? (
                         <span
                           className={cn(
-                            "font-black italic text-sm",
+                            "font-bold text-sm",
                             variance === 0
                               ? "text-success"
                               : variance > 0
@@ -140,7 +140,7 @@ export const OpnameTable: React.FC<OpnameTableProps> = ({
                       {entry.status && (
                         <Badge
                           className={cn(
-                            "border-none font-black italic text-[9px] uppercase tracking-widest px-3",
+                            "border-none font-bold text-[9px] uppercase tracking-widest px-3",
                             statusBadge(entry.status),
                           )}
                         >

@@ -101,10 +101,10 @@ export const OperationalLauncherOverlay: React.FC<{
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl animate-in fade-in zoom-in duration-200 flex flex-col p-12">
+    <div className="fixed inset-0 z-[100] bg-background/95 animate-in fade-in zoom-in duration-200 flex flex-col p-12">
       <div className="flex justify-between items-center mb-12">
         <div>
-          <h2 className="text-4xl font-black text-white italic tracking-tighter uppercase">
+          <h2 className="text-4xl font-bold text-white italic tracking-tighter uppercase">
             Zenvix App Launcher
           </h2>
           <p className="text-muted-foreground font-bold uppercase tracking-widest text-xs mt-2">
@@ -138,7 +138,7 @@ export const OperationalLauncherOverlay: React.FC<{
                 <app.icon className="w-10 h-10" />
               </div>
               <div>
-                <div className="font-black text-white text-2xl uppercase tracking-tighter italic group-hover:text-primary transition-colors">
+                <div className="font-bold text-white text-2xl uppercase tracking-tighter italic group-hover:text-primary transition-colors">
                   {app.title}
                 </div>
                 <div className="text-sm text-muted-foreground font-bold uppercase tracking-widest mt-1">
@@ -154,7 +154,7 @@ export const OperationalLauncherOverlay: React.FC<{
         <div className="flex justify-center">
           <RetailModeSwitchControl />
         </div>
-        <p className="text-muted-foreground font-black italic tracking-widest text-[10px] uppercase">
+        <p className="text-muted-foreground font-bold tracking-widest text-[10px] uppercase">
           Device Awareness Enforced • Secure Execution Environment
         </p>
       </div>

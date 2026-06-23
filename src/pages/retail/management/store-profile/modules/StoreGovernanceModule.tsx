@@ -20,7 +20,7 @@ export const StoreGovernanceModule: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
         <ShieldCheck className="w-16 h-16 mb-4 opacity-20" />
-        <h3 className="text-xl font-black italic tracking-wider">
+        <h3 className="text-xl font-bold tracking-wider">
           GLOBAL COMPLIANCE PROTOCOL
         </h3>
         <p className="text-sm mt-2 max-w-md text-center">
@@ -53,7 +53,7 @@ export const StoreGovernanceModule: React.FC = () => {
           <ShieldAlert className="w-5 h-5" />
         </div>
         <div>
-          <h2 className="text-lg font-black italic uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-lg font-semibold tracking-wider text-muted-foreground">
             Governance & Risk Control
           </h2>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -67,7 +67,7 @@ export const StoreGovernanceModule: React.FC = () => {
         {/* Entitlements & Licensing */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm relative overflow-hidden">
           <div className="absolute -top-4 -right-4 w-24 h-24 bg-destructive rounded-full blur-3xl opacity-50 pointer-events-none" />
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3 relative z-10">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3 relative z-10">
             <Fingerprint className="w-4 h-4 text-muted-foreground" /> Digital
             Entitlements
           </h3>
@@ -163,7 +163,7 @@ export const StoreGovernanceModule: React.FC = () => {
         {/* Security & Audit Parameters */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm relative overflow-hidden">
           <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl opacity-50 pointer-events-none" />
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3 relative z-10">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3 relative z-10">
             <Lock className="w-4 h-4 text-muted-foreground" /> Security & Compliance
           </h3>
 
@@ -251,7 +251,7 @@ export const StoreGovernanceModule: React.FC = () => {
                 variant="destructive"
                 size="sm"
                 disabled={!canEditStore}
-                className="w-full font-black italic uppercase tracking-widest text-[10px]"
+                className="w-full font-semibold tracking-widest text-[10px]"
               >
                 Initiate Node Freeze Protocol
               </Button>

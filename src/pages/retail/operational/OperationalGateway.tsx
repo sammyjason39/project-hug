@@ -79,10 +79,10 @@ const RetailOperationalGateway = () => {
                  <div className="w-28 h-28 bg-primary rounded-[3rem] mx-auto flex items-center justify-center shadow-[0_0_80px_hsl(var(--primary)/0.5)] mb-10 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
                     <Store className="w-14 h-14 text-primary-foreground" />
                  </div>
-                 <h1 className="text-6xl font-black text-foreground italic tracking-tighter uppercase mb-4 leading-none">
+                 <h1 className="text-6xl font-bold text-foreground italic tracking-tighter uppercase mb-4 leading-none">
                     Establishing Uplink
                  </h1>
-                 <p className="text-primary font-black uppercase tracking-[0.5em] text-[12px] italic opacity-70">
+                 <p className="text-primary font-semibold tracking-[0.5em] text-[12px] italic opacity-70">
                     Select Operational Node for Physical Execution
                  </p>
               </div>
@@ -91,7 +91,7 @@ const RetailOperationalGateway = () => {
                  {stores.map(store => (
                     <GlassCard 
                        key={store.id}
-                       className="bg-card/50 border-border hover:border-primary/50 hover:bg-card/80 transition-all duration-500 cursor-pointer rounded-[3rem] group overflow-hidden shadow-2xl hover:-translate-y-2 active:scale-95"
+                       className="bg-card/50 border-border hover:border-primary/50 hover:bg-card/80 transition-all duration-500 cursor-pointer rounded-[3rem] group overflow-hidden shadow-sm hover:-translate-y-2 active:scale-95"
                        onClick={() => setStore(store.id)}
                     >
                        <CardContent className="p-12 flex items-center gap-10">
@@ -99,15 +99,15 @@ const RetailOperationalGateway = () => {
                              <Building2 className="w-10 h-10 text-primary group-hover:scale-110 transition-transform" />
                           </div>
                           <div className="flex-1">
-                             <div className="text-3xl font-black text-foreground uppercase italic tracking-tighter mb-1.5 group-hover:text-primary transition-colors">
+                             <div className="text-3xl font-bold text-foreground uppercase italic tracking-tighter mb-1.5 group-hover:text-primary transition-colors">
                                 {store.name}
                              </div>
                              <div className="flex items-center gap-3">
-                                <Badge variant="outline" className="text-[9px] font-black uppercase tracking-widest text-muted-foreground border-border bg-muted/20">
+                                <Badge variant="outline" className="text-label text-muted-foreground border-border bg-muted/20">
                                    {store.type}
                                 </Badge>
                                 <span className="w-1 h-1 rounded-full bg-border" />
-                                <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">
+                                <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
                                    {store.timezone}
                                 </span>
                              </div>
@@ -120,7 +120,7 @@ const RetailOperationalGateway = () => {
               <div className="mt-20 text-center">
                  <Button 
                     variant="ghost" 
-                    className="text-muted-foreground hover:text-foreground uppercase font-black italic text-[11px] tracking-[0.4em] gap-4 transition-all"
+                    className="text-muted-foreground hover:text-foreground uppercase font-bold text-[11px] tracking-[0.4em] gap-4 transition-all"
                     onClick={() => { setMode('management'); navigate('/m/retail/workspace'); }}
                  >
                     <Home className="w-4 h-4" />
@@ -143,11 +143,11 @@ const RetailOperationalGateway = () => {
         {/* Top System Bar - Utilities & Mode Switch */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mb-8 px-8">
            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 bg-muted/20 border border-border px-4 py-2 rounded-xl backdrop-blur-md">
+              <div className="flex items-center gap-3 bg-muted/20 border border-border px-4 py-2 rounded-xl">
                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                 <span className="text-[10px] font-black uppercase text-primary tracking-[0.2em] italic">System Status: Active</span>
+                 <span className="text-[10px] font-semibold text-primary tracking-[0.2em] italic">System Status: Active</span>
               </div>
-              <Badge variant="outline" className="border-border text-muted-foreground font-black italic uppercase tracking-widest text-[9px] px-3 py-1 bg-muted/20">
+              <Badge variant="outline" className="border-border text-muted-foreground font-semibold tracking-widest text-[9px] px-3 py-1 bg-muted/20">
                 OPERATIONAL_CORE_v2.5
               </Badge>
            </div>
@@ -160,7 +160,7 @@ const RetailOperationalGateway = () => {
               <div className="flex items-center gap-3">
                   <Button 
                     variant="outline" 
-                    className="bg-card border-border text-foreground hover:bg-primary hover:text-primary-foreground h-10 w-10 rounded-xl transition-all hover:scale-110 active:scale-95 shadow-xl group"
+                    className="bg-card border-border text-foreground hover:bg-primary hover:text-primary-foreground h-10 w-10 rounded-xl transition-all hover:scale-110 active:scale-95 shadow-sm group"
                     onClick={() => window.location.href = "/"}
                     title="Go to Core"
                   >
@@ -169,7 +169,7 @@ const RetailOperationalGateway = () => {
 
                   <Button 
                     variant="outline" 
-                    className="bg-card border-border text-foreground hover:bg-muted h-10 w-10 rounded-xl transition-all hover:scale-110 active:scale-95 shadow-xl"
+                    className="bg-card border-border text-foreground hover:bg-muted h-10 w-10 rounded-xl transition-all hover:scale-110 active:scale-95 shadow-sm"
                     onClick={toggleFullscreen}
                     title="Toggle Fullscreen"
                   >
@@ -180,7 +180,7 @@ const RetailOperationalGateway = () => {
         </div>
 
         {/* Header Area - Ultra Tactical */}
-        <div className="flex flex-col xl:flex-row justify-between items-stretch xl:items-center gap-8 mb-12 bg-card/40 p-10 rounded-[3.5rem] border border-border backdrop-blur-3xl shadow-2xl relative overflow-hidden group">
+        <div className="flex flex-col xl:flex-row justify-between items-stretch xl:items-center gap-8 mb-12 bg-card/40 p-10 rounded-[3.5rem] border border-border shadow-sm relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           
           
@@ -190,14 +190,14 @@ const RetailOperationalGateway = () => {
             </div>
             <div className="text-center md:text-left">
               <div className="flex items-center gap-4 justify-center md:justify-start mb-2">
-                <h1 className="text-5xl font-black text-foreground italic tracking-tighter uppercase leading-none">
+                <h1 className="text-5xl font-bold text-foreground italic tracking-tighter uppercase leading-none">
                   {companyName}
                 </h1>
-                <Badge variant="outline" className="border-primary/30 text-primary font-black italic uppercase tracking-widest text-[9px] px-3 py-1 bg-primary/5">
+                <Badge variant="outline" className="border-primary/30 text-primary font-semibold tracking-widest text-[9px] px-3 py-1 bg-primary/5">
                   OP_PLANE_v2.5
                 </Badge>
               </div>
-              <p className="text-primary font-black uppercase tracking-[0.4em] text-[11px] italic">
+              <p className="text-primary font-semibold tracking-[0.4em] text-[11px] italic">
                 {activeStore?.name || "Global Operations Hub"} • SECURITY_LEVEL: ALPHA
               </p>
             </div>
@@ -205,8 +205,8 @@ const RetailOperationalGateway = () => {
           
           <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
              <div className="flex flex-col items-end gap-1 px-8 border-r border-border/40 hidden xl:flex">
-                <span className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.3em]">Operator Identity</span>
-                <span className="text-sm font-black uppercase text-foreground italic tracking-widest">{user?.first_name} {user?.last_name}</span>
+                <span className="text-[9px] font-semibold text-muted-foreground tracking-[0.3em]">Operator Identity</span>
+                <span className="text-sm font-semibold text-foreground italic tracking-widest">{user?.first_name} {user?.last_name}</span>
              </div>
 
              <div className="flex items-center gap-10">
@@ -214,23 +214,23 @@ const RetailOperationalGateway = () => {
                  <div className="flex items-center gap-6 px-8 py-4 bg-success/10 rounded-3xl border border-success/20 shadow-[0_0_40px_hsl(var(--success)/0.15)]">
                    <div className="w-3 h-3 rounded-full bg-success animate-pulse shadow-[0_0_15px_hsl(var(--success)/0.8)]" />
                    <div className="flex flex-col">
-                      <span className="text-[10px] font-black uppercase text-success tracking-widest leading-none mb-1.5">Shift Active</span>
-                      <span className="text-xs font-black uppercase text-success/80 tracking-tighter italic">{activeShift.id.slice(-16).toUpperCase()}</span>
+                      <span className="text-[10px] font-semibold text-success tracking-widest leading-none mb-1.5">Shift Active</span>
+                      <span className="text-xs font-semibold text-success/80 tracking-tighter italic">{activeShift.id.slice(-16).toUpperCase()}</span>
                    </div>
                  </div>
                ) : (
                  <div className="flex items-center gap-6 px-8 py-4 bg-destructive/10 rounded-3xl border border-destructive/20">
                    <div className="w-3 h-3 rounded-full bg-destructive shadow-[0_0_15px_hsl(var(--destructive)/0.8)]" />
                    <div className="flex flex-col">
-                      <span className="text-[10px] font-black uppercase text-destructive tracking-widest leading-none mb-1.5">Lockdown</span>
-                      <span className="text-xs font-black uppercase text-destructive/80 tracking-tighter italic">RE-AUTH_REQUIRED</span>
+                      <span className="text-[10px] font-semibold text-destructive tracking-widest leading-none mb-1.5">Lockdown</span>
+                      <span className="text-xs font-semibold text-destructive/80 tracking-tighter italic">RE-AUTH_REQUIRED</span>
                    </div>
                  </div>
                )}
 
                <Button 
                  variant="outline"
-                 className="bg-destructive/10 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground h-20 px-12 rounded-[2rem] font-black italic gap-5 tracking-[0.3em] uppercase text-xs transition-all shadow-2xl hover:scale-105 active:scale-95"
+                 className="bg-destructive/10 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground h-20 px-12 rounded-2xl font-bold gap-5 tracking-[0.3em] uppercase text-xs transition-all shadow-sm hover:scale-105 active:scale-95"
                  onClick={logout}
                >
                  <Power className="w-6 h-6" />
@@ -250,7 +250,7 @@ const RetailOperationalGateway = () => {
             >
               {/* Outer Glow Effect */}
               <div className={`absolute inset-0 ${app.bg} blur-[60px] opacity-0 group-hover:opacity-40 transition-opacity duration-700 rounded-full`} />
-                             <GlassCard className="relative h-56 bg-card/40 border-border hover:border-primary/30 transition-all duration-500 overflow-hidden backdrop-blur-3xl rounded-[3rem] shadow-2xl flex flex-col group-hover:-translate-y-3 group-active:scale-95">
+                             <GlassCard className="relative h-56 bg-card/40 border-border hover:border-primary/30 transition-all duration-500 overflow-hidden rounded-[3rem] shadow-sm flex flex-col group-hover:-translate-y-3 group-active:scale-95">
                 <div className={`absolute top-0 right-0 w-32 h-32 ${app.bg} blur-3xl -mr-16 -mt-16 opacity-20 group-hover:scale-150 transition-transform duration-1000`} />
                 
                 <CardContent className="p-10 flex flex-col justify-between h-full relative z-10">
@@ -264,11 +264,11 @@ const RetailOperationalGateway = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <div className="font-black text-foreground text-3xl uppercase tracking-tighter italic group-hover:text-primary transition-colors">
+                    <div className="font-bold text-foreground text-3xl uppercase tracking-tighter italic group-hover:text-primary transition-colors">
                       {app.title}
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-[9px] text-muted-foreground font-black uppercase tracking-[0.3em]">
+                      <span className="text-[9px] text-muted-foreground font-semibold tracking-[0.3em]">
                         {app.desc}
                       </span>
                       <div className="h-[1px] flex-1 bg-border/30" />
@@ -283,14 +283,14 @@ const RetailOperationalGateway = () => {
 
         {/* Footer Audit Trail */}
         <div className="mt-12 py-10 border-t border-border/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30 group/footer transition-opacity hover:opacity-100">
-          <p className="text-muted-foreground font-black italic tracking-[0.4em] text-[9px] uppercase flex items-center gap-4">
+          <p className="text-muted-foreground font-bold tracking-[0.4em] text-[9px] uppercase flex items-center gap-4">
              <span className="w-10 h-[1px] bg-border/20" />
              Zenvix_Retail_Authority • GLOBAL_SYNC_V2
           </p>
           <div className="flex items-center gap-8">
-             <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/60 italic">Integrity: VERIFIED</span>
-             <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/60 italic">Latency: 14ms</span>
-             <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/60 italic">Session: ACTIVE</span>
+             <span className="text-label text-muted-foreground/60 italic">Integrity: VERIFIED</span>
+             <span className="text-label text-muted-foreground/60 italic">Latency: 14ms</span>
+             <span className="text-label text-muted-foreground/60 italic">Session: ACTIVE</span>
           </div>
         </div>
       </div>

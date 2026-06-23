@@ -70,9 +70,9 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-sm rounded-[2rem]">
+      <DialogContent className="max-w-sm rounded-2xl">
         <DialogHeader>
-          <DialogTitle className="font-black italic tracking-tight">
+          <DialogTitle className="font-bold tracking-tight">
             {item.name}
           </DialogTitle>
           <DialogDescription className="font-bold italic text-xs">
@@ -82,7 +82,7 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
         <div className="space-y-4 py-2">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest">
+              <Label className="text-[10px] font-semibold tracking-widest">
                 Min Buffer Stock *
               </Label>
               <Input
@@ -94,7 +94,7 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest">
+              <Label className="text-[10px] font-semibold tracking-widest">
                 Effective Date *
               </Label>
               <Input
@@ -107,7 +107,7 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
           </div>
 
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest">
+            <Label className="text-[10px] font-semibold tracking-widest">
               Reason for Change * (min 5 chars)
             </Label>
             <Textarea
@@ -133,7 +133,7 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
           <Button
             variant="outline"
             onClick={onClose}
-            className="rounded-xl font-black italic"
+            className="rounded-xl font-bold"
           >
             Cancel
           </Button>
@@ -141,7 +141,7 @@ export const InventoryStockEditDialog: React.FC<Props> = ({
             disabled={!valid}
             onClick={handleSubmit}
             className={cn(
-              "rounded-xl font-black italic gap-2",
+              "rounded-xl font-bold gap-2",
               canWrite ? "bg-secondary" : "bg-warning hover:bg-warning",
             )}
           >

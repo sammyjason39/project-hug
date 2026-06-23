@@ -267,7 +267,7 @@ export default function CoreSecurity() {
                     {integrityStatus === 'secure' && <ShieldCheck className="h-5 w-5 text-success" />}
                     {integrityStatus === 'tampered' && <AlertTriangle className="h-5 w-5 text-destructive" />}
                     <div>
-                      <p className="text-sm font-black uppercase tracking-tighter">Audit Integrity</p>
+                      <p className="text-sm font-semibold tracking-tighter">Audit Integrity</p>
                       <p className="text-[10px] text-muted-foreground font-medium">
                         {integrityStatus === 'idle' ? 'Chain check pending scan' : 
                          integrityStatus === 'scanning' ? 'Verifying record hashes...' :
@@ -277,7 +277,7 @@ export default function CoreSecurity() {
                     </div>
                   </div>
                   {integrityStatus === 'tampered' && (
-                    <Button size="sm" variant="destructive" onClick={handleRepairChain} className="rounded-xl font-black text-[9px] uppercase tracking-widest">
+                    <Button size="sm" variant="destructive" onClick={handleRepairChain} className="rounded-xl font-bold text-[9px] uppercase tracking-widest">
                       Repair
                     </Button>
                   )}
@@ -288,7 +288,7 @@ export default function CoreSecurity() {
                 <div className="flex items-center gap-3">
                   <Users className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="text-sm font-black uppercase tracking-tighter">Privileged Access</p>
+                    <p className="text-sm font-semibold tracking-tighter">Privileged Access</p>
                     <p className="text-[10px] text-muted-foreground font-medium">
                       {access.privilegedUsers} of {access.totalUsers} user{access.totalUsers === 1 ? "" : "s"} hold elevated roles
                     </p>
@@ -311,14 +311,14 @@ export default function CoreSecurity() {
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-sm font-black uppercase tracking-tighter">
+                      <p className="text-sm font-semibold tracking-tighter">
                         {alert.component}
                       </p>
                       <p className="text-[10px] text-muted-foreground font-medium">
                         Latency: {alert.latencyMs}ms
                       </p>
                     </div>
-                    <Badge variant={alert.status === 'HEALTHY' ? 'outline' : 'destructive'} className="rounded-full px-2 py-0.5 text-[8px] font-black uppercase">
+                    <Badge variant={alert.status === 'HEALTHY' ? 'outline' : 'destructive'} className="rounded-full px-2 py-0.5 text-label">
                       {alert.status}
                     </Badge>
                   </div>
@@ -362,13 +362,13 @@ export default function CoreSecurity() {
             variant="outline" 
             onClick={handleVerifyIntegrity} 
             disabled={integrityStatus === 'scanning'}
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest"
           >
             {integrityStatus === 'scanning' ? "Scanning..." : "Verify Integrity"}
           </Button>
           <Button 
             onClick={() => setIsModalOpen(true)}
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest"
           >
             <UserCog className="mr-2 h-3.5 w-3.5" /> Manage Roles
           </Button>

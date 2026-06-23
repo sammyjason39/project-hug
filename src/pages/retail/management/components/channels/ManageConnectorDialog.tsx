@@ -153,15 +153,15 @@ export const ManageConnectorDialog = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
-      <DialogContent className="max-w-3xl rounded-[2rem] p-0 overflow-hidden border-none shadow-[0_40px_100px_rgba(0,0,0,0.25)] flex flex-col max-h-[90vh]">
+      <DialogContent className="max-w-3xl rounded-2xl p-0 overflow-hidden border-none shadow-[0_40px_100px_rgba(0,0,0,0.25)] flex flex-col max-h-[90vh]">
         <div className="bg-secondary p-6 text-foreground relative overflow-hidden shrink-0">
           <Zap className="absolute -right-12 -top-6 w-64 h-64 opacity-10 text-primary" />
           <div className="relative z-10 flex items-center justify-between">
             <div className="space-y-2">
-              <Badge className="bg-primary/20 text-primary border-none font-black italic text-[9px] uppercase tracking-[0.2em] px-4 py-1 mb-4">
+              <Badge className="bg-primary/20 text-primary border-none font-bold text-[9px] uppercase tracking-[0.2em] px-4 py-1 mb-4">
                 Secure Channel Provisioning
               </Badge>
-              <DialogTitle className="text-2xl font-black italic uppercase tracking-tighter leading-none">
+              <DialogTitle className="text-2xl font-semibold tracking-tighter leading-none">
                 {step === "CONFIG" ? "New Digital Node" : "Deployment Status"}
               </DialogTitle>
               <DialogDescription className="text-sm font-bold text-muted-foreground italic">
@@ -176,12 +176,12 @@ export const ManageConnectorDialog = ({
         <div className="p-6 space-y-12 flex-1 overflow-y-auto bg-white">
           {step === "SUCCESS" && generatedCreds ? (
             <div className="space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
-              <div className="bg-success border-2 border-success rounded-[2rem] p-8 flex items-center gap-6">
+              <div className="bg-success border-2 border-success rounded-2xl p-8 flex items-center gap-6">
                 <div className="w-16 h-16 bg-success rounded-3xl flex items-center justify-center shadow-lg shadow-emerald-900/10">
                   <CheckCircle2 className="w-8 h-8 text-foreground" />
                 </div>
                 <div>
-                  <div className="text-xl font-black italic text-success uppercase italic">
+                  <div className="text-xl font-bold text-success uppercase italic">
                     Handshake Successful
                   </div>
                   <div className="text-[11px] font-bold text-success uppercase tracking-widest mt-1">
@@ -192,7 +192,7 @@ export const ManageConnectorDialog = ({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-8">
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
                     <Globe className="w-3 h-3" /> Gateway Identity
                   </div>
                   <div className="space-y-4">
@@ -220,7 +220,7 @@ export const ManageConnectorDialog = ({
                   </div>
                 </div>
                 <div className="space-y-8">
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary italic flex items-center gap-3">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-primary italic flex items-center gap-3">
                     <Key className="w-3 h-3" /> Storefront Secrets
                   </div>
                   <div className="space-y-4">
@@ -236,8 +236,8 @@ export const ManageConnectorDialog = ({
                       isMasked
                     />
                     <Separator className="my-4" />
-                    <div className="p-6 rounded-[2rem] bg-primary/5 border border-primary space-y-3">
-                      <div className="flex items-center gap-2 text-[10px] font-black text-primary uppercase tracking-widest">
+                    <div className="p-6 rounded-2xl bg-primary/5 border border-primary space-y-3">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest">
                         <AlertCircle className="w-4 h-4 text-primary" />{" "}
                         Security Notice
                       </div>
@@ -252,7 +252,7 @@ export const ManageConnectorDialog = ({
 
               <Button
                 onClick={handleClose}
-                className="w-full h-20 rounded-[2rem] bg-secondary text-foreground font-black italic uppercase tracking-[0.3em] text-xs shadow-2xl hover:scale-[0.98] transition-transform"
+                className="w-full h-20 rounded-2xl bg-secondary text-foreground font-semibold tracking-[0.3em] text-xs shadow-sm hover:scale-[0.98] transition-transform"
               >
                 CLOSE SESSION & HANDOVER
               </Button>
@@ -296,7 +296,7 @@ export const ManageConnectorDialog = ({
 
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">
                     Core Specifications
                   </Label>
                   <div className="grid grid-cols-3 gap-6">
@@ -305,29 +305,29 @@ export const ManageConnectorDialog = ({
                         placeholder="Deployment Name (e.g. Flagship Store)"
                         value={channelName}
                         onChange={(e) => setChannelName(e.target.value)}
-                        className="h-16 px-6 rounded-2xl bg-secondary/5 border-none font-black italic text-lg text-foreground placeholder:text-muted-foreground/60 shadow-inner"
+                        className="h-16 px-6 rounded-2xl bg-secondary/5 border-none font-bold text-lg text-foreground placeholder:text-muted-foreground/60 shadow-inner"
                       />
                     </div>
                     <Select value={syncFreq} onValueChange={setSyncFreq}>
-                      <SelectTrigger className="h-16 rounded-2xl bg-secondary/5 border-none font-black italic uppercase text-[10px] tracking-widest text-foreground shadow-inner">
+                      <SelectTrigger className="h-16 rounded-2xl bg-secondary/5 border-none font-semibold text-[10px] tracking-widest text-foreground shadow-inner">
                         <SelectValue placeholder="Sync Pulse" />
                       </SelectTrigger>
-                      <SelectContent className="rounded-2xl border-none shadow-2xl p-2 bg-white">
+                      <SelectContent className="rounded-2xl border-none shadow-sm p-2 bg-white">
                         <SelectItem
                           value="5min"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           5m Pulse
                         </SelectItem>
                         <SelectItem
                           value="15min"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           15m Pulse
                         </SelectItem>
                         <SelectItem
                           value="1h"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           60m Pulse
                         </SelectItem>
@@ -370,7 +370,7 @@ export const ManageConnectorDialog = ({
               <Button
                 onClick={handleCreate}
                 disabled={isProcessing || !channelName}
-                className="w-full h-20 rounded-[2rem] bg-primary text-foreground font-black italic uppercase tracking-[0.3em] text-xs shadow-2xl hover:bg-primary hover:scale-[0.98] transition-all"
+                className="w-full h-20 rounded-2xl bg-primary text-foreground font-semibold tracking-[0.3em] text-xs shadow-sm hover:bg-primary hover:scale-[0.98] transition-all"
               >
                 {isProcessing ? (
                   <RefreshCw className="w-6 h-6 animate-spin" />

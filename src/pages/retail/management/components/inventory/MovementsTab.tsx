@@ -48,7 +48,7 @@ export const MovementsTab: React.FC<Props> = ({
             <Card
               key={type}
               onClick={() => onMovement(type)}
-              className="rounded-[2rem] border border-white/5 hover:border-primary shadow-xl bg-white/[0.03] p-7 cursor-pointer group transition-all hover:shadow-2xl backdrop-blur-3xl"
+              className="rounded-2xl border border-border hover:border-primary shadow-sm bg-white/[0.03] p-7 cursor-pointer group transition-all hover:shadow-sm"
             >
               <div
                 className={`w-14 h-14 rounded-2xl ${colors.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}
@@ -59,7 +59,7 @@ export const MovementsTab: React.FC<Props> = ({
                   <Truck className={`w-7 h-7 ${colors.icon}`} />
                 )}
               </div>
-              <div className="font-black italic text-base tracking-tight text-foreground uppercase">
+              <div className="font-bold text-base tracking-tight text-foreground uppercase">
                 {meta.label}
               </div>
               <div
@@ -68,7 +68,7 @@ export const MovementsTab: React.FC<Props> = ({
                 {meta.dir === "in" ? "Inbound" : "Outbound"}
               </div>
               {!canWrite && (
-                <div className="mt-3 text-[9px] font-black italic text-warning flex items-center gap-1">
+                <div className="mt-3 text-[9px] font-bold text-warning flex items-center gap-1">
                   <Lock className="w-3 h-3" /> Requires Approval
                 </div>
               )}
@@ -78,16 +78,16 @@ export const MovementsTab: React.FC<Props> = ({
       </div>
 
       {/* Movement audit log */}
-      <Card className="rounded-2xl border border-white/5 shadow-xl overflow-hidden bg-white/[0.02] backdrop-blur-3xl">
-        <CardHeader className="p-7 border-b border-white/5">
-          <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground italic flex items-center gap-2">
+      <Card className="rounded-2xl border border-border shadow-sm overflow-hidden bg-white/[0.02]">
+        <CardHeader className="p-7 border-b border-border">
+          <CardTitle className="text-label text-muted-foreground italic flex items-center gap-2">
             <History className="w-4 h-4" /> Movement Audit Log
           </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-white/5">
+              <tr className="border-b border-border">
                 {[
                   "Time",
                   "Actor",
@@ -98,7 +98,7 @@ export const MovementsTab: React.FC<Props> = ({
                 ].map((h, i) => (
                   <th
                     key={i}
-                    className="px-7 py-4 text-left text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground italic"
+                    className="px-7 py-4 text-left text-label text-muted-foreground italic"
                   >
                     {h}
                   </th>
@@ -114,11 +114,11 @@ export const MovementsTab: React.FC<Props> = ({
                   <td className="px-7 py-4 font-mono text-[10px] text-muted-foreground">
                     {log.ts}
                   </td>
-                  <td className="px-7 py-4 font-black italic text-sm text-muted-foreground">
+                  <td className="px-7 py-4 font-bold text-sm text-muted-foreground">
                     {log.actor}
                   </td>
                   <td className="px-7 py-4">
-                    <Badge className="bg-secondary/20 text-muted-foreground border-none font-black italic text-[9px]">
+                    <Badge className="bg-secondary/20 text-muted-foreground border-none font-bold text-[9px]">
                       {log.action}
                     </Badge>
                   </td>
@@ -131,7 +131,7 @@ export const MovementsTab: React.FC<Props> = ({
                   <td className="px-7 py-4">
                     <Badge
                       className={cn(
-                        "border font-black italic text-[9px] uppercase",
+                        "border font-bold text-[9px] uppercase",
                         log.status === "approved"
                           ? "bg-success text-success border-success/20"
                           : log.status === "pending"

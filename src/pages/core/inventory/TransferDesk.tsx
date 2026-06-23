@@ -159,7 +159,7 @@ export default function InventoryTransferDesk() {
     <div className="flex gap-2">
       <Button
         onClick={() => setIsCreateModalOpen(true)}
-        className="rounded-xl bg-foreground text-background hover:bg-foreground/90 shadow-lg font-black text-[10px] uppercase tracking-widest h-9 px-6"
+        className="rounded-xl bg-foreground text-background hover:bg-foreground/90 shadow-lg font-bold text-[10px] uppercase tracking-widest h-9 px-6"
       >
         <Plus className="h-3 w-3 mr-2" /> New Transfer
       </Button>
@@ -169,39 +169,39 @@ export default function InventoryTransferDesk() {
   const mainContent = (
     <div className="p-6 space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="border-none shadow-xl shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-[2.5rem] overflow-hidden">
+        <Card className="border-none shadow-sm shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-2xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">In Transit</CardTitle>
+            <CardTitle className="text-label text-muted-foreground">In Transit</CardTitle>
             <Truck className="h-4 w-4 text-primary opacity-50" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black tracking-tighter">
+            <div className="text-3xl font-bold tracking-tighter">
               {transfers.filter(t => t.status === 'SHIPPED').length}
             </div>
             <p className="text-[10px] font-bold text-primary mt-1 uppercase tracking-widest">Active Logistics</p>
           </CardContent>
         </Card>
         
-        <Card className="border-none shadow-xl shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-[2.5rem] overflow-hidden">
+        <Card className="border-none shadow-sm shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-2xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Pending Approval</CardTitle>
+            <CardTitle className="text-label text-muted-foreground">Pending Approval</CardTitle>
             <AlertCircle className="h-4 w-4 text-warning opacity-50" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black tracking-tighter text-warning">
+            <div className="text-3xl font-bold tracking-tighter text-warning">
               {transfers.filter(t => t.status === 'REQUESTED' || t.status === 'PICKED').length}
             </div>
             <p className="text-[10px] font-bold text-warning mt-1 uppercase tracking-widest">Awaiting Authorization</p>
           </CardContent>
         </Card>
 
-        <Card className="border-none shadow-xl shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-[2.5rem] overflow-hidden">
+        <Card className="border-none shadow-sm shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-2xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Completed (MTD)</CardTitle>
+            <CardTitle className="text-label text-muted-foreground">Completed (MTD)</CardTitle>
             <History className="h-4 w-4 text-success opacity-50" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black tracking-tighter text-success">
+            <div className="text-3xl font-bold tracking-tighter text-success">
               {transfers.filter(t => t.status === 'RECEIVED').length}
             </div>
             <p className="text-[10px] font-bold text-success mt-1 uppercase tracking-widest">Asset Reconciliation</p>
@@ -209,7 +209,7 @@ export default function InventoryTransferDesk() {
         </Card>
       </div>
 
-      <Card className="border-none shadow-2xl shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-[3rem] overflow-hidden">
+      <Card className="border-none shadow-sm shadow-muted/50 dark:shadow-none bg-white dark:bg-muted rounded-[3rem] overflow-hidden">
         <div className="p-8 border-b flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="relative flex-1 w-full max-w-md">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -223,12 +223,12 @@ export default function InventoryTransferDesk() {
           <div className="flex items-center gap-3 w-full md:w-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="h-14 px-6 rounded-2xl border-muted text-xs font-black uppercase tracking-widest hover:bg-muted">
+                <Button variant="outline" className="h-14 px-6 rounded-2xl border-muted text-xs font-semibold tracking-widest hover:bg-muted">
                   <Filter className="h-4 w-4 mr-2" /> {statusFilter === 'ALL' ? 'Filter' : `Status: ${statusFilter}`}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48 rounded-2xl p-2">
-                <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-40 px-4 py-3">Filter by Status</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-40 px-4 py-3">Filter by Status</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {['ALL', 'REQUESTED', 'PICKED', 'SHIPPED', 'RECEIVED'].map((status) => (
                   <DropdownMenuItem 
@@ -249,11 +249,11 @@ export default function InventoryTransferDesk() {
             <Table>
               <TableHeader className="bg-muted dark:bg-muted">
                 <TableRow className="hover:bg-transparent border-none">
-                  <TableHead className="w-[150px] text-[10px] font-black uppercase tracking-widest pl-8 py-6">ID</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest py-6">Route Protocol</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest py-6 text-center">Items</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest py-6 text-center">Status</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest py-6 text-right pr-8">Actions</TableHead>
+                  <TableHead className="w-[150px] text-[10px] font-semibold tracking-widest pl-8 py-6">ID</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest py-6">Route Protocol</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest py-6 text-center">Items</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest py-6 text-center">Status</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest py-6 text-right pr-8">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -270,7 +270,7 @@ export default function InventoryTransferDesk() {
                     <TableCell colSpan={5} className="h-48 text-center">
                       <div className="flex flex-col items-center justify-center opacity-20">
                         <Truck className="h-12 w-12 mb-4 stroke-[1]" />
-                        <h3 className="text-xl font-black uppercase tracking-widest">No Active Logistics</h3>
+                        <h3 className="text-xl font-semibold tracking-widest">No Active Logistics</h3>
                       </div>
                     </TableCell>
                   </TableRow>
@@ -281,17 +281,17 @@ export default function InventoryTransferDesk() {
                       className="border-muted dark:border-muted group hover:bg-primary/[0.02] transition-all"
                     >
                       <TableCell className="pl-8 py-6">
-                        <span className="text-xs font-mono font-black text-muted-foreground group-hover:text-primary transition-colors">{t.transferNo}</span>
+                        <span className="text-xs font-mono font-bold text-muted-foreground group-hover:text-primary transition-colors">{t.transferNo}</span>
                       </TableCell>
                       <TableCell className="py-6">
                         <div className="flex items-center gap-3">
-                          <span className="text-sm font-black tracking-tight">{t.fromLocation}</span>
+                          <span className="text-sm font-bold tracking-tight">{t.fromLocation}</span>
                           <ArrowRightLeft className="h-3 w-3 text-muted-foreground" />
-                          <span className="text-sm font-black tracking-tight">{t.toLocation}</span>
+                          <span className="text-sm font-bold tracking-tight">{t.toLocation}</span>
                         </div>
                       </TableCell>
                       <TableCell className="py-6 text-center">
-                        <Badge variant="outline" className="text-[10px] font-black border-none bg-muted/30 rounded-lg">
+                        <Badge variant="outline" className="text-[10px] font-bold border-none bg-muted/30 rounded-lg">
                           {t.itemCount} Units
                         </Badge>
                       </TableCell>
@@ -317,8 +317,8 @@ export default function InventoryTransferDesk() {
                               )}
                             </Button>
                           </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end" className="w-56 rounded-2xl border-muted dark:border-muted bg-white dark:bg-muted p-2 shadow-2xl">
-                            <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-40 px-4 py-3">Protocol Actions</DropdownMenuLabel>
+                          <DropdownMenuContent align="end" className="w-56 rounded-2xl border-muted dark:border-muted bg-white dark:bg-muted p-2 shadow-sm">
+                            <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-40 px-4 py-3">Protocol Actions</DropdownMenuLabel>
                             
                             {t.status === 'REQUESTED' && (
                               <DropdownMenuItem 
@@ -384,10 +384,10 @@ export default function InventoryTransferDesk() {
       {/* Tactical Header */}
       <div className="flex items-end justify-between border-b border-muted dark:border-muted pb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.3em]">
             <Layers className="h-3 w-3" /> LOGISTICS_ENGINE
           </div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase italic text-muted-foreground dark:text-white">
+          <h1 className="text-4xl font-bold tracking-tighter uppercase italic text-muted-foreground dark:text-white">
             Transfer Desk
           </h1>
           <p className="text-sm text-muted-foreground font-medium italic">Orchestrate secure asset movement and inter-nodal logistics.</p>

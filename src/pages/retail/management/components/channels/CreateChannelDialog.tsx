@@ -259,7 +259,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="max-w-lg rounded-[2rem] p-0 overflow-hidden border-none shadow-2xl">
+      <DialogContent className="max-w-lg rounded-2xl p-0 overflow-hidden border-none shadow-sm">
         {/* Step indicator */}
         <div className="flex">
           {(Array.isArray(STEP_LABELS) ? STEP_LABELS : []).map((label, i) => {
@@ -268,7 +268,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
               <div
                 key={s}
                 className={cn(
-                  "flex-1 py-3 text-center text-[9px] font-black uppercase tracking-[0.2em] transition-colors border-b-2",
+                  "flex-1 py-3 text-center text-label transition-colors border-b-2",
                   step === s
                     ? "bg-white text-foreground border-border"
                     : step > s
@@ -278,7 +278,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
               >
                 <span
                   className={cn(
-                    "inline-flex items-center justify-center w-4 h-4 rounded-full text-[8px] font-black mr-1.5 border",
+                    "inline-flex items-center justify-center w-4 h-4 rounded-full text-[8px] font-bold mr-1.5 border",
                     step === s
                       ? "bg-secondary text-foreground border-border"
                       : step > s
@@ -299,7 +299,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
           {step === 1 && (
             <>
               <DialogHeader className="mb-6">
-                <DialogTitle className="text-xl font-black italic tracking-tight">
+                <DialogTitle className="text-xl font-bold tracking-tight">
                   Connect a Channel
                 </DialogTitle>
                 <DialogDescription className="font-bold italic text-xs text-muted-foreground uppercase tracking-widest">
@@ -327,7 +327,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
                       <t.icon className={`w-5 h-5 text-${t.color}-600`} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="font-black italic text-foreground text-sm">
+                      <div className="font-bold text-foreground text-sm">
                         {t.label}
                       </div>
                       <div className="text-xs font-bold text-muted-foreground mt-0.5 leading-relaxed">
@@ -349,14 +349,14 @@ export const CreateChannelDialog: React.FC<Props> = ({
                 <Button
                   variant="outline"
                   onClick={handleClose}
-                  className="rounded-xl font-black italic"
+                  className="rounded-xl font-bold"
                 >
                   Cancel
                 </Button>
                 <Button
                   disabled={!selectedType}
                   onClick={() => setStep(2)}
-                  className="rounded-xl font-black italic gap-2 bg-secondary"
+                  className="rounded-xl font-bold gap-2 bg-secondary"
                 >
                   Continue <ArrowRight className="w-4 h-4" />
                 </Button>
@@ -368,7 +368,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
           {step === 2 && (
             <>
               <DialogHeader className="mb-6">
-                <DialogTitle className="text-xl font-black italic tracking-tight">
+                <DialogTitle className="text-xl font-bold tracking-tight">
                   {selectedChannelType?.label ?? "Channel"} Config
                 </DialogTitle>
                 <DialogDescription className="font-bold italic text-xs text-muted-foreground uppercase tracking-widest">
@@ -377,7 +377,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
               </DialogHeader>
               <div className="space-y-4">
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Channel Name *
                   </Label>
                   <Input
@@ -398,7 +398,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                       Platform *
                     </Label>
                     <Select
@@ -425,7 +425,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                       Sync Frequency
                     </Label>
                     <Select
@@ -485,14 +485,14 @@ export const CreateChannelDialog: React.FC<Props> = ({
                 <Button
                   variant="ghost"
                   onClick={() => setStep(1)}
-                  className="rounded-xl font-black italic gap-1"
+                  className="rounded-xl font-bold gap-1"
                 >
                   <ChevronLeft className="w-4 h-4" /> Back
                 </Button>
                 <Button
                   disabled={!valid2 || isSaving}
                   onClick={handleCreate}
-                  className="rounded-xl font-black italic bg-secondary"
+                  className="rounded-xl font-bold bg-secondary"
                 >
                   {isSaving ? "Creating…" : "Create Channel"}
                 </Button>
@@ -507,7 +507,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
                 <div className="w-12 h-12 rounded-2xl bg-success flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-6 h-6 text-success" />
                 </div>
-                <DialogTitle className="text-xl font-black italic tracking-tight">
+                <DialogTitle className="text-xl font-bold tracking-tight">
                   Channel Created!
                 </DialogTitle>
                 <DialogDescription className="font-bold italic text-xs text-muted-foreground uppercase tracking-widest">
@@ -528,7 +528,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
                   },
                 ].map((item) => (
                   <div key={item.field} className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                       {item.label}
                     </Label>
                     <div className="flex items-center gap-2">
@@ -554,7 +554,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
                 <Button
                   variant="outline"
                   onClick={copyAll}
-                  className="w-full h-10 rounded-xl font-black italic text-xs uppercase tracking-widest gap-2 border-border"
+                  className="w-full h-10 rounded-xl font-bold text-xs uppercase tracking-widest gap-2 border-border"
                 >
                   {copiedField === "all" ? (
                     <>
@@ -577,7 +577,7 @@ export const CreateChannelDialog: React.FC<Props> = ({
               <DialogFooter className="mt-6">
                 <Button
                   onClick={handleClose}
-                  className="w-full rounded-xl font-black italic bg-secondary"
+                  className="w-full rounded-xl font-bold bg-secondary"
                 >
                   Done — View Channel Settings
                 </Button>

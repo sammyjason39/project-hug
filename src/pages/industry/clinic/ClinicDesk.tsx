@@ -123,7 +123,7 @@ export default function ClinicDesk() {
         />
       ) : (
         <Tabs defaultValue="patients" className="space-y-6">
-          <TabsList className="bg-muted/50 border backdrop-blur-sm p-1">
+          <TabsList className="bg-muted/50 border p-1">
             <TabsTrigger value="patients" className="gap-2">
               <Users className="h-4 w-4" /> Patients
             </TabsTrigger>
@@ -223,7 +223,7 @@ export default function ClinicDesk() {
                           <p className="text-xs text-muted-foreground uppercase font-bold">
                             Outstanding
                           </p>
-                          <p className="text-2xl font-black italic">
+                          <p className="text-2xl font-bold">
                             {formatCurrency(summary.outstanding ?? 0)}
                           </p>
                         </GlassCardContent>
@@ -233,7 +233,7 @@ export default function ClinicDesk() {
                           <p className="text-xs text-muted-foreground uppercase font-bold">
                             Insurance Claims
                           </p>
-                          <p className="text-2xl font-black italic">
+                          <p className="text-2xl font-bold">
                             {formatNumber(summary.pendingClaims ?? 0, {
                               maximumFractionDigits: 0,
                             })}{" "}
@@ -246,7 +246,7 @@ export default function ClinicDesk() {
                           <p className="text-xs text-muted-foreground uppercase font-bold">
                             Day Revenue
                           </p>
-                          <p className="text-2xl font-black italic text-success">
+                          <p className="text-2xl font-bold text-success">
                             {formatCurrency(summary.dayRevenue ?? 0)}
                           </p>
                         </GlassCardContent>

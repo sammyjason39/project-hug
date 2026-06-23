@@ -102,7 +102,7 @@ export const ChannelDetailDialog = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl rounded-[2rem] p-0 overflow-hidden border-none shadow-[0_40px_100px_rgba(0,0,0,0.25)] flex flex-col max-h-[90vh]">
+      <DialogContent className="max-w-4xl rounded-2xl p-0 overflow-hidden border-none shadow-[0_40px_100px_rgba(0,0,0,0.25)] flex flex-col max-h-[90vh]">
         <div className="bg-secondary p-6 text-foreground relative overflow-hidden shrink-0">
           <div className="absolute top-0 right-0 p-6 opacity-10">
             {selectedChannel.type === "OWNED" ? (
@@ -115,7 +115,7 @@ export const ChannelDetailDialog = ({
           <div className="relative z-10 flex items-start justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <Badge className="bg-primary/20 text-primary border-none font-black italic text-[9px] uppercase tracking-[0.2em] px-4 py-1">
+                <Badge className="bg-primary/20 text-primary border-none font-bold text-[9px] uppercase tracking-[0.2em] px-4 py-1">
                   Channel Configuration
                 </Badge>
                 <Badge
@@ -128,10 +128,10 @@ export const ChannelDetailDialog = ({
                   {selectedChannel.status}
                 </Badge>
               </div>
-              <DialogTitle className="text-2xl font-black italic uppercase tracking-tighter leading-none">
+              <DialogTitle className="text-2xl font-semibold tracking-tighter leading-none">
                 {selectedChannel.name || "UNNAMED_NODE"}
               </DialogTitle>
-              <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">
                 Node {selectedChannel.id} • {selectedChannel.type}
               </div>
             </div>
@@ -142,7 +142,7 @@ export const ChannelDetailDialog = ({
           {/* Sidebar controls */}
           <div className="w-72 border-r border-border bg-secondary/5 p-8 space-y-8 flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="text-[9px] font-black uppercase tracking-widest text-muted-foreground italic">
+              <div className="text-label text-muted-foreground italic">
                 Security Actions
               </div>
               <div className="space-y-3">
@@ -154,7 +154,7 @@ export const ChannelDetailDialog = ({
                     })
                   }
                   disabled={!canEdit || !!rotationLoading}
-                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-black italic uppercase text-[9px] tracking-widest text-muted-foreground hover:bg-white hover:text-primary transition-all border border-transparent hover:border-border"
+                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-semibold text-[9px] tracking-widest text-muted-foreground hover:bg-white hover:text-primary transition-all border border-transparent hover:border-border"
                 >
                   <RefreshCw
                     className={`w-3.5 h-3.5 ${rotationLoading === selectedChannel.id ? "animate-spin" : ""}`}
@@ -165,7 +165,7 @@ export const ChannelDetailDialog = ({
                   variant="ghost"
                   onClick={() => handleRevokeChannel(selectedChannel.id)}
                   disabled={!canEdit || !!revocationLoading}
-                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-black italic uppercase text-[9px] tracking-widest text-muted-foreground hover:bg-white hover:text-destructive transition-all border border-transparent hover:border-border"
+                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-semibold text-[9px] tracking-widest text-muted-foreground hover:bg-white hover:text-destructive transition-all border border-transparent hover:border-border"
                 >
                   <ShieldOff className="w-3.5 h-3.5" />
                   Revoke Access
@@ -175,7 +175,7 @@ export const ChannelDetailDialog = ({
                   variant="ghost"
                   onClick={() => handleDelete(selectedChannel.id)}
                   disabled={!canEdit}
-                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-black italic uppercase text-[9px] tracking-widest text-destructive hover:bg-destructive transition-all border border-transparent"
+                  className="w-full h-12 justify-start rounded-xl px-4 gap-3 font-semibold text-[9px] tracking-widest text-destructive hover:bg-destructive transition-all border border-transparent"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   Destroy Node
@@ -187,7 +187,7 @@ export const ChannelDetailDialog = ({
               <div className="p-6 rounded-2xl bg-warning border border-warning space-y-4">
                 <div className="flex items-center gap-2 text-warning">
                   <AlertCircle className="w-4 h-4" />
-                  <span className="text-[9px] font-black uppercase tracking-widest italic">
+                  <span className="text-label italic">
                     LOCKED
                   </span>
                 </div>
@@ -197,7 +197,7 @@ export const ChannelDetailDialog = ({
                 <Button
                   size="sm"
                   onClick={handleRequestApproval}
-                  className="w-full bg-warning text-foreground font-black italic uppercase text-[8px] h-8 rounded-lg"
+                  className="w-full bg-warning text-foreground font-semibold text-[8px] h-8 rounded-lg"
                 >
                   Request Unlock
                 </Button>
@@ -212,19 +212,19 @@ export const ChannelDetailDialog = ({
                 <TabsList className="bg-secondary/10 rounded-2xl p-1 h-14 w-full">
                   <TabsTrigger
                     value="vault"
-                    className="flex-1 rounded-xl font-black italic uppercase text-[10px] tracking-widest"
+                    className="flex-1 rounded-xl font-semibold text-[10px] tracking-widest"
                   >
                     Secret Vault
                   </TabsTrigger>
                   <TabsTrigger
                     value="sync"
-                    className="flex-1 rounded-xl font-black italic uppercase text-[10px] tracking-widest"
+                    className="flex-1 rounded-xl font-semibold text-[10px] tracking-widest"
                   >
                     Sync Pulse
                   </TabsTrigger>
                   <TabsTrigger
                     value="metadata"
-                    className="flex-1 rounded-xl font-black italic uppercase text-[10px] tracking-widest"
+                    className="flex-1 rounded-xl font-semibold text-[10px] tracking-widest"
                   >
                     Metadata
                   </TabsTrigger>
@@ -237,7 +237,7 @@ export const ChannelDetailDialog = ({
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-8">
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
+                    <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
                       <Database className="w-3 h-3" /> Core Identity
                     </div>
                     <div className="space-y-4">
@@ -259,7 +259,7 @@ export const ChannelDetailDialog = ({
                     </div>
                   </div>
                   <div className="space-y-8">
-                    <div className="text-[10px] font-black uppercase tracking-[0.3em] text-primary italic flex items-center gap-3">
+                    <div className="text-[10px] font-semibold tracking-[0.3em] text-primary italic flex items-center gap-3">
                       <Key className="w-3 h-3" /> Handshake Keys
                     </div>
                     <div className="space-y-4">
@@ -276,8 +276,8 @@ export const ChannelDetailDialog = ({
                         copyable={!!detailClientSecret}
                         isMasked
                       />
-                      <div className="p-6 rounded-[2rem] bg-secondary/5 border border-border mt-6">
-                        <p className="text-[9px] font-black text-muted-foreground uppercase leading-relaxed italic uppercase italic tracking-widest">
+                      <div className="p-6 rounded-2xl bg-secondary/5 border border-border mt-6">
+                        <p className="text-[9px] font-bold text-muted-foreground uppercase leading-relaxed italic uppercase italic tracking-widest">
                           Keys are rotate-only. Previous secrets are immediately
                           invalidated upon rotation.
                         </p>
@@ -292,7 +292,7 @@ export const ChannelDetailDialog = ({
                 className="space-y-12 m-0 border-none outline-none"
               >
                 <div className="space-y-8">
-                  <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic flex items-center gap-3">
                     <Activity className="w-3 h-3" /> Propagation Rules
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -320,10 +320,10 @@ export const ChannelDetailDialog = ({
                     ].map((rule) => (
                       <div
                         key={rule.id}
-                        className="p-8 rounded-[2rem] bg-secondary/5 border border-border flex items-center justify-between group hover:bg-white transition-all"
+                        className="p-8 rounded-2xl bg-secondary/5 border border-border flex items-center justify-between group hover:bg-white transition-all"
                       >
                         <div>
-                          <div className="text-sm font-black italic text-foreground uppercase italic tracking-tighter">
+                          <div className="text-sm font-bold text-foreground uppercase italic tracking-tighter">
                             {rule.label}
                           </div>
                           <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
@@ -351,7 +351,7 @@ export const ChannelDetailDialog = ({
                 className="space-y-8 m-0 border-none outline-none"
               >
                 <div className="space-y-4">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">
                     Identity Mapping
                   </Label>
                   <div className="grid grid-cols-3 gap-6">
@@ -361,7 +361,7 @@ export const ChannelDetailDialog = ({
                         value={detailName}
                         onChange={(e) => setDetailName(e.target.value)}
                         disabled={!canEdit}
-                        className="h-16 px-6 rounded-2xl bg-secondary/5 border-none font-black italic text-lg text-foreground shadow-inner"
+                        className="h-16 px-6 rounded-2xl bg-secondary/5 border-none font-bold text-lg text-foreground shadow-inner"
                       />
                     </div>
                     <Select
@@ -369,25 +369,25 @@ export const ChannelDetailDialog = ({
                       onValueChange={setDetailSyncFreq}
                       disabled={!canEdit}
                     >
-                      <SelectTrigger className="h-16 rounded-2xl bg-secondary/5 border-none font-black italic uppercase text-[10px] tracking-widest text-foreground shadow-inner">
+                      <SelectTrigger className="h-16 rounded-2xl bg-secondary/5 border-none font-semibold text-[10px] tracking-widest text-foreground shadow-inner">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="rounded-2xl border-none shadow-2xl p-2 bg-white">
+                      <SelectContent className="rounded-2xl border-none shadow-sm p-2 bg-white">
                         <SelectItem
                           value="5min"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           5m Pulse
                         </SelectItem>
                         <SelectItem
                           value="15min"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           15m Pulse
                         </SelectItem>
                         <SelectItem
                           value="1h"
-                          className="rounded-xl font-black italic uppercase text-[10px] py-4"
+                          className="rounded-xl font-semibold text-[10px] py-4"
                         >
                           60m Pulse
                         </SelectItem>
@@ -404,14 +404,14 @@ export const ChannelDetailDialog = ({
           <Button
             variant="ghost"
             onClick={() => onOpenChange(false)}
-            className="font-black italic uppercase text-[10px] tracking-[0.2em] text-muted-foreground"
+            className="font-semibold text-[10px] tracking-[0.2em] text-muted-foreground"
           >
             CANCEL SESSION
           </Button>
           <Button
             onClick={handleSaveChannel}
             disabled={!canEdit || isSaving}
-            className="h-16 px-12 rounded-2xl bg-secondary text-foreground font-black italic uppercase tracking-widest text-[10px] flex items-center gap-3 shadow-xl hover:scale-[1.02] transition-transform"
+            className="h-16 px-12 rounded-2xl bg-secondary text-foreground font-semibold tracking-widest text-[10px] flex items-center gap-3 shadow-sm hover:scale-[1.02] transition-transform"
           >
             {isSaving ? (
               <RefreshCw className="w-4 h-4 animate-spin" />

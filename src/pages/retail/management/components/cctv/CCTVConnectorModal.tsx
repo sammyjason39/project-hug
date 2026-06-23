@@ -157,7 +157,7 @@ export default function CCTVConnectorModal({
     <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-w-md p-0 overflow-hidden border-border rounded-[28px]">
         <DialogHeader className="p-6 bg-secondary/5 border-b border-border">
-          <DialogTitle className="text-xl font-black italic tracking-tighter text-muted-foreground flex items-center gap-3">
+          <DialogTitle className="text-xl font-bold tracking-tighter text-muted-foreground flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-white shadow-sm border border-border flex items-center justify-center">
               <Camera className="w-5 h-5 text-primary" />
             </div>
@@ -168,7 +168,7 @@ export default function CCTVConnectorModal({
         <div className="p-6 space-y-6">
           <div className="space-y-4">
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Protocol & Provider
               </Label>
               <Select
@@ -192,7 +192,7 @@ export default function CCTVConnectorModal({
             </div>
 
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Camera Name
               </Label>
               <Input
@@ -205,7 +205,7 @@ export default function CCTVConnectorModal({
 
             {pConfig?.req.includes("ipAddress") && (
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                   IP Address
                 </Label>
                 <Input
@@ -220,7 +220,7 @@ export default function CCTVConnectorModal({
             {pConfig?.req.includes("username") && (
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                  <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                     Username
                   </Label>
                   <Input
@@ -231,7 +231,7 @@ export default function CCTVConnectorModal({
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                  <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                     Password
                   </Label>
                   <Input
@@ -247,7 +247,7 @@ export default function CCTVConnectorModal({
 
             {pConfig?.req.includes("cloudAccountId") && (
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                   Cloud Account ID
                 </Label>
                 <Input
@@ -261,7 +261,7 @@ export default function CCTVConnectorModal({
 
             {pConfig?.req.includes("verificationCode") && (
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                   Verification Code
                 </Label>
                 <Input
@@ -279,7 +279,7 @@ export default function CCTVConnectorModal({
 
             {pConfig?.req.includes("rtspUrl") && (
               <div className="space-y-1.5">
-                <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                   RTSP URL
                 </Label>
                 <Input
@@ -311,7 +311,7 @@ export default function CCTVConnectorModal({
           <Button
             onClick={handleRegister}
             disabled={!validated || loading}
-            className="rounded-xl bg-primary hover:bg-primary text-foreground font-black italic uppercase text-[10px] tracking-widest h-10 px-6 gap-2"
+            className="rounded-xl bg-primary hover:bg-primary text-foreground font-semibold text-[10px] tracking-widest h-10 px-6 gap-2"
           >
             Connect <Server className="w-3.5 h-3.5" />
           </Button>

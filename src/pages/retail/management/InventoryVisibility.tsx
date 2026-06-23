@@ -901,14 +901,14 @@ const InventoryVisibility = () => {
               size="lg"
               onClick={handleSync}
               disabled={isLoading}
-              className="h-14 px-6 rounded-2xl border-border bg-secondary/40 backdrop-blur-md font-black italic text-xs uppercase tracking-widest gap-2 text-foreground hover:bg-secondary/60"
+              className="h-14 px-6 rounded-2xl border-border bg-secondary/40 font-bold text-xs uppercase tracking-widest gap-2 text-foreground hover:bg-secondary/60"
             >
               <RefreshCw className={cn("w-4 h-4", isLoading && "animate-spin")} />
               Sync
             </Button>
 
             {!canWrite && (
-              <Badge className="bg-warning text-foreground border-none font-black italic text-[10px] uppercase px-4 h-14 rounded-2xl flex items-center gap-2">
+              <Badge className="bg-warning text-foreground border-none font-bold text-[10px] uppercase px-4 h-14 rounded-2xl flex items-center gap-2">
                 <Lock className="w-4 h-4" /> View Only
               </Badge>
             )}
@@ -919,7 +919,7 @@ const InventoryVisibility = () => {
       <div className="flex-1">
         <Tabs defaultValue="ledger" className="flex flex-col">
           <div className="max-w-[1600px] mx-auto pt-4 shrink-0">
-            <TabsList className="h-14 p-1.5 bg-muted backdrop-blur-md border border-white/5 rounded-[1.2rem] shadow-sm w-full md:w-auto overflow-x-auto overflow-y-hidden no-scrollbar">
+            <TabsList className="h-14 p-1.5 bg-muted border border-border rounded-[1.2rem] shadow-sm w-full md:w-auto overflow-x-auto overflow-y-hidden no-scrollbar">
               {[
                 { val: "ledger", label: "Ledger", icon: Layers },
                 { val: "opname", label: "Opname", icon: ClipboardCheck },
@@ -931,7 +931,7 @@ const InventoryVisibility = () => {
                 <TabsTrigger
                   key={t.val}
                   value={t.val}
-                  className="rounded-xl px-6 font-black italic text-[10px] uppercase tracking-widest data-[state=active]:bg-secondary data-[state=active]:text-foreground transition-all gap-2"
+                  className="rounded-xl px-6 font-bold text-[10px] uppercase tracking-widest data-[state=active]:bg-secondary data-[state=active]:text-foreground transition-all gap-2"
                 >
                   <t.icon className="w-3.5 h-3.5" />
                   {t.label}
@@ -962,7 +962,7 @@ const InventoryVisibility = () => {
                   canWrite ? (
                     <Button
                       size="lg"
-                      className="rounded-2xl bg-secondary text-foreground font-black italic text-xs uppercase tracking-widest gap-2 h-14 px-8 whitespace-nowrap"
+                      className="rounded-2xl bg-secondary text-foreground font-bold text-xs uppercase tracking-widest gap-2 h-14 px-8 whitespace-nowrap"
                       onClick={() => setDetailItem({} as InventoryItemView)}
                     >
                       <Plus className="h-4 w-4" /> Add Item
@@ -971,7 +971,7 @@ const InventoryVisibility = () => {
                 }
               />
 
-              <Card className="rounded-2xl border-border bg-secondary/30 backdrop-blur-3xl shadow-2xl overflow-hidden border">
+              <Card className="rounded-2xl border-border bg-secondary/30 shadow-sm overflow-hidden border">
                 <InventoryTable
                   items={inventory}
                   isLoading={isLoading}
@@ -1071,7 +1071,7 @@ const InventoryVisibility = () => {
             <div className="max-w-7xl mx-auto space-y-6 text-foreground">
               <div className="flex items-center justify-between mb-2">
                 <div>
-                  <h2 className="text-2xl font-black italic tracking-tight">
+                  <h2 className="text-2xl font-bold tracking-tight">
                     Pending SKU Approvals
                   </h2>
                   <p className="text-muted-foreground text-sm font-medium">
@@ -1092,11 +1092,11 @@ const InventoryVisibility = () => {
               </div>
 
               {pendingItems.length === 0 ? (
-                <div className="h-[400px] rounded-2xl bg-white/[0.02] border border-dashed border-white/5 flex flex-col items-center justify-center text-center p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 shadow-sm flex items-center justify-center mb-4 border border-white/5">
+                <div className="h-[400px] rounded-2xl bg-white/[0.02] border border-dashed border-border flex flex-col items-center justify-center text-center p-8">
+                  <div className="w-16 h-16 rounded-2xl bg-white/5 shadow-sm flex items-center justify-center mb-4 border border-border">
                     <ShieldCheck className="w-8 h-8 text-muted-foreground/60" />
                   </div>
-                  <h3 className="text-lg font-black italic tracking-tight">
+                  <h3 className="text-lg font-bold tracking-tight">
                     All Clear!
                   </h3>
                   <p className="text-muted-foreground text-sm font-medium mt-1">
@@ -1108,17 +1108,17 @@ const InventoryVisibility = () => {
                   {(Array.isArray(pendingItems) ? pendingItems : []).map((item) => (
                     <Card
                       key={item.id}
-                      className="rounded-[2rem] border border-white/5 shadow-xl overflow-hidden bg-white/[0.03] p-6 border-l-4 border-l-indigo-600 backdrop-blur-3xl"
+                      className="rounded-2xl border border-border shadow-sm overflow-hidden bg-white/[0.03] p-6 border-l-4 border-l-indigo-600"
                     >
                       <div className="flex justify-between items-start mb-4">
-                        <Badge className="bg-primary/5 text-primary hover:bg-primary/10 rounded-lg text-[10px] font-black italic uppercase">
+                        <Badge className="bg-primary/5 text-primary hover:bg-primary/10 rounded-lg text-[10px] font-semibold">
                           Pending Approval
                         </Badge>
-                        <span className="text-[10px] font-black uppercase text-muted-foreground italic">
+                        <span className="text-[10px] font-semibold text-muted-foreground italic">
                           {item.sku}
                         </span>
                       </div>
-                      <h4 className="text-lg font-black italic tracking-tight leading-tight mb-1">
+                      <h4 className="text-lg font-bold tracking-tight leading-tight mb-1">
                         {item.name}
                       </h4>
                       <p className="text-xs text-muted-foreground font-medium mb-4">
@@ -1127,18 +1127,18 @@ const InventoryVisibility = () => {
 
                       <div className="grid grid-cols-2 gap-4 mb-6">
                         <div className="bg-secondary/5 rounded-2xl p-3">
-                          <p className="text-[9px] font-black uppercase text-muted-foreground italic mb-1">
+                          <p className="text-[9px] font-semibold text-muted-foreground italic mb-1">
                             Price
                           </p>
-                          <p className="text-sm font-black italic text-foreground">
+                          <p className="text-sm font-bold text-foreground">
                             ${item.price}
                           </p>
                         </div>
                         <div className="bg-secondary/5 rounded-2xl p-3">
-                          <p className="text-[9px] font-black uppercase text-muted-foreground italic mb-1">
+                          <p className="text-[9px] font-semibold text-muted-foreground italic mb-1">
                             Type
                           </p>
-                          <p className="text-sm font-black italic text-foreground">
+                          <p className="text-sm font-bold text-foreground">
                             {item.type}
                           </p>
                         </div>
@@ -1146,7 +1146,7 @@ const InventoryVisibility = () => {
 
                       <div className="flex gap-3">
                         <Button
-                          className="flex-1 rounded-xl h-10 font-black italic uppercase text-[10px] tracking-widest bg-success hover:bg-success text-foreground"
+                          className="flex-1 rounded-xl h-10 font-semibold text-[10px] tracking-widest bg-success hover:bg-success text-foreground"
                           disabled={isApproving}
                           onClick={async () => {
                             setIsApproving(true);
@@ -1177,7 +1177,7 @@ const InventoryVisibility = () => {
                         </Button>
                         <Button
                           variant="outline"
-                          className="flex-1 rounded-xl h-10 font-black italic uppercase text-[10px] tracking-widest text-destructive border-destructive hover:bg-destructive"
+                          className="flex-1 rounded-xl h-10 font-semibold text-[10px] tracking-widest text-destructive border-destructive hover:bg-destructive"
                           disabled={isApproving}
                           onClick={async () => {
                             setIsApproving(true);
@@ -1258,9 +1258,9 @@ const InventoryVisibility = () => {
       />
 
       <Dialog open={isBufferDialogOpen} onOpenChange={setIsBufferDialogOpen}>
-        <DialogContent className="max-w-md rounded-[2.5rem] bg-muted backdrop-blur-2xl border-white/10 shadow-2xl p-8">
+        <DialogContent className="max-w-md rounded-2xl bg-muted border-border shadow-sm p-8">
           <DialogHeader>
-            <DialogTitle className="text-xl font-black italic uppercase tracking-widest text-white flex items-center gap-3">
+            <DialogTitle className="text-xl font-semibold tracking-widest text-white flex items-center gap-3">
               <ShieldCheck className="w-6 h-6 text-primary" />
               Stock Threshold
             </DialogTitle>
@@ -1271,30 +1271,30 @@ const InventoryVisibility = () => {
 
           <div className="space-y-6 py-6">
             <div className="space-y-3">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Min Buffer Quantity</Label>
+              <Label className="text-label text-muted-foreground ml-2">Min Buffer Quantity</Label>
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full h-14 bg-muted border border-white/5 rounded-2xl px-6 font-black italic text-lg text-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                  className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-bold text-lg text-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
                   value={bufferValue}
                   onChange={(e) => setBufferValue(parseInt(e.target.value) || 0)}
                 />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-semibold tracking-widest text-muted-foreground italic">
                   Branch
                 </div>
               </div>
             </div>
 
             <div className="space-y-3">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Global Min Stock (Meta)</Label>
+              <Label className="text-label text-muted-foreground ml-2">Global Min Stock (Meta)</Label>
               <div className="relative">
                 <input
                   type="number"
-                  className="w-full h-14 bg-muted border border-white/5 rounded-2xl px-6 font-black italic text-lg text-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
+                  className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-bold text-lg text-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
                   value={globalMinStock}
                   onChange={(e) => setGlobalMinStock(parseInt(e.target.value) || 0)}
                 />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-semibold tracking-widest text-muted-foreground italic">
                   Global
                 </div>
               </div>
@@ -1308,14 +1308,14 @@ const InventoryVisibility = () => {
             <Button
               variant="outline"
               onClick={() => setIsBufferDialogOpen(false)}
-              className="h-12 rounded-xl font-black italic text-xs uppercase tracking-widest border-white/5 bg-transparent text-muted-foreground hover:bg-muted"
+              className="h-12 rounded-xl font-bold text-xs uppercase tracking-widest border-border bg-transparent text-muted-foreground hover:bg-muted"
             >
               Cancel
             </Button>
             <Button
               onClick={handleUpdateBuffer}
               disabled={isUpdatingBuffer}
-              className="h-12 flex-1 rounded-xl font-black italic text-xs uppercase tracking-widest bg-white text-muted-foreground hover:bg-muted"
+              className="h-12 flex-1 rounded-xl font-bold text-xs uppercase tracking-widest bg-white text-muted-foreground hover:bg-muted"
             >
               {isUpdatingBuffer ? (
                 <RefreshCw className="w-4 h-4 animate-spin mr-2" />

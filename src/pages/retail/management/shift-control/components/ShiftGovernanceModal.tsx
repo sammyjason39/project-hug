@@ -37,13 +37,13 @@ export const ShiftGovernanceModal: React.FC<ShiftGovernanceModalProps> = ({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-md bg-secondary border-border p-8 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] text-foreground">
         <DialogHeader className="mb-6">
-          <DialogTitle className="text-xl font-black italic tracking-tighter flex items-center gap-3">
+          <DialogTitle className="text-xl font-bold tracking-tighter flex items-center gap-3">
             <div className="p-2.5 rounded-2xl bg-primary/20 text-primary">
               <ShieldAlert className="w-6 h-6" />
             </div>
             PUBLISH SCHEDULE
           </DialogTitle>
-          <div className="text-[10px] font-black text-primary/80 uppercase tracking-widest mt-2 pl-14">
+          <div className="text-[10px] font-bold text-primary/80 uppercase tracking-widest mt-2 pl-14">
             Core HR Synchronization
           </div>
         </DialogHeader>
@@ -60,7 +60,7 @@ export const ShiftGovernanceModal: React.FC<ShiftGovernanceModalProps> = ({
 
           <div className="space-y-4">
             <div>
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground block mb-2">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground block mb-2">
                 Mandatory: Publication Justification
               </label>
               <textarea
@@ -74,7 +74,7 @@ export const ShiftGovernanceModal: React.FC<ShiftGovernanceModalProps> = ({
 
           <div className="flex items-center gap-3 text-muted-foreground">
             <Fingerprint className="w-4 h-4" />
-            <span className="text-[9px] font-black italic uppercase tracking-widest">
+            <span className="text-[9px] font-semibold tracking-widest">
               Superadmin Audit Subsystem Auto-Attached
             </span>
           </div>
@@ -84,14 +84,14 @@ export const ShiftGovernanceModal: React.FC<ShiftGovernanceModalProps> = ({
           <Button
             variant="ghost"
             onClick={onClose}
-            className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-secondary/60 rounded-xl h-11"
+            className="text-[10px] font-semibold tracking-widest text-muted-foreground hover:text-foreground hover:bg-secondary/60 rounded-xl h-11"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={!reason || isSubmitting}
-            className="text-[10px] font-black italic uppercase tracking-widest bg-primary hover:bg-primary text-foreground rounded-xl h-11 px-6 shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+            className="text-[10px] font-semibold tracking-widest bg-primary hover:bg-primary text-foreground rounded-xl h-11 px-6 shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
             Commit payload
           </Button>

@@ -23,10 +23,10 @@ interface PerformanceChartProps {
 
 export const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
   return (
-    <Card className="lg:col-span-2 rounded-[2rem] shadow-2xl border-none overflow-hidden bg-white">
+    <Card className="lg:col-span-2 rounded-2xl shadow-sm border-none overflow-hidden bg-white">
       <div className="p-8 border-b flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-black italic uppercase tracking-tighter">
+          <h3 className="text-xl font-semibold tracking-tighter">
             Intra-Day Performance
           </h3>
           <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
@@ -37,14 +37,14 @@ export const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
           <Button disabled title="Not available yet"
             variant="ghost"
             size="sm"
-            className="h-8 px-4 rounded-lg bg-white shadow-sm font-black italic text-[10px] uppercase"
+            className="h-8 px-4 rounded-lg bg-white shadow-sm font-bold text-[10px] uppercase"
           >
             Minute
           </Button>
           <Button disabled title="Not available yet"
             variant="ghost"
             size="sm"
-            className="h-8 px-4 rounded-lg font-black italic text-[10px] text-muted-foreground uppercase"
+            className="h-8 px-4 rounded-lg font-bold text-[10px] text-muted-foreground uppercase"
           >
             Hour
           </Button>

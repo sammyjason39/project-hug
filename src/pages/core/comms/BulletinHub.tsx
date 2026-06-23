@@ -333,13 +333,13 @@ export default function BulletinHub() {
               Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className="h-48 rounded-[2rem] border bg-muted/40 animate-pulse"
+                  className="h-48 rounded-2xl border bg-muted/40 animate-pulse"
                 />
               ))
             ) : filteredPosts.length === 0 ? (
               <div className="py-24 text-center border-2 border-dashed rounded-[3rem] opacity-40 bg-muted/20">
                 <Megaphone className="h-16 w-16 mx-auto mb-4" />
-                <h3 className="text-xl font-black uppercase tracking-widest">
+                <h3 className="text-xl font-semibold tracking-widest">
                   Board Silence
                 </h3>
                 <p className="text-xs font-bold leading-relaxed italic mb-6">
@@ -348,7 +348,7 @@ export default function BulletinHub() {
                 <Button
                   onClick={() => setIsCreateOpen(true)}
                   variant="outline"
-                  className="rounded-xl font-black uppercase tracking-widest text-[10px]"
+                  className="rounded-xl font-semibold tracking-widest text-[10px]"
                 >
                   Ignite New Conversation
                 </Button>
@@ -357,7 +357,7 @@ export default function BulletinHub() {
               (Array.isArray(filteredPosts) ? filteredPosts : []).map((post) => (
                 <Card
                   key={post.id}
-                  className="border-none shadow-xl shadow-primary/5 dark:shadow-none bg-card overflow-hidden group hover:-translate-y-1 transition-all rounded-[2.5rem]"
+                  className="border-none shadow-sm shadow-primary/5 dark:shadow-none bg-card overflow-hidden group hover:-translate-y-1 transition-all rounded-2xl"
                 >
                   <CardHeader className="pb-4">
                     <div className="flex justify-between items-start">
@@ -368,13 +368,13 @@ export default function BulletinHub() {
                           )}
                           <Badge
                             variant="outline"
-                            className="text-[10px] font-black tracking-[0.2em] border-primary/20 bg-primary/5 text-primary rounded-lg uppercase"
+                            className="text-[10px] font-bold tracking-[0.2em] border-primary/20 bg-primary/5 text-primary rounded-lg uppercase"
                           >
                             {post.category}
                           </Badge>
                         </div>
                         <CardTitle
-                          className="text-2xl font-black tracking-tighter cursor-pointer hover:text-primary transition-colors leading-tight"
+                          className="text-2xl font-bold tracking-tighter cursor-pointer hover:text-primary transition-colors leading-tight"
                           onClick={() => handleViewDetail(post)}
                         >
                           {safeText(post.title)}
@@ -423,7 +423,7 @@ export default function BulletinHub() {
                         <div className="h-7 w-7 rounded-xl bg-primary/10 flex items-center justify-center">
                           <UserIcon className="h-3.5 w-3.5 text-primary" />
                         </div>
-                        <span className="text-[10px] font-black uppercase text-muted-foreground tracking-tighter">
+                        <span className="text-[10px] font-semibold text-muted-foreground tracking-tighter">
                           @{safeText(post.authorId?.split("-")[0], "anon")}
                         </span>
                       </div>
@@ -481,7 +481,7 @@ export default function BulletinHub() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="h-10 px-4 text-[10px] font-black uppercase tracking-widest rounded-xl"
+                            className="h-10 px-4 text-[10px] font-semibold tracking-widest rounded-xl"
                             onClick={() =>
                               setCommentingOn(
                                 commentingOn === post.id ? null : post.id,
@@ -528,12 +528,12 @@ export default function BulletinHub() {
           <div className="space-y-8">
             <WorkspacePanel
               title="Channels"
-              className="p-8 border-none shadow-2xl rounded-[2.5rem]"
+              className="p-8 border-none shadow-sm rounded-2xl"
             >
               <div className="space-y-4">
                 <Button
                   onClick={() => setIsCategoryManageOpen(true)}
-                  className="w-full h-11 rounded-xl bg-primary/10 text-primary border-primary/20 border hover:bg-primary hover:text-primary-foreground font-black uppercase tracking-widest text-[10px] mb-2 shadow-none transition-all"
+                  className="w-full h-11 rounded-xl bg-primary/10 text-primary border-primary/20 border hover:bg-primary hover:text-primary-foreground font-semibold tracking-widest text-[10px] mb-2 shadow-none transition-all"
                 >
                   <Plus className="h-4 w-4 mr-2" /> Create Channel
                 </Button>
@@ -611,9 +611,9 @@ export default function BulletinHub() {
               </div>
             </WorkspacePanel>
 
-            <Card className="bg-primary/5 border-primary/20 shadow-none p-4 rounded-[2rem]">
+            <Card className="bg-primary/5 border-primary/20 shadow-none p-4 rounded-2xl">
               <CardHeader className="pb-4 pt-2">
-                <CardTitle className="text-[10px] flex items-center font-black uppercase tracking-[0.3em] text-primary">
+                <CardTitle className="text-[10px] flex items-center font-semibold tracking-[0.3em] text-primary">
                   <AlertCircle className="h-4 w-4 mr-3" />
                   GUIDELINES
                 </CardTitle>
@@ -652,11 +652,11 @@ export default function BulletinHub() {
               <div className="flex flex-col h-[80vh] bg-white dark:bg-muted">
                 <div className="p-10 border-b flex justify-between items-start bg-muted dark:bg-muted sticky top-0 z-10">
                   <div className="space-y-4">
-                    <Badge className="bg-primary/10 text-primary border-none font-black tracking-widest text-[10px] uppercase">
+                    <Badge className="bg-primary/10 text-primary border-none font-bold tracking-widest text-[10px] uppercase">
                        {categories.find((c) => c.code === selectedPost.category)
                         ?.name || selectedPost.category}
                     </Badge>
-                    <h2 className="text-4xl font-black tracking-tighter leading-none">
+                    <h2 className="text-4xl font-bold tracking-tighter leading-none">
                       {selectedPost.title}
                     </h2>
                     <div className="flex items-center gap-6">
@@ -665,7 +665,7 @@ export default function BulletinHub() {
                           <User className="h-5 w-5 text-muted-foreground" />
                         </div>
                         <div className="text-left">
-                          <div className="text-[10px] font-black uppercase tracking-widest">
+                          <div className="text-[10px] font-semibold tracking-widest">
                             @{selectedPost.authorId?.split("-")[0] || "anon"}
                           </div>
                           <div className="text-[9px] font-bold text-muted-foreground uppercase">
@@ -675,7 +675,7 @@ export default function BulletinHub() {
                       </div>
                       <div className="h-6 w-px bg-muted" />
                       <div className="text-left">
-                        <div className="text-[10px] font-black uppercase tracking-widest">
+                        <div className="text-[10px] font-semibold tracking-widest">
                           TRANSMITTED
                         </div>
                         <div className="text-[9px] font-bold text-muted-foreground">
@@ -707,7 +707,7 @@ export default function BulletinHub() {
                   </div>
 
                   <div className="space-y-8 pb-12">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground flex items-center">
+                    <h4 className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground flex items-center">
                       <ChevronRight className="h-4 w-4 mr-2" /> Comments
                     </h4>
                     {selectedPost.comments && selectedPost.comments.length > 0 ? (
@@ -717,12 +717,12 @@ export default function BulletinHub() {
                             key={comment.id}
                             className="flex gap-5 animate-in slide-in-from-left duration-500"
                           >
-                            <div className="h-10 w-10 shrink-0 rounded-[1.25rem] bg-primary flex items-center justify-center text-primary-foreground font-black text-xs">
+                            <div className="h-10 w-10 shrink-0 rounded-[1.25rem] bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
                               {safeText(comment.authorId?.[0]?.toUpperCase(), "A")}
                             </div>
                             <div className="space-y-2 flex-1">
                               <div className="flex justify-between items-center">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground dark:text-white">
+                                <span className="text-[10px] font-semibold tracking-widest text-muted-foreground dark:text-white">
                                   @{safeText(comment.authorId?.split("-")[0], "anon")}
                                 </span>
                                 <span className="text-[9px] font-bold text-muted-foreground opacity-40">
@@ -744,7 +744,7 @@ export default function BulletinHub() {
                   </div>
                 </div>
 
-                <div className="p-8 border-t bg-muted backdrop-blur-xl">
+                <div className="p-8 border-t bg-muted">
                   <div className="flex gap-4">
                     <Textarea
                       placeholder="Write a comment..."
@@ -754,7 +754,7 @@ export default function BulletinHub() {
                     />
                     <Button
                       size="icon"
-                      className="h-14 w-14 rounded-2xl bg-primary shadow-xl shadow-primary/20 shrink-0"
+                      className="h-14 w-14 rounded-2xl bg-primary shadow-sm shadow-primary/20 shrink-0"
                       onClick={() => handleAddComment(selectedPost.id)}
                       disabled={!newComment.trim() || !!isActionLoading}
                     >
@@ -771,16 +771,16 @@ export default function BulletinHub() {
         <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
           <DialogContent className="sm:max-w-2xl border-none shadow-3xl bg-white dark:bg-muted p-0 overflow-hidden rounded-[3rem]">
             <DialogHeader className="p-10 border-b bg-muted dark:bg-muted">
-              <DialogTitle className="text-3xl font-black tracking-tighter">
+              <DialogTitle className="text-3xl font-bold tracking-tighter">
                 {creationType === "TOPIC" ? "Initiate Topic" : "Broadcast Content"}
               </DialogTitle>
-              <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mt-1">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">
                 Public Engagement Protocol
               </div>
             </DialogHeader>
             <div className="p-10 space-y-8">
                <div className="space-y-2">
-                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Channel</label>
+                 <label className="text-label text-muted-foreground ml-2">Channel</label>
                  <div className="flex gap-2 flex-wrap">
                     {(Array.isArray(categories) ? categories : []).map(cat => (
                       <Badge 
@@ -797,16 +797,16 @@ export default function BulletinHub() {
                
                <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Headline</label>
+                    <label className="text-label text-muted-foreground ml-2">Headline</label>
                     <Input 
                       placeholder="Enter a compelling title..." 
-                      className="h-14 border-none bg-muted dark:bg-muted rounded-2xl px-6 text-sm font-black shadow-inner focus-visible:ring-1 focus-visible:ring-primary/20"
+                      className="h-14 border-none bg-muted dark:bg-muted rounded-2xl px-6 text-sm font-bold shadow-inner focus-visible:ring-1 focus-visible:ring-primary/20"
                       value={newPost.title}
                       onChange={e => setNewPost({...newPost, title: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Context</label>
+                    <label className="text-label text-muted-foreground ml-2">Context</label>
                     <Textarea 
                       placeholder="Share your insights..." 
                       className="min-h-[200px] border-none bg-muted dark:bg-muted rounded-2xl px-6 py-4 text-sm font-medium shadow-inner focus-visible:ring-1 focus-visible:ring-primary/20 resize-none"
@@ -817,8 +817,8 @@ export default function BulletinHub() {
                </div>
             </div>
             <DialogFooter className="p-10 bg-muted dark:bg-muted border-t">
-              <Button variant="ghost" onClick={() => setIsCreateOpen(false)} className="rounded-xl font-black uppercase tracking-widest text-[10px]">Discard</Button>
-              <Button onClick={handleCreatePost} className="rounded-xl px-8 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 font-black uppercase tracking-widest text-[10px]">Publish Entry</Button>
+              <Button variant="ghost" onClick={() => setIsCreateOpen(false)} className="rounded-xl font-semibold tracking-widest text-[10px]">Discard</Button>
+              <Button onClick={handleCreatePost} className="rounded-xl px-8 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 font-semibold tracking-widest text-[10px]">Publish Entry</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -827,33 +827,33 @@ export default function BulletinHub() {
         <Dialog open={isCategoryManageOpen} onOpenChange={setIsCategoryManageOpen}>
           <DialogContent className="sm:max-w-md border-none shadow-3xl bg-white dark:bg-muted p-0 overflow-hidden rounded-[3rem]">
             <DialogHeader className="p-10 border-b bg-muted dark:bg-muted">
-              <DialogTitle className="text-2xl font-black tracking-tighter">Channel Governance</DialogTitle>
-              <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mt-1">Configure Discussion Domains</div>
+              <DialogTitle className="text-2xl font-bold tracking-tighter">Channel Governance</DialogTitle>
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">Configure Discussion Domains</div>
             </DialogHeader>
             <div className="p-10 space-y-6">
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Name</label>
+                    <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-2">Name</label>
                     <Input 
                       placeholder="General" 
-                      className="h-11 border-none bg-muted dark:bg-muted rounded-xl px-4 text-xs font-black shadow-inner"
+                      className="h-11 border-none bg-muted dark:bg-muted rounded-xl px-4 text-xs font-bold shadow-inner"
                       value={newCategory.name}
                       onChange={e => setNewCategory({...newCategory, name: e.target.value})}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Code</label>
+                    <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-2">Code</label>
                     <Input 
                       placeholder="general" 
-                      className="h-11 border-none bg-muted dark:bg-muted rounded-xl px-4 text-xs font-black shadow-inner"
+                      className="h-11 border-none bg-muted dark:bg-muted rounded-xl px-4 text-xs font-bold shadow-inner"
                       value={newCategory.code}
                       onChange={e => setNewCategory({...newCategory, code: e.target.value})}
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Vibrancy</label>
+                  <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-2">Vibrancy</label>
                   <Input 
                     type="color" 
                     className="h-11 w-full border-none bg-muted dark:bg-muted rounded-xl px-2 shadow-inner"
@@ -861,17 +861,17 @@ export default function BulletinHub() {
                     onChange={e => setNewCategory({...newCategory, color: e.target.value})}
                   />
                 </div>
-                <Button onClick={handleCreateCategory} className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[10px]">Add Channel</Button>
+                <Button onClick={handleCreateCategory} className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold tracking-widest text-[10px]">Add Channel</Button>
               </div>
 
               <div className="pt-6 border-t space-y-4">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Active Domains</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground ml-2">Active Domains</label>
                 <div className="space-y-2">
                   {(Array.isArray(categories) ? categories : []).map(cat => (
                     <div key={cat.id} className="flex justify-between items-center p-3 bg-muted dark:bg-muted rounded-xl border border-border">
                       <div className="flex items-center gap-3">
                         <div className="h-3 w-3 rounded-full" style={{backgroundColor: cat.color}} />
-                        <span className="text-[10px] font-black uppercase tracking-widest">{cat.name}</span>
+                        <span className="text-[10px] font-semibold tracking-widest">{cat.name}</span>
                       </div>
                       <Button size="icon" variant="ghost" className="h-8 w-8 text-destructive hover:bg-destructive" onClick={() => handleDeleteCategory(cat.id)}>
                         <X className="h-4 w-4" />

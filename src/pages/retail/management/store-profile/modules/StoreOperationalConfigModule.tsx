@@ -20,7 +20,7 @@ export const StoreOperationalConfigModule: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
         <Zap className="w-16 h-16 mb-4 opacity-20" />
-        <h3 className="text-xl font-black italic tracking-wider">
+        <h3 className="text-xl font-bold tracking-wider">
           GLOBAL CAPABILITIES
         </h3>
         <p className="text-sm mt-2 max-w-md text-center">
@@ -48,7 +48,7 @@ export const StoreOperationalConfigModule: React.FC = () => {
           <Zap className="w-5 h-5" />
         </div>
         <div>
-          <h2 className="text-lg font-black italic uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-lg font-semibold tracking-wider text-muted-foreground">
             Operational Capabilities
           </h2>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -60,7 +60,7 @@ export const StoreOperationalConfigModule: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Core Execution Rules */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <Clock className="w-4 h-4 text-muted-foreground" /> Boundary Conditions
           </h3>
 
@@ -141,7 +141,7 @@ export const StoreOperationalConfigModule: React.FC = () => {
 
         {/* Sales & POS Policies */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <MonitorSmartphone className="w-4 h-4 text-muted-foreground" /> Sales &
             Execution Policies
           </h3>
@@ -218,7 +218,7 @@ export const StoreOperationalConfigModule: React.FC = () => {
 
         {/* Taxation & Fiscal Policy */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm md:col-span-2">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <ShieldAlert className="w-4 h-4 text-destructive" /> Taxation & Fiscal Policy
           </h3>
 

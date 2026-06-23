@@ -103,12 +103,12 @@ export function CfoChartsSection({ summaryData }: { summaryData?: any }) {
         >
           <div className="flex items-center justify-between my-5">
             <div>
-              <p className="text-2xl font-black tracking-tighter text-muted-foreground">Rp 785M</p>
-              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mt-0.5">Total Outstanding</p>
+              <p className="text-2xl font-bold tracking-tighter text-muted-foreground">Rp 785M</p>
+              <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mt-0.5">Total Outstanding</p>
             </div>
             <div className="text-right">
-              <p className="text-xl font-black text-destructive">Rp 90M</p>
-              <p className="text-[10px] font-black uppercase tracking-widest text-destructive mt-0.5">High Risk (&gt;60d)</p>
+              <p className="text-xl font-bold text-destructive">Rp 90M</p>
+              <p className="text-[10px] font-semibold tracking-widest text-destructive mt-0.5">High Risk (&gt;60d)</p>
             </div>
           </div>
           <div className="h-[248px] w-full">
@@ -173,7 +173,7 @@ export function CfoChartsSection({ summaryData }: { summaryData?: any }) {
               style={{ marginTop: "-46px" }}
             >
               <DollarSign className="h-6 w-6 text-muted-foreground mb-0.5" />
-              <span className="text-lg font-black text-muted-foreground">
+              <span className="text-lg font-bold text-muted-foreground">
                 {summaryData ? `Rp ${Number(summaryData.kpis?.totalAssets || 0).toLocaleString()}` : "Rp 11.2B"}
               </span>
               <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Total Assets</span>
@@ -192,7 +192,7 @@ export function CfoChartsSection({ summaryData }: { summaryData?: any }) {
               <span
                 key={d.subject}
                 className={cn(
-                  "text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wide",
+                  "text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide",
                   d.A >= 85 ? "bg-success text-success" :
                   d.A >= 75 ? "bg-warning text-warning"   :
                               "bg-destructive text-destructive",

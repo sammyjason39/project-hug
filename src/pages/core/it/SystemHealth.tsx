@@ -68,10 +68,10 @@ export default function SystemHealth() {
     <div className="space-y-8 animate-in fade-in duration-700">
       <div className="flex items-end justify-between border-b border-border pb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+          <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.3em]">
             <Activity className="h-3 w-3" /> System Health Matrix
           </div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase italic">
+          <h1 className="text-4xl font-bold tracking-tighter uppercase italic">
             Infrastructure Pulse
           </h1>
           <p className="text-sm text-muted-foreground font-medium">Real-time telemetry and granular resource orchestration.</p>
@@ -81,11 +81,11 @@ export default function SystemHealth() {
            <Button 
             variant="outline" 
             onClick={() => setVersion(v => v + 1)}
-            className="rounded-2xl border-border font-black text-[10px] uppercase tracking-widest px-6 h-12 gap-2"
+            className="rounded-2xl border-border font-bold text-[10px] uppercase tracking-widest px-6 h-12 gap-2"
            >
              <RefreshCcw className={cn("h-4 w-4", loading && "animate-spin")} /> Refresh
            </Button>
-           <Button className="rounded-2xl bg-primary text-white font-black text-[10px] uppercase tracking-widest px-6 h-12 shadow-xl shadow-primary/20 gap-2">
+           <Button className="rounded-2xl bg-primary text-white font-bold text-[10px] uppercase tracking-widest px-6 h-12 shadow-sm shadow-primary/20 gap-2">
              <Settings2 className="h-4 w-4" /> Global Config
            </Button>
         </div>
@@ -94,13 +94,13 @@ export default function SystemHealth() {
       {/* KPI Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {(Array.isArray(kpis) ? kpis : []).map((kpi) => (
-          <div key={kpi.label} className="p-6 rounded-[2rem] bg-card border border-border shadow-sm space-y-4 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+          <div key={kpi.label} className="p-6 rounded-2xl bg-card border border-border shadow-sm space-y-4 hover:shadow-sm hover:-translate-y-1 transition-all duration-500 group">
              <div className="flex justify-between items-start">
                 <div className={cn("p-3 rounded-2xl bg-muted group-hover:scale-110 transition-transform duration-500", kpi.color)}>
                    <kpi.icon className="h-6 w-6" />
                 </div>
                 <div className={cn(
-                  "flex items-center gap-1 text-[10px] font-black uppercase tracking-widest",
+                  "flex items-center gap-1 text-[10px] font-semibold tracking-widest",
                   kpi.trend < 0 ? "text-success" : "text-destructive"
                 )}>
                    {kpi.trend < 0 ? <ArrowDownRight className="h-3 w-3" /> : <ArrowUpRight className="h-3 w-3" />}
@@ -108,8 +108,8 @@ export default function SystemHealth() {
                 </div>
              </div>
              <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{kpi.label}</p>
-                <h3 className="text-3xl font-black tracking-tighter uppercase italic">{kpi.value}</h3>
+                <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">{kpi.label}</p>
+                <h3 className="text-3xl font-bold tracking-tighter uppercase italic">{kpi.value}</h3>
              </div>
           </div>
         ))}
@@ -119,13 +119,13 @@ export default function SystemHealth() {
          <WorkspacePanel 
           title="Infrastructure Event Log" 
           description="Tactical sequence of LAN-first system events."
-          className="rounded-[2.5rem] border-muted dark:border-muted shadow-xl"
+          className="rounded-2xl border-muted dark:border-muted shadow-sm"
          >
            <div className="mb-6 flex items-center gap-4 bg-muted p-2 rounded-2xl border border-border">
               <Search className="h-4 w-4 text-muted-foreground ml-3" />
               <Input 
                 placeholder="Filter telemetry sequence..." 
-                className="border-none bg-transparent focus-visible:ring-0 text-[10px] font-black uppercase tracking-widest"
+                className="border-none bg-transparent focus-visible:ring-0 text-[10px] font-semibold tracking-widest"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -135,22 +135,22 @@ export default function SystemHealth() {
              <table className="w-full text-sm">
                <thead className="bg-muted/40 text-xs uppercase text-muted-foreground">
                  <tr>
-                   <th className="p-4 text-left font-black tracking-widest">Component</th>
-                   <th className="p-4 text-left font-black tracking-widest">Status</th>
-                   <th className="p-4 text-left font-black tracking-widest">Latency</th>
-                   <th className="p-4 text-left font-black tracking-widest">Hash Checked</th>
+                   <th className="p-4 text-left font-bold tracking-widest">Component</th>
+                   <th className="p-4 text-left font-bold tracking-widest">Status</th>
+                   <th className="p-4 text-left font-bold tracking-widest">Latency</th>
+                   <th className="p-4 text-left font-bold tracking-widest">Hash Checked</th>
                  </tr>
                </thead>
                <tbody>
                  {loading ? (
                    <tr><td colSpan={4} className="p-12 text-center">
                      <Activity className="h-8 w-8 text-primary animate-pulse mx-auto mb-4" />
-                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Syncing telemetry...</p>
+                     <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Syncing telemetry...</p>
                    </td></tr>
                  ) : error ? (
                    <tr><td colSpan={4} className="p-12 text-center">
                      <AlertTriangle className="h-8 w-8 text-destructive mx-auto mb-4" />
-                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4">Telemetry feed failed to load.</p>
+                     <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-4">Telemetry feed failed to load.</p>
                      <Button variant="outline" size="sm" onClick={() => setVersion(v => v + 1)} className="gap-2">
                        <RefreshCcw className="h-3 w-3" /> Retry
                      </Button>
@@ -165,13 +165,13 @@ export default function SystemHealth() {
                              <div className="h-8 w-8 rounded-xl bg-muted flex items-center justify-center">
                                 <Cpu className="h-4 w-4 text-muted-foreground" />
                              </div>
-                             <span className="font-black text-[11px] uppercase tracking-wider">{evt.component}</span>
+                             <span className="font-bold text-[11px] uppercase tracking-wider">{evt.component}</span>
                           </div>
                        </td>
                        <td className="p-4">
                          <Badge
                            className={cn(
-                             "rounded-lg px-3 py-1 text-[8px] font-black uppercase tracking-widest border-none shadow-sm",
+                             "rounded-lg px-3 py-1 text-label tracking-widest border-none shadow-sm",
                              evt.status === "healthy" ? "bg-success/10 text-success" : 
                              evt.status === "warning" ? "bg-warning/10 text-warning" : 
                              "bg-destructive/10 text-destructive"
@@ -204,7 +204,7 @@ export default function SystemHealth() {
             <WorkspacePanel title="Granular Telemetry" description="Partitioned resource load metrics.">
                <div className="space-y-6 pt-4">
                   <div className="space-y-3">
-                     <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                     <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest">
                         <span className="flex items-center gap-2"><Database className="h-3 w-3 text-destructive" /> Tenant DB Partition</span>
                         <span className="text-muted-foreground">84.2 GB / 100 GB</span>
                      </div>
@@ -215,7 +215,7 @@ export default function SystemHealth() {
                   </div>
 
                   <div className="space-y-3">
-                     <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                     <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest">
                         <span className="flex items-center gap-2"><HardDrive className="h-3 w-3 text-warning" /> Storage Load Balance</span>
                         <span className="text-muted-foreground">42% Balanced</span>
                      </div>
@@ -230,9 +230,9 @@ export default function SystemHealth() {
                   </div>
 
                   <div className="space-y-3 pt-4 border-t border-border">
-                     <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                     <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest">
                         <span className="flex items-center gap-2"><Globe className="h-3 w-3 text-primary" /> Network Mesh Density</span>
-                        <Badge variant="outline" className="text-[8px] font-black uppercase">Ultra-Low</Badge>
+                        <Badge variant="outline" className="text-label">Ultra-Low</Badge>
                      </div>
                      <div className="flex items-center justify-between gap-2 h-12">
                         {[40, 60, 45, 80, 50, 90, 70, 85, 60].map((h, i) => (
@@ -245,17 +245,17 @@ export default function SystemHealth() {
                </div>
             </WorkspacePanel>
 
-            <div className="p-8 rounded-[2.5rem] bg-primary shadow-2xl shadow-primary/30 relative overflow-hidden group">
+            <div className="p-8 rounded-2xl bg-primary shadow-sm shadow-primary/30 relative overflow-hidden group">
                <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700" />
                <div className="relative z-10 space-y-4">
                   <ShieldCheck className="h-10 w-10 text-white opacity-40" />
                   <div className="space-y-1">
-                     <h4 className="text-xl font-black tracking-tight text-white uppercase italic">Audit Readiness</h4>
+                     <h4 className="text-xl font-bold tracking-tight text-white uppercase italic">Audit Readiness</h4>
                      <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest leading-relaxed">
                         System health logs are immutable and synced with Audit Hub.
                      </p>
                   </div>
-                  <Button className="w-full rounded-2xl bg-white text-primary font-black text-[10px] uppercase tracking-widest py-6 hover:bg-background transition-colors">
+                  <Button className="w-full rounded-2xl bg-white text-primary font-bold text-[10px] uppercase tracking-widest py-6 hover:bg-background transition-colors">
                      Download Compliance Report
                   </Button>
                </div>

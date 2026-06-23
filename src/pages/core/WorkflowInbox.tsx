@@ -33,7 +33,7 @@ export default function WorkflowInbox({ noShell = false }: { noShell?: boolean }
                 <Search className="h-6 w-6 text-muted-foreground" />
               </div>
               <div>
-                <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+                <p className="text-xs font-semibold tracking-widest text-muted-foreground">
                   No Approvals Assigned
                 </p>
                 <p className="text-[10px] font-bold text-muted-foreground uppercase mt-1">

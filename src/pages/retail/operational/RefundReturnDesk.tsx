@@ -155,7 +155,7 @@ const RefundReturnDesk = () => {
               <RotateCcw className="w-7 h-7" />
             </div>
             <div>
-              <h1 className="text-3xl font-black italic uppercase tracking-tighter text-foreground">
+              <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
                 Refund & Return Desk
               </h1>
               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] ml-1">
@@ -167,7 +167,7 @@ const RefundReturnDesk = () => {
           <div className="flex items-center gap-3">
              <div className="px-4 py-2 bg-destructive/10 border border-destructive/20 rounded-xl flex items-center gap-2">
                 <ShieldAlert className="w-4 h-4 text-destructive" />
-                <span className="text-[10px] font-black italic uppercase text-destructive tracking-widest">
+                <span className="text-[10px] font-semibold text-destructive tracking-widest">
                    Authority: Level 3
                 </span>
              </div>
@@ -175,7 +175,7 @@ const RefundReturnDesk = () => {
                 variant="outline" 
                 size="sm" 
                 onClick={() => window.location.reload()}
-                className="h-10 rounded-xl bg-secondary/40 border-border text-foreground hover:bg-accent font-black italic uppercase text-[10px] tracking-widest gap-2"
+                className="h-10 rounded-xl bg-secondary/40 border-border text-foreground hover:bg-accent font-semibold text-[10px] tracking-widest gap-2"
              >
                 <RefreshCw className={`w-3.5 h-3.5 ${isSearching ? 'animate-spin' : ''}`} /> Sync Ledger
              </Button>
@@ -194,21 +194,21 @@ const RefundReturnDesk = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 flex-1 overflow-hidden">
           <div className="lg:col-span-3 flex flex-col gap-6 overflow-hidden">
-            <GlassCard className="bg-secondary/40 backdrop-blur-3xl border-border rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col flex-1">
+            <GlassCard className="bg-secondary/40 border-border rounded-2xl overflow-hidden shadow-sm flex flex-col flex-1">
               <CardHeader className="p-8 border-b border-border/40 space-y-6">
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="relative flex-1 group">
                     <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-muted-foreground group-focus-within:text-destructive transition-colors" />
                     <Input
                       placeholder="SCAN RECEIPT OR ENTER INVOICE ID..."
-                      className="h-20 pl-16 bg-secondary/40 border-2 border-border text-2xl font-black text-foreground rounded-[1.5rem] focus:border-destructive/50 transition-all placeholder:text-muted-foreground/30 italic uppercase tracking-tighter"
+                      className="h-20 pl-16 bg-secondary/40 border-2 border-border text-2xl font-bold text-foreground rounded-xl focus:border-destructive/50 transition-all placeholder:text-muted-foreground/30 italic uppercase tracking-tighter"
                       value={ticketId}
                       onChange={(e) => setTicketId(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && handleLookup()}
                     />
                   </div>
                   <Button
-                    className="h-20 px-12 bg-destructive hover:bg-destructive/90 text-foreground font-black italic rounded-[1.5rem] shadow-2xl shadow-destructive/20 transition-all uppercase tracking-widest text-sm"
+                    className="h-20 px-12 bg-destructive hover:bg-destructive/90 text-foreground font-bold rounded-xl shadow-sm shadow-destructive/20 transition-all uppercase tracking-widest text-sm"
                     onClick={handleLookup}
                     disabled={isSearching}
                   >
@@ -220,11 +220,11 @@ const RefundReturnDesk = () => {
               <CardContent className="p-0 flex-1 overflow-hidden flex flex-col">
                 {!foundOrder ? (
                   <div className="flex-1 flex flex-col items-center justify-center text-muted-foreground gap-6 opacity-30">
-                    <div className="w-32 h-32 rounded-[2.5rem] bg-secondary/40 flex items-center justify-center border-4 border-dashed border-border">
+                    <div className="w-32 h-32 rounded-2xl bg-secondary/40 flex items-center justify-center border-4 border-dashed border-border">
                       <RotateCcw className="w-16 h-16" />
                     </div>
                     <div className="text-center">
-                      <p className="font-black italic uppercase tracking-[0.4em] text-xs">Awaiting Authentication</p>
+                      <p className="font-semibold tracking-[0.4em] text-xs">Awaiting Authentication</p>
                       <p className="text-[10px] font-bold mt-2 uppercase tracking-widest">Connect Scanner or Input ID to Begin</p>
                     </div>
                   </div>
@@ -234,9 +234,9 @@ const RefundReturnDesk = () => {
                       <div className="flex justify-between items-center mb-6">
                          <div className="flex items-center gap-4">
                             <div className="w-3 h-3 rounded-full bg-success animate-pulse" />
-                            <span className="text-[10px] font-black uppercase text-success tracking-[0.3em] italic">Session Authorized: {foundOrder.id}</span>
+                            <span className="text-[10px] font-semibold text-success tracking-[0.3em] italic">Session Authorized: {foundOrder.id}</span>
                          </div>
-                         <Badge className="bg-secondary/40 text-muted-foreground border-border font-black italic px-4 py-1 uppercase text-[9px]">
+                         <Badge className="bg-secondary/40 text-muted-foreground border-border font-bold px-4 py-1 uppercase text-[9px]">
                             {new Date(foundOrder.createdAt).toLocaleString()}
                          </Badge>
                       </div>
@@ -258,7 +258,7 @@ const RefundReturnDesk = () => {
                                 <Package className={`w-8 h-8 ${isSelected ? "text-destructive" : "text-muted-foreground"}`} />
                               </div>
                               <div className="flex flex-col justify-center">
-                                <div className="text-lg font-black text-foreground italic tracking-tight">
+                                <div className="text-lg font-bold text-foreground italic tracking-tight">
                                   {item.name}
                                 </div>
                                 <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
@@ -268,10 +268,10 @@ const RefundReturnDesk = () => {
                             </div>
                             <div className="flex items-center gap-12">
                                <div className="text-right">
-                                  <div className="text-2xl font-black italic text-foreground tracking-tighter">
+                                  <div className="text-2xl font-bold text-foreground tracking-tighter">
                                      {formatCurrency(item.totalPrice, "IDR", "id-ID")}
                                   </div>
-                                  <div className="text-[9px] font-black uppercase text-muted-foreground tracking-widest">
+                                  <div className="text-[9px] font-semibold text-muted-foreground tracking-widest">
                                      Settled Value
                                   </div>
                                </div>
@@ -290,16 +290,16 @@ const RefundReturnDesk = () => {
                   <div className="p-10 bg-background text-foreground flex justify-between items-center border-t border-border relative overflow-hidden shrink-0">
                     <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-destructive/5 rounded-full blur-3xl" />
                     <div>
-                      <div className="text-[10px] font-black text-destructive uppercase tracking-[0.3em] mb-2 italic">
+                      <div className="text-[10px] font-bold text-destructive uppercase tracking-[0.3em] mb-2 italic">
                         Reversal Total
                       </div>
-                      <div className="text-5xl font-black italic tracking-tighter">
+                      <div className="text-5xl font-bold tracking-tighter">
                         {formatCurrency(refundAmount, "IDR", "id-ID")}
                       </div>
                     </div>
                     <Button
                       size="lg"
-                      className="bg-destructive hover:bg-destructive/90 font-black italic h-20 px-16 rounded-[1.5rem] shadow-2xl shadow-destructive/20 text-xl transition-transform active:scale-95 uppercase tracking-widest"
+                      className="bg-destructive hover:bg-destructive/90 font-bold h-20 px-16 rounded-xl shadow-sm shadow-destructive/20 text-xl transition-transform active:scale-95 uppercase tracking-widest"
                       onClick={processRefund}
                       disabled={isRefunding || selectedItems.length === 0}
                     >
@@ -312,9 +312,9 @@ const RefundReturnDesk = () => {
           </div>
 
           <div className="flex flex-col gap-8">
-            <GlassCard className="border-none bg-destructive/10 backdrop-blur-3xl shadow-2xl rounded-[2.5rem] overflow-hidden group">
+            <GlassCard className="border-none bg-destructive/10 shadow-sm rounded-2xl overflow-hidden group">
               <CardHeader className="py-6 px-8 border-b border-destructive/20">
-                <CardTitle className="flex items-center gap-3 text-destructive text-[11px] uppercase font-black tracking-[0.3em] leading-none italic">
+                <CardTitle className="flex items-center gap-3 text-destructive text-[11px] uppercase font-bold tracking-[0.3em] leading-none italic">
                   <ShieldAlert className="w-5 h-5" /> Policy Enforcement
                 </CardTitle>
               </CardHeader>
@@ -324,14 +324,14 @@ const RefundReturnDesk = () => {
                 </p>
                 <div className="p-4 bg-background/40 rounded-2xl border border-destructive/10 flex items-center gap-4">
                    <AlertCircle className="w-5 h-5 text-destructive" />
-                   <span className="text-[9px] font-black uppercase text-muted-foreground tracking-widest italic">Vault Lock Active</span>
+                   <span className="text-[9px] font-semibold text-muted-foreground tracking-widest italic">Vault Lock Active</span>
                 </div>
               </CardContent>
             </GlassCard>
 
-            <GlassCard className="flex-1 bg-secondary/40 backdrop-blur-3xl border-border rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col">
+            <GlassCard className="flex-1 bg-secondary/40 border-border rounded-2xl shadow-sm overflow-hidden flex flex-col">
               <CardHeader className="border-b border-border/40 p-8">
-                <CardTitle className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.4em] italic">
+                <CardTitle className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.4em] italic">
                   Recent Reversals
                 </CardTitle>
               </CardHeader>
@@ -345,10 +345,10 @@ const RefundReturnDesk = () => {
                     <div key={i} className="p-4 rounded-2xl bg-muted/10 border border-border/40 flex justify-between items-center hover:bg-secondary/40 transition-all">
                        <div className="flex items-center gap-4">
                           <History className="w-4 h-4 text-muted-foreground" />
-                          <div className="text-[10px] font-black text-foreground italic uppercase tracking-tighter">{log.id}</div>
+                          <div className="text-[10px] font-bold text-foreground italic uppercase tracking-tighter">{log.id}</div>
                        </div>
                        <div className="text-right">
-                          <div className="text-[10px] font-black text-destructive italic">Rp {log.amount}</div>
+                          <div className="text-[10px] font-bold text-destructive italic">Rp {log.amount}</div>
                           <div className="text-[8px] text-muted-foreground font-bold uppercase tracking-tighter">{log.time}</div>
                        </div>
                     </div>

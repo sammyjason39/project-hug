@@ -4,7 +4,7 @@ import { type VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
 const statusBadgeVariants = cva(
-  "inline-flex items-center justify-center px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest border shadow-sm transition-all duration-300",
+  "inline-flex items-center justify-center px-2.5 py-0.5 rounded-full text-label border transition-colors duration-200",
   {
     variants: {
       variant: {

@@ -75,7 +75,7 @@ export default function FunnelTemplates({ onSelect }: { onSelect: (id: string) =
       {(Array.isArray(TEMPLATES) ? TEMPLATES : []).map((template) => (
         <Card 
           key={template.id} 
-          className="group relative overflow-hidden rounded-[2.5rem] border-none bg-muted dark:bg-muted backdrop-blur-xl shadow-xl hover:shadow-[0_40px_80px_-20px_rgba(79,70,229,0.2)] transition-all duration-500 cursor-pointer"
+          className="group relative overflow-hidden rounded-2xl border-none bg-muted dark:bg-muted shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(79,70,229,0.2)] transition-all duration-500 cursor-pointer"
           onClick={() => onSelect(template.id)}
         >
           {/* Status Glow */}
@@ -86,7 +86,7 @@ export default function FunnelTemplates({ onSelect }: { onSelect: (id: string) =
           
           <CardHeader className="p-8 pb-4 flex flex-row items-start gap-6 relative z-10">
             <div className={cn(
-              "h-16 w-16 rounded-2xl flex items-center justify-center shrink-0 shadow-2xl transition-transform group-hover:scale-110 duration-700",
+              "h-16 w-16 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-transform group-hover:scale-110 duration-700",
               template.bg,
               template.color
             )}>
@@ -94,8 +94,8 @@ export default function FunnelTemplates({ onSelect }: { onSelect: (id: string) =
             </div>
             <div className="flex-1 space-y-1">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-xl font-black uppercase tracking-tighter italic leading-none">{template.name}</CardTitle>
-                <Badge className="bg-primary text-primary border-none font-black text-[9px] px-3 py-1 rounded-full uppercase tracking-widest leading-none h-6">
+                <CardTitle className="text-xl font-semibold tracking-tighter italic leading-none">{template.name}</CardTitle>
+                <Badge className="bg-primary text-primary border-none font-bold text-[9px] px-3 py-1 rounded-full uppercase tracking-widest leading-none h-6">
                    {template.difficulty}
                 </Badge>
               </div>
@@ -105,11 +105,11 @@ export default function FunnelTemplates({ onSelect }: { onSelect: (id: string) =
           
           <CardContent className="p-8 pt-4 space-y-6 relative z-10">
              <div className="space-y-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">Pathway Logic</p>
+                <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">Pathway Logic</p>
                 <div className="flex items-center gap-3 overflow-hidden">
                    {(Array.isArray(template.steps) ? template.steps : []).map((step, i) => (
                       <React.Fragment key={step}>
-                         <div className="bg-white/60 dark:bg-muted px-4 py-2 rounded-xl border border-white/20 shadow-sm text-[10px] font-black uppercase tracking-tight text-muted-foreground dark:text-white italic">
+                         <div className="bg-white/60 dark:bg-muted px-4 py-2 rounded-xl border border-border shadow-sm text-[10px] font-semibold tracking-tight text-muted-foreground dark:text-white italic">
                             {step}
                          </div>
                          {i < template.steps.length - 1 && <ChevronRight className="h-3 w-3 shrink-0 text-primary opacity-40" />}
@@ -118,14 +118,14 @@ export default function FunnelTemplates({ onSelect }: { onSelect: (id: string) =
                 </div>
              </div>
              
-             <div className="flex items-center justify-between pt-2 border-t border-white/10">
+             <div className="flex items-center justify-between pt-2 border-t border-border">
                 <div className="flex items-center gap-3">
                    <Activity className="h-4 w-4 text-primary animate-pulse" />
-                   <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">Simulation IQ: {template.intensity}%</span>
+                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">Simulation IQ: {template.intensity}%</span>
                 </div>
                 <Button 
                    variant="ghost" 
-                   className="h-10 px-6 rounded-xl font-black text-[10px] uppercase tracking-widest bg-primary text-white shadow-lg shadow-indigo-600/20 group-hover:scale-105 active:scale-95 transition-all"
+                   className="h-10 px-6 rounded-xl font-bold text-[10px] uppercase tracking-widest bg-primary text-white shadow-lg shadow-indigo-600/20 group-hover:scale-105 active:scale-95 transition-all"
                 >
                    DEPLOY TOPOLOGY
                 </Button>

@@ -32,11 +32,11 @@ const FeedItem: React.FC<FeedItemProps> = ({
   priority,
   isVerified = true,
 }) => (
-  <div className="flex items-start gap-5 p-6 rounded-[2rem] bg-white/[0.03] backdrop-blur-3xl border border-white/5 hover:border-primary hover:bg-white/[0.05] transition-all duration-500 group cursor-pointer shadow-lg relative overflow-hidden">
+  <div className="flex items-start gap-5 p-6 rounded-2xl bg-white/[0.03] border border-border hover:border-primary hover:bg-white/[0.05] transition-all duration-500 group cursor-pointer shadow-lg relative overflow-hidden">
     <div className="absolute top-0 right-0 w-16 h-16 bg-secondary/40 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
     <div
       className={cn(
-        "w-12 h-12 rounded-2xl flex items-center justify-center border shrink-0 transition-all duration-500 group-hover:scale-110 shadow-2xl",
+        "w-12 h-12 rounded-2xl flex items-center justify-center border shrink-0 transition-all duration-500 group-hover:scale-110 shadow-sm",
         type === "FINANCE"
           ? "bg-success/10 border-success/20 text-success"
           : type === "INFRA"
@@ -62,7 +62,7 @@ const FeedItem: React.FC<FeedItemProps> = ({
         <div className="flex items-center gap-3">
           <Badge
             className={cn(
-              "text-[9px] font-black italic tracking-[0.2em] border-none px-2.5 h-5 rounded-lg uppercase",
+              "text-[9px] font-bold tracking-[0.2em] border-none px-2.5 h-5 rounded-lg uppercase",
               priority === "HIGH"
                 ? "bg-destructive/20 text-destructive"
                 : priority === "MEDIUM"
@@ -75,7 +75,7 @@ const FeedItem: React.FC<FeedItemProps> = ({
           {isVerified && (
             <div className="flex items-center gap-1.5 px-2 h-5 rounded-lg bg-primary/10 border border-primary">
               <Lock className="w-2.5 h-2.5 text-primary" />
-              <span className="text-[8px] font-black italic text-primary uppercase tracking-tighter">IMMU</span>
+              <span className="text-[8px] font-bold text-primary uppercase tracking-tighter">IMMU</span>
             </div>
           )}
         </div>
@@ -88,7 +88,7 @@ const FeedItem: React.FC<FeedItemProps> = ({
       </p>
     </div>
 
-    <div className="w-10 h-10 rounded-xl bg-secondary/40 border border-white/5 flex items-center justify-center group-hover:bg-primary transition-colors self-center">
+    <div className="w-10 h-10 rounded-xl bg-secondary/40 border border-border flex items-center justify-center group-hover:bg-primary transition-colors self-center">
       <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
     </div>
   </div>
@@ -155,12 +155,12 @@ export const GlobalActivityFeed = ({
   };
 
   return (
-    <Card className="rounded-2xl border border-white/5 bg-white/[0.03] backdrop-blur-3xl shadow-2xl overflow-hidden flex flex-col h-full group/feed">
-      <CardHeader className="p-8 border-b border-white/5 bg-white/[0.01]">
+    <Card className="rounded-2xl border border-border bg-white/[0.03] shadow-sm overflow-hidden flex flex-col h-full group/feed">
+      <CardHeader className="p-8 border-b border-border bg-white/[0.01]">
         <div className="flex items-center justify-between">
           <div className="space-y-3">
-            <CardTitle className="text-2xl font-black italic uppercase tracking-tighter flex items-center gap-6 text-foreground">
-              <Activity className="w-8 h-8 text-primary shadow-2xl animate-pulse" />
+            <CardTitle className="text-2xl font-semibold tracking-tighter flex items-center gap-6 text-foreground">
+              <Activity className="w-8 h-8 text-primary shadow-sm animate-pulse" />
               Telemetry Feed
             </CardTitle>
             <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-[0.3em] italic">
@@ -172,7 +172,7 @@ export const GlobalActivityFeed = ({
               onClick={handleVerify}
               disabled={verifying}
               className={cn(
-                "flex items-center gap-3 px-6 h-14 border rounded-2xl shadow-xl transition-all",
+                "flex items-center gap-3 px-6 h-14 border rounded-2xl shadow-sm transition-all",
                 verifyResult 
                   ? verifyResult.valid ? "bg-success/10 border-success/20 text-success" : "bg-destructive/10 border-destructive/20 text-destructive"
                   : "bg-secondary/40 border-border text-muted-foreground hover:bg-white/10 hover:text-foreground"
@@ -183,13 +183,13 @@ export const GlobalActivityFeed = ({
               ) : (
                 <ShieldCheck className="w-5 h-5" />
               )}
-              <span className="text-[10px] font-black italic uppercase tracking-widest">
+              <span className="text-[10px] font-semibold tracking-widest">
                 {verifyResult ? (verifyResult.valid ? "Chain Verified" : "Drift Detected") : "Verify Chain"}
               </span>
             </button>
-            <div className="flex items-center gap-3 px-5 h-14 bg-success/10 border border-success/20 rounded-2xl shadow-xl">
+            <div className="flex items-center gap-3 px-5 h-14 bg-success/10 border border-success/20 rounded-2xl shadow-sm">
               <div className="w-2.5 h-2.5 rounded-full bg-success animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-              <span className="text-[10px] font-black italic uppercase text-success tracking-[0.2em]">
+              <span className="text-[10px] font-semibold text-success tracking-[0.2em]">
                 Live
               </span>
             </div>
@@ -201,7 +201,7 @@ export const GlobalActivityFeed = ({
         {loading && logs.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-6 opacity-40">
             <RefreshCw className="w-12 h-12 text-primary animate-spin" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em]">Synchronizing Vault...</span>
+            <span className="text-[10px] font-semibold tracking-[0.4em]">Synchronizing Vault...</span>
           </div>
         ) : logs.length > 0 ? (
           (Array.isArray(logs) ? logs : []).map((log) => (
@@ -217,15 +217,15 @@ export const GlobalActivityFeed = ({
         ) : (
           <div className="flex flex-col items-center justify-center h-full gap-6 opacity-40">
             <Lock className="w-12 h-12 text-muted-foreground" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em]">Vault is Empty</span>
+            <span className="text-[10px] font-semibold tracking-[0.4em]">Vault is Empty</span>
           </div>
         )}
       </CardContent>
 
-      <div className="p-6 border-t border-white/5 bg-white/[0.01]">
+      <div className="p-6 border-t border-border bg-white/[0.01]">
         <button 
           onClick={() => onExpansionRequest("Deep Audit Virtual Vault")}
-          className="w-full h-16 rounded-xl bg-primary hover:bg-primary/90 text-foreground font-black italic text-[12px] uppercase tracking-[0.3em] transition-all shadow-[0_20px_40px_rgba(79,70,229,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 italic"
+          className="w-full h-16 rounded-xl bg-primary hover:bg-primary/90 text-foreground font-bold text-[12px] uppercase tracking-[0.3em] transition-all shadow-[0_20px_40px_rgba(79,70,229,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 italic"
         >
           Access Deep Audit Vault <ArrowRight className="w-5 h-5" />
         </button>

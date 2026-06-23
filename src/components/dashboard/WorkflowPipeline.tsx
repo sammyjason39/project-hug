@@ -30,14 +30,14 @@ export const WorkflowPipeline: React.FC<WorkflowPipelineProps> = ({ data = [] })
   };
 
   return (
-    <div className="flex flex-col h-full rounded-[2.5rem] border border-border bg-muted p-8 shadow-2xl transition-all duration-500 hover:shadow-indigo-500/10">
+    <div className="flex flex-col h-full rounded-2xl border border-border bg-muted p-8 shadow-sm transition-all duration-500 hover:shadow-indigo-500/10">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-muted-foreground border border-white/10 group-hover:text-white transition-colors">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-muted-foreground border border-border group-hover:text-white transition-colors">
             <GitBranch className="h-5 w-5" />
           </div>
           <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.15em] text-white">Operational Pipeline</h4>
+            <h4 className="text-sm font-semibold tracking-[0.15em] text-white">Operational Pipeline</h4>
             <p className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Active multi-step business processes</p>
           </div>
         </div>
@@ -53,22 +53,22 @@ export const WorkflowPipeline: React.FC<WorkflowPipelineProps> = ({ data = [] })
       <div className="space-y-4">
         {data.length > 0 ? (
           data.map((item, i) => (
-            <div key={i} className="group relative flex items-center gap-4 rounded-2xl border border-white/5 bg-white/2 p-4 transition-all hover:bg-white/5 cursor-pointer">
+            <div key={i} className="group relative flex items-center gap-4 rounded-2xl border border-border bg-white/2 p-4 transition-all hover:bg-white/5 cursor-pointer">
               <div className={cn("h-12 w-1 rounded-full", item.status === 'PENDING' ? 'bg-warning' : 'bg-primary')} />
               <div className="flex-1 space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">{item.type}</span>
-                  <div className={cn("rounded-full px-2 py-0.5 text-[8px] font-black border tracking-widest uppercase", getStatusStyle(item.status))}>
+                  <span className="text-label text-muted-foreground group-hover:text-primary transition-colors">{item.type}</span>
+                  <div className={cn("rounded-full px-2 py-0.5 text-[8px] font-bold border tracking-widest uppercase", getStatusStyle(item.status))}>
                     {item.status}
                   </div>
                 </div>
-                <p className="text-xs font-black text-white">{item.title}</p>
+                <p className="text-xs font-bold text-white">{item.title}</p>
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1.5 text-[9px] font-black text-muted-foreground">
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-muted-foreground">
                     <Clock className="h-3 w-3" /> {item.timeElapsed}
                   </div>
                   {item.assignee && (
-                    <div className="flex items-center gap-1.5 text-[9px] font-black text-muted-foreground">
+                    <div className="flex items-center gap-1.5 text-[9px] font-bold text-muted-foreground">
                       <User className="h-3 w-3" /> {item.assignee}
                     </div>
                   )}
@@ -78,16 +78,16 @@ export const WorkflowPipeline: React.FC<WorkflowPipelineProps> = ({ data = [] })
           ))
         ) : (
           <div className="flex flex-col items-center justify-center py-16 gap-4 opacity-40">
-             <div className="h-16 w-16 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10">
+             <div className="h-16 w-16 rounded-3xl bg-white/5 flex items-center justify-center border border-border">
                 <Clock className="h-8 w-8 text-muted-foreground" />
              </div>
-             <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted-foreground">No active processes</p>
+             <p className="text-[10px] font-semibold tracking-[0.25em] text-muted-foreground">No active processes</p>
           </div>
         )}
       </div>
 
       <button 
-        className="mt-6 w-full py-4 rounded-2xl border border-white/5 bg-white/5 text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground hover:bg-primary hover:text-white hover:border-primary transition-all active:scale-[0.98]"
+        className="mt-6 w-full py-4 rounded-2xl border border-border bg-white/5 text-label text-muted-foreground hover:bg-primary hover:text-white hover:border-primary transition-all active:scale-[0.98]"
         onClick={() => navigate('/core/workflow')}
       >
         ACCESS CONTROL CENTER

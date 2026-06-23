@@ -23,7 +23,7 @@ export const CommandCenterHeader = ({
   onExpansionRequest: (feature: string) => void;
 }) => {
   return (
-    <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 bg-surface-2/30 p-8 rounded-[2rem] border border-border/50 backdrop-blur-xl shadow-2xl">
+    <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 bg-surface-2/30 p-8 rounded-2xl border border-border/50 shadow-sm">
       <div className="space-y-4">
         <div className="flex items-center gap-3 text-label">
           <LayoutDashboard className="w-4 h-4 text-primary" />
@@ -32,7 +32,7 @@ export const CommandCenterHeader = ({
           <span className="text-muted-foreground">Operational Oversight</span>
         </div>
         <div className="flex items-center gap-4">
-          <h1 className="text-3xl font-black italic tracking-tighter uppercase text-foreground">
+          <h1 className="text-3xl font-bold tracking-tighter uppercase text-foreground">
             Retail Command Center
           </h1>
           <Badge variant="success" className="animate-pulse">
@@ -65,7 +65,7 @@ export const CommandCenterHeader = ({
               second: "2-digit",
             })}
           </div>
-          <div className="flex items-center gap-2 text-[9px] font-black tracking-[0.4em] text-success/70 uppercase italic">
+          <div className="flex items-center gap-2 text-[9px] font-bold tracking-[0.4em] text-success/70 uppercase italic">
             <ShieldCheck className="w-3.5 h-3.5 text-success/50" />
             SECURE_UPLINK
           </div>

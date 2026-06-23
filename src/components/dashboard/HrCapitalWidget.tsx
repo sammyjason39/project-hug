@@ -12,13 +12,13 @@ export const HrCapitalWidget: React.FC<HrCapitalWidgetProps> = ({ distribution }
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-2xl transition-all duration-500 hover:shadow-indigo-500/10 group overflow-hidden relative">
+    <div className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-sm transition-all duration-500 hover:shadow-indigo-500/10 group overflow-hidden relative">
       <div className="flex items-center justify-between mb-8 relative z-10">
         <div>
-          <h4 className="text-xl font-black italic uppercase tracking-tighter text-white">Workforce Capital</h4>
+          <h4 className="text-xl font-semibold tracking-tighter text-white">Workforce Capital</h4>
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Distribution and performance metrics</p>
         </div>
-        <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all">
+        <div className="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center border border-border group-hover:bg-primary group-hover:border-primary transition-all">
           <Users className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
         </div>
       </div>
@@ -48,47 +48,47 @@ export const HrCapitalWidget: React.FC<HrCapitalWidgetProps> = ({ distribution }
 
         <div className="flex flex-col gap-4">
           <div 
-            className="flex items-center gap-4 rounded-3xl bg-white/2 p-5 border border-white/5 transition-all hover:bg-white/5 hover:border-primary cursor-pointer" 
+            className="flex items-center gap-4 rounded-3xl bg-white/2 p-5 border border-border transition-all hover:bg-white/5 hover:border-primary cursor-pointer" 
             onClick={() => navigate('/core/hr/scheduling')}
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary border border-primary">
               <Clock className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Attendance</p>
-              <p className="text-xl font-black text-white">94.2%</p>
+              <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Attendance</p>
+              <p className="text-xl font-bold text-white">94.2%</p>
             </div>
           </div>
 
           <div 
-            className="flex items-center gap-4 rounded-3xl bg-white/2 p-5 border border-white/5 transition-all hover:bg-white/5 hover:border-success/20 cursor-pointer" 
+            className="flex items-center gap-4 rounded-3xl bg-white/2 p-5 border border-border transition-all hover:bg-white/5 hover:border-success/20 cursor-pointer" 
             onClick={() => navigate('/core/hr/talent')}
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-success text-success border border-success/20">
               <UserPlus className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Open Roles</p>
-              <p className="text-xl font-black text-white">12</p>
+              <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Open Roles</p>
+              <p className="text-xl font-bold text-white">12</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-6 border-t border-white/5 pt-8 relative z-10">
+      <div className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-8 relative z-10">
         <div className="flex flex-col gap-1 cursor-pointer group/stat" onClick={() => navigate('/core/hr/paycycle')}>
           <div className="flex items-center gap-2 text-muted-foreground group-hover/stat:text-destructive transition-colors">
             <BadgeDollarSign className="h-3.5 w-3.5" />
-            <span className="text-[9px] font-black uppercase tracking-widest">Payroll Burn</span>
+            <span className="text-label">Payroll Burn</span>
           </div>
-          <p className="text-2xl font-black text-white tracking-tighter">$184k<span className="text-[10px] font-bold text-muted-foreground ml-1">/mo</span></p>
+          <p className="text-2xl font-bold text-white tracking-tighter">$184k<span className="text-[10px] font-bold text-muted-foreground ml-1">/mo</span></p>
         </div>
         <div className="flex flex-col gap-1 cursor-pointer group/stat text-right" onClick={() => navigate('/core/hr/people')}>
           <div className="flex items-center justify-end gap-2 text-muted-foreground group-hover/stat:text-primary transition-colors">
-            <span className="text-[9px] font-black uppercase tracking-widest">Total Staff</span>
+            <span className="text-label">Total Staff</span>
             <Users className="h-3.5 w-3.5" />
           </div>
-          <p className="text-2xl font-black text-white tracking-tighter">{distribution.reduce((acc, curr) => acc + curr.count, 0)}</p>
+          <p className="text-2xl font-bold text-white tracking-tighter">{distribution.reduce((acc, curr) => acc + curr.count, 0)}</p>
         </div>
       </div>
       

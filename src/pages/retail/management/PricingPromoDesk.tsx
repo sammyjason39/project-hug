@@ -120,7 +120,7 @@ const PricingPromoDesk = () => {
       <div className="flex h-[400px] items-center justify-center bg-secondary/5">
         <div className="flex flex-col items-center gap-4">
           <RotateCcw className="w-8 h-8 text-primary animate-spin" />
-          <p className="text-sm font-black italic uppercase tracking-widest text-muted-foreground">
+          <p className="text-sm font-semibold tracking-widest text-muted-foreground">
             Calibrating Governance Ledger...
           </p>
         </div>
@@ -161,9 +161,9 @@ const PricingPromoDesk = () => {
 
   return (
     <div className="flex flex-col h-[calc(100vh-100px)] overflow-hidden bg-secondary/5">
-      <div className="px-6 py-3 border-b bg-background/40 backdrop-blur-md shrink-0 flex items-center justify-between gap-6">
+      <div className="px-6 py-3 border-b bg-background/40 shrink-0 flex items-center justify-between gap-6">
         <div className="flex flex-col">
-          <h1 className="text-2xl font-black italic tracking-tighter text-foreground uppercase">Revenue Control Desk</h1>
+          <h1 className="text-2xl font-bold tracking-tighter text-foreground uppercase">Revenue Control Desk</h1>
           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Governance Layer: SECURED • Margin Integrity: {stats.marginImpact > -3 ? "OPTIMAL" : "CRITICAL"}</p>
         </div>
         <div className="flex items-center gap-3">
@@ -171,12 +171,12 @@ const PricingPromoDesk = () => {
             variant="outline"
             onClick={() => setIsAuditModalOpen(true)}
             disabled={!focusedPromoId}
-            className="h-10 rounded-xl px-4 font-black italic border-white/10 text-[10px] uppercase tracking-widest gap-2 bg-white/[0.04] hover:bg-white/10 text-muted-foreground backdrop-blur-sm"
+            className="h-10 rounded-xl px-4 font-bold border-border text-[10px] uppercase tracking-widest gap-2 bg-white/[0.04] hover:bg-white/10 text-muted-foreground"
           >
             <FileText className="w-3.5 h-3.5 text-primary" /> IMMUTABLE LEDGER
           </Button>
           <Button 
-            className="h-10 px-5 rounded-xl bg-secondary hover:bg-secondary/60 text-foreground font-black italic uppercase text-[10px] tracking-widest gap-2 shadow-lg transition-all active:scale-95"
+            className="h-10 px-5 rounded-xl bg-secondary hover:bg-secondary/60 text-foreground font-semibold text-[10px] tracking-widest gap-2 shadow-lg transition-all active:scale-95"
             onClick={() => setIsCreateModalOpen(true)}
           >
             <Plus className="w-3.5 h-3.5" /> ISSUE PROPOSAL
@@ -188,67 +188,67 @@ const PricingPromoDesk = () => {
         <div className="max-w-7xl mx-auto space-y-10">
           {/* Top KPI row */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-white/10 border-l-[6px] border-l-primary shadow-xl backdrop-blur-xl">
+            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-border border-l-[6px] border-l-primary shadow-sm">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-4 rounded-2xl bg-primary/10 text-primary border border-primary/20">
                   <Percent className="w-5 h-5" />
                 </div>
-                <Badge className="bg-success text-success font-black italic text-[8px] uppercase tracking-widest border border-success/20">
+                <Badge className="bg-success text-success font-bold text-[8px] uppercase tracking-widest border border-success/20">
                   LIVE
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                 Active Tactical Pricing
               </div>
-              <div className="text-3xl font-black italic tracking-tighter text-foreground">
+              <div className="text-3xl font-bold tracking-tighter text-foreground">
                 {stats.active} Promos
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-white/10 border-l-[6px] border-l-warning shadow-xl backdrop-blur-xl">
+            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-border border-l-[6px] border-l-warning shadow-sm">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-4 rounded-2xl bg-warning text-warning border border-warning/20">
                   <Zap className="w-5 h-5" />
                 </div>
                 <Badge
                   variant="destructive"
-                  className="font-black italic text-[8px] tracking-widest border-none"
+                  className="font-bold text-[8px] tracking-widest border-none"
                 >
                   URGENT
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                 Pending Governance
               </div>
-              <div className="text-3xl font-black italic tracking-tighter text-foreground">
+              <div className="text-3xl font-bold tracking-tighter text-foreground">
                 {stats.pending} Requests
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-white/10 border-l-[6px] border-l-primary shadow-xl backdrop-blur-xl">
+            <Card className="rounded-2xl p-6 bg-white/[0.04] border border-border border-l-[6px] border-l-primary shadow-sm">
               <div className="flex justify-between items-start mb-6">
                 <div className="p-4 rounded-2xl bg-primary/10 text-primary border border-primary/20">
                   <BarChart3 className="w-5 h-5" />
                 </div>
-                <Badge className="bg-primary/10 text-primary font-black italic text-[8px] uppercase tracking-widest border border-primary/20">
+                <Badge className="bg-primary/10 text-primary font-bold text-[8px] uppercase tracking-widest border border-primary/20">
                   AGGREGATE
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-1">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">
                 Margin Erosion Base
               </div>
-              <div className="text-3xl font-black italic tracking-tighter text-foreground">
+              <div className="text-3xl font-bold tracking-tighter text-foreground">
                 {stats.marginImpact}%
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-primary/10 border border-primary/20 text-foreground shadow-2xl relative overflow-hidden group backdrop-blur-xl">
+            <Card className="rounded-2xl p-6 bg-primary/10 border border-primary/20 text-foreground shadow-sm relative overflow-hidden group">
               <ShieldCheck className="absolute -right-8 -bottom-8 w-32 h-32 opacity-10 group-hover:scale-110 transition-transform" />
               <div className="relative z-10">
-                <div className="text-[10px] font-black italic uppercase tracking-widest text-primary mb-4">
+                <div className="text-[10px] font-semibold tracking-widest text-primary mb-4">
                   Guardrail Status
                 </div>
-                <div className="text-2xl font-black italic tracking-tighter">
+                <div className="text-2xl font-bold tracking-tighter">
                   SECURED
                 </div>
                 <div className="text-[10px] font-bold italic opacity-60 mt-4 uppercase">
@@ -261,9 +261,9 @@ const PricingPromoDesk = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Column: Promotion List */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              <Card className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl flex flex-col flex-1 h-[600px]">
-                <div className="p-6 md:p-8 border-b border-white/10 flex items-center justify-between shrink-0">
-                  <h3 className="text-xs font-black italic uppercase tracking-widest text-muted-foreground">
+              <Card className="rounded-2xl border border-border bg-white/[0.04] flex flex-col flex-1 h-[600px]">
+                <div className="p-6 md:p-8 border-b border-border flex items-center justify-between shrink-0">
+                  <h3 className="text-xs font-semibold tracking-widest text-muted-foreground">
                     Registry
                   </h3>
                 </div>
@@ -271,7 +271,7 @@ const PricingPromoDesk = () => {
                   <div className="relative">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
-                      className="pl-12 h-11 bg-white/[0.05] border-white/10 rounded-2xl text-xs font-bold italic text-foreground placeholder:text-muted-foreground"
+                      className="pl-12 h-11 bg-white/[0.05] border-border rounded-2xl text-xs font-bold italic text-foreground placeholder:text-muted-foreground"
                       placeholder="Search Strategy..."
                     />
                   </div>
@@ -300,7 +300,7 @@ const PricingPromoDesk = () => {
                           <Tag className="w-5 h-5" />
                         </div>
                         <div className="flex-1 truncate">
-                          <div className="text-sm font-black italic tracking-tight text-foreground truncate">
+                          <div className="text-sm font-bold tracking-tight text-foreground truncate">
                             {promo.title}
                           </div>
                           <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
@@ -321,9 +321,9 @@ const PricingPromoDesk = () => {
             <div className="lg:col-span-8 flex flex-col gap-8 h-full">
               {focusedPromo ? (
                 <>
-                  <div className="flex items-center justify-between bg-white/[0.04] p-6 rounded-2xl border border-white/10 backdrop-blur-xl">
+                  <div className="flex items-center justify-between bg-white/[0.04] p-6 rounded-2xl border border-border">
                     <div>
-                      <h2 className="text-2xl font-black italic tracking-tighter text-foreground">
+                      <h2 className="text-2xl font-bold tracking-tighter text-foreground">
                         {focusedPromo.title}
                       </h2>
                       <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mt-1 flex gap-3">
@@ -340,7 +340,7 @@ const PricingPromoDesk = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="text-3xl font-black italic tracking-tighter text-foreground">
+                      <span className="text-3xl font-bold tracking-tighter text-foreground">
                         {focusedPromo.type === "percentage"
                           ? `${focusedPromo.value}%`
                           : `Rp ${focusedPromo.value.toLocaleString()}`}
@@ -373,10 +373,10 @@ const PricingPromoDesk = () => {
                       <Target className="absolute -right-8 -bottom-8 w-40 h-40 opacity-10 group-hover:scale-110 transition-transform" />
                       <div className="relative flex flex-col h-full justify-between">
                         <div className="space-y-4">
-                          <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-2xl bg-white/10 border border-border flex items-center justify-center">
                             <TrendingUp className="w-5 h-5" />
                           </div>
-                          <h4 className="text-xl font-black italic tracking-tighter uppercase">
+                          <h4 className="text-xl font-bold tracking-tighter uppercase">
                             Elasticity Sensor
                           </h4>
                           <p className="text-xs font-medium opacity-80 leading-relaxed italic pr-4">
@@ -386,10 +386,10 @@ const PricingPromoDesk = () => {
                           </p>
                         </div>
                         <div className="mt-6 flex gap-2">
-                          <Badge className="bg-primary/50 hover:bg-primary/50 border-none font-black text-[9px] uppercase">
+                          <Badge className="bg-primary/50 hover:bg-primary/50 border-none font-bold text-[9px] uppercase">
                             Low Risk
                           </Badge>
-                          <Badge className="bg-primary/50 hover:bg-primary/50 border-none font-black text-[9px] uppercase">
+                          <Badge className="bg-primary/50 hover:bg-primary/50 border-none font-bold text-[9px] uppercase">
                             High Volume
                           </Badge>
                         </div>
@@ -398,11 +398,11 @@ const PricingPromoDesk = () => {
                   </div>
 
                   {/* Execution Action Bar */}
-                  <div className="mt-4 flex items-center justify-end bg-secondary p-6 rounded-2xl shadow-2xl sticky bottom-4 z-40 relative overflow-hidden group">
+                  <div className="mt-4 flex items-center justify-end bg-secondary p-6 rounded-2xl shadow-sm sticky bottom-4 z-40 relative overflow-hidden group">
                     {/* Glow effect on hover */}
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="flex items-center gap-6 relative z-10 w-full justify-between md:justify-end">
-                      <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground hidden md:block">
+                      <span className="text-[10px] font-semibold tracking-widest text-muted-foreground hidden md:block">
                         Action Requires Ledger Update
                       </span>
                       <Button
@@ -413,7 +413,7 @@ const PricingPromoDesk = () => {
                           focusedPromo.status === "active"
                         }
                         className={cn(
-                          "h-14 px-8 rounded-2xl font-black italic text-xs uppercase tracking-widest gap-3 w-full md:w-auto shadow-lg transition-all",
+                          "h-14 px-8 rounded-2xl font-bold text-xs uppercase tracking-widest gap-3 w-full md:w-auto shadow-lg transition-all",
                           govState.phase === "Executed" ||
                             focusedPromo.status === "active"
                             ? "bg-secondary/60 text-muted-foreground"
@@ -436,10 +436,10 @@ const PricingPromoDesk = () => {
                   </div>
                 </>
               ) : (
-                <div className="h-full flex items-center justify-center border-2 border-dashed border-white/10 rounded-2xl bg-white/[0.02]">
+                <div className="h-full flex items-center justify-center border-2 border-dashed border-border rounded-2xl bg-white/[0.02]">
                   <div className="text-center text-muted-foreground space-y-3">
                     <Target className="w-12 h-12 mx-auto opacity-20" />
-                    <div className="font-black italic uppercase tracking-widest text-xs">
+                    <div className="font-semibold tracking-widest text-xs">
                       Awaiting Focus
                     </div>
                   </div>

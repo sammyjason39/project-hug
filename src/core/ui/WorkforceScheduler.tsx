@@ -105,10 +105,10 @@ export function WorkforceScheduler({
                   <p className="text-xs text-muted-foreground whitespace-nowrap">Week of {format(weekStart, "MMMM dd, yyyy")}</p>
                   {isHR && (
                     <Select value={departmentId} onValueChange={onDepartmentChange}>
-                      <SelectTrigger className="h-6 text-[9px] font-black uppercase tracking-widest bg-muted border-white/5 text-primary w-[140px] rounded-lg hover:bg-muted">
+                      <SelectTrigger className="h-6 text-label bg-muted border-border text-primary w-[140px] rounded-lg hover:bg-muted">
                         <SelectValue placeholder="Switch Department" />
                       </SelectTrigger>
-                      <SelectContent className="bg-muted border-white/5">
+                      <SelectContent className="bg-muted border-border">
                         <SelectItem value="HR">HR & Legal</SelectItem>
                         <SelectItem value="FINANCE">Finance</SelectItem>
                         <SelectItem value="IT">IT & Tech</SelectItem>
@@ -136,7 +136,7 @@ export function WorkforceScheduler({
         </div>
       </div>
 
-      <WorkspacePanel className="p-0 overflow-hidden border-none shadow-xl bg-background/50 backdrop-blur-md">
+      <WorkspacePanel className="p-0 overflow-hidden border-none shadow-sm bg-background/50">
         <div className="overflow-x-auto">
             <table className="w-full border-collapse">
                 <thead>

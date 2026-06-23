@@ -79,7 +79,7 @@ export default function RetailInventory() {
         subtitle="Operational Stock Management & Receiving"
       />
 
-      <div className="p-4 bg-muted border-b border-white/5">
+      <div className="p-4 bg-muted border-b border-border">
         <InventoryFilterHub 
           search={searchTerm}
           onSearchChange={setSearchTerm}
@@ -94,14 +94,14 @@ export default function RetailInventory() {
             <div className="flex gap-3">
               <Button 
                 variant="outline" 
-                className="h-14 px-6 rounded-2xl bg-muted border-white/10 text-white font-black italic uppercase text-[10px] tracking-widest gap-2"
+                className="h-14 px-6 rounded-2xl bg-muted border-border text-white font-semibold text-[10px] tracking-widest gap-2"
                 onClick={() => setImportModalOpen(true)}
               >
                 <Plus className="w-4 h-4" />
                 New Category
               </Button>
               <Button 
-                className="h-14 px-8 rounded-2xl bg-primary text-primary-foreground font-black italic uppercase text-xs tracking-widest gap-3 shadow-xl"
+                className="h-14 px-8 rounded-2xl bg-primary text-primary-foreground font-semibold text-xs tracking-widest gap-3 shadow-sm"
                 onClick={async () => {
                   try {
                     await apiRequest("/retail/inventory/export", "POST", session, { format: "csv" });
@@ -158,17 +158,17 @@ export default function RetailInventory() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                <Card className="border-none shadow-sm bg-secondary/5">
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-black italic uppercase">Weekly Coffee Count</CardTitle>
+                    <CardTitle className="text-sm font-semibold">Weekly Coffee Count</CardTitle>
                     <CardDescription className="text-[10px] font-bold uppercase">Target: Store Shelf A1-A4</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center justify-between">
-                      <Badge className="bg-warning text-warning font-black italic text-[8px] uppercase tracking-widest border-none">DUE TODAY</Badge>
+                      <Badge className="bg-warning text-warning font-bold text-[8px] uppercase tracking-widest border-none">DUE TODAY</Badge>
                       <Button 
                         onClick={() => handleAdjust("OPNAME_START")} 
                         disabled={loading}
                         size="sm"
-                        className="rounded-xl bg-primary hover:bg-primary text-foreground font-black italic uppercase text-[9px] tracking-widest"
+                        className="rounded-xl bg-primary hover:bg-primary text-foreground font-semibold text-[9px] tracking-widest"
                       >
                         Start Count
                       </Button>

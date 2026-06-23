@@ -198,10 +198,10 @@ export default function CreativeLibrary() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
             <Box className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Scanning Digital Archives...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Scanning Digital Archives...</p>
         </div>
       </div>
     );
@@ -213,22 +213,22 @@ export default function CreativeLibrary() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Digital Asset Management</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Digital Asset Management</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Archive Stream Active
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground">Creative Library</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground">Creative Library</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"A centralized high-performance repository for multi-channel campaign orchestration."</p>
         </div>
         
         <div className="flex items-center gap-4">
-          <div className="flex items-center bg-white/50 dark:bg-muted backdrop-blur-xl p-2 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-2xl">
+          <div className="flex items-center bg-card dark:bg-muted p-2 rounded-2xl border border-border dark:border-border/20 shadow-sm">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                className="pl-11 h-14 w-[300px] rounded-[1.5rem] bg-transparent border-none focus-visible:ring-0 text-base font-medium"
+                className="pl-11 h-14 w-[300px] rounded-xl bg-transparent border-none focus-visible:ring-0 text-base font-medium"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search the archive..."
@@ -236,7 +236,7 @@ export default function CreativeLibrary() {
             </div>
             <Button
               variant="secondary"
-              className="h-14 w-14 rounded-[1.5rem] bg-primary text-white hover:bg-primary transition-all shadow-xl shadow-indigo-500/20"
+              className="h-14 w-14 rounded-xl bg-primary text-white hover:bg-primary transition-all shadow-sm shadow-indigo-500/20"
               onClick={() => refresh(true)}
               disabled={refreshing}
             >
@@ -244,7 +244,7 @@ export default function CreativeLibrary() {
             </Button>
           </div>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
             onClick={() => setUploadOpen(true)}
           >
             <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> 
@@ -254,28 +254,28 @@ export default function CreativeLibrary() {
       </div>
 
       {/* Strategic Intelligence Toolbar */}
-      <div className="flex flex-col lg:flex-row gap-6 items-center glass-card p-6 rounded-[2.5rem] border border-white/20 dark:border-border/20 shadow-2xl">
+      <div className="flex flex-col lg:flex-row gap-6 items-center glass-card p-6 rounded-2xl border border-border dark:border-border/20 shadow-sm">
          <div className="flex items-center gap-4 w-full lg:w-auto">
             <DropdownMenu>
                <DropdownMenuTrigger asChild>
-                  <Button variant="secondary" className="h-14 px-8 rounded-2xl gap-3 font-black text-[10px] uppercase tracking-widest bg-white dark:bg-muted border-none shadow-sm transition-all hover:shadow-md">
+                  <Button variant="secondary" className="h-14 px-8 rounded-2xl gap-3 font-bold text-[10px] uppercase tracking-widest bg-white dark:bg-muted border-none shadow-sm transition-all hover:shadow-md">
                      <Filter className="h-5 w-5 text-primary" /> 
                      REFINE SEARCH
                      <ChevronDown className="h-4 w-4 opacity-50" />
                   </Button>
                </DropdownMenuTrigger>
-               <DropdownMenuContent className="w-64 rounded-2xl p-2 shadow-2xl border-none" align="start">
-                  <DropdownMenuLabel className="font-black text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Asset Node Type</DropdownMenuLabel>
+               <DropdownMenuContent className="w-64 rounded-2xl p-2 shadow-sm border-none" align="start">
+                  <DropdownMenuLabel className="font-bold text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Asset Node Type</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem className="rounded-xl py-3 font-bold" checked={typeFilter.includes("IMAGE")} onCheckedChange={() => toggleTypeFilter("IMAGE")}>Images</DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem className="rounded-xl py-3 font-bold" checked={typeFilter.includes("VIDEO")} onCheckedChange={() => toggleTypeFilter("VIDEO")}>Videos</DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem className="rounded-xl py-3 font-bold" checked={typeFilter.includes("DOCUMENT")} onCheckedChange={() => toggleTypeFilter("DOCUMENT")}>Documents</DropdownMenuCheckboxItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setTypeFilter([])} className="text-primary font-black text-[10px] uppercase tracking-widest rounded-xl py-3 justify-center">CLEAR ALL FILTERS</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setTypeFilter([])} className="text-primary font-bold text-[10px] uppercase tracking-widest rounded-xl py-3 justify-center">CLEAR ALL FILTERS</DropdownMenuItem>
                </DropdownMenuContent>
             </DropdownMenu>
 
-            <div className="flex bg-muted dark:bg-muted p-1.5 rounded-2xl shadow-inner border border-white/10">
+            <div className="flex bg-muted dark:bg-muted p-1.5 rounded-2xl shadow-inner border border-border">
                <Button 
                   variant="ghost" 
                   size="icon" 
@@ -295,7 +295,7 @@ export default function CreativeLibrary() {
             </div>
          </div>
 
-         <div className="flex-1 hidden lg:flex items-center justify-end gap-10 pr-6 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+         <div className="flex-1 hidden lg:flex items-center justify-end gap-10 pr-6 text-[10px] font-semibold tracking-widest text-muted-foreground">
             <div className="flex items-center gap-3">
                <Badge className="bg-primary text-primary border-none">{assets.length}</Badge>
                GLOBAL ASSETS
@@ -324,7 +324,7 @@ export default function CreativeLibrary() {
           view === "grid" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1"
         )}>
           {(Array.isArray(filteredAssets) ? filteredAssets : []).map((asset) => (
-            <Card key={asset.id} className="group relative overflow-hidden rounded-[2.5rem] border-none bg-white dark:bg-muted shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-default">
+            <Card key={asset.id} className="group relative overflow-hidden rounded-2xl border-none bg-white dark:bg-muted shadow-sm transition-all duration-500 hover:shadow-sm hover:-translate-y-2 cursor-default">
               <CardContent className="p-0">
                 <div className="aspect-[4/3] relative bg-muted dark:bg-muted flex items-center justify-center overflow-hidden group/thumb">
                   {asset.type === "IMAGE" ? (
@@ -334,14 +334,14 @@ export default function CreativeLibrary() {
                       <div className="h-20 w-20 rounded-full bg-destructive flex items-center justify-center group-hover/thumb:scale-110 transition-transform duration-500">
                         <Video className="h-10 w-10 text-destructive" />
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.3em]">Temporal Content</span>
+                      <span className="text-[10px] font-semibold tracking-[0.3em]">Temporal Content</span>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center gap-4 text-muted-foreground">
                       <div className="h-20 w-20 rounded-full bg-success flex items-center justify-center group-hover/thumb:scale-110 transition-transform duration-500">
                         <FileText className="h-10 w-10 text-success" />
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-[0.3em]">Strategic Script</span>
+                      <span className="text-[10px] font-semibold tracking-[0.3em]">Strategic Script</span>
                     </div>
                   )}
                   
@@ -349,14 +349,14 @@ export default function CreativeLibrary() {
                   <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-[2px] flex items-center justify-center gap-4">
                     <Button 
                       size="icon" 
-                      className="h-14 w-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all bg-white text-primary"
+                      className="h-14 w-14 rounded-full shadow-sm hover:scale-110 active:scale-95 transition-all bg-white text-primary"
                       onClick={() => handleDownload(asset.url, asset.name)}
                     >
                       <Download className="h-6 w-6" />
                     </Button>
                     <Button 
                       size="icon" 
-                      className="h-14 w-14 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all bg-white text-primary" 
+                      className="h-14 w-14 rounded-full shadow-sm hover:scale-110 active:scale-95 transition-all bg-white text-primary" 
                       onClick={() => window.open(asset.url, '_blank')}
                     >
                       <ExternalLink className="h-6 w-6" />
@@ -364,7 +364,7 @@ export default function CreativeLibrary() {
                   </div>
 
                   <div className="absolute top-6 left-6">
-                    <Badge className="bg-white/90 dark:bg-muted text-primary backdrop-blur-md text-[9px] font-black py-1 h-7 rounded-full shadow-lg border-none tracking-[0.2em] px-4 uppercase">
+                    <Badge className="bg-card dark:bg-muted text-primary text-[9px] font-bold py-1 h-7 rounded-full shadow-lg border-none tracking-[0.2em] px-4 uppercase">
                       {asset.type}
                     </Badge>
                   </div>
@@ -373,8 +373,8 @@ export default function CreativeLibrary() {
               <CardFooter className="p-8 flex flex-col items-start gap-6">
                 <div className="flex justify-between items-start w-full">
                   <div className="space-y-1 pr-4">
-                    <h3 className="font-black text-xl leading-tight group-hover:text-primary transition-colors line-clamp-1 uppercase tracking-tight">{asset.name}</h3>
-                    <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">Vault Archival • {asset.date ? formatDate(asset.date) : formatDate(new Date())}</p>
+                    <h3 className="font-bold text-xl leading-tight group-hover:text-primary transition-colors line-clamp-1 uppercase tracking-tight">{asset.name}</h3>
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">Vault Archival • {asset.date ? formatDate(asset.date) : formatDate(new Date())}</p>
                   </div>
                   
                   <DropdownMenu>
@@ -383,8 +383,8 @@ export default function CreativeLibrary() {
                         <MoreVertical className="h-5 w-5 text-muted-foreground" />
                       </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-64 rounded-2xl p-2 shadow-2xl border-none">
-                      <DropdownMenuLabel className="font-black text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Asset Controls</DropdownMenuLabel>
+                    <DropdownMenuContent align="end" className="w-64 rounded-2xl p-2 shadow-sm border-none">
+                      <DropdownMenuLabel className="font-bold text-[10px] uppercase tracking-widest opacity-50 px-3 py-2">Asset Controls</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem className="gap-3 rounded-xl py-3 font-bold" onClick={() => handleDownload(asset.url, asset.name)}><Download className="h-4 w-4" /> Download Binary</DropdownMenuItem>
                       <DropdownMenuItem className="gap-3 rounded-xl py-3 font-bold" onClick={() => {
@@ -401,12 +401,12 @@ export default function CreativeLibrary() {
                 <div className="flex flex-wrap gap-2">
                   {asset.tags?.length > 0 ? (
                     (Array.isArray(asset.tags) ? asset.tags : []).map((tag: string) => (
-                      <Badge key={tag} variant="secondary" className="text-[9px] font-black py-0.5 h-6 bg-muted dark:bg-muted text-muted-foreground border-none uppercase tracking-widest px-3 rounded-full">
+                      <Badge key={tag} variant="secondary" className="text-[9px] font-bold py-0.5 h-6 bg-muted dark:bg-muted text-muted-foreground border-none uppercase tracking-widest px-3 rounded-full">
                         {tag}
                       </Badge>
                     ))
                   ) : (
-                    <span className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em] italic">Untagged Protocol</span>
+                    <span className="text-[10px] text-muted-foreground font-semibold tracking-[0.2em] italic">Untagged Protocol</span>
                   )}
                 </div>
               </CardFooter>
@@ -416,15 +416,15 @@ export default function CreativeLibrary() {
           {/* Add New Card */}
           {view === "grid" && (
             <Card 
-              className="border-2 border-dashed border-border dark:border-border bg-transparent flex flex-col items-center justify-center min-h-[350px] gap-8 rounded-[2.5rem] hover:bg-primary dark:hover:bg-primary transition-all cursor-pointer group"
+              className="border-2 border-dashed border-border dark:border-border bg-transparent flex flex-col items-center justify-center min-h-[350px] gap-8 rounded-2xl hover:bg-primary dark:hover:bg-primary transition-all cursor-pointer group"
               onClick={() => setUploadOpen(true)}
             >
               <div className="h-24 w-24 rounded-full bg-muted dark:bg-muted flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-primary transition-all duration-500">
                 <FolderPlus className="h-12 w-12 text-muted-foreground group-hover:text-white transition-all duration-500" />
               </div>
               <div className="text-center space-y-2">
-                <p className="text-xl font-black tracking-tight group-hover:text-primary uppercase">Inject New Protocol</p>
-                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Synchronize Strategic Asset</p>
+                <p className="text-xl font-bold tracking-tight group-hover:text-primary uppercase">Inject New Protocol</p>
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">Synchronize Strategic Asset</p>
               </div>
             </Card>
           )}

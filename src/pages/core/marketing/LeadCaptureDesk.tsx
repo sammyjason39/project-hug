@@ -186,10 +186,10 @@ export default function LeadCaptureDesk() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
              <Fingerprint className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Booting Intelligence Ingestion...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Booting Intelligence Ingestion...</p>
         </div>
       </div>
     );
@@ -201,13 +201,13 @@ export default function LeadCaptureDesk() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Ingestion</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Ingestion</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Scoring Matrix Active
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground text-left italic">Lead Capture</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground text-left italic">Lead Capture</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic text-left">"Intelligent ingestion engine authorizing high-intent entities for strategic conversion."</p>
         </div>
         
@@ -216,21 +216,21 @@ export default function LeadCaptureDesk() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <Input 
               placeholder="Search entity matrix..." 
-              className="pl-12 h-14 bg-white/50 dark:bg-muted backdrop-blur-xl border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
+              className="pl-12 h-14 bg-card dark:bg-muted border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-110 transition-all"
+            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-110 transition-all"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
             <RefreshCw className={cn("h-6 w-6 text-primary", refreshing && "animate-spin")} />
           </Button>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
             onClick={() => setCaptureOpen(true)}
           >
             <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> 
@@ -247,11 +247,11 @@ export default function LeadCaptureDesk() {
           { label: 'Qualified Rate', val: '35%', icon: Target, color: 'text-success' },
           { label: 'Handoff Ready', val: '8', icon: Rocket, color: 'text-primary' },
         ].map((stat, i) => (
-          <Card key={i} className="rounded-[2.5rem] border-none shadow-xl glass-card group hover:shadow-2xl transition-all">
+          <Card key={i} className="rounded-2xl border-none shadow-sm glass-card group hover:shadow-sm transition-all">
             <CardContent className="p-8 flex items-center justify-between">
               <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground italic leading-none">{stat.label}</p>
-                <p className={cn("text-3xl font-black tracking-tighter uppercase italic leading-none", stat.color)}>{stat.val}</p>
+                <p className="text-label text-muted-foreground italic leading-none">{stat.label}</p>
+                <p className={cn("text-3xl font-bold tracking-tighter uppercase italic leading-none", stat.color)}>{stat.val}</p>
               </div>
               <div className={cn("h-12 w-12 rounded-2xl flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform", stat.color.replace('text', 'bg').replace('600', '100').replace('500', '100'))}>
                 <stat.icon className="h-6 w-6" />
@@ -264,23 +264,23 @@ export default function LeadCaptureDesk() {
       <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
         {/* Left: Intelligence Feed */}
         <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
-           <Card className="flex-1 rounded-[3rem] border-none shadow-2xl glass-card overflow-hidden flex flex-col">
-              <CardHeader className="p-10 pb-6 border-b border-white/10 dark:border-border/10 flex flex-row items-center justify-between">
+           <Card className="flex-1 rounded-[3rem] border-none shadow-sm glass-card overflow-hidden flex flex-col">
+              <CardHeader className="p-10 pb-6 border-b border-border dark:border-border/10 flex flex-row items-center justify-between">
                  <div className="space-y-1">
-                    <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3 uppercase italic">
+                    <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3 uppercase italic">
                        <Layers className="h-6 w-6 text-primary" />
                        Intelligence Feed
                     </CardTitle>
                     <CardDescription className="text-xs font-medium italic italic">Real-time queue of incoming entities and their strategic scores.</CardDescription>
                  </div>
-                 <Badge variant="outline" className="rounded-full font-black text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-widest text-muted-foreground flex gap-2">
+                 <Badge variant="outline" className="rounded-full font-bold text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-widest text-muted-foreground flex gap-2">
                    <Clock className="h-3 w-3 animate-pulse" /> LIVE SYNCING
                  </Badge>
               </CardHeader>
               <ScrollArea className="flex-1">
                  <div className="p-0">
                     <table className="w-full text-sm">
-                       <thead className="bg-muted dark:bg-muted text-[10px] uppercase text-muted-foreground sticky top-0 z-10 font-black tracking-[0.2em] italic">
+                       <thead className="bg-muted dark:bg-muted text-[10px] uppercase text-muted-foreground sticky top-0 z-10 font-bold tracking-[0.2em] italic">
                           <tr>
                              <th className="p-8 text-left">Target Entity</th>
                              <th className="p-8 text-left">Source / Matrix</th>
@@ -291,42 +291,42 @@ export default function LeadCaptureDesk() {
                        </thead>
                        <tbody>
                           {(Array.isArray(filtered) ? filtered : []).map((lead) => (
-                            <tr key={lead.id} className="border-t border-white/10 dark:border-border/10 group hover:bg-primary transition-all">
+                            <tr key={lead.id} className="border-t border-border dark:border-border/10 group hover:bg-primary transition-all">
                                <td className="p-8">
                                   <div className="flex items-center gap-4">
-                                     <Avatar className="h-14 w-14 rounded-2xl shadow-xl ring-2 ring-white/10 transition-transform duration-500 group-hover:scale-110">
-                                        <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-black text-sm italic">
+                                     <Avatar className="h-14 w-14 rounded-2xl shadow-sm ring-2 ring-white/10 transition-transform duration-500 group-hover:scale-110">
+                                        <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold text-sm italic">
                                            {lead.companyName[0]}{lead.contactName[0]}
                                         </AvatarFallback>
                                      </Avatar>
                                      <div className="space-y-1">
-                                        <div className="font-black uppercase tracking-tight italic flex items-center gap-3 text-muted-foreground dark:text-white group-hover:text-primary transition-colors">
+                                        <div className="font-semibold tracking-tight italic flex items-center gap-3 text-muted-foreground dark:text-white group-hover:text-primary transition-colors">
                                            {lead.companyName}
                                            <Link to={`/core/marketing/customer-360?id=${lead.id}`}>
                                              <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-all hover:text-primary" />
                                            </Link>
                                         </div>
-                                        <div className="text-[10px] text-muted-foreground font-black uppercase tracking-widest opacity-60 italic">{lead.contactName}</div>
+                                        <div className="text-[10px] text-muted-foreground font-semibold tracking-widest opacity-60 italic">{lead.contactName}</div>
                                      </div>
                                   </div>
                                </td>
                                <td className="p-8">
                                   <div className="flex flex-col gap-2">
-                                     <Badge className="bg-muted dark:bg-muted text-muted-foreground font-black text-[9px] px-3 py-1 rounded-full border-none uppercase tracking-widest w-fit">
+                                     <Badge className="bg-muted dark:bg-muted text-muted-foreground font-bold text-[9px] px-3 py-1 rounded-full border-none uppercase tracking-widest w-fit">
                                         {lead.source}
                                      </Badge>
-                                     <span className="text-[9px] text-muted-foreground font-black uppercase tracking-tighter italic opacity-60 truncate max-w-[120px]">
+                                     <span className="text-[9px] text-muted-foreground font-semibold tracking-tighter italic opacity-60 truncate max-w-[120px]">
                                         {campaigns.find(c => c.id === lead.campaignId)?.name || "DIRECT PROTOCOL"}
                                      </span>
                                   </div>
                                </td>
                                <td className="p-8">
                                   <div className="flex items-center gap-6">
-                                     <div className={cn("h-12 w-12 rounded-xl flex items-center justify-center font-black text-xs shadow-lg", getScoreColor(lead.score))}>
+                                     <div className={cn("h-12 w-12 rounded-xl flex items-center justify-center font-bold text-xs shadow-lg", getScoreColor(lead.score))}>
                                         {lead.score}
                                      </div>
                                      <div className="flex-1 space-y-2 min-w-[100px]">
-                                        <div className="flex justify-between text-[10px] font-black uppercase tracking-widest italic">
+                                        <div className="flex justify-between text-[10px] font-semibold tracking-widest italic">
                                            <span className="text-muted-foreground">Intent IQ</span>
                                            <span className={lead.intent === 'HIGH' ? 'text-success' : 'text-muted-foreground'}>{lead.intent}</span>
                                         </div>
@@ -338,7 +338,7 @@ export default function LeadCaptureDesk() {
                                </td>
                                <td className="p-8">
                                   <Badge className={cn(
-                                    "text-[9px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border-none shadow-sm",
+                                    "text-label px-4 py-1.5 rounded-full border-none shadow-sm",
                                     lead.status === 'HANDOFF_READY' ? "bg-success text-white shadow-emerald-500/20" : 
                                     lead.status === 'QUALIFIED' ? "bg-primary text-white shadow-indigo-500/20" : "bg-muted dark:bg-muted text-muted-foreground"
                                   )}>
@@ -358,8 +358,8 @@ export default function LeadCaptureDesk() {
                                         <DropdownMenuTrigger asChild>
                                           <Button size="icon" variant="ghost" className="h-10 w-10 rounded-xl hover:bg-muted dark:hover:bg-muted"><MoreHorizontal className="h-4 w-4 text-muted-foreground" /></Button>
                                         </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end" className="w-56 rounded-2xl p-2 border-none shadow-2xl">
-                                           <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-50 px-3 py-2">Entity Actions</DropdownMenuLabel>
+                                        <DropdownMenuContent align="end" className="w-56 rounded-2xl p-2 border-none shadow-sm">
+                                           <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-50 px-3 py-2">Entity Actions</DropdownMenuLabel>
                                            <DropdownMenuSeparator />
                                            <DropdownMenuItem className="gap-3 py-3 rounded-xl font-bold"><ShieldCheck className="h-4 w-4" /> Verify IQ Data</DropdownMenuItem>
                                            <DropdownMenuItem className="gap-3 py-3 rounded-xl font-bold"><TrendingUp className="h-4 w-4" /> Manual Scoring</DropdownMenuItem>
@@ -387,23 +387,23 @@ export default function LeadCaptureDesk() {
 
         {/* Right: Attribution & Intelligence */}
         <div className="col-span-12 lg:col-span-4 flex flex-col gap-10">
-           <Card className="rounded-[3rem] border-none shadow-2xl bg-primary text-white p-10 relative overflow-hidden group">
+           <Card className="rounded-[3rem] border-none shadow-sm bg-primary text-white p-10 relative overflow-hidden group">
               <div className="absolute top-0 right-0 h-40 w-40 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
               <div className="relative z-10 space-y-8">
                  <div className="flex items-center gap-4">
-                    <div className="h-14 w-14 bg-primary rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform">
+                    <div className="h-14 w-14 bg-primary rounded-2xl flex items-center justify-center shadow-sm group-hover:rotate-12 transition-transform">
                        <Zap className="h-7 w-7 text-white fill-white" />
                     </div>
                     <div>
-                       <h4 className="font-black text-xl uppercase tracking-tighter italic">Ingestion</h4>
-                       <p className="text-[10px] font-black uppercase tracking-widest opacity-40">Tactical Entry Node</p>
+                       <h4 className="font-bold text-xl uppercase tracking-tighter italic">Ingestion</h4>
+                       <p className="text-[10px] font-semibold tracking-widest opacity-40">Tactical Entry Node</p>
                     </div>
                  </div>
                  <p className="text-sm font-medium italic italic opacity-70 leading-relaxed italic">
                     "Intelligence scroring is active. <strong>87% of incoming nodes</strong> from Meta Ads are being qualified for Enterprise Q4 protocols."
                  </p>
                  <Button 
-                   className="w-full h-16 bg-white text-primary hover:bg-muted border-none rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl gap-3 group/btn"
+                   className="w-full h-16 bg-white text-primary hover:bg-muted border-none rounded-2xl font-bold text-xs uppercase tracking-widest shadow-sm gap-3 group/btn"
                    onClick={() => setCaptureOpen(true)}
                  >
                     <Plus className="h-5 w-5 group-hover/btn:rotate-90 transition-transform duration-500" />
@@ -412,10 +412,10 @@ export default function LeadCaptureDesk() {
               </div>
            </Card>
 
-           <Card className="rounded-[3rem] border-none shadow-2xl bg-white dark:bg-muted overflow-hidden group">
+           <Card className="rounded-[3rem] border-none shadow-sm bg-white dark:bg-muted overflow-hidden group">
               <CardHeader className="p-8 pb-4">
                  <div className="flex items-center justify-between mb-4">
-                    <CardTitle className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">Source Attribution Matrix</CardTitle>
+                    <CardTitle className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">Source Attribution Matrix</CardTitle>
                     <PieChart className="h-4 w-4 text-primary" />
                  </div>
               </CardHeader>
@@ -427,7 +427,7 @@ export default function LeadCaptureDesk() {
                    { name: 'OTHERS', val: 10, color: 'bg-muted dark:bg-muted' }
                  ].map(item => (
                    <div key={item.name} className="space-y-2 group/bar">
-                      <div className="flex justify-between text-[10px] font-black uppercase tracking-widest italic leading-none">
+                      <div className="flex justify-between text-[10px] font-semibold tracking-widest italic leading-none">
                          <span className="text-muted-foreground">{item.name}</span>
                          <span className="group-hover/bar:text-primary transition-colors">{item.val}%</span>
                       </div>
@@ -439,13 +439,13 @@ export default function LeadCaptureDesk() {
               </CardContent>
            </Card>
 
-           <Card className="rounded-[2.5rem] border-none shadow-2xl bg-primary dark:bg-primary p-8 border border-primary">
+           <Card className="rounded-2xl border-none shadow-sm bg-primary dark:bg-primary p-8 border border-primary">
               <div className="flex items-start gap-4">
                  <div className="h-10 w-10 rounded-xl bg-white dark:bg-muted flex items-center justify-center shadow-lg shrink-0">
                     <Activity className="h-5 w-5 text-primary animate-pulse" />
                  </div>
                  <div className="space-y-2">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Scoring Advisory</p>
+                    <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Scoring Advisory</p>
                     <p className="text-xs font-medium italic leading-relaxed text-muted-foreground dark:text-muted-foreground italic">
                        "Incoming traffic from <strong>LinkedIn Direct</strong> shows a <strong>+22% increase</strong> in intent IQ. Recommend scaling budget for Q4 Enterprise links."
                     </p>

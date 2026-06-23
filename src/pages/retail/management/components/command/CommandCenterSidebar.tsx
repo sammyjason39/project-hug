@@ -24,33 +24,33 @@ export const CommandCenterSidebar = ({
   return (
     <div className="space-y-10">
       {/* Inventory Health */}
-      <Card className="rounded-[2rem] border border-white/5 shadow-2xl bg-white/[0.03] backdrop-blur-3xl overflow-hidden group/inventory">
-        <CardHeader className="p-8 border-b border-white/5 bg-white/[0.01]">
-          <CardTitle className="text-[11px] font-black italic uppercase tracking-[0.3em] flex items-center gap-3 text-foreground italic">
-            <Package className="w-5 h-5 text-warning shadow-xl" />
+      <Card className="rounded-2xl border border-border shadow-sm bg-white/[0.03] overflow-hidden group/inventory">
+        <CardHeader className="p-8 border-b border-border bg-white/[0.01]">
+          <CardTitle className="text-[11px] font-semibold tracking-[0.3em] flex items-center gap-3 text-foreground italic">
+            <Package className="w-5 h-5 text-warning shadow-sm" />
             Inventory Health
           </CardTitle>
         </CardHeader>
         <CardContent className="p-8 space-y-6">
-          <div className="flex justify-between items-center p-5 rounded-2xl bg-destructive/10 border border-destructive/20 shadow-xl group/critical hover:scale-[1.02] transition-transform">
+          <div className="flex justify-between items-center p-5 rounded-2xl bg-destructive/10 border border-destructive/20 shadow-sm group/critical hover:scale-[1.02] transition-transform">
             <div className="flex items-center gap-4">
               <AlertCircle className="w-5 h-5 text-destructive" />
-              <span className="text-[10px] font-black italic text-destructive uppercase tracking-widest italic">
+              <span className="text-[10px] font-bold text-destructive uppercase tracking-widest italic">
                 Critical Depletion
               </span>
             </div>
-            <Badge className="bg-destructive/20 text-destructive border border-destructive/30 font-black italic text-[11px] px-3 h-6 rounded-lg">
+            <Badge className="bg-destructive/20 text-destructive border border-destructive/30 font-bold text-[11px] px-3 h-6 rounded-lg">
               {inventoryStats?.outOfStockCount || 0}
             </Badge>
           </div>
-          <div className="flex justify-between items-center p-5 rounded-2xl bg-warning border border-warning/20 shadow-xl group/low hover:scale-[1.02] transition-transform">
+          <div className="flex justify-between items-center p-5 rounded-2xl bg-warning border border-warning/20 shadow-sm group/low hover:scale-[1.02] transition-transform">
             <div className="flex items-center gap-4">
               <AlertCircle className="w-5 h-5 text-warning" />
-              <span className="text-[10px] font-black italic text-warning uppercase tracking-widest italic">
+              <span className="text-[10px] font-bold text-warning uppercase tracking-widest italic">
                 Low Stock Threshold
               </span>
             </div>
-            <Badge className="bg-warning text-warning border border-warning/30 font-black italic text-[11px] px-3 h-6 rounded-lg">
+            <Badge className="bg-warning text-warning border border-warning/30 font-bold text-[11px] px-3 h-6 rounded-lg">
               {inventoryStats?.lowStockCount || 0}
             </Badge>
           </div>
@@ -58,10 +58,10 @@ export const CommandCenterSidebar = ({
       </Card>
 
       {/* Core Sync Status */}
-      <Card className="rounded-[2rem] border border-white/5 shadow-2xl bg-white/[0.03] backdrop-blur-3xl overflow-hidden group/sync">
-        <CardHeader className="p-8 border-b border-white/5 bg-white/[0.01]">
-          <CardTitle className="text-[11px] font-black italic uppercase tracking-[0.3em] flex items-center gap-3 text-primary italic">
-            <Link2 className="w-5 h-5 shadow-xl" />
+      <Card className="rounded-2xl border border-border shadow-sm bg-white/[0.03] overflow-hidden group/sync">
+        <CardHeader className="p-8 border-b border-border bg-white/[0.01]">
+          <CardTitle className="text-[11px] font-semibold tracking-[0.3em] flex items-center gap-3 text-primary italic">
+            <Link2 className="w-5 h-5 shadow-sm" />
             Consensus Sync
           </CardTitle>
         </CardHeader>
@@ -73,7 +73,7 @@ export const CommandCenterSidebar = ({
           ].map((item, i) => (
             <div
               key={i}
-              className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] italic"
+              className="flex justify-between items-center text-[10px] font-semibold tracking-[0.3em] italic"
             >
               <span className="text-muted-foreground">{item.label}</span>
               <span className={cn("flex items-center gap-2", item.color)}>
@@ -86,10 +86,10 @@ export const CommandCenterSidebar = ({
       </Card>
 
       {/* Audit Ledger Snippet */}
-      <Card className="rounded-[2rem] border border-white/5 shadow-2xl bg-white/[0.03] backdrop-blur-3xl overflow-hidden group/audit">
-        <CardHeader className="p-8 border-b border-white/5 bg-white/[0.01]">
-          <CardTitle className="text-[11px] font-black italic uppercase tracking-[0.3em] flex items-center gap-3 text-foreground italic">
-            <Fingerprint className="w-5 h-5 text-primary shadow-xl" />
+      <Card className="rounded-2xl border border-border shadow-sm bg-white/[0.03] overflow-hidden group/audit">
+        <CardHeader className="p-8 border-b border-border bg-white/[0.01]">
+          <CardTitle className="text-[11px] font-semibold tracking-[0.3em] flex items-center gap-3 text-foreground italic">
+            <Fingerprint className="w-5 h-5 text-primary shadow-sm" />
             Real-time Audit
           </CardTitle>
         </CardHeader>
@@ -105,21 +105,21 @@ export const CommandCenterSidebar = ({
                   <span className="text-[10px] font-mono text-primary font-bold italic">
                     {order.id.slice(0, 8)}...
                   </span>
-                  <span className="text-sm font-black italic text-foreground italic tracking-tighter">
+                  <span className="text-sm font-bold text-foreground italic tracking-tighter">
                     Rp {order.totalAmount.toLocaleString()}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em] relative z-10 italic">
+                <div className="flex justify-between items-center text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] relative z-10 italic">
                   <span>{new Date(order.createdAt).toLocaleTimeString()}</span>
                   <ArrowRight className="w-4 h-4 group-hover/item:text-foreground group-hover/item:translate-x-2 transition-all" />
                 </div>
               </div>
             ))}
           </div>
-          <div className="p-8 bg-white/[0.01] border-t border-white/5">
+          <div className="p-8 bg-white/[0.01] border-t border-border">
             <button 
               onClick={() => onExpansionRequest("Real-time Global Ledger")}
-              className="w-full h-14 rounded-2xl bg-secondary/40 border border-white/5 text-muted-foreground font-black italic text-[10px] uppercase tracking-[0.3em] hover:bg-white/10 hover:text-foreground transition-all flex items-center justify-center gap-3 italic"
+              className="w-full h-14 rounded-2xl bg-secondary/40 border border-border text-muted-foreground font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-white/10 hover:text-foreground transition-all flex items-center justify-center gap-3 italic"
             >
                View Full Ledger <ArrowRight className="w-4 h-4" />
             </button>

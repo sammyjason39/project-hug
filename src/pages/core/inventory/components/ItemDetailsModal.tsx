@@ -219,14 +219,14 @@ export function ItemDetailsModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl rounded-[3rem] border-none shadow-2xl bg-white dark:bg-muted p-0 overflow-hidden">
+      <DialogContent className="max-w-4xl rounded-[3rem] border-none shadow-sm bg-white dark:bg-muted p-0 overflow-hidden">
         <div className="bg-muted p-8 text-white">
           <div className="flex items-center justify-between mb-6">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+              <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-[0.3em]">
                 <Package className="h-3 w-3" /> SKU: {item.sku}
               </div>
-              <DialogTitle className="text-3xl font-black tracking-tighter uppercase italic">
+              <DialogTitle className="text-3xl font-bold tracking-tighter uppercase italic">
                 {item.name}
               </DialogTitle>
             </div>
@@ -245,19 +245,19 @@ export function ItemDetailsModal({
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Category</span>
+              <span className="text-[10px] font-semibold text-muted-foreground tracking-widest">Category</span>
               <p className="font-bold">{item.category || "General"}</p>
             </div>
             <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Unit of Measure</span>
+              <span className="text-[10px] font-semibold text-muted-foreground tracking-widest">Unit of Measure</span>
               <p className="font-bold">{item.uom || item.unit || "Units"}</p>
             </div>
             <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Available Stock</span>
-              <p className="text-2xl font-black text-primary">{item.currentStock || 0}</p>
+              <span className="text-[10px] font-semibold text-muted-foreground tracking-widest">Available Stock</span>
+              <p className="text-2xl font-bold text-primary">{item.currentStock || 0}</p>
             </div>
             <div className="space-y-1">
-              <span className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Threshold</span>
+              <span className="text-[10px] font-semibold text-muted-foreground tracking-widest">Threshold</span>
               <p className="font-bold text-destructive">{item.minStock || 0}</p>
             </div>
           </div>
@@ -266,9 +266,9 @@ export function ItemDetailsModal({
         <ScrollArea className="max-h-[65vh]">
           <div className="p-8">
             {isEditing ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-muted dark:bg-muted rounded-[2.5rem] border border-border dark:border-border mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 bg-muted dark:bg-muted rounded-2xl border border-border dark:border-border mb-8">
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Item Name</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-widest">Item Name</label>
                   <UIInput 
                     value={editData.name} 
                     onChange={e => setEditData({...editData, name: e.target.value})}
@@ -276,7 +276,7 @@ export function ItemDetailsModal({
                   />
                 </div>
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">SKU Identity</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-widest">SKU Identity</label>
                   <UIInput 
                     value={editData.sku} 
                     onChange={e => setEditData({...editData, sku: e.target.value})}
@@ -284,7 +284,7 @@ export function ItemDetailsModal({
                   />
                 </div>
                 <div className="md:col-span-2 space-y-4">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Identity Description</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-widest">Identity Description</label>
                   <textarea 
                     value={editData.description} 
                     onChange={e => setEditData({...editData, description: e.target.value})}
@@ -294,10 +294,10 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Commercial Strategy</h4>
+                  <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground">Commercial Strategy</h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase text-muted-foreground">Base Price</label>
+                      <label className="text-[9px] font-semibold text-muted-foreground">Base Price</label>
                       <UIInput 
                         type="number"
                         value={editData.base_price} 
@@ -306,7 +306,7 @@ export function ItemDetailsModal({
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase text-muted-foreground">Selling Price</label>
+                      <label className="text-[9px] font-semibold text-muted-foreground">Selling Price</label>
                       <UIInput 
                         type="number"
                         value={editData.selling_price} 
@@ -318,10 +318,10 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                   <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Risk & Inventory Config</h4>
+                   <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground">Risk & Inventory Config</h4>
                    <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase text-muted-foreground">Discount (%)</label>
+                      <label className="text-[9px] font-semibold text-muted-foreground">Discount (%)</label>
                       <UIInput 
                         type="number"
                         value={editData.discount_rate} 
@@ -330,7 +330,7 @@ export function ItemDetailsModal({
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[9px] font-black uppercase text-muted-foreground">Stock Threshold</label>
+                      <label className="text-[9px] font-semibold text-muted-foreground">Stock Threshold</label>
                       <UIInput 
                         type="number"
                         value={editData.metadata?.min_stock || 0} 
@@ -345,7 +345,7 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">Global Status</label>
+                  <label className="text-[10px] font-semibold text-muted-foreground tracking-widest">Global Status</label>
                   <UISelect
                     value={editData.status}
                     onValueChange={(val) => setEditData({ ...editData, status: val })}
@@ -362,7 +362,7 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Category Allocation</h4>
+                  <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground">Category Allocation</h4>
                   <UISelect 
                     value={editData.category_id || item.category_id} 
                     onValueChange={val => setEditData({...editData, category_id: val})}
@@ -381,17 +381,17 @@ export function ItemDetailsModal({
             ) : null}
           <Tabs defaultValue="overview" className="w-full">
             <TabsList className="grid w-full grid-cols-5 rounded-2xl bg-muted dark:bg-muted p-1 mb-8">
-              <TabsTrigger value="overview" className="rounded-xl font-black text-[10px] uppercase tracking-widest">Overview</TabsTrigger>
-              <TabsTrigger value="images" className="rounded-xl font-black text-[10px] uppercase tracking-widest">Images</TabsTrigger>
-              <TabsTrigger value="adjustment" className="rounded-xl font-black text-[10px] uppercase tracking-widest">Adjust Stock</TabsTrigger>
-              <TabsTrigger value="movements" className="rounded-xl font-black text-[10px] uppercase tracking-widest">Movements</TabsTrigger>
-              <TabsTrigger value="locations" className="rounded-xl font-black text-[10px] uppercase tracking-widest">Storage Nodes</TabsTrigger>
+              <TabsTrigger value="overview" className="rounded-xl font-bold text-[10px] uppercase tracking-widest">Overview</TabsTrigger>
+              <TabsTrigger value="images" className="rounded-xl font-bold text-[10px] uppercase tracking-widest">Images</TabsTrigger>
+              <TabsTrigger value="adjustment" className="rounded-xl font-bold text-[10px] uppercase tracking-widest">Adjust Stock</TabsTrigger>
+              <TabsTrigger value="movements" className="rounded-xl font-bold text-[10px] uppercase tracking-widest">Movements</TabsTrigger>
+              <TabsTrigger value="locations" className="rounded-xl font-bold text-[10px] uppercase tracking-widest">Storage Nodes</TabsTrigger>
             </TabsList>
 
             <TabsContent value="images" className="space-y-6">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <h4 className="text-sm font-black tracking-tight uppercase">Visual Asset Gallery</h4>
+                  <h4 className="text-sm font-bold tracking-tight uppercase">Visual Asset Gallery</h4>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Manage product imagery and storefront displays</p>
                 </div>
                 <div className="relative">
@@ -404,7 +404,7 @@ export function ItemDetailsModal({
                   />
                   <Button 
                     onClick={() => document.getElementById('image-upload')?.click()}
-                    className="rounded-xl bg-primary hover:bg-primary text-white font-black text-[10px] uppercase tracking-widest h-10 px-6 shadow-lg shadow-indigo-200/50"
+                    className="rounded-xl bg-primary hover:bg-primary text-white font-bold text-[10px] uppercase tracking-widest h-10 px-6 shadow-lg shadow-indigo-200/50"
                   >
                     <Plus className="h-3 w-3 mr-2" /> Upload Visual
                   </Button>
@@ -413,20 +413,20 @@ export function ItemDetailsModal({
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {images.length === 0 ? (
-                  <div className="col-span-full h-48 flex flex-col items-center justify-center bg-muted dark:bg-muted rounded-[2rem] border-2 border-dashed border-border dark:border-border opacity-50">
+                  <div className="col-span-full h-48 flex flex-col items-center justify-center bg-muted dark:bg-muted rounded-2xl border-2 border-dashed border-border dark:border-border opacity-50">
                     <ImageIcon className="h-8 w-8 text-muted-foreground mb-2" />
-                    <p className="text-[10px] font-black uppercase tracking-widest">No Visual Assets Found</p>
+                    <p className="text-[10px] font-semibold tracking-widest">No Visual Assets Found</p>
                   </div>
                 ) : (
                   images.map((img) => (
-                    <div key={img.id} className="group relative aspect-square rounded-[1.5rem] overflow-hidden bg-muted dark:bg-muted border border-border dark:border-border">
+                    <div key={img.id} className="group relative aspect-square rounded-xl overflow-hidden bg-muted dark:bg-muted border border-border dark:border-border">
                       <img 
                         src={img.url} 
                         alt="Product" 
                         className="h-full w-full object-cover transition-transform group-hover:scale-110" 
                       />
                       {img.is_primary && (
-                        <Badge className="absolute top-3 left-3 bg-primary text-[8px] font-black uppercase tracking-widest rounded-lg border-none">
+                        <Badge className="absolute top-3 left-3 bg-primary text-label tracking-widest rounded-lg border-none">
                           Primary
                         </Badge>
                       )}
@@ -435,7 +435,7 @@ export function ItemDetailsModal({
                           <Button 
                             size="sm" 
                             variant="secondary" 
-                            className="h-8 rounded-lg font-black text-[8px] uppercase tracking-widest w-24"
+                            className="h-8 rounded-lg font-bold text-[8px] uppercase tracking-widest w-24"
                             onClick={() => handleSetPrimary(img.id)}
                           >
                             Set Primary
@@ -444,7 +444,7 @@ export function ItemDetailsModal({
                         <Button 
                           size="sm" 
                           variant="destructive" 
-                          className="h-8 rounded-lg font-black text-[8px] uppercase tracking-widest w-24"
+                          className="h-8 rounded-lg font-bold text-[8px] uppercase tracking-widest w-24"
                           onClick={() => handleDeleteImage(img.id)}
                         >
                           Delete
@@ -459,7 +459,7 @@ export function ItemDetailsModal({
             <TabsContent value="overview" className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                  <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-2">
                     <Activity className="h-3 w-3" /> Item Description
                   </h4>
                   <p className="text-sm text-muted-foreground dark:text-muted-foreground leading-relaxed font-medium italic">
@@ -468,36 +468,36 @@ export function ItemDetailsModal({
                   
                   <div className="pt-4 grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="p-3 rounded-xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-1">Base Price</p>
-                      <p className="text-sm font-black text-muted-foreground">Rp {Number(item.base_price || 0).toLocaleString()}</p>
+                      <p className="text-label text-muted-foreground mb-1">Base Price</p>
+                      <p className="text-sm font-bold text-muted-foreground">Rp {Number(item.base_price || 0).toLocaleString()}</p>
                     </div>
                     <div className="p-3 rounded-xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-1">Selling Price</p>
-                      <p className="text-sm font-black text-primary">Rp {Number(item.selling_price || 0).toLocaleString()}</p>
+                      <p className="text-label text-muted-foreground mb-1">Selling Price</p>
+                      <p className="text-sm font-bold text-primary">Rp {Number(item.selling_price || 0).toLocaleString()}</p>
                     </div>
                     <div className="p-3 rounded-xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-1">Discount</p>
-                      <p className="text-sm font-black text-success">{item.discount_rate || 0}%</p>
+                      <p className="text-label text-muted-foreground mb-1">Discount</p>
+                      <p className="text-sm font-bold text-success">{item.discount_rate || 0}%</p>
                     </div>
                     <div className="p-3 rounded-xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-1">Min. Threshold</p>
-                      <p className="text-sm font-black text-destructive">{Number(item.metadata?.min_stock || 0).toLocaleString()} Units</p>
+                      <p className="text-label text-muted-foreground mb-1">Min. Threshold</p>
+                      <p className="text-sm font-bold text-destructive">{Number(item.metadata?.min_stock || 0).toLocaleString()} Units</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                  <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-2">
                     <BarChart2 className="h-3 w-3" /> Quick Stats
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-2xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[10px] font-black uppercase text-muted-foreground mb-1">In Transit</p>
-                      <p className="text-xl font-black">0</p>
+                      <p className="text-[10px] font-semibold text-muted-foreground mb-1">In Transit</p>
+                      <p className="text-xl font-bold">0</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-muted dark:bg-muted border border-border dark:border-border">
-                      <p className="text-[10px] font-black uppercase text-muted-foreground mb-1">Reserved</p>
-                      <p className="text-xl font-black">0</p>
+                      <p className="text-[10px] font-semibold text-muted-foreground mb-1">Reserved</p>
+                      <p className="text-xl font-bold">0</p>
                     </div>
                   </div>
                 </div>
@@ -507,17 +507,17 @@ export function ItemDetailsModal({
                   {isDecommissioning ? (
                     <div className="flex flex-col gap-2 w-full">
                       <div className="p-4 rounded-2xl bg-destructive border border-destructive mb-2">
-                        <p className="text-[10px] font-black uppercase text-destructive mb-1">⚠️ Critical Warning</p>
+                        <p className="text-[10px] font-semibold text-destructive mb-1">⚠️ Critical Warning</p>
                         <p className="text-xs font-bold text-destructive leading-relaxed">
                           Decommissioning will archive this identity. It will no longer appear in active inventory cycles and requires audit clearance. 
                           This action is persistent. Continue?
                         </p>
                       </div>
                       <div className="flex gap-2 justify-end">
-                        <Button variant="ghost" onClick={() => setIsDecommissioning(false)} className="rounded-xl h-12 px-6 font-black text-[10px] uppercase tracking-widest">
+                        <Button variant="ghost" onClick={() => setIsDecommissioning(false)} className="rounded-xl h-12 px-6 font-bold text-[10px] uppercase tracking-widest">
                           Cancel
                         </Button>
-                        <Button variant="destructive" onClick={handleDecommission} className="rounded-xl h-12 px-6 font-black text-[10px] uppercase tracking-widest bg-destructive shadow-lg shadow-rose-200">
+                        <Button variant="destructive" onClick={handleDecommission} className="rounded-xl h-12 px-6 font-bold text-[10px] uppercase tracking-widest bg-destructive shadow-lg shadow-rose-200">
                           Confirm Decommission
                         </Button>
                       </div>
@@ -543,19 +543,19 @@ export function ItemDetailsModal({
                           setIsEditing(!isEditing);
                         }}
                         variant="outline" 
-                        className="rounded-xl h-12 px-6 font-black text-[10px] uppercase tracking-widest border-border"
+                        className="rounded-xl h-12 px-6 font-bold text-[10px] uppercase tracking-widest border-border"
                       >
                         <Edit3 className="h-3 w-3 mr-2" /> {isEditing ? "Discard Changes" : "Edit Identity"}
                       </Button>
                       {isEditing && (
-                        <Button onClick={handleUpdate} className="rounded-xl h-12 px-6 font-black text-[10px] uppercase tracking-widest bg-primary text-white shadow-lg shadow-indigo-200">
+                        <Button onClick={handleUpdate} className="rounded-xl h-12 px-6 font-bold text-[10px] uppercase tracking-widest bg-primary text-white shadow-lg shadow-indigo-200">
                           Save Changes
                         </Button>
                       )}
                       <Button 
                         onClick={() => setIsDecommissioning(true)}
                         variant="outline" 
-                        className="rounded-xl h-12 px-6 font-black text-[10px] uppercase tracking-widest text-destructive border-destructive hover:bg-destructive"
+                        className="rounded-xl h-12 px-6 font-bold text-[10px] uppercase tracking-widest text-destructive border-destructive hover:bg-destructive"
                       >
                         <Trash2 className="h-3 w-3 mr-2" /> Decommission
                       </Button>
@@ -565,9 +565,9 @@ export function ItemDetailsModal({
             </TabsContent>
 
             <TabsContent value="adjustment" className="space-y-8">
-              <div className="p-8 rounded-[2.5rem] bg-muted dark:bg-muted border border-border dark:border-border space-y-6">
+              <div className="p-8 rounded-2xl bg-muted dark:bg-muted border border-border dark:border-border space-y-6">
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-primary dark:text-primary">Target Storage Node</h4>
+                  <h4 className="text-[10px] font-semibold tracking-widest text-primary dark:text-primary">Target Storage Node</h4>
                   <UISelect 
                     value={adjustmentData.location_id} 
                     onValueChange={val => setAdjustmentData({...adjustmentData, location_id: val})}
@@ -586,11 +586,11 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-primary">Adjustment Vector (Delta)</h4>
+                  <h4 className="text-[10px] font-semibold tracking-widest text-primary">Adjustment Vector (Delta)</h4>
                   <div className="flex items-center gap-4">
                     <Button 
                       variant="outline" 
-                      className="h-12 w-12 rounded-xl font-black text-lg border-primary"
+                      className="h-12 w-12 rounded-xl font-bold text-lg border-primary"
                       onClick={() => setAdjustmentData(prev => ({...prev, requested_delta: prev.requested_delta - 1}))}
                     >
                       -
@@ -599,11 +599,11 @@ export function ItemDetailsModal({
                       type="number"
                       value={adjustmentData.requested_delta}
                       onChange={e => setAdjustmentData({...adjustmentData, requested_delta: parseInt(e.target.value) || 0})}
-                      className="h-12 text-center font-black text-xl bg-white dark:bg-muted rounded-xl border-border dark:border-border"
+                      className="h-12 text-center font-bold text-xl bg-white dark:bg-muted rounded-xl border-border dark:border-border"
                     />
                     <Button 
                       variant="outline" 
-                      className="h-12 w-12 rounded-xl font-black text-lg border-primary"
+                      className="h-12 w-12 rounded-xl font-bold text-lg border-primary"
                       onClick={() => setAdjustmentData(prev => ({...prev, requested_delta: prev.requested_delta + 1}))}
                     >
                       +
@@ -613,7 +613,7 @@ export function ItemDetailsModal({
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-primary">Adjustment Justification</h4>
+                  <h4 className="text-[10px] font-semibold tracking-widest text-primary">Adjustment Justification</h4>
                   <textarea 
                     value={adjustmentData.reason}
                     onChange={e => setAdjustmentData({...adjustmentData, reason: e.target.value})}
@@ -624,7 +624,7 @@ export function ItemDetailsModal({
 
                 <Button 
                   onClick={handleAdjustment}
-                  className="w-full h-14 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-indigo-200"
+                  className="w-full h-14 rounded-2xl bg-primary text-white font-semibold tracking-widest text-[10px] shadow-sm shadow-indigo-200"
                 >
                   Submit Adjustment Protocol
                 </Button>
@@ -651,7 +651,7 @@ export function ItemDetailsModal({
                             {move.quantity > 0 ? <TrendingUp className="h-4 w-4" /> : <Activity className="h-4 w-4" />}
                           </div>
                           <div>
-                            <p className="text-xs font-black uppercase tracking-widest">{move.movement_type}</p>
+                            <p className="text-xs font-semibold tracking-widest">{move.movement_type}</p>
                             <p className="text-[10px] font-bold text-muted-foreground uppercase">{move.reference_id}</p>
                           </div>
                         </div>
@@ -675,10 +675,10 @@ export function ItemDetailsModal({
                     {[1, 2, 3].map(i => <Skeleton key={i} className="h-20 w-full rounded-2xl" />)}
                   </div>
                 ) : aggregatedBalances.length === 0 ? (
-                  <div className="h-64 flex flex-col items-center justify-center bg-muted rounded-[2.5rem] border-2 border-dashed border-border">
+                  <div className="h-64 flex flex-col items-center justify-center bg-muted rounded-2xl border-2 border-dashed border-border">
                     <Box className="h-12 w-12 text-muted-foreground mb-4" />
                     <p className="text-sm font-bold text-muted-foreground italic text-center px-8">No inventory records found in any storage node for this identity.</p>
-                    <p className="text-[10px] text-muted-foreground mt-2 uppercase tracking-[0.2em] font-black">Add initial stock via adjustment tab</p>
+                    <p className="text-[10px] text-muted-foreground mt-2 uppercase tracking-[0.2em] font-bold">Add initial stock via adjustment tab</p>
                   </div>
                 ) : (
                   <div className="space-y-3">
@@ -689,7 +689,7 @@ export function ItemDetailsModal({
                             <MapPin className="h-5 w-5" />
                           </div>
                           <div>
-                            <p className="text-xs font-black uppercase tracking-widest">{bal.location_name}</p>
+                            <p className="text-xs font-semibold tracking-widest">{bal.location_name}</p>
                             <p className="text-[10px] font-bold text-muted-foreground uppercase">
                               {bal.reserved > 0 ? `${bal.reserved} reserved • ` : ''}
                               {bal.in_transit > 0 ? `${bal.in_transit} in-transit • ` : ''}
@@ -698,10 +698,10 @@ export function ItemDetailsModal({
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-black text-muted-foreground dark:text-white leading-none">
+                          <p className="text-2xl font-bold text-muted-foreground dark:text-white leading-none">
                             {bal.quantity.toLocaleString()}
                           </p>
-                          <p className="text-[9px] font-black text-muted-foreground uppercase tracking-tighter mt-1">Units on hand</p>
+                          <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-tighter mt-1">Units on hand</p>
                         </div>
                       </div>
                     ))}

@@ -17,9 +17,9 @@ export const TerminalNetworkHealth: React.FC<TerminalNetworkHealthProps> = ({
   const navigate = useNavigate();
 
   return (
-    <Card className="rounded-2xl bg-secondary border-none shadow-2xl overflow-hidden group">
+    <Card className="rounded-2xl bg-secondary border-none shadow-sm overflow-hidden group">
       <CardHeader className="p-8 pb-4">
-        <CardTitle className="text-[10px] font-black uppercase tracking-[0.2em] text-primary italic">
+        <CardTitle className="text-label text-primary italic">
           Terminal Network Health
         </CardTitle>
       </CardHeader>
@@ -53,13 +53,13 @@ export const TerminalNetworkHealth: React.FC<TerminalNetworkHealthProps> = ({
         </div>
         <Separator className="bg-white/10" />
         <div className="flex justify-between items-center">
-          <div className="text-[10px] font-black italic text-muted-foreground uppercase">
+          <div className="text-[10px] font-bold text-muted-foreground uppercase">
             Status: <span className="text-primary">Stable</span>
           </div>
           <Button
             variant="ghost"
             size="sm"
-            className="text-xs font-black italic text-foreground/40 hover:text-foreground p-0 h-auto"
+            className="text-xs font-bold text-foreground/40 hover:text-foreground p-0 h-auto"
             onClick={() => navigate("/m/retail/management/devices")}
           >
             Remote Hub <ArrowUpRight className="w-3 h-3 ml-1" />

@@ -2,183 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-   ZENVIX PREMIUM DESIGN SYSTEM 
-   All colors MUST be HSL.
-   Aesthetics: Vibrant, Glassmorphic, High-Contrast Professional.
+/*
+   CONEXTLAB / ZENVIX DESIGN SYSTEM
+   Based on ConextLab Brand System v1.0
+   Colors: Ink, Blue, Mist, Hairline — clean whitespace, decisive typography
 */
 
 @layer base {
   :root {
-    /* Core Palette — Warm Amber/Coral Light Mode */
-    --background: 40 30% 98%;
-    --foreground: 224 71% 4%;
+    /* ConextLab palette — light mode */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
 
-    /* Surface Layers — Light Mode Depth */
-    --surface-1: 40 25% 98%;
+    --surface-1: 210 40% 98%;
     --surface-2: 0 0% 100%;
-    --surface-3: 40 20% 94%;
+    --surface-3: 210 40% 96%;
 
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 0 0% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
+    --popover-foreground: 0 0% 4%;
 
-    /* Primary — Warm Amber/Coral (Req 1.1) */
-    --primary: 38 95% 54%;
+    --primary: 224 88% 51%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary — Warm Light Tint (Req 1.7) */
-    --secondary: 40 20% 93%;
-    --secondary-foreground: 224 71% 4%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 0 0% 4%;
 
-    /* Text Contrast Tokens */
-    --muted: 40 20% 93%;
-    --muted-foreground: 40 10% 40%;
-    --label-foreground: 215 16% 25%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 220 9% 46%;
+    --label-foreground: 220 9% 46%;
 
-    --accent: 40 20% 93%;
-    --accent-foreground: 224 71% 4%;
+    --accent: 224 90% 93%;
+    --accent-foreground: 224 88% 51%;
 
-    /* Semantic Colors */
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
+    --success: 142 71% 36%;
     --success-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --info: 199 89% 48%;
+    --info: 224 88% 51%;
     --info-foreground: 0 0% 100%;
 
-    /* Borders & Inputs (Req 1.6) */
-    --border: 40 20% 89%;
-    --input: 40 20% 89%;
-    --ring: 38 95% 54%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 88% 51%;
 
-    /* POS Specific (Req 7.1) */
-    --pos-background: 40 25% 97%;
+    --pos-background: 210 40% 98%;
     --pos-card: 0 0% 100%;
-    --pos-accent: 38 95% 54%;
+    --pos-accent: 224 88% 51%;
 
-    /* Status Colors — FNB Tables (Req 8.1) */
-    --status-empty: 40 20% 89%;
+    --status-empty: 220 13% 91%;
     --status-ordering: 38 92% 50%;
-    --status-served: 142 76% 36%;
-    --status-billed: 199 89% 48%;
-    --status-occupied: 38 95% 68%;
+    --status-served: 142 71% 36%;
+    --status-billed: 224 88% 51%;
+    --status-occupied: 224 90% 93%;
 
-    /* License Colors (Req 12.1) */
-    --license-active: 142 76% 36%;
+    --license-active: 142 71% 36%;
     --license-trial: 38 92% 50%;
-    --license-expired: 0 84% 60%;
+    --license-expired: 0 72% 51%;
 
-    /* Sidebar — Warm Light (Req 5.2) */
-    --sidebar-background: 40 25% 98%;
-    --sidebar-foreground: 224 71% 4%;
-    --sidebar-primary: 38 95% 54%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 4%;
+    --sidebar-primary: 224 88% 51%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 20% 93%;
-    --sidebar-accent-foreground: 224 71% 4%;
-    --sidebar-border: 40 20% 89%;
-    --sidebar-ring: 38 95% 54%;
+    --sidebar-accent: 210 40% 98%;
+    --sidebar-accent-foreground: 0 0% 4%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 224 88% 51%;
 
-    /* Chart Colors — HSL aligned to CHART_COLORS hex (Req 9.5) */
-    --chart-1: 243 75% 59%;
-    --chart-2: 142 76% 36%;
+    --chart-1: 224 88% 51%;
+    --chart-2: 142 71% 36%;
     --chart-3: 38 92% 50%;
-    --chart-4: 271 81% 56%;
-    --chart-5: 199 89% 48%;
+    --chart-4: 217 33% 17%;
+    --chart-5: 220 9% 46%;
 
-    --radius: 1.25rem;
+    --radius: 1rem;
   }
 
   .dark {
-    /* Core Palette — Deep Navy Dark Premium (Req 2.1) */
-    --background: 224 47% 5%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
 
-    /* Surface Layers — Dark Mode Depth (Req 2.3) */
-    --surface-1: 224 47% 5%;
-    --surface-2: 224 47% 9%;
-    --surface-3: 224 47% 13%;
+    --surface-1: 0 0% 4%;
+    --surface-2: 217 33% 12%;
+    --surface-3: 217 33% 17%;
 
-    --card: 224 47% 9%;
-    --card-foreground: 210 40% 98%;
+    --card: 217 33% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 224 47% 9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 217 33% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Primary — Cool Blue-Purple (Req 2.2) */
-    --primary: 245 75% 65%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 224 88% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary — Dark Navy Tint (Req 2.7) */
-    --secondary: 217 33% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Text Contrast Tokens — Dark Mode */
-    --muted: 217 33% 12%;
-    --muted-foreground: 215 20% 70%;
-    --label-foreground: 215 15% 85%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 220 9% 65%;
+    --label-foreground: 220 9% 65%;
 
-    --accent: 217 33% 14%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 224 50% 18%;
+    --accent-foreground: 224 88% 70%;
 
-    /* Semantic Colors — Dark Mode (Req 3.1–3.7) */
-    --destructive: 0 72% 51%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 70% 50%;
-    --success-foreground: 0 0% 0%;
+    --success: 142 65% 45%;
+    --success-foreground: 0 0% 100%;
 
-    --warning: 38 92% 60%;
-    --warning-foreground: 0 0% 0%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 4%;
 
-    --info: 199 89% 60%;
-    --info-foreground: 0 0% 0%;
+    --info: 224 88% 58%;
+    --info-foreground: 0 0% 100%;
 
-    /* Borders & Inputs (Req 2.6) */
-    --border: 217 33% 16%;
-    --input: 217 33% 16%;
-    --ring: 245 75% 65%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 224 88% 58%;
 
-    /* POS Specific — Dark Mode (Req 7.1) */
-    --pos-background: 224 47% 5%;
-    --pos-card: 224 47% 9%;
-    --pos-accent: 245 75% 65%;
+    --pos-background: 0 0% 4%;
+    --pos-card: 217 33% 12%;
+    --pos-accent: 224 88% 58%;
 
-    /* Status Colors — Dark Mode (Req 8.1) */
-    --status-empty: 217 33% 16%;
-    --status-ordering: 38 92% 60%;
-    --status-served: 142 70% 45%;
-    --status-billed: 199 89% 55%;
-    --status-occupied: 245 75% 60%;
+    --status-empty: 217 33% 20%;
+    --status-ordering: 38 92% 55%;
+    --status-served: 142 65% 45%;
+    --status-billed: 224 88% 58%;
+    --status-occupied: 224 50% 25%;
 
-    /* License Colors — Dark Mode (Req 12.1) */
-    --license-active: 142 70% 45%;
-    --license-trial: 38 92% 60%;
-    --license-expired: 0 72% 51%;
+    --license-active: 142 65% 45%;
+    --license-trial: 38 92% 55%;
+    --license-expired: 0 72% 55%;
 
-    /* Sidebar — Dark Mode (Req 5.2) */
-    --sidebar-background: 224 47% 5%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 245 75% 65%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217 33% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 16%;
-    --sidebar-ring: 245 75% 65%;
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 224 88% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 224 88% 58%;
 
-    /* Chart Colors — Dark (Req 9.5) aligned to CHART_COLORS_DARK hex */
-    --chart-1: 235 78% 75%;
-    --chart-2: 142 69% 58%;
-    --chart-3: 45 93% 56%;
-    --chart-4: 270 75% 75%;
-    --chart-5: 198 93% 60%;
+    --chart-1: 224 88% 65%;
+    --chart-2: 142 65% 50%;
+    --chart-3: 38 92% 55%;
+    --chart-4: 220 9% 65%;
+    --chart-5: 217 33% 40%;
   }
 }
 
@@ -186,17 +163,26 @@
   * {
     @apply border-border;
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--primary) / 0.5) transparent;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground font-sans;
+    @apply bg-background text-foreground antialiased font-sans;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+    letter-spacing: -0.02em;
   }
 
   input, textarea, select {
-    background-color: hsl(var(--surface-2) / 0.8);
-    @apply border-border text-foreground placeholder:text-muted-foreground/50 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 backdrop-blur-sm;
+    background-color: hsl(var(--surface-2));
+    @apply border-border text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/15 focus:border-primary transition-all duration-200 rounded-xl;
     color-scheme: light dark;
   }
 
@@ -205,11 +191,10 @@
   }
 
   .dark input, .dark textarea, .dark select {
-    background-color: hsl(var(--surface-3) / 0.4);
-    @apply border-white/10;
+    background-color: hsl(var(--surface-2));
+    @apply border-border;
   }
 
-  /* Premium Global Scrollbar Implementation */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -220,86 +205,90 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/20 rounded-full transition-all duration-500 border-2 border-transparent bg-clip-content;
+    @apply bg-border rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/60;
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+    @apply bg-muted-foreground/40;
   }
 }
 
 @layer utilities {
-  /* Premium Typography */
+  /* ConextLab label — JetBrains Mono eyebrow */
   .text-label {
-    @apply text-[10px] font-black uppercase tracking-[0.25em] text-label-foreground italic;
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground;
   }
 
   .text-value {
-    @apply text-sm font-black italic tracking-tighter text-foreground uppercase;
+    @apply text-sm font-semibold tracking-tight text-foreground;
   }
 
-  /* Enhanced Glassmorphism */
-  .glass-premium {
-    @apply bg-white/70 dark:bg-slate-900/40 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)];
+  /* Surface cards — clean bordered panels (replaces glassmorphism) */
+  .surface-card {
+    @apply bg-card border border-border rounded-2xl shadow-[0_1px_3px_rgba(10,10,10,0.04)];
   }
 
   .glass-card {
-    @apply bg-white/40 dark:bg-white/[0.02] backdrop-blur-3xl border border-white/20 dark:border-white/5 shadow-2xl;
+    @apply surface-card;
+  }
+
+  .glass-morphism {
+    @apply surface-card;
+  }
+
+  .glass-premium {
+    @apply bg-card/95 backdrop-blur-sm border border-border rounded-2xl shadow-sm;
   }
 
   .glass-header {
-    @apply sticky top-0 z-40 bg-background/70 backdrop-blur-xl border-b border-border/50;
+    @apply sticky top-0 z-40 backdrop-blur-md border-b border-border;
+    background-color: hsl(var(--background) / 0.92);
   }
 
-  /* Glow Utilities */
   .glow-primary {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
   }
 
   .glow-success {
-    box-shadow: 0 0 20px hsl(var(--success) / 0.2);
+    box-shadow: 0 0 0 3px hsl(var(--success) / 0.12);
   }
 
   .glow-border {
-    @apply border-primary/30 shadow-[0_0_15px_rgba(79,70,229,0.1)];
+    @apply border-primary/30;
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.08);
   }
 
-  /* Modern Transitions */
   .transition-premium {
-    @apply transition-all duration-500;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    @apply transition-all duration-300 ease-out;
   }
 
   .hover-lift {
-    @apply hover:-translate-y-1 hover:shadow-2xl active:scale-[0.98] transition-premium;
+    @apply hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99] transition-premium;
   }
 
-  /* Premium Gradients */
   .grad-primary {
-    @apply bg-gradient-to-br from-primary via-indigo-400 to-violet-600;
+    @apply bg-primary text-primary-foreground;
   }
 
   .grad-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70;
+    @apply text-foreground;
   }
 
-  /* Animation utilities */
+  .premium-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-6px); }
   }
 
   .animate-glow {
-    animation: glow 3s ease-in-out infinite;
-  }
-
-  @keyframes glow {
-    0%, 100% { opacity: 0.5; filter: blur(10px); }
-    50% { opacity: 1; filter: blur(20px); }
+    animation: none;
   }
 }

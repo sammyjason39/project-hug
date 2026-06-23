@@ -103,16 +103,15 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent
-        className="max-w-2xl rounded-2xl p-8 border-none shadow-2xl bg-white/95 backdrop-blur-xl max-h-[90vh] flex
-    flex-col overflow-hidden"
+        className="max-w-2xl rounded-2xl p-8 border-none shadow-sm bg-white/95 max-h-[90vh] flex flex-col overflow-hidden"
       >
-        <DialogHeader className="px-8 pt-8 pb-4 border-b bg-white/90 backdrop-blur-xl shrink-0">
+        <DialogHeader className="px-8 pt-8 pb-4 border-b bg-card shrink-0">
           <div className="flex items-center gap-4 mb-2">
             <div className="h-12 w-12 rounded-2xl bg-primary/5 flex items-center justify-center">
-              <span className="text-xl font-black italic text-primary">P</span>
+              <span className="text-xl font-bold text-primary">P</span>
             </div>
             <div>
-              <DialogTitle className="text-2xl font-black italic tracking-tight text-foreground">
+              <DialogTitle className="text-2xl font-bold tracking-tight text-foreground">
                 Edit Product
               </DialogTitle>
               <DialogDescription className="font-bold italic text-xs uppercase tracking-widest text-muted-foreground">
@@ -126,7 +125,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
           <div className="grid grid-cols-2 gap-6 py-2">
             {/* Row 1: Name & SKU */}
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Product Name
               </Label>
               <Input
@@ -137,7 +136,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 SKU Code
               </Label>
               <Input
@@ -149,7 +148,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
 
             {/* Row 2: Category & Type */}
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Category
               </Label>
               <Select
@@ -159,7 +158,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
                 <SelectTrigger className="h-12 rounded-2xl font-bold bg-secondary/5 border-none px-5">
                   <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
-                <SelectContent className="rounded-2xl border-none shadow-2xl p-2">
+                <SelectContent className="rounded-2xl border-none shadow-sm p-2">
                   {(Array.isArray(categories) ? categories : []).map((cat) => (
                     <SelectItem
                       key={cat.id}
@@ -173,7 +172,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
               </Select>
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Item Type
               </Label>
               <Select
@@ -183,7 +182,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
                 <SelectTrigger className="h-12 rounded-2xl font-bold bg-secondary/5 border-none px-5">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="rounded-2xl border-none shadow-2xl p-2">
+                <SelectContent className="rounded-2xl border-none shadow-sm p-2">
                   <SelectItem
                     value="ITEM"
                     className="rounded-xl font-bold italic py-3"
@@ -208,7 +207,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
 
             {/* Row 3: Base Price & Unit */}
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Base Price
               </Label>
               <div className="relative">
@@ -216,15 +215,15 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
                   type="number"
                   value={formData.base_price}
                   onChange={(e) => handleChange("base_price", e.target.value)}
-                  className="h-12 rounded-2xl font-black italic bg-secondary/5 border-none pl-12 pr-5 focus-visible:ring-2 focus-visible:ring-blue-500/20 transition-all"
+                  className="h-12 rounded-2xl font-bold bg-secondary/5 border-none pl-12 pr-5 focus-visible:ring-2 focus-visible:ring-blue-500/20 transition-all"
                 />
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] font-black italic text-muted-foreground">
+                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground">
                   Rp
                 </span>
               </div>
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Unit (UoM)
               </Label>
               <Input
@@ -237,7 +236,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
 
             {/* Row 4: Stock Levels */}
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Stock on Hand (SOH)
               </Label>
               <Input
@@ -248,7 +247,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
               />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Reserved / ATS
               </Label>
               <div className="flex items-center gap-2">
@@ -261,7 +260,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
                 />
                 <div
                   className={cn(
-                    "h-12 flex items-center justify-center shrink-0 px-4 rounded-2xl font-black text-sm",
+                    "h-12 flex items-center justify-center shrink-0 px-4 rounded-2xl font-bold text-sm",
                     Number(formData.stock_on_hand) - Number(formData.reserved) >
                       0
                       ? "bg-success text-success"
@@ -277,7 +276,7 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
 
             {/* Row 5: Description */}
             <div className="col-span-2 space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-1">
+              <Label className="text-label text-muted-foreground ml-1">
                 Description
               </Label>
               <Textarea
@@ -290,18 +289,18 @@ export const ProductDetailEditDialog: React.FC<Props> = ({
           </div>
         </div>
 
-        <DialogFooter className="px-8 py-6 border-t bg-white/90 backdrop-blur-xl shrink-0 gap-3 sm:justify-start">
+        <DialogFooter className="px-8 py-6 border-t bg-card shrink-0 gap-3 sm:justify-start">
           <Button
             onClick={handleSubmit}
             disabled={isLoading || !formData.name || !formData.sku}
-            className="flex-1 h-14 rounded-2xl bg-secondary hover:bg-secondary/60 text-foreground font-black italic shadow-xl shadow-slate-900/10 transition-all hover:-translate-y-0.5"
+            className="flex-1 h-14 rounded-2xl bg-secondary hover:bg-secondary/60 text-foreground font-bold shadow-sm shadow-slate-900/10 transition-all hover:-translate-y-0.5"
           >
             {isLoading ? "Saving..." : "Save Changes"}
           </Button>
           <Button
             variant="outline"
             onClick={onClose}
-            className="h-14 px-8 rounded-2xl font-black italic bg-white border-2 border-border hover:bg-secondary/5 transition-all"
+            className="h-14 px-8 rounded-2xl font-bold bg-white border-2 border-border hover:bg-secondary/5 transition-all"
           >
             Cancel
           </Button>

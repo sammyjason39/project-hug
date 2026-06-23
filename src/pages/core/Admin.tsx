@@ -50,7 +50,7 @@ export default function CoreAdmin() {
       <div className="flex h-screen items-center justify-center bg-muted">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
-          <p className="text-xs font-black uppercase tracking-widest text-muted-foreground italic">Accessing Governance Mainframe...</p>
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground italic">Accessing Governance Mainframe...</p>
         </div>
       </div>
     );
@@ -140,10 +140,10 @@ export default function CoreAdmin() {
         >
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-xl border p-5 border-success/20 bg-success">
-              <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">
+              <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-2">
                 Active Physical Stores
               </p>
-              <p className="text-3xl font-black italic text-success dark:text-success">
+              <p className="text-3xl font-bold text-success dark:text-success">
                   {moduleContributions?.retail?.activeStores || 0}
               </p>
             </div>
@@ -162,18 +162,18 @@ export default function CoreAdmin() {
                 <div className="h-10 w-10 rounded-xl bg-primary dark:bg-primary flex items-center justify-center">
                   <ShieldCheck className="h-5 w-5 text-primary" />
                 </div>
-                <p className="text-sm font-black uppercase tracking-widest leading-none">
+                <p className="text-sm font-semibold tracking-widest leading-none">
                   Global MFA enforcement
                 </p>
               </div>
-              <Badge variant="outline" className="rounded-full px-4 border-success text-success bg-success font-black text-[9px] tracking-widest uppercase">Enabled</Badge>
+              <Badge variant="outline" className="rounded-full px-4 border-success text-success bg-success font-bold text-[9px] tracking-widest uppercase">Enabled</Badge>
             </div>
             <div className="flex items-center justify-between rounded-2xl border border-dashed p-6 text-sm bg-muted dark:bg-muted">
               <div className="flex items-center gap-3">
                 <KeyRound className="h-5 w-5 text-muted-foreground" />
                 <span className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">Configure advanced access policies</span>
               </div>
-              <Button size="sm" variant="outline" className="rounded-xl h-9 px-6 font-black text-[10px] uppercase tracking-widest" onClick={() => { toast({ title: "Policy Configuration", description: "Opening advanced access policy editor..." }); window.location.hash = "#/core/security"; }}>
+              <Button size="sm" variant="outline" className="rounded-xl h-9 px-6 font-bold text-[10px] uppercase tracking-widest" onClick={() => { toast({ title: "Policy Configuration", description: "Opening advanced access policy editor..." }); window.location.hash = "#/core/security"; }}>
                 Open
               </Button>
             </div>
@@ -191,7 +191,7 @@ export default function CoreAdmin() {
                 className="rounded-2xl border p-4 bg-white dark:bg-muted shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex justify-between items-start mb-2">
-                  <p className="text-xs font-black uppercase tracking-widest text-muted-foreground dark:text-white italic">
+                  <p className="text-xs font-semibold tracking-widest text-muted-foreground dark:text-white italic">
                     {safeText(log.action || log.title)}
                   </p>
                   <span className="text-[9px] font-mono text-muted-foreground">
@@ -203,7 +203,7 @@ export default function CoreAdmin() {
                 </p>
               </div>
             ))}
-            <Button variant="outline" className="w-full rounded-xl h-11 font-black text-[10px] uppercase tracking-widest border-border" onClick={() => { toast({ title: "Audit Trail", description: "Loading full system audit logs..." }); window.location.href = "/core/logs"; }}>
+            <Button variant="outline" className="w-full rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest border-border" onClick={() => { toast({ title: "Audit Trail", description: "Loading full system audit logs..." }); window.location.href = "/core/logs"; }}>
               View full audit trail
             </Button>
           </div>
@@ -236,9 +236,9 @@ export default function CoreAdmin() {
           <div className="flex items-center justify-between rounded-2xl border p-5 bg-white dark:bg-muted shadow-sm border-primary">
             <div className="flex items-center gap-3">
               <Database className="h-5 w-5 text-primary" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Emergency Authorization Required</span>
+              <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">Emergency Authorization Required</span>
             </div>
-            <Button size="sm" variant="outline" className="rounded-xl h-9 px-6 font-black text-[10px] uppercase tracking-widest border-primary text-primary" onClick={() => setIsModalOpen(true)}>
+            <Button size="sm" variant="outline" className="rounded-xl h-9 px-6 font-bold text-[10px] uppercase tracking-widest border-primary text-primary" onClick={() => setIsModalOpen(true)}>
               Request access
             </Button>
           </div>
@@ -273,14 +273,14 @@ export default function CoreAdmin() {
         <div className="flex gap-2">
           <Button 
             variant="outline" 
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest"
             onClick={handleExport}
           >
             Generate audit report
           </Button>
           <Button 
             onClick={handleInvite}
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest shadow-xl shadow-primary/20"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest shadow-sm shadow-primary/20"
           >
             <Plus className="h-3 w-3 mr-2" /> Invite admin
           </Button>

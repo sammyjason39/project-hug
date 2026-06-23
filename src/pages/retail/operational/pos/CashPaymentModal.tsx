@@ -52,23 +52,10 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogOverlay className="bg-black/40 backdrop-blur-sm" />
+      <DialogOverlay className="bg-black/40" />
 
       <DialogContent
-        className="
-        sm:max-w-[560px]
-        w-[95vw]
-        h-[90vh]
-        border-none
-        bg-background/95
-        backdrop-blur-xl
-        text-foreground
-        rounded-[2rem]
-        shadow-2xl
-        p-0
-        flex
-        flex-col
-      "
+        className="sm:max-w-[560px] w-[95vw] h-[90vh] border-none bg-background/95 text-foreground rounded-2xl shadow-sm p-0 flex flex-col"
       >
         <div className="flex flex-col h-full p-6 gap-5">
           {/* HEADER */}
@@ -79,7 +66,7 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
               </div>
 
               <div>
-                <DialogTitle className="text-xl font-black uppercase tracking-widest italic text-foreground">
+                <DialogTitle className="text-xl font-semibold tracking-widest italic text-foreground">
                   Cash Payment
                 </DialogTitle>
 
@@ -93,17 +80,17 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
           {/* TOTAL + CHANGE */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <span className="text-[9px] font-black text-primary uppercase tracking-[0.2em] italic">
+              <span className="text-[9px] font-bold text-primary uppercase tracking-[0.2em] italic">
                 Total Due
               </span>
 
-              <div className="text-2xl font-black italic tracking-tighter">
+              <div className="text-2xl font-bold tracking-tighter">
                 Rp {total.toLocaleString()}
               </div>
             </div>
 
             <div className="text-right">
-              <span className="text-[9px] font-black text-success uppercase tracking-[0.2em] italic">
+              <span className="text-[9px] font-bold text-success uppercase tracking-[0.2em] italic">
                 Change
               </span>
 
@@ -119,11 +106,11 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
 
           {/* RECEIVED DISPLAY */}
           <div className="bg-secondary/50 border border-border rounded-2xl py-6 flex flex-col items-center justify-center">
-            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
               Amount Received
             </span>
 
-            <div className="text-5xl font-black italic tracking-tighter text-success">
+            <div className="text-5xl font-bold tracking-tighter text-success">
               Rp {receivedAmount.toLocaleString()}
             </div>
           </div>
@@ -137,7 +124,7 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
                   key={amt}
                   variant="outline"
                   onClick={() => setReceived(amt.toString())}
-                  className="flex-1 bg-secondary/50 border-border hover:bg-secondary text-[11px] font-black tracking-widest rounded-xl active:scale-95 text-foreground"
+                  className="flex-1 bg-secondary/50 border-border hover:bg-secondary text-[11px] font-bold tracking-widest rounded-xl active:scale-95 text-foreground"
                 >
                   {amt / 1000}K
                 </Button>
@@ -151,16 +138,7 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
                   key={n}
                   variant="ghost"
                   onClick={() => handleKeyPress(n.toString())}
-                  className="
-                    h-full
-                    text-2xl
-                    font-black
-                    bg-secondary/50
-                    hover:bg-secondary
-                    text-foreground
-                    rounded-2xl
-                    active:scale-90
-                  "
+                  className="h-full text-2xl font-bold bg-secondary/50 hover:bg-secondary text-foreground rounded-2xl active:scale-90"
                 >
                   {n}
                 </Button>
@@ -169,14 +147,7 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
               <Button
                 variant="ghost"
                 onClick={handleBackspace}
-                className="
-                  h-full
-                  bg-secondary/50
-                  hover:bg-destructive/20
-                  text-destructive
-                  rounded-2xl
-                  active:scale-90
-                "
+                className="h-full bg-secondary/50 hover:bg-destructive/20 text-destructive rounded-2xl active:scale-90"
               >
                 <Delete className="w-6 h-6" />
               </Button>
@@ -185,7 +156,7 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
 
           {/* TRANSACTION NOTES */}
           <div className="flex flex-col gap-2">
-            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest ml-2">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-2">
               Transaction Notes
             </span>
             <Textarea 
@@ -207,13 +178,13 @@ export const CashPaymentModal: React.FC<CashPaymentModalProps> = ({
             }`}
           >
             {isInsufficient ? (
-              <span className="text-[11px] font-black uppercase tracking-[0.2em]">
+              <span className="text-[11px] font-semibold tracking-[0.2em]">
                 Insufficient Amount
               </span>
             ) : (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span className="text-[11px] font-black uppercase tracking-[0.2em]">
+                <span className="text-[11px] font-semibold tracking-[0.2em]">
                   Finalize Transaction
                 </span>
               </>

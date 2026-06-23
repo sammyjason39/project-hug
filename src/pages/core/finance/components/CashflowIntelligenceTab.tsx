@@ -89,7 +89,7 @@ export const CashflowIntelligenceTab: React.FC<CashflowIntelligenceTabProps> = (
           {cashflow.deficitRisk && (
             <Alert variant={cashflow.severity === 'CRITICAL' ? 'destructive' : 'default'} className="border-2 animate-in fade-in slide-in-from-top-4">
               <ShieldAlert size={18} />
-              <AlertTitle className="font-black uppercase tracking-wider text-[11px]">
+              <AlertTitle className="font-semibold tracking-wider text-[11px]">
                 Cashflow Deficit Predicted [SEVERITY_{cashflow.severity}]
               </AlertTitle>
               <AlertDescription className="text-sm">
@@ -102,7 +102,7 @@ export const CashflowIntelligenceTab: React.FC<CashflowIntelligenceTabProps> = (
           {cashflow.isBelowSafeBuffer && !cashflow.deficitRisk && (
             <Alert variant="warning" className="border-2 border-warning bg-warning text-warning animate-in fade-in slide-in-from-top-4">
               <AlertTriangle size={18} className="text-warning" />
-              <AlertTitle className="font-black uppercase tracking-wider text-[11px]">
+              <AlertTitle className="font-semibold tracking-wider text-[11px]">
                 Safety Buffer Breach Predicted
               </AlertTitle>
               <AlertDescription className="text-sm">
@@ -146,29 +146,29 @@ export const CashflowIntelligenceTab: React.FC<CashflowIntelligenceTabProps> = (
 
         <Card className="w-80 border-2 border-primary/10 shadow-lg shrink-0">
           <CardHeader className="pb-3 border-b bg-muted/30">
-            <CardTitle className="text-xs font-black uppercase tracking-widest flex items-center gap-2">
+            <CardTitle className="text-xs font-semibold tracking-widest flex items-center gap-2">
               <Settings2 size={14} className="text-primary" />
               Simulation Tools
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-4 space-y-4">
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground">Rev Multiplier (What-If)</Label>
+              <Label className="text-[10px] font-semibold text-muted-foreground">Rev Multiplier (What-If)</Label>
               <Input type="number" step="0.1" value={revMult} onChange={(e) => setRevMult(parseFloat(e.target.value))} className="h-8 text-xs font-bold" />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground">Exp Multiplier (What-If)</Label>
+              <Label className="text-[10px] font-semibold text-muted-foreground">Exp Multiplier (What-If)</Label>
               <Input type="number" step="0.1" value={expMult} onChange={(e) => setExpMult(parseFloat(e.target.value))} className="h-8 text-xs font-bold" />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground">Safety Buffer ($)</Label>
+              <Label className="text-[10px] font-semibold text-muted-foreground">Safety Buffer ($)</Label>
               <Input type="number" value={minSafeCash} onChange={(e) => setMinSafeCash(parseFloat(e.target.value))} className="h-8 text-xs font-bold" />
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground">Avg Delay (Days)</Label>
+              <Label className="text-[10px] font-semibold text-muted-foreground">Avg Delay (Days)</Label>
               <Input type="number" value={avgDelay} onChange={(e) => setAvgDelay(parseInt(e.target.value))} className="h-8 text-xs font-bold" />
             </div>
-            <Button onClick={handleSimulate} className="w-full h-8 rounded-lg font-black text-[10px] uppercase tracking-widest gap-2">
+            <Button onClick={handleSimulate} className="w-full h-8 rounded-lg font-bold text-[10px] uppercase tracking-widest gap-2">
               <Play size={12} fill="currentColor" />
               Execute Simulation
             </Button>

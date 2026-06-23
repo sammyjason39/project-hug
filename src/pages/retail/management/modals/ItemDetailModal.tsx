@@ -80,11 +80,11 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl rounded-[2rem] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl rounded-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <div className="flex items-center justify-between">
             <div>
-              <DialogTitle className="text-2xl font-black italic tracking-tighter uppercase">
+              <DialogTitle className="text-2xl font-bold tracking-tighter uppercase">
                 {item.name}
               </DialogTitle>
               <DialogDescription className="font-bold italic mt-1">
@@ -97,7 +97,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
                   onClick={() => onEdit(item)}
                   variant="outline"
                   size="sm"
-                  className="h-10 px-4 rounded-xl font-black italic"
+                  className="h-10 px-4 rounded-xl font-bold"
                 >
                   <Edit3 className="w-4 h-4 mr-2" />
                   Edit
@@ -113,7 +113,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
                   }}
                   variant="outline"
                   size="sm"
-                  className="h-10 px-4 rounded-xl font-black italic text-destructive border-destructive hover:bg-destructive"
+                  className="h-10 px-4 rounded-xl font-bold text-destructive border-destructive hover:bg-destructive"
                 >
                   <Trash2 className="w-4 h-4 mr-2" />
                   Delete
@@ -125,9 +125,9 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
 
         <Tabs defaultValue="overview" className="mt-4">
           <TabsList className="grid w-full grid-cols-3 rounded-xl bg-secondary/10 p-1">
-            <TabsTrigger value="overview" className="rounded-lg font-black italic text-xs">Overview</TabsTrigger>
-            <TabsTrigger value="movements" className="rounded-lg font-black italic text-xs">Movements</TabsTrigger>
-            <TabsTrigger value="locations" className="rounded-lg font-black italic text-xs">Locations</TabsTrigger>
+            <TabsTrigger value="overview" className="rounded-lg font-bold text-xs">Overview</TabsTrigger>
+            <TabsTrigger value="movements" className="rounded-lg font-bold text-xs">Movements</TabsTrigger>
+            <TabsTrigger value="locations" className="rounded-lg font-bold text-xs">Locations</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4 mt-4">
@@ -135,56 +135,56 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
               <div className="bg-primary/5 rounded-2xl p-6 border-2 border-primary">
                 <div className="flex items-center gap-2 mb-2">
                   <Package className="w-5 h-5 text-primary" />
-                  <div className="text-xs font-black uppercase tracking-widest text-primary">Stock On Hand</div>
+                  <div className="text-xs font-semibold tracking-widest text-primary">Stock On Hand</div>
                 </div>
-                <div className="text-3xl font-black italic text-primary">{item.stock}</div>
+                <div className="text-3xl font-bold text-primary">{item.stock}</div>
                 <div className="text-xs text-primary font-bold mt-1">Units Available</div>
               </div>
 
               <div className="bg-success rounded-2xl p-6 border-2 border-success">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="w-5 h-5 text-success" />
-                  <div className="text-xs font-black uppercase tracking-widest text-success">Turnover</div>
+                  <div className="text-xs font-semibold tracking-widest text-success">Turnover</div>
                 </div>
-                <div className="text-3xl font-black italic text-success">8.2x</div>
+                <div className="text-3xl font-bold text-success">8.2x</div>
                 <div className="text-xs text-success font-bold mt-1">Per Month</div>
               </div>
 
               <div className="bg-warning rounded-2xl p-6 border-2 border-warning">
                 <div className="flex items-center gap-2 mb-2">
                   <Clock className="w-5 h-5 text-warning" />
-                  <div className="text-xs font-black uppercase tracking-widest text-warning">Reorder Point</div>
+                  <div className="text-xs font-semibold tracking-widest text-warning">Reorder Point</div>
                 </div>
-                <div className="text-3xl font-black italic text-warning">15</div>
+                <div className="text-3xl font-bold text-warning">15</div>
                 <div className="text-xs text-warning font-bold mt-1">Safety Stock</div>
               </div>
             </div>
 
             <div className="bg-secondary/5 rounded-2xl p-6">
-              <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3">Item Details</div>
+              <div className="text-xs font-semibold tracking-widest text-muted-foreground mb-3">Item Details</div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Item ID</div>
-                  <div className="font-black italic">{item.id}</div>
+                  <div className="font-bold">{item.id}</div>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Category</div>
-                  <div className="font-black italic">{item.category}</div>
+                  <div className="font-bold">{item.category}</div>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Status</div>
-                  <Badge className="bg-success/10 text-success font-black italic">ACTIVE</Badge>
+                  <Badge className="bg-success/10 text-success font-bold">ACTIVE</Badge>
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground font-bold">Last Updated</div>
-                  <div className="font-black italic text-sm">{new Date().toLocaleDateString()}</div>
+                  <div className="font-bold text-sm">{new Date().toLocaleDateString()}</div>
                 </div>
               </div>
             </div>
           </TabsContent>
 
           <TabsContent value="movements" className="space-y-3 mt-4">
-            <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3">Recent Activity</div>
+            <div className="text-xs font-semibold tracking-widest text-muted-foreground mb-3">Recent Activity</div>
             {(Array.isArray(movements) ? movements : []).map((movement, idx) => (
               <div key={idx} className="flex items-center justify-between p-4 bg-white border border-border rounded-xl hover:border-primary transition-all">
                 <div className="flex items-center gap-4">
@@ -192,7 +192,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
                     {movement.type}
                   </Badge>
                   <div>
-                    <div className="font-black italic text-sm">{movement.ref}</div>
+                    <div className="font-bold text-sm">{movement.ref}</div>
                     <div className="text-xs text-muted-foreground font-bold">{movement.location}</div>
                   </div>
                 </div>
@@ -207,20 +207,20 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
           </TabsContent>
 
           <TabsContent value="locations" className="space-y-3 mt-4">
-            <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3">Stock by Location</div>
+            <div className="text-xs font-semibold tracking-widest text-muted-foreground mb-3">Stock by Location</div>
             {(Array.isArray(locations) ? locations : []).map((location, idx) => (
               <div key={idx} className="flex items-center justify-between p-4 bg-white border border-border rounded-xl">
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
-                    <div className="font-black italic">{location.name}</div>
-                    <Badge className="bg-success/10 text-success font-black italic text-xs mt-1">
+                    <div className="font-bold">{location.name}</div>
+                    <Badge className="bg-success/10 text-success font-bold text-xs mt-1">
                       {location.status}
                     </Badge>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-black italic text-foreground">{location.stock}</div>
+                  <div className="text-2xl font-bold text-foreground">{location.stock}</div>
                   <div className="text-xs text-muted-foreground font-bold">Units</div>
                 </div>
               </div>

@@ -309,7 +309,7 @@ const IntegrationSetup: React.FC<{
           {info.label.slice(0, 3)}
         </div>
         <div>
-          <div className="font-black text-sm text-foreground">
+          <div className="font-bold text-sm text-foreground">
             {info.label} Integration
           </div>
           <div className="text-[10px] text-muted-foreground font-medium">
@@ -336,7 +336,7 @@ const IntegrationSetup: React.FC<{
       <div className="space-y-3">
         {(Array.isArray(info.fields) ? info.fields : []).map((field) => (
           <div key={field.key} className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+            <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
               {field.label}
             </Label>
             <div className="relative">
@@ -375,13 +375,13 @@ const IntegrationSetup: React.FC<{
 
       <div className="text-[10px] text-muted-foreground font-medium">
         Stream protocol:{" "}
-        <span className="font-black text-muted-foreground">{info.streamProtocol}</span>
+        <span className="font-bold text-muted-foreground">{info.streamProtocol}</span>
       </div>
 
       <Button
         disabled={!allFilled || saving}
         onClick={handleConnect}
-        className="w-full h-11 rounded-xl bg-secondary text-foreground font-black italic uppercase text-[10px] tracking-widest gap-2"
+        className="w-full h-11 rounded-xl bg-secondary text-foreground font-semibold text-[10px] tracking-widest gap-2"
       >
         {saving ? (
           <RefreshCw className="w-4 h-4 animate-spin" />
@@ -407,7 +407,7 @@ const VideoArea: React.FC<{
     return (
       <div className="w-full aspect-video bg-secondary rounded-3xl flex flex-col items-center justify-center gap-3">
         <WifiOff className="w-10 h-10 text-muted-foreground" />
-        <div className="text-sm font-black italic tracking-tighter text-muted-foreground">
+        <div className="text-sm font-bold tracking-tighter text-muted-foreground">
           Feed Unavailable
         </div>
         <div className="text-[10px] text-muted-foreground font-medium">
@@ -435,14 +435,14 @@ const VideoArea: React.FC<{
         className={`absolute top-4 left-4 flex items-center gap-1.5 rounded-full px-3 py-1.5 ${isLive ? "bg-success" : "bg-primary"}`}
       >
         <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-        <span className="text-[9px] font-black text-foreground uppercase">
+        <span className="text-[9px] font-bold text-foreground uppercase">
           {isLive ? "Live" : "Playback"}
         </span>
       </div>
 
       {/* Camera label */}
       <div className="absolute top-4 right-4 bg-black/50 rounded-xl px-3 py-1.5">
-        <span className="text-[10px] font-black text-foreground italic">
+        <span className="text-[10px] font-bold text-foreground italic">
           {cam.name}
         </span>
       </div>
@@ -598,7 +598,7 @@ const CCTVViewerModal: React.FC<Props> = ({
         if (!v) onClose();
       }}
     >
-      <DialogContent className="max-w-4xl w-full rounded-3xl border-none shadow-2xl bg-white p-0 overflow-hidden max-h-[92vh] flex flex-col">
+      <DialogContent className="max-w-4xl w-full rounded-3xl border-none shadow-sm bg-white p-0 overflow-hidden max-h-[92vh] flex flex-col">
         {/* Header */}
         <DialogHeader className="px-6 pt-5 pb-4 border-b border-border shrink-0">
           <div className="flex items-center gap-4">
@@ -608,7 +608,7 @@ const CCTVViewerModal: React.FC<Props> = ({
               {info.label.slice(0, 3)}
             </div>
             <div className="flex-1 min-w-0">
-              <DialogTitle className="text-base font-black italic tracking-tighter text-foreground truncate">
+              <DialogTitle className="text-base font-bold tracking-tighter text-foreground truncate">
                 {camera.name}
               </DialogTitle>
               <div className="flex items-center gap-2 flex-wrap mt-0.5">
@@ -698,7 +698,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                 </div>
                 <div className="space-y-4">
                   <div className="bg-secondary/5 rounded-2xl p-4 space-y-3 text-[11px]">
-                    <div className="font-black uppercase text-muted-foreground tracking-widest text-[9px]">
+                    <div className="font-semibold text-muted-foreground tracking-widest text-[9px]">
                       Camera Info
                     </div>
                     {[
@@ -729,7 +729,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                           <span className="text-muted-foreground font-bold">
                             {r.l}
                           </span>
-                          <span className="font-black text-muted-foreground">
+                          <span className="font-bold text-muted-foreground">
                             {r.v}
                           </span>
                         </div>
@@ -738,7 +738,7 @@ const CCTVViewerModal: React.FC<Props> = ({
 
                   {camera.hasPtz && (
                     <div className="bg-secondary/5 rounded-2xl p-4 space-y-2">
-                      <div className="font-black uppercase text-muted-foreground tracking-widest text-[9px] mb-3">
+                      <div className="font-semibold text-muted-foreground tracking-widest text-[9px] mb-3">
                         PTZ Control
                       </div>
                       <div className="grid grid-cols-3 gap-1.5 w-fit mx-auto">
@@ -760,7 +760,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                     <Button
                       variant="outline"
                       onClick={() => setViewTab("setup")}
-                      className="w-full h-9 rounded-xl border-border font-black italic uppercase text-[9px] tracking-widest gap-1.5"
+                      className="w-full h-9 rounded-xl border-border font-semibold text-[9px] tracking-widest gap-1.5"
                     >
                       <Settings2 className="w-3.5 h-3.5" />{" "}
                       {isNotConfigured
@@ -784,7 +784,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                         type="date"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
-                        className="bg-transparent text-sm font-black text-muted-foreground focus:outline-none"
+                        className="bg-transparent text-sm font-bold text-muted-foreground focus:outline-none"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -793,7 +793,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                         <input
                           type="time"
                           defaultValue="08:00"
-                          className="bg-transparent text-sm font-black text-muted-foreground focus:outline-none"
+                          className="bg-transparent text-sm font-bold text-muted-foreground focus:outline-none"
                         />
                       </div>
                       <span className="text-muted-foreground font-bold text-sm">
@@ -803,7 +803,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                         <input
                           type="time"
                           defaultValue="18:00"
-                          className="bg-transparent text-sm font-black text-muted-foreground focus:outline-none"
+                          className="bg-transparent text-sm font-bold text-muted-foreground focus:outline-none"
                         />
                       </div>
                     </div>
@@ -819,7 +819,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                         }
                       }}
                       size="sm"
-                      className="h-10 rounded-xl bg-secondary text-foreground font-black italic uppercase text-[10px] tracking-widest gap-2"
+                      className="h-10 rounded-xl bg-secondary text-foreground font-semibold text-[10px] tracking-widest gap-2"
                     >
                       <Play className="w-3.5 h-3.5" /> Load Footage
                     </Button>
@@ -834,7 +834,7 @@ const CCTVViewerModal: React.FC<Props> = ({
 
                 {/* Event timeline */}
                 <div className="space-y-3">
-                  <div className="font-black uppercase text-muted-foreground tracking-widest text-[9px] px-1">
+                  <div className="font-semibold text-muted-foreground tracking-widest text-[9px] px-1">
                     Event Timeline — {selectedDate}
                   </div>
                   {isLoadingEvents && (
@@ -859,7 +859,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                               className={`w-2 h-2 rounded-full shrink-0 ${ev.type === "alert" ? "bg-destructive" : ev.type === "ok" ? "bg-success" : "bg-warning"}`}
                             />
                             <div>
-                              <div className="text-[11px] font-black text-muted-foreground">
+                              <div className="text-[11px] font-bold text-muted-foreground">
                                 {ev.label}
                               </div>
                               <div className="text-[9px] text-muted-foreground font-mono">
@@ -877,14 +877,14 @@ const CCTVViewerModal: React.FC<Props> = ({
                     <Button disabled title="Not available yet"
                       variant="outline"
                       size="sm"
-                      className="flex-1 h-8 rounded-xl border-border font-black italic text-[9px] uppercase tracking-widest gap-1"
+                      className="flex-1 h-8 rounded-xl border-border font-bold text-[9px] uppercase tracking-widest gap-1"
                     >
                       <ChevronLeft className="w-3 h-3" /> Prev Day
                     </Button>
                     <Button disabled title="Not available yet"
                       variant="outline"
                       size="sm"
-                      className="flex-1 h-8 rounded-xl border-border font-black italic text-[9px] uppercase tracking-widest gap-1"
+                      className="flex-1 h-8 rounded-xl border-border font-bold text-[9px] uppercase tracking-widest gap-1"
                     >
                       Next Day <ChevronRight className="w-3 h-3" />
                     </Button>
@@ -898,7 +898,7 @@ const CCTVViewerModal: React.FC<Props> = ({
               <div className="max-w-lg mx-auto space-y-6">
                 {/* How it works */}
                 <div className="bg-secondary text-foreground rounded-3xl p-6 space-y-4">
-                  <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  <div className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     How Integration Works
                   </div>
                   <div className="space-y-3 text-[11px] text-muted-foreground/60">
@@ -921,7 +921,7 @@ const CCTVViewerModal: React.FC<Props> = ({
                       },
                     ].map((s) => (
                       <div key={s.n} className="flex gap-3">
-                        <div className="w-5 h-5 rounded-full bg-white/10 text-foreground text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-5 h-5 rounded-full bg-white/10 text-foreground text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                           {s.n}
                         </div>
                         <span className="font-medium">{s.t}</span>

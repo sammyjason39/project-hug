@@ -13,13 +13,13 @@ export const TargetVelocityCard: React.FC<TargetVelocityCardProps> = ({
   projection,
 }) => {
   return (
-    <Card className="rounded-2xl bg-primary text-foreground p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between group">
+    <Card className="rounded-2xl bg-primary text-foreground p-6 shadow-sm relative overflow-hidden flex flex-col justify-between group">
       <TrendingUp className="absolute -left-12 -bottom-12 w-48 h-48 opacity-10 group-hover:scale-110 transition-transform" />
       <div className="relative z-10">
-        <div className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60 mb-2">
+        <div className="text-[10px] font-semibold tracking-[0.3em] opacity-60 mb-2">
           Target Velocity
         </div>
-        <div className="text-3xl font-black italic tracking-tighter">
+        <div className="text-3xl font-bold tracking-tighter">
           {velocity}%
         </div>
         <Progress value={velocity} className="h-1.5 bg-white/10 mt-4" />
@@ -28,7 +28,7 @@ export const TargetVelocityCard: React.FC<TargetVelocityCardProps> = ({
         <div className="text-[10px] font-bold italic uppercase opacity-60">
           Revenue Projection
         </div>
-        <div className="flex justify-between items-center text-sm font-black italic">
+        <div className="flex justify-between items-center text-sm font-bold">
           <span>Next Hour</span>
           <span className="text-success">+{projection}</span>
         </div>

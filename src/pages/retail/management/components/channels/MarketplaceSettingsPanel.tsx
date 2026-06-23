@@ -223,7 +223,7 @@ export const MarketplaceSettingsPanel: React.FC<Props> = ({
       {/* Platform header */}
       <div className="flex items-center justify-between">
         <div className="space-y-0.5">
-          <h3 className="font-black italic text-foreground text-base">
+          <h3 className="font-bold text-foreground text-base">
             {config.label} Settings
           </h3>
           <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -235,7 +235,7 @@ export const MarketplaceSettingsPanel: React.FC<Props> = ({
             href={config.docsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-primary hover:text-primary transition-colors"
+            className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-primary hover:text-primary transition-colors"
           >
             <ExternalLink className="w-3 h-3" /> Docs
           </a>
@@ -246,7 +246,7 @@ export const MarketplaceSettingsPanel: React.FC<Props> = ({
       <div className="space-y-4">
         {(Array.isArray(config.fields) ? config.fields : []).map((f) => (
           <div key={f.key} className="space-y-1.5">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
               {f.label}
             </Label>
             <Input
@@ -277,7 +277,7 @@ export const MarketplaceSettingsPanel: React.FC<Props> = ({
       <Button
         onClick={handleSave}
         disabled={isSaving}
-        className="w-full h-11 rounded-xl font-black italic bg-secondary gap-2"
+        className="w-full h-11 rounded-xl font-bold bg-secondary gap-2"
       >
         {isSaving ? (
           <RefreshCw className="w-4 h-4 animate-spin" />

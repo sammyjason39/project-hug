@@ -46,7 +46,7 @@ const StatCard: React.FC<StatsProps> = ({
           <p className="text-label text-muted-foreground">
             {label}
           </p>
-          <h3 className="text-4xl font-black italic tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase leading-none">
+          <h3 className="text-4xl font-bold tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase leading-none">
             {value}
           </h3>
           {trend && (
@@ -59,7 +59,7 @@ const StatCard: React.FC<StatsProps> = ({
                 )}
                 {trend.value}
               </Badge>
-              <span className="text-[10px] font-black text-muted-foreground/60 uppercase tracking-[0.2em] italic">
+              <span className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-[0.2em] italic">
                 VS_PREV_NODE
               </span>
             </div>
@@ -67,7 +67,7 @@ const StatCard: React.FC<StatsProps> = ({
         </div>
         <div
           className={cn(
-            "w-14 h-14 rounded-2xl bg-surface-2 text-muted-foreground border border-border/50 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 transition-premium shadow-xl",
+            "w-14 h-14 rounded-2xl bg-surface-2 text-muted-foreground border border-border/50 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-6 transition-premium shadow-sm",
           )}
         >
           <Icon className="w-7 h-7" />

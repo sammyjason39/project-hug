@@ -92,7 +92,7 @@ export function InventoryItemSummary({ limit = 5 }: InventoryItemSummaryProps) {
           </div>
           <Badge
             variant="outline"
-            className="shrink-0 rounded-lg px-2 py-0.5 text-xs font-black tabular-nums"
+            className="shrink-0 rounded-lg px-2 py-0.5 text-xs font-bold tabular-nums"
           >
             {item.currentStock ?? item.stock_quantity ?? 0} {item.uom || "pcs"}
           </Badge>

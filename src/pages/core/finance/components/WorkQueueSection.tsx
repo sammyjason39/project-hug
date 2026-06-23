@@ -194,7 +194,7 @@ export function WorkQueueSection({
                         <p className="font-bold text-muted-foreground">{p.beneficiary}</p>
                         <p className="text-xs font-medium text-muted-foreground mt-0.5">
                           {p.currency}{" "}
-                          <span className="font-black text-muted-foreground">{p.amount.toLocaleString()}</span>
+                          <span className="font-bold text-muted-foreground">{p.amount.toLocaleString()}</span>
                           {" · "}
                           {new Date(p.scheduledDate || "").toLocaleDateString()}
                         </p>
@@ -228,7 +228,7 @@ export function WorkQueueSection({
                 <tr>
                   {["Beneficiary", "Amount", "Method", "Status", "Date"].map((h) => (
                     <th key={h}
-                      className="p-4 text-left text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+                      className="p-4 text-left text-[11px] font-semibold tracking-widest text-muted-foreground">
                       {h}
                     </th>
                   ))}

@@ -19,7 +19,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       {(Array.isArray(products) ? products : []).map((p) => (
         <GlassCard
           key={p.id}
-          className="group cursor-pointer border-2 border-border backdrop-blur-xl bg-card/40 hover:bg-accent/40 hover:border-primary hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] hover:-translate-y-1.5 transition-all duration-500 active:scale-95 overflow-hidden rounded-[2rem] relative"
+          className="group cursor-pointer border-2 border-border bg-card/40 hover:bg-accent/40 hover:border-primary hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] hover:-translate-y-1.5 transition-all duration-500 active:scale-95 overflow-hidden rounded-2xl relative"
           onClick={() => onAddToCart(p)}
         >
           <div className="aspect-square bg-secondary/20 flex items-center justify-center p-10 group-hover:bg-primary/10 transition-colors relative overflow-hidden">
@@ -30,7 +30,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
             </div>
 
             <div className="absolute bottom-5 left-5">
-              <span className="text-[8px] font-black uppercase tracking-[0.2em] px-2.5 py-1.5 bg-card/90 backdrop-blur-sm rounded-lg text-muted-foreground border border-border/50 shadow-sm leading-none">
+              <span className="text-label tracking-[0.2em] px-2.5 py-1.5 bg-card/90 rounded-lg text-muted-foreground border border-border/50 shadow-sm leading-none">
                 {p.categoryName || "GLOBAL"}
               </span>
             </div>
@@ -54,16 +54,16 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
 
             <div className="flex items-end justify-between mt-auto gap-2">
               <div className="flex flex-col min-w-0 pr-1">
-                <span className="text-[9px] font-black text-primary/40 uppercase tracking-widest italic leading-none mb-1">
+                <span className="text-[9px] font-bold text-primary/40 uppercase tracking-widest italic leading-none mb-1">
                   Value
                 </span>
-                <span className="text-lg font-black text-foreground italic leading-none truncate">
+                <span className="text-lg font-bold text-foreground italic leading-none truncate">
                   {formatCurrency(p.price, "IDR", "id-ID")}
                 </span>
               </div>
               <Badge
                 variant="outline"
-                className="text-[9px] font-black uppercase py-0.5 px-2.5 border-border text-muted-foreground bg-secondary/5 shrink-0"
+                className="text-[9px] font-semibold py-0.5 px-2.5 border-border text-muted-foreground bg-secondary/5 shrink-0"
               >
                 {p.stock}
               </Badge>

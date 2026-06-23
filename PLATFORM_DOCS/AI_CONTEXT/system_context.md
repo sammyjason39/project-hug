@@ -2,6 +2,8 @@
 
 This document provides a condensed context for AI agents working on the Zenvix Platform.
 
+> **Full onboarding summary:** See [`.agent/context.md`](../../.agent/context.md) for the complete project overview (what the app is, all modules, directory map, demo accounts, and current status). Read that file first in a new session.
+
 ## 1. Core Principles
 
 - **Multi-Tenant Hierarchy:** Company (L1) -> Industry Module (L2) -> Location (L3).

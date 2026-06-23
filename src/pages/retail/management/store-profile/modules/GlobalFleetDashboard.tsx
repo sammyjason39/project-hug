@@ -36,7 +36,7 @@ export const GlobalFleetDashboard: React.FC = () => {
             <Globe className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-lg font-black italic uppercase tracking-wider text-muted-foreground">
+            <h2 className="text-lg font-semibold tracking-wider text-muted-foreground">
               Global Fleet Overview
             </h2>
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -53,13 +53,13 @@ export const GlobalFleetDashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="border-border shadow-sm rounded-2xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-black italic text-muted-foreground">
+            <CardTitle className="text-sm font-bold text-muted-foreground">
               Active Nodes
             </CardTitle>
             <Activity className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{activeStores}</div>
+            <div className="text-3xl font-bold">{activeStores}</div>
             <p className="text-xs text-muted-foreground font-bold mt-1 tracking-widest uppercase">
               Operational Fleet
             </p>
@@ -68,13 +68,13 @@ export const GlobalFleetDashboard: React.FC = () => {
 
         <Card className="border-border shadow-sm rounded-2xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-black italic text-muted-foreground">
+            <CardTitle className="text-sm font-bold text-muted-foreground">
               Flagship Hubs
             </CardTitle>
             <Building2 className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{flagships}</div>
+            <div className="text-3xl font-bold">{flagships}</div>
             <p className="text-xs text-muted-foreground font-bold mt-1 tracking-widest uppercase">
               Strategic Locations
             </p>
@@ -83,13 +83,13 @@ export const GlobalFleetDashboard: React.FC = () => {
 
         <Card className="border-border shadow-sm rounded-2xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-black italic text-muted-foreground">
+            <CardTitle className="text-sm font-bold text-muted-foreground">
               Virtual Branches
             </CardTitle>
             <Globe className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{virtualBranches}</div>
+            <div className="text-3xl font-bold">{virtualBranches}</div>
             <p className="text-xs text-muted-foreground font-bold mt-1 tracking-widest uppercase">
               E-Commerce Presence
             </p>
@@ -98,13 +98,13 @@ export const GlobalFleetDashboard: React.FC = () => {
 
         <Card className="border-border shadow-sm rounded-2xl">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-black italic text-muted-foreground">
+            <CardTitle className="text-sm font-bold text-muted-foreground">
               Max POS Capacity
             </CardTitle>
             <MonitorSmartphone className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{totalPosTerminals}</div>
+            <div className="text-3xl font-bold">{totalPosTerminals}</div>
             <p className="text-xs text-muted-foreground font-bold mt-1 tracking-widest uppercase">
               Global Terminals
             </p>
@@ -115,7 +115,7 @@ export const GlobalFleetDashboard: React.FC = () => {
       {/* Node Registration Table / List */}
       <Card className="border-border shadow-sm rounded-2xl mt-8">
         <CardHeader>
-          <CardTitle className="text-sm font-black italic text-muted-foreground">
+          <CardTitle className="text-sm font-bold text-muted-foreground">
             Fleet Index
           </CardTitle>
         </CardHeader>

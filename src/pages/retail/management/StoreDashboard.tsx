@@ -136,7 +136,7 @@ const StoreDashboard = () => {
       <div className="flex h-screen items-center justify-center surface-tactical">
         <div className="flex flex-col items-center gap-8 relative z-10">
           <RefreshCw className="w-16 h-16 text-primary animate-spin" />
-          <p className="text-[11px] font-black italic uppercase tracking-[0.4em] text-foreground">
+          <p className="text-[11px] font-semibold tracking-[0.4em] text-foreground">
             Calibrating Command Protocols...
           </p>
         </div>
@@ -154,13 +154,13 @@ const StoreDashboard = () => {
       <div className="absolute top-[20%] right-[5%] w-[30%] h-[30%] bg-info/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Glassmorphic Command Header */}
-      <div className="px-6 py-3 glass-header flex items-center justify-between sticky top-0 z-50 shadow-xl">
+      <div className="px-6 py-3 glass-header flex items-center justify-between sticky top-0 z-50 shadow-sm">
         <div className="flex items-center gap-6">
           <div className="w-10 h-10 bg-card border border-border rounded-xl flex items-center justify-center text-foreground shadow-lg group hover:rotate-3 transition-all duration-500">
             <LayoutDashboard className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-xl font-black italic uppercase tracking-tighter text-foreground">
+            <h1 className="text-xl font-semibold tracking-tighter text-foreground">
               Operational Command Center
             </h1>
             <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em] mt-0.5">
@@ -170,7 +170,7 @@ const StoreDashboard = () => {
         </div>
 
         <div className="flex items-center gap-4 relative z-10">
-          <div className="p-1.5 bg-muted/20 rounded-2xl flex items-center gap-3 border border-border backdrop-blur-3xl">
+          <div className="p-1.5 bg-muted/20 rounded-2xl flex items-center gap-3 border border-border">
             <LocationSwitcher
               currentLocationId={scopedLocationId}
               onLocationChange={(id) => setStore(id || null)}
@@ -202,27 +202,27 @@ const StoreDashboard = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="w-2 h-8 bg-primary rounded-full shadow-lg shadow-primary/50" />
-                <h2 className="text-lg font-black italic uppercase tracking-tighter text-foreground">
+                <h2 className="text-lg font-semibold tracking-tighter text-foreground">
                   Core Performance Matrix
                 </h2>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-xl">
                  <Zap className="w-4 h-4 text-primary" />
-                 <span className="text-[10px] font-black italic uppercase text-primary tracking-widest">Live Telemetry Synchronized</span>
+                 <span className="text-[10px] font-semibold text-primary tracking-widest">Live Telemetry Synchronized</span>
               </div>
             </div>
 
             <Suspense
               fallback={
-                <div className="h-[450px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[450px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {canViewFinancials ? (
                 data && <RevenueAnalytics data={data.revenue} />
               ) : (
-                <div className="h-[250px] bg-secondary/40 rounded-[2rem] flex flex-col items-center justify-center border-2 border-dashed border-border gap-4">
+                <div className="h-[250px] bg-secondary/40 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-border gap-4">
                   <ShieldCheck className="w-10 h-10 text-muted-foreground" />
-                  <p className="text-[11px] font-black italic uppercase tracking-[0.2em] text-muted-foreground">
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground">
                     Financial Access Restricted
                   </p>
                 </div>
@@ -231,7 +231,7 @@ const StoreDashboard = () => {
 
             <Suspense
               fallback={
-                <div className="h-[450px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[450px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {data && <OperationalEfficiency data={data.efficiency} />}
@@ -242,14 +242,14 @@ const StoreDashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Suspense
               fallback={
-                <div className="h-[350px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[350px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {canViewInventory ? (
                 data && <InventoryIntelligence data={data.inventory} />
               ) : (
-                <div className="h-[350px] bg-secondary/40 rounded-[2rem] flex items-center justify-center border border-white/5">
-                  <p className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                <div className="h-[350px] bg-secondary/40 rounded-2xl flex items-center justify-center border border-border">
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Inventory Stream Restricted
                   </p>
                 </div>
@@ -258,14 +258,14 @@ const StoreDashboard = () => {
 
             <Suspense
               fallback={
-                <div className="h-[350px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[350px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {canViewHR ? (
                 data && <WorkforceAnalytics data={data.workforce} />
               ) : (
-                <div className="h-[350px] bg-secondary/40 rounded-[2rem] flex items-center justify-center border border-white/5">
-                  <p className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                <div className="h-[350px] bg-secondary/40 rounded-2xl flex items-center justify-center border border-border">
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Workforce Analytics Restricted
                   </p>
                 </div>
@@ -274,14 +274,14 @@ const StoreDashboard = () => {
 
             <Suspense
               fallback={
-                <div className="h-[350px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[350px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {canViewDevices ? (
                 data && <InfrastructureHealth data={data.infrastructure} />
               ) : (
-                <div className="h-[350px] bg-secondary/40 rounded-[2rem] flex items-center justify-center border border-white/5">
-                  <p className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                <div className="h-[350px] bg-secondary/40 rounded-2xl flex items-center justify-center border border-border">
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Infrastructure Telemetry Restricted
                   </p>
                 </div>
@@ -290,14 +290,14 @@ const StoreDashboard = () => {
 
             <Suspense
               fallback={
-                <div className="h-[350px] bg-secondary/40 border border-white/5 rounded-[2rem] animate-pulse" />
+                <div className="h-[350px] bg-secondary/40 border border-border rounded-2xl animate-pulse" />
               }
             >
               {canViewRisk ? (
                 data && <RiskCompliancePanel data={data.risk} />
               ) : (
-                <div className="h-[350px] bg-secondary/40 rounded-[2rem] flex items-center justify-center border border-white/5">
-                  <p className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                <div className="h-[350px] bg-secondary/40 rounded-2xl flex items-center justify-center border border-border">
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Risk Assessment Restricted
                   </p>
                 </div>

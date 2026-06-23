@@ -292,7 +292,7 @@ export default function MoneyDesk() {
           <div key={source.id} className="bg-card p-4 rounded-xl border border-primary/10 shadow-sm flex items-center justify-between">
             <div>
               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{source.name}</p>
-              <p className="text-xl font-black text-primary">{source.currency} {formatNumber((source as any).balance ?? 0)}</p>
+              <p className="text-xl font-bold text-primary">{source.currency} {formatNumber((source as any).balance ?? 0)}</p>
             </div>
             <div className="p-2 bg-primary/5 rounded-lg">
               <Landmark className="w-5 h-5 text-primary" />
@@ -460,7 +460,7 @@ export default function MoneyDesk() {
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{source.name}</p>
-                      <p className="text-lg font-black text-primary">{source.currency} {formatNumber(source.balance ?? 0)}</p>
+                      <p className="text-lg font-bold text-primary">{source.currency} {formatNumber(source.balance ?? 0)}</p>
                     </div>
                     <Button 
                       variant="ghost" 
@@ -477,13 +477,13 @@ export default function MoneyDesk() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-border">
                     <div>
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-0.5">Min Limit</p>
+                      <p className="text-label text-muted-foreground mb-0.5">Min Limit</p>
                       <p className={`text-xs font-bold ${source.balance < (source.minLimit || 0) ? "text-destructive" : "text-muted-foreground"}`}>
                         {source.minLimit ? `${source.currency} ${formatNumber(source.minLimit)}` : "Not Set"}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[8px] font-black uppercase text-muted-foreground mb-0.5">Max Limit</p>
+                      <p className="text-label text-muted-foreground mb-0.5">Max Limit</p>
                       <p className={`text-xs font-bold ${source.balance > (source.maxLimit || 999999999) ? "text-destructive" : "text-muted-foreground"}`}>
                         {source.maxLimit ? `${source.currency} ${formatNumber(source.maxLimit)}` : "Not Set"}
                       </p>
@@ -492,7 +492,7 @@ export default function MoneyDesk() {
                   {(source.balance < (source.minLimit || 0) || source.balance > (source.maxLimit || 999999999)) && (
                     <div className="mt-3 flex items-center gap-2 text-destructive bg-destructive p-2 rounded-lg border border-destructive/30 animate-pulse">
                       <AlertTriangle className="w-3.5 h-3.5" />
-                      <span className="text-[9px] font-black uppercase tracking-tighter">THRESHOLD VIOLATION</span>
+                      <span className="text-[9px] font-semibold tracking-tighter">THRESHOLD VIOLATION</span>
                     </div>
                   )}
                 </div>
@@ -829,12 +829,12 @@ export default function MoneyDesk() {
           <div className="space-y-4 pt-2">
             <div className="bg-primary/5 p-3 rounded-lg border border-primary/10 mb-4">
               <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Target Account</p>
-              <p className="font-black text-sm">{editingSource?.name}</p>
+              <p className="font-bold text-sm">{editingSource?.name}</p>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Min Balance Limit</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Min Balance Limit</label>
                 <Input 
                   type="number" 
                   value={limitMin} 
@@ -843,7 +843,7 @@ export default function MoneyDesk() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Max Balance Limit</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Max Balance Limit</label>
                 <Input 
                   type="number" 
                   value={limitMax} 

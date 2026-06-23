@@ -225,7 +225,7 @@ const ShiftControl = () => {
       <div className="flex h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-6 relative z-10">
           <Activity className="w-16 h-16 text-primary animate-spin" />
-          <p className="text-sm font-black italic uppercase tracking-[0.3em] text-foreground">
+          <p className="text-sm font-semibold tracking-[0.3em] text-foreground">
             Synchronizing Workforce Telemetry...
           </p>
         </div>
@@ -241,7 +241,7 @@ const ShiftControl = () => {
           <div className="p-4 rounded-2xl bg-destructive/10 text-destructive">
             <ShieldAlert className="w-12 h-12" />
           </div>
-          <p className="text-lg font-black italic text-foreground">Failed to Load Shift Data</p>
+          <p className="text-lg font-bold text-foreground">Failed to Load Shift Data</p>
           <p className="text-sm text-muted-foreground max-w-md">{fetchError}</p>
           <Button
             variant="outline"
@@ -295,13 +295,13 @@ const ShiftControl = () => {
     <div className="flex flex-col min-h-screen bg-secondary selection:bg-primary selection:text-foreground relative overflow-hidden">
 
       {/* Header Tier */}
-      <div className="px-10 py-8 border-b border-white/5 bg-background/50 backdrop-blur-3xl shrink-0 flex flex-col lg:flex-row lg:items-center justify-between gap-6 sticky top-0 z-50">
+      <div className="px-10 py-8 border-b border-border bg-background/50 shrink-0 flex flex-col lg:flex-row lg:items-center justify-between gap-6 sticky top-0 z-50">
         <div className="flex items-center gap-6">
-          <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-foreground shadow-xl shadow-indigo-600/20">
+          <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-foreground shadow-sm shadow-indigo-600/20">
             <Users className="w-7 h-7" />
           </div>
           <div>
-            <h1 className="text-3xl font-black italic uppercase tracking-tighter text-foreground">
+            <h1 className="text-3xl font-semibold tracking-tighter text-foreground">
               Workforce Intelligence Hub
             </h1>
             <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] mt-1">
@@ -313,7 +313,7 @@ const ShiftControl = () => {
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
-            className="h-12 px-6 font-black italic border border-border text-foreground hover:bg-secondary/40 text-[11px] uppercase tracking-widest gap-3 rounded-2xl transition-all"
+            className="h-12 px-6 font-bold border border-border text-foreground hover:bg-secondary/40 text-[11px] uppercase tracking-widest gap-3 rounded-2xl transition-all"
             onClick={() => setIsAuditModalOpen(true)}
           >
             <FileText className="w-4 h-4 text-warning" /> Core HR Ledger
@@ -322,14 +322,14 @@ const ShiftControl = () => {
           {activeShift && (
             <Button
               onClick={handleReconcileActive}
-              className="h-12 px-6 rounded-2xl font-black italic uppercase text-[11px] tracking-widest gap-3 bg-success hover:bg-success text-foreground shadow-xl shadow-emerald-600/20 transition-all"
+              className="h-12 px-6 rounded-2xl font-semibold text-[11px] tracking-widest gap-3 bg-success hover:bg-success text-foreground shadow-sm shadow-emerald-600/20 transition-all"
             >
               <CheckCircle className="w-4 h-4" /> Reconcile Active
             </Button>
           )}
 
           <Button
-            className="h-12 px-6 rounded-2xl bg-primary hover:bg-primary text-foreground font-black italic uppercase text-[11px] tracking-widest gap-3 shadow-xl shadow-indigo-600/20 transition-all"
+            className="h-12 px-6 rounded-2xl bg-primary hover:bg-primary text-foreground font-semibold text-[11px] tracking-widest gap-3 shadow-sm shadow-indigo-600/20 transition-all"
             onClick={() =>
               draftCount > 0
                 ? setIsGovernanceModalOpen(true)
@@ -352,19 +352,19 @@ const ShiftControl = () => {
         <div className="max-w-[1600px] mx-auto p-6 space-y-10 relative z-10">
           {/* Workforce Vitals */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-white/5 shadow-2xl backdrop-blur-3xl group">
+            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-border shadow-sm group">
               <div className="flex justify-between items-start mb-8">
                 <div className="p-4 rounded-2xl bg-success/10 text-success border border-success/20">
                   <Users className="w-6 h-6" />
                 </div>
-                <Badge className="bg-success text-foreground font-black italic text-[8px] uppercase tracking-widest border-none px-3">
+                <Badge className="bg-success text-foreground font-bold text-[8px] uppercase tracking-widest border-none px-3">
                   LIVE
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-2">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-2">
                 Personnel on Grid
               </div>
-              <div className="text-2xl font-black italic tracking-tighter text-foreground">
+              <div className="text-2xl font-bold tracking-tighter text-foreground">
                 {stats.active} Members
               </div>
               <div className="text-[10px] font-bold italic text-success mt-4 uppercase flex items-center gap-2">
@@ -372,19 +372,19 @@ const ShiftControl = () => {
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-white/5 shadow-2xl backdrop-blur-3xl">
+            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-border shadow-sm">
               <div className="flex justify-between items-start mb-8">
                 <div className="p-4 rounded-2xl bg-primary/10 text-primary border border-primary">
                   <BarChart3 className="w-6 h-6" />
                 </div>
-                <Badge className="bg-primary text-foreground font-black italic text-[8px] uppercase tracking-widest border-none px-3">
+                <Badge className="bg-primary text-foreground font-bold text-[8px] uppercase tracking-widest border-none px-3">
                   TARGET: 85%
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-2">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-2">
                 Labor Efficiency
               </div>
-              <div className="text-2xl font-black italic tracking-tighter text-foreground">
+              <div className="text-2xl font-bold tracking-tighter text-foreground">
                 {stats.efficiency}%
               </div>
               <div className="text-[10px] font-bold italic text-primary mt-4 uppercase flex items-center gap-2">
@@ -392,19 +392,19 @@ const ShiftControl = () => {
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-white/5 shadow-2xl backdrop-blur-3xl">
+            <Card className="rounded-2xl p-6 bg-white/[0.03] border border-border shadow-sm">
               <div className="flex justify-between items-start mb-8">
                 <div className="p-4 rounded-2xl bg-warning text-warning border border-warning/20">
                   <Award className="w-6 h-6" />
                 </div>
-                <Badge className="bg-warning text-foreground font-black italic text-[8px] uppercase tracking-widest border-none px-3">
+                <Badge className="bg-warning text-foreground font-bold text-[8px] uppercase tracking-widest border-none px-3">
                   ELITE
                 </Badge>
               </div>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground mb-2">
+              <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-2">
                 Service Velocity
               </div>
-              <div className="text-2xl font-black italic tracking-tighter text-foreground">
+              <div className="text-2xl font-bold tracking-tighter text-foreground">
                 {stats.serviceVelocity ?? "N/A"}
               </div>
               <div className="text-[10px] font-bold italic text-warning mt-4 uppercase">
@@ -414,14 +414,14 @@ const ShiftControl = () => {
               </div>
             </Card>
 
-            <Card className="rounded-2xl p-6 bg-primary shadow-2xl relative overflow-hidden group border-none">
+            <Card className="rounded-2xl p-6 bg-primary shadow-sm relative overflow-hidden group border-none">
               <ShieldAlert className="absolute -right-10 -bottom-10 w-48 h-48 opacity-10 group-hover:scale-110 transition-transform duration-700" />
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
-                  <div className="text-[10px] font-black italic uppercase tracking-[0.3em] text-primary mb-2">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-primary mb-2">
                     Compliance Guard
                   </div>
-                  <div className="text-3xl font-black italic tracking-tighter text-foreground">
+                  <div className="text-3xl font-bold tracking-tighter text-foreground">
                     SECURE
                   </div>
                 </div>
@@ -434,7 +434,7 @@ const ShiftControl = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-3">
-              <Card className="rounded-[2rem] border-none bg-white/[0.02] shadow-2xl overflow-hidden backdrop-blur-md">
+              <Card className="rounded-2xl border-none bg-white/[0.02] shadow-sm overflow-hidden">
                  <div className="p-2">
                     <ScheduleGrid
                       shifts={scheduledShifts}
@@ -451,9 +451,9 @@ const ShiftControl = () => {
 
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Shift Records Table — displays open time, close time, counted cash, operator name */}
-              <Card className="rounded-[2rem] bg-white/[0.03] border border-white/5 shadow-2xl p-6 space-y-6 md:col-span-2">
+              <Card className="rounded-2xl bg-white/[0.03] border border-border shadow-sm p-6 space-y-6 md:col-span-2">
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] font-black italic uppercase tracking-[0.3em] text-muted-foreground">
+                  <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">
                     Shift Records
                   </div>
                   <Lock className="w-5 h-5 text-primary" />
@@ -468,12 +468,12 @@ const ShiftControl = () => {
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="border-b border-white/10">
-                          <th className="text-left text-[10px] font-black italic uppercase tracking-widest text-muted-foreground py-3 px-2">Operator</th>
-                          <th className="text-left text-[10px] font-black italic uppercase tracking-widest text-muted-foreground py-3 px-2">Open Time</th>
-                          <th className="text-left text-[10px] font-black italic uppercase tracking-widest text-muted-foreground py-3 px-2">Close Time</th>
-                          <th className="text-right text-[10px] font-black italic uppercase tracking-widest text-muted-foreground py-3 px-2">Counted Cash</th>
-                          <th className="text-center text-[10px] font-black italic uppercase tracking-widest text-muted-foreground py-3 px-2">Status</th>
+                        <tr className="border-b border-border">
+                          <th className="text-left text-[10px] font-semibold tracking-widest text-muted-foreground py-3 px-2">Operator</th>
+                          <th className="text-left text-[10px] font-semibold tracking-widest text-muted-foreground py-3 px-2">Open Time</th>
+                          <th className="text-left text-[10px] font-semibold tracking-widest text-muted-foreground py-3 px-2">Close Time</th>
+                          <th className="text-right text-[10px] font-semibold tracking-widest text-muted-foreground py-3 px-2">Counted Cash</th>
+                          <th className="text-center text-[10px] font-semibold tracking-widest text-muted-foreground py-3 px-2">Status</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-white/5">
@@ -512,9 +512,9 @@ const ShiftControl = () => {
             </div>
 
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="rounded-[2rem] bg-white/[0.03] border border-white/5 shadow-2xl p-6 space-y-10">
+              <Card className="rounded-2xl bg-white/[0.03] border border-border shadow-sm p-6 space-y-10">
                 <div className="flex items-center justify-between">
-                   <div className="text-[10px] font-black italic uppercase tracking-[0.3em] text-muted-foreground">
+                   <div className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">
                      Operational Pulse
                    </div>
                    <Zap className="w-5 h-5 text-primary" />
@@ -542,10 +542,10 @@ const ShiftControl = () => {
                     return (
                       <div key={i} className="space-y-3">
                         <div className="flex justify-between items-end italic">
-                          <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
                             {item.label}
                           </span>
-                          <span className="text-xl font-black text-foreground tracking-tighter">
+                          <span className="text-xl font-bold text-foreground tracking-tighter">
                             {available ? (
                               <>
                                 {item.value}
@@ -566,14 +566,14 @@ const ShiftControl = () => {
                 </div>
               </Card>
 
-              <Card className="rounded-[2rem] bg-primary shadow-2xl p-6 group cursor-pointer hover:bg-primary transition-all duration-500 overflow-hidden relative border-none">
+              <Card className="rounded-2xl bg-primary shadow-sm p-6 group cursor-pointer hover:bg-primary transition-all duration-500 overflow-hidden relative border-none">
                 <UserCheck className="absolute -right-12 -bottom-12 w-56 h-56 opacity-10 group-hover:scale-110 transition-transform duration-1000" />
                 <div className="relative h-full flex flex-col items-center justify-center text-center space-y-8">
-                  <div className="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center shadow-2xl backdrop-blur-xl border border-border">
+                  <div className="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center shadow-sm border border-border">
                     <Timer className="w-10 h-10 text-foreground" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-3xl font-black italic tracking-tighter uppercase text-foreground">
+                    <h4 className="text-3xl font-bold tracking-tighter uppercase text-foreground">
                       AI Optimizer
                     </h4>
                     <p className="text-[11px] font-bold text-primary/10 leading-relaxed italic uppercase tracking-widest max-w-[280px]">
@@ -588,7 +588,7 @@ const ShiftControl = () => {
                         toast({ title: "Optimization Complete", description: "14 shifts drafted based on predicted 17:00 peak traffic." });
                       }, 2000);
                     }}
-                    className="w-full bg-white text-primary hover:bg-white/90 h-16 font-black italic uppercase tracking-[0.2em] rounded-2xl text-[11px] shadow-2xl transition-all"
+                    className="w-full bg-white text-primary hover:bg-card h-16 font-semibold tracking-[0.2em] rounded-2xl text-[11px] shadow-sm transition-all"
                   >
                     Auto-Generate Next Week
                   </Button>

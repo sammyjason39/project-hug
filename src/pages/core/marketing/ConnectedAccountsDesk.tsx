@@ -195,10 +195,10 @@ export default function ConnectedAccountsDesk() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
              <Link2 className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Booting Cloud Nexus...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Booting Cloud Nexus...</p>
         </div>
       </div>
     );
@@ -210,20 +210,20 @@ export default function ConnectedAccountsDesk() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Nexus</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Nexus</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Cloud Links Secure
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground text-left italic">Connected Accounts</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground text-left italic">Connected Accounts</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic text-left">"Authorize and orchestrate multi-cloud synchronization with total intelligence."</p>
         </div>
         
         <div className="flex items-center gap-4">
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-110 transition-all"
+            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-110 transition-all"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
@@ -232,14 +232,14 @@ export default function ConnectedAccountsDesk() {
           <Link to="/core/marketing/audit-logs">
             <Button
               variant="secondary"
-              className="h-14 px-6 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-105 transition-all font-black text-[10px] uppercase tracking-widest gap-2"
+              className="h-14 px-6 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-105 transition-all font-bold text-[10px] uppercase tracking-widest gap-2"
             >
               <Shield className="h-5 w-5 text-primary" />
               Governance Trail
             </Button>
           </Link>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
             onClick={() => setConnectOpen(true)}
           >
             <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> 
@@ -256,11 +256,11 @@ export default function ConnectedAccountsDesk() {
           { label: 'Sync Latency', val: '142ms', icon: Activity, color: 'text-warning' },
           { label: 'Verified Scopes', val: '24', icon: ShieldCheck, color: 'text-primary' },
         ].map((stat, i) => (
-          <Card key={i} className="rounded-[2.5rem] border-none shadow-xl glass-card group hover:shadow-2xl transition-all">
+          <Card key={i} className="rounded-2xl border-none shadow-sm glass-card group hover:shadow-sm transition-all">
             <CardContent className="p-8 flex items-center justify-between">
               <div className="space-y-1">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground italic leading-none">{stat.label}</p>
-                <p className={cn("text-3xl font-black tracking-tighter uppercase italic leading-none", stat.color)}>{stat.val}</p>
+                <p className="text-label text-muted-foreground italic leading-none">{stat.label}</p>
+                <p className={cn("text-3xl font-bold tracking-tighter uppercase italic leading-none", stat.color)}>{stat.val}</p>
               </div>
               <div className={cn("h-12 w-12 rounded-2xl flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform", stat.color.replace('text', 'bg').replace('600', '100').replace('500', '100'))}>
                 <stat.icon className="h-6 w-6" />
@@ -272,7 +272,7 @@ export default function ConnectedAccountsDesk() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {(Array.isArray(accounts) ? accounts : []).map((item) => (
-          <Card key={item.id} className="rounded-[3rem] border-none shadow-2xl glass-card group relative overflow-hidden flex flex-col hover:shadow-[0_40px_80px_-20px_rgba(79,70,229,0.2)] transition-all duration-500">
+          <Card key={item.id} className="rounded-[3rem] border-none shadow-sm glass-card group relative overflow-hidden flex flex-col hover:shadow-[0_40px_80px_-20px_rgba(79,70,229,0.2)] transition-all duration-500">
             {/* Status Indicator */}
             <div className={cn(
               "absolute top-0 right-0 h-32 w-32 rounded-full blur-3xl -mr-16 -mt-16 opacity-20",
@@ -282,7 +282,7 @@ export default function ConnectedAccountsDesk() {
             <CardHeader className="p-10 pb-6 relative z-10">
               <div className="flex items-center justify-between mb-6">
                 <div className={cn(
-                  "h-16 w-16 rounded-[1.5rem] flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110 duration-500",
+                  "h-16 w-16 rounded-xl flex items-center justify-center shadow-sm transition-transform group-hover:scale-110 duration-500",
                   item.provider === 'META' ? "bg-primary text-white" : 
                   item.provider === 'GOOGLE' ? "bg-white text-muted-foreground dark:bg-muted dark:text-white" :
                   item.provider === 'TIKTOK' ? "bg-black text-white" :
@@ -299,7 +299,7 @@ export default function ConnectedAccountsDesk() {
                 </div>
                 <div className="text-right">
                    <Badge className={cn(
-                     "rounded-full font-black text-[9px] px-3 py-1 border-none shadow-lg tracking-widest",
+                     "rounded-full font-bold text-[9px] px-3 py-1 border-none shadow-lg tracking-widest",
                      item.status === 'CONNECTED' ? "bg-success text-white shadow-emerald-500/20" : 
                      item.status === 'EXPIRED' ? "bg-destructive text-white shadow-rose-500/20" : "bg-muted dark:bg-muted text-muted-foreground"
                    )}>
@@ -307,7 +307,7 @@ export default function ConnectedAccountsDesk() {
                    </Badge>
                    <div className="mt-2">
                      <Badge variant="outline" className={cn(
-                       "rounded-full font-black text-[7px] px-2 py-0.5 border shadow-sm tracking-widest uppercase italic",
+                       "rounded-full font-bold text-[7px] px-2 py-0.5 border shadow-sm tracking-widest uppercase italic",
                        item.syncStatus === 'SYNCING' ? "border-primary text-primary animate-pulse" :
                        item.syncStatus === 'FAILED' ? "border-destructive text-destructive" : "border-border text-muted-foreground"
                      )}>
@@ -317,35 +317,35 @@ export default function ConnectedAccountsDesk() {
                 </div>
               </div>
               <div className="space-y-1">
-                <CardTitle className="text-2xl font-black uppercase tracking-tight italic group-hover:text-primary transition-colors">{item.accountName}</CardTitle>
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground opacity-60">
+                <CardTitle className="text-2xl font-semibold tracking-tight italic group-hover:text-primary transition-colors">{item.accountName}</CardTitle>
+                <div className="flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground opacity-60">
                    <Hash className="h-3 w-3" /> ID: {item.id.slice(0, 8)}
                 </div>
               </div>
             </CardHeader>
             
             <CardContent className="p-10 pt-0 flex-1 space-y-8 relative z-10">
-              <div className="space-y-6 bg-muted dark:bg-muted p-6 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-inner">
+              <div className="space-y-6 bg-muted dark:bg-muted p-6 rounded-2xl border border-border dark:border-border/20 shadow-inner">
                 <div className="flex items-center justify-between">
-                   <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                   <div className="flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground">
                       <Clock className="h-4 w-4 text-primary" /> Token Expiry
                    </div>
-                   <span className="text-[11px] font-black uppercase italic">{formatDate(item.tokenExpiresAt)}</span>
+                   <span className="text-[11px] font-semibold italic">{formatDate(item.tokenExpiresAt)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                   <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                   <div className="flex items-center gap-2 text-[10px] font-semibold tracking-widest text-muted-foreground">
                       <RefreshCw className="h-4 w-4 text-primary" /> Last Sync
                    </div>
-                   <span className="text-[11px] font-black uppercase italic">{item.lastSyncAt ? new Date(item.lastSyncAt).toLocaleTimeString() : "PENDING"}</span>
+                   <span className="text-[11px] font-semibold italic">{item.lastSyncAt ? new Date(item.lastSyncAt).toLocaleTimeString() : "PENDING"}</span>
                 </div>
               </div>
 
               <div className="space-y-4">
-                 <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Strategic Actions</p>
+                 <p className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Strategic Actions</p>
                  <div className="grid grid-cols-2 gap-3">
                     <Button 
                       variant="outline" 
-                      className="h-12 rounded-xl border-none bg-muted dark:bg-muted font-black text-[9px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-sm gap-2"
+                      className="h-12 rounded-xl border-none bg-muted dark:bg-muted font-bold text-[9px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-sm gap-2"
                       onClick={() => handleSync(item.id)}
                       disabled={refreshing || item.syncStatus === 'SYNCING'}
                     >
@@ -354,12 +354,12 @@ export default function ConnectedAccountsDesk() {
                     </Button>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="h-12 rounded-xl border-none bg-muted dark:bg-muted font-black text-[9px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-sm">
+                        <Button variant="outline" className="h-12 rounded-xl border-none bg-muted dark:bg-muted font-bold text-[9px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-sm">
                            PARAMETERS
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="rounded-2xl border-none shadow-2xl p-2 w-56">
-                         <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-50 px-3 py-2">Auth Protocols</DropdownMenuLabel>
+                      <DropdownMenuContent className="rounded-2xl border-none shadow-sm p-2 w-56">
+                         <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-50 px-3 py-2">Auth Protocols</DropdownMenuLabel>
                          <DropdownMenuSeparator />
                          <DropdownMenuItem className="gap-3 py-3 rounded-xl font-bold" onClick={() => setStatus(item.id, "CONNECTED")}><CheckCircle2 className="h-4 w-4 text-success" /> Re-Authorize Link</DropdownMenuItem>
                          <DropdownMenuItem className="gap-3 py-3 rounded-xl font-bold" onClick={() => setStatus(item.id, "EXPIRED")}><AlertCircle className="h-4 w-4 text-warning" /> Revoke Tokens</DropdownMenuItem>
@@ -387,13 +387,13 @@ export default function ConnectedAccountsDesk() {
         
         {/* Placeholder for expansion */}
         <button 
-          className="rounded-[3rem] border-4 border-dashed border-border dark:border-border flex flex-col items-center justify-center gap-6 h-[450px] group hover:border-primary transition-all hover:bg-white/40 dark:hover:bg-muted"
+          className="rounded-[3rem] border-4 border-dashed border-border dark:border-border flex flex-col items-center justify-center gap-6 h-[450px] group hover:border-primary transition-all hover:bg-card dark:hover:bg-muted"
           onClick={() => setConnectOpen(true)}
         >
-           <div className="h-20 w-20 rounded-full bg-muted dark:bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-xl">
+           <div className="h-20 w-20 rounded-full bg-muted dark:bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
              <Plus className="h-10 w-10 group-hover:rotate-90 transition-transform duration-500" />
            </div>
-           <p className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground group-hover:text-primary transition-colors">Expand Cloud Nexus</p>
+           <p className="text-xs font-semibold tracking-[0.3em] text-muted-foreground group-hover:text-primary transition-colors">Expand Cloud Nexus</p>
         </button>
       </div>
 

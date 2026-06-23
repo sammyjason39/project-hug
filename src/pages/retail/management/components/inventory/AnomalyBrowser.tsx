@@ -116,7 +116,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
             <AlertTriangle className="w-5 h-5 text-warning" />
           </div>
           <div>
-            <h3 className="text-lg font-black italic tracking-tight text-foreground">
+            <h3 className="text-lg font-bold tracking-tight text-foreground">
               Anomaly Items
             </h3>
             <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
@@ -157,7 +157,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
           <Button
             size="sm"
             variant={filterMode === "all" ? "default" : "ghost"}
-            className="h-8 rounded-lg font-black italic text-[10px] uppercase tracking-widest px-3"
+            className="h-8 rounded-lg font-bold text-[10px] uppercase tracking-widest px-3"
             onClick={() => setFilterMode("all")}
             data-testid="filter-all"
           >
@@ -166,7 +166,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
           <Button
             size="sm"
             variant={filterMode === "incomplete" ? "default" : "ghost"}
-            className="h-8 rounded-lg font-black italic text-[10px] uppercase tracking-widest px-3"
+            className="h-8 rounded-lg font-bold text-[10px] uppercase tracking-widest px-3"
             onClick={() => setFilterMode("incomplete")}
             data-testid="filter-incomplete"
           >
@@ -175,7 +175,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
           <Button
             size="sm"
             variant={filterMode === "ready" ? "default" : "ghost"}
-            className="h-8 rounded-lg font-black italic text-[10px] uppercase tracking-widest px-3"
+            className="h-8 rounded-lg font-bold text-[10px] uppercase tracking-widest px-3"
             onClick={() => setFilterMode("ready")}
             data-testid="filter-ready"
           >
@@ -188,7 +188,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
       {isLoading ? (
         <div className="flex flex-col items-center justify-center py-16 gap-3">
           <RefreshCw className="w-6 h-6 text-primary animate-spin" />
-          <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+          <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
             Loading anomaly items...
           </span>
         </div>
@@ -197,7 +197,7 @@ export const AnomalyBrowser: React.FC<AnomalyBrowserProps> = ({
           <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center">
             <CheckCircle2 className="w-7 h-7 text-muted-foreground/40" />
           </div>
-          <h4 className="text-sm font-black italic text-foreground">
+          <h4 className="text-sm font-bold text-foreground">
             {items.length === 0
               ? "No Anomaly Items"
               : "No items match your filter"}
@@ -260,7 +260,7 @@ const AnomalyItemCard: React.FC<AnomalyItemCardProps> = ({
             </span>
             {isIncomplete ? (
               <Badge
-                className="bg-warning/10 text-warning dark:bg-warning/20 dark:text-warning border-none font-black italic text-[9px] uppercase tracking-widest"
+                className="bg-warning/10 text-warning dark:bg-warning/20 dark:text-warning border-none font-bold text-[9px] uppercase tracking-widest"
                 data-testid={`status-incomplete-${item.id}`}
               >
                 <AlertTriangle className="w-3 h-3 mr-1" />
@@ -268,7 +268,7 @@ const AnomalyItemCard: React.FC<AnomalyItemCardProps> = ({
               </Badge>
             ) : (
               <Badge
-                className="bg-success/10 text-success dark:bg-success/20 dark:text-success border-none font-black italic text-[9px] uppercase tracking-widest"
+                className="bg-success/10 text-success dark:bg-success/20 dark:text-success border-none font-bold text-[9px] uppercase tracking-widest"
                 data-testid={`status-ready-${item.id}`}
               >
                 <CheckCircle2 className="w-3 h-3 mr-1" />
@@ -276,7 +276,7 @@ const AnomalyItemCard: React.FC<AnomalyItemCardProps> = ({
               </Badge>
             )}
           </div>
-          <h4 className="font-black italic text-sm text-foreground truncate">
+          <h4 className="font-bold text-sm text-foreground truncate">
             {item.name}
           </h4>
           {isIncomplete && missingFields.length > 0 && (
@@ -294,7 +294,7 @@ const AnomalyItemCard: React.FC<AnomalyItemCardProps> = ({
         {/* Price Display */}
         <div className="text-right shrink-0">
           {item.price ? (
-            <span className="font-black italic text-sm text-primary">
+            <span className="font-bold text-sm text-primary">
               Rp {item.price.toLocaleString()}
             </span>
           ) : (
@@ -309,7 +309,7 @@ const AnomalyItemCard: React.FC<AnomalyItemCardProps> = ({
           size="sm"
           onClick={() => onComplete(item)}
           className={cn(
-            "rounded-xl font-black italic text-[10px] uppercase tracking-widest gap-1.5 shrink-0",
+            "rounded-xl font-bold text-[10px] uppercase tracking-widest gap-1.5 shrink-0",
             isIncomplete
               ? "bg-warning hover:bg-warning/80 text-warning-foreground"
               : "bg-success hover:bg-success/80 text-success-foreground",

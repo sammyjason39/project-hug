@@ -43,7 +43,7 @@ function ErrorFallback({
       }
     >
       <div className="relative">
-        <div className="h-24 w-24 bg-destructive rounded-[2.5rem] flex items-center justify-center animate-pulse">
+        <div className="h-24 w-24 bg-destructive rounded-2xl flex items-center justify-center animate-pulse">
           <ShieldAlert className="h-12 w-12 text-destructive-foreground" />
         </div>
         <div className="absolute -top-2 -right-2 h-8 w-8 bg-card rounded-full flex items-center justify-center shadow-lg border border-border">
@@ -52,10 +52,10 @@ function ErrorFallback({
       </div>
 
       <div className="text-center space-y-3 max-w-md">
-        <h2 className="text-3xl font-black tracking-tighter uppercase italic text-foreground leading-none">
+        <h2 className="text-3xl font-bold tracking-tighter uppercase italic text-foreground leading-none">
           Runtime Exception
         </h2>
-        <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] leading-relaxed italic">
+        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em] leading-relaxed italic">
           {routeLabel
             ? `The "${routeLabel}" screen failed to render.`
             : "A critical logic branch has failed in the current module."}
@@ -65,21 +65,21 @@ function ErrorFallback({
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Button
           onClick={onRetry}
-          className="rounded-2xl bg-primary hover:bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-widest px-8 h-12 shadow-xl gap-2 transition-all active:scale-95"
+          className="rounded-2xl bg-primary hover:bg-primary text-primary-foreground font-bold text-[10px] uppercase tracking-widest px-8 h-12 shadow-sm gap-2 transition-all active:scale-95"
         >
           <RefreshCcw className="h-4 w-4" /> Retry
         </Button>
         <Button
           variant="outline"
           onClick={onReturnToSafeRoute}
-          className="rounded-2xl border-border font-black text-[10px] uppercase tracking-widest px-8 h-12 gap-2 transition-all active:scale-95"
+          className="rounded-2xl border-border font-bold text-[10px] uppercase tracking-widest px-8 h-12 gap-2 transition-all active:scale-95"
         >
           <Home className="h-4 w-4" /> Return to Safety
         </Button>
         <Button
           variant="ghost"
           onClick={onReload}
-          className="rounded-2xl font-black text-[10px] uppercase tracking-widest px-6 h-12 text-muted-foreground transition-all active:scale-95"
+          className="rounded-2xl font-bold text-[10px] uppercase tracking-widest px-6 h-12 text-muted-foreground transition-all active:scale-95"
         >
           Reload
         </Button>
@@ -87,7 +87,7 @@ function ErrorFallback({
 
       <div className="pt-4 flex items-center gap-2">
         <div className="h-1 w-1 rounded-full bg-destructive" />
-        <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground">
+        <span className="text-label tracking-widest text-muted-foreground">
           Diagnostic Data captured for Audit
         </span>
       </div>

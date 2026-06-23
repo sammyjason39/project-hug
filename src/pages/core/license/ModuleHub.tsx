@@ -156,7 +156,7 @@ export default function ModuleHub() {
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-4">
           <div className="h-12 w-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-          <p className="text-xs font-black uppercase tracking-widest text-muted-foreground italic">Accessing Module Registry...</p>
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground italic">Accessing Module Registry...</p>
         </div>
       </div>
     );
@@ -167,7 +167,7 @@ export default function ModuleHub() {
       {/* Categories Sidebar */}
       <div className="w-64 p-6 border-r border-border space-y-8 bg-muted">
           <div className="space-y-1">
-            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground italic">Categories</div>
+            <div className="text-label text-muted-foreground italic">Categories</div>
             <p className="text-xs font-bold text-muted-foreground">Filter your workspace</p>
           </div>
           <TabsList className="flex flex-col items-stretch bg-transparent p-0 gap-2">
@@ -193,7 +193,7 @@ export default function ModuleHub() {
           <div className="p-6 rounded-3xl bg-primary border border-primary space-y-4">
              <div className="flex items-center gap-3">
                 <Zap className="h-5 w-5 text-primary" />
-                <span className="font-black text-[10px] uppercase tracking-widest text-primary">System Health</span>
+                <span className="font-bold text-[10px] uppercase tracking-widest text-primary">System Health</span>
              </div>
              <p className="text-[11px] text-primary font-medium leading-relaxed">
                All active modules are currently synchronized with the central registry.
@@ -213,10 +213,10 @@ export default function ModuleHub() {
                   <div 
                     key={module.id} 
                     className={cn(
-                      "p-8 rounded-[2.5rem] border transition-all duration-500 group flex flex-col justify-between h-full",
+                      "p-8 rounded-2xl border transition-all duration-500 group flex flex-col justify-between h-full",
                       module.isCore 
                         ? "bg-muted border-border grayscale-[0.5] hover:grayscale-0" 
-                        : "bg-white border-border hover:shadow-2xl hover:-translate-y-1"
+                        : "bg-white border-border hover:shadow-sm hover:-translate-y-1"
                     )}
                   >
                     <div className="space-y-6">
@@ -228,7 +228,7 @@ export default function ModuleHub() {
                           <module.icon className="h-7 w-7" />
                         </div>
                         <Badge variant="outline" className={cn(
-                          "rounded-full px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.2em]",
+                          "rounded-full px-4 py-1.5 text-label",
                           module.isCore ? "bg-muted text-muted-foreground border-border" :
                           module.isEnabled ? "bg-success text-success border-success" :
                           "bg-muted text-muted-foreground border-border"
@@ -238,7 +238,7 @@ export default function ModuleHub() {
                       </div>
                       
                       <div className="space-y-2">
-                        <h4 className="text-xl font-black uppercase tracking-tighter italic">{module.name}</h4>
+                        <h4 className="text-xl font-semibold tracking-tighter italic">{module.name}</h4>
                         <p className="text-xs font-medium text-muted-foreground leading-relaxed min-h-[40px]">
                           {module.description}
                         </p>
@@ -248,7 +248,7 @@ export default function ModuleHub() {
                     <div className="pt-8 flex items-center justify-between">
                        <div className="flex items-center gap-3">
                           {module.isCore ? (
-                             <div className="flex items-center gap-2 text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">
+                             <div className="flex items-center gap-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">
                                 <CheckCircle2 className="h-3 w-3" /> Permanent
                              </div>
                           ) : (
@@ -260,7 +260,7 @@ export default function ModuleHub() {
                                 onCheckedChange={() => handleToggle(module.id, module.isEnabled)}
                                 className="data-[state=checked]:bg-primary"
                               />
-                              <Label htmlFor={`toggle-${module.id}`} className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                              <Label htmlFor={`toggle-${module.id}`} className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                                  {savingId === module.id ? "SYNCING..." : module.isEnabled ? "ENABLED" : "DISABLED"}
                               </Label>
                             </>
@@ -282,25 +282,25 @@ export default function ModuleHub() {
                 {filteredModules.length === 0 && (
                    <div className="col-span-full py-20 flex flex-col items-center justify-center rounded-[3rem] border border-dashed border-border bg-muted">
                       <Search className="h-12 w-12 text-muted-foreground mb-4" />
-                      <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">No matching modules detected</p>
+                      <p className="text-xs font-semibold tracking-widest text-muted-foreground">No matching modules detected</p>
                    </div>
                 )}
               </div>
             </WorkspacePanel>
             
-            <WorkspacePanel title="Subscription Intelligence" className="bg-muted text-muted-foreground border-none shadow-2xl rounded-[3rem]">
+            <WorkspacePanel title="Subscription Intelligence" className="bg-muted text-muted-foreground border-none shadow-sm rounded-[3rem]">
               <div className="flex flex-col md:flex-row gap-12 items-center p-4">
                 <div className="flex-1 space-y-6">
                   <div className="h-16 w-16 bg-primary rounded-2xl flex items-center justify-center">
                     <Shield className="h-8 w-8 text-primary" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-3xl font-black italic tracking-tighter uppercase">Compliance Verified</h3>
+                    <h3 className="text-3xl font-bold tracking-tighter uppercase">Compliance Verified</h3>
                     <p className="text-muted-foreground text-sm font-medium leading-relaxed max-w-md">
                       All active modules have been cryptographically signed. Your enterprise environment is currently operating within licensing parameters.
                     </p>
                   </div>
-                  <Button className="rounded-2xl h-12 px-8 font-black text-xs uppercase tracking-widest bg-primary hover:bg-primary">
+                  <Button className="rounded-2xl h-12 px-8 font-bold text-xs uppercase tracking-widest bg-primary hover:bg-primary">
                     DOWNLOAD AUDIT REPORT
                   </Button>
                 </div>
@@ -311,9 +311,9 @@ export default function ModuleHub() {
                     { label: "Uptime Sync", value: "99.9%" },
                     { label: "License Type", value: "Enterprise" },
                   ].map((stat, i) => (
-                    <div key={i} className="p-8 bg-muted rounded-[2rem] border border-border/50 min-w-[160px] space-y-1">
-                      <div className="text-3xl font-black italic text-white tracking-tighter">{stat.value}</div>
-                      <div className="text-[10px] font-black text-primary uppercase tracking-widest">{stat.label}</div>
+                    <div key={i} className="p-8 bg-muted rounded-2xl border border-border/50 min-w-[160px] space-y-1">
+                      <div className="text-3xl font-bold text-white tracking-tighter">{stat.value}</div>
+                      <div className="text-[10px] font-bold text-primary uppercase tracking-widest">{stat.label}</div>
                     </div>
                   ))}
                 </div>

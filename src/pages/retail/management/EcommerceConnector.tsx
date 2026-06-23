@@ -150,7 +150,7 @@ const EcommerceConnector = () => {
           <Button
             variant="outline"
             onClick={fetchChannels}
-            className="h-10 px-5 rounded-2xl border-border font-black italic uppercase tracking-widest text-[10px] gap-2"
+            className="h-10 px-5 rounded-2xl border-border font-semibold tracking-widest text-[10px] gap-2"
           >
             <RefreshCw className={cn("w-4 h-4", isLoading && "animate-spin")} />
             Refresh
@@ -158,7 +158,7 @@ const EcommerceConnector = () => {
           {/* Unified entry point: register e-commerce as a virtual branch in the hierarchy */}
           <RegisterEcommerceBranchDialog onSuccess={fetchChannels} />
           <Button
-            className="h-10 px-6 rounded-2xl bg-secondary text-foreground font-black italic uppercase tracking-widest text-[10px] gap-2 shadow-lg"
+            className="h-10 px-6 rounded-2xl bg-secondary text-foreground font-semibold tracking-widest text-[10px] gap-2 shadow-lg"
             onClick={() => setCreateOpen(true)}
           >
             <Plus className="w-4 h-4 text-success" /> Connect Channel
@@ -180,10 +180,10 @@ const EcommerceConnector = () => {
                   k.color,
                 )}
               >
-                <div className="text-2xl font-black italic tracking-tighter">
+                <div className="text-2xl font-bold tracking-tighter">
                   {k.value}
                 </div>
-                <div className="text-[9px] font-black uppercase tracking-widest opacity-60 mt-0.5">
+                <div className="text-label opacity-60 mt-0.5">
                   {k.label}
                 </div>
               </div>
@@ -204,7 +204,7 @@ const EcommerceConnector = () => {
                 <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-3">
                   <ShoppingBag className="w-7 h-7 text-muted-foreground/60" />
                 </div>
-                <div className="font-black italic text-muted-foreground text-sm">
+                <div className="font-bold text-muted-foreground text-sm">
                   No channels yet
                 </div>
                 <p className="text-xs font-bold text-muted-foreground mt-1">
@@ -250,17 +250,17 @@ const EcommerceConnector = () => {
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-black italic text-foreground text-sm truncate">
+                        <div className="font-bold text-foreground text-sm truncate">
                           {ch.name}
                         </div>
                         <div className="flex items-center gap-2 mt-0.5">
-                          <div className="text-[9px] font-black uppercase tracking-widest text-muted-foreground truncate">
+                          <div className="text-label text-muted-foreground truncate">
                             {ch.adapterType ?? ch.integrationCategory}
                           </div>
                           {(ch as any).branchIds && (ch as any).branchIds.length > 0 && (
                             <>
                               <span className="w-1 h-1 rounded-full bg-muted/20" />
-                              <div className="flex items-center gap-1 text-[9px] font-black uppercase text-primary italic">
+                              <div className="flex items-center gap-1 text-[9px] font-semibold text-primary italic">
                                 {(ch as any).branchIds.length} Nodes
                               </div>
                             </>
@@ -269,7 +269,7 @@ const EcommerceConnector = () => {
                       </div>
                       <Badge
                         className={cn(
-                          "font-black italic text-[9px] border-none gap-1 shrink-0",
+                          "font-bold text-[9px] border-none gap-1 shrink-0",
                           statusBadge,
                         )}
                       >
@@ -290,7 +290,7 @@ const EcommerceConnector = () => {
                 <div className="w-9 h-9 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Plus className="w-4 h-4 text-muted-foreground" />
                 </div>
-                <span className="font-black italic text-muted-foreground text-sm uppercase tracking-widest">
+                <span className="font-bold text-muted-foreground text-sm uppercase tracking-widest">
                   Connect Channel
                 </span>
               </button>

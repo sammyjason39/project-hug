@@ -78,15 +78,15 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl rounded-2xl border-none shadow-2xl max-h-[90vh] overflow-y-auto p-0 scrollbar-hide">
+      <DialogContent className="max-w-3xl rounded-2xl border-none shadow-sm max-h-[90vh] overflow-y-auto p-0 scrollbar-hide">
         <div className="relative">
           {/* Header Gradient */}
           <div className="h-32 bg-gradient-to-r from-slate-900 to-indigo-950 px-8 flex items-center justify-between">
             <div>
-              <DialogTitle className="text-2xl font-black italic tracking-tighter uppercase text-foreground">
+              <DialogTitle className="text-2xl font-bold tracking-tighter uppercase text-foreground">
                 Fulfillment Token: {order.id.slice(-8).toUpperCase()}
               </DialogTitle>
-              <div className="text-[10px] font-black italic uppercase tracking-widest text-primary/70 mt-1 flex items-center gap-2">
+              <div className="text-[10px] font-semibold tracking-widest text-primary/70 mt-1 flex items-center gap-2">
                 <Clock className="w-3 h-3" /> Timestamp:{" "}
                 {new Date(order.createdAt).toLocaleString()}
               </div>
@@ -104,29 +104,29 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
           <div className="p-8 space-y-8 bg-white min-h-[400px]">
             {/* Customer & Logistics Logic Block */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-secondary/5 rounded-[2rem] p-6 flex items-center gap-4 border border-border">
+              <div className="bg-secondary/5 rounded-2xl p-6 flex items-center gap-4 border border-border">
                 <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center">
                   <User className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">
+                  <div className="text-[10px] text-muted-foreground font-semibold tracking-widest">
                     Carrier Destination
                   </div>
-                  <div className="font-black italic text-foreground">
+                  <div className="font-bold text-foreground">
                     {order.customerName || "Walk-in Customer"}
                   </div>
                 </div>
               </div>
 
-              <div className="bg-secondary/5 rounded-[2rem] p-6 flex items-center gap-4 border border-border">
+              <div className="bg-secondary/5 rounded-2xl p-6 flex items-center gap-4 border border-border">
                 <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-success" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-muted-foreground font-black uppercase tracking-widest">
+                  <div className="text-[10px] text-muted-foreground font-semibold tracking-widest">
                     Node Origin
                   </div>
-                  <div className="font-black italic text-foreground">
+                  <div className="font-bold text-foreground">
                     {order.storeId.slice(-8).toUpperCase()}
                   </div>
                 </div>
@@ -136,10 +136,10 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
             {/* Line Item Payloads */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                <div className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-2">
                   <Package className="w-4 h-4" /> Pipeline Payloads
                 </div>
-                <Badge className="bg-primary/5 text-primary border-none font-black italic text-[9px] uppercase tracking-widest">
+                <Badge className="bg-primary/5 text-primary border-none font-bold text-[9px] uppercase tracking-widest">
                   {order.items.length} Units
                 </Badge>
               </div>
@@ -162,7 +162,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
                             <Package className="w-6 h-6 text-muted-foreground group-hover:text-primary" />
                           </div>
                           <div>
-                            <div className="font-black italic text-foreground">
+                            <div className="font-bold text-foreground">
                               {item.name}
                             </div>
                             <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-1">
@@ -170,14 +170,14 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
                             </div>
                           </div>
                         </div>
-                        <div className="text-right font-black italic text-foreground">
+                        <div className="text-right font-bold text-foreground">
                           Rp {(item.totalPrice || 0).toLocaleString()}
                         </div>
                       </div>
 
                       {/* Stock Integrity Telemetry */}
                       <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                        <div className="flex gap-6 text-[9px] font-black italic uppercase tracking-widest">
+                        <div className="flex gap-6 text-[9px] font-semibold tracking-widest">
                           <p className="text-muted-foreground">
                             SOH: <span className="text-foreground">{soh}</span>
                           </p>
@@ -198,7 +198,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
                           </p>
                         </div>
                         {isBufferWarning && (
-                          <Badge className="bg-warning text-warning border-none font-black italic text-[8px] uppercase tracking-tighter">
+                          <Badge className="bg-warning text-warning border-none font-bold text-[8px] uppercase tracking-tighter">
                             <AlertTriangle className="w-3 h-3 mr-1" /> Stock
                             Depletion Risk
                           </Badge>
@@ -211,15 +211,15 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
             </div>
 
             {/* Financial Ledger Block */}
-            <Card className="rounded-[2rem] bg-background p-6 border-none text-foreground shadow-2xl relative overflow-hidden">
+            <Card className="rounded-2xl bg-background p-6 border-none text-foreground shadow-sm relative overflow-hidden">
               <DollarSign className="absolute -right-4 -bottom-4 w-24 h-24 text-foreground/5 opacity-20" />
               <div className="relative z-10 space-y-4">
-                <div className="flex justify-between items-center text-[10px] font-black italic uppercase tracking-widest text-primary">
+                <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest text-primary">
                   <span>Manifest Total</span>
                   <span>{order.paymentMethod?.toUpperCase()}</span>
                 </div>
                 <div className="flex justify-between items-end">
-                  <div className="text-2xl font-black italic tracking-tighter">
+                  <div className="text-2xl font-bold tracking-tighter">
                     Rp {(order.totalAmount || 0).toLocaleString()}
                   </div>
                   <div className="text-[10px] font-bold italic opacity-40 uppercase">
@@ -234,7 +234,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
               <Button
                 variant="outline"
                 onClick={onClose}
-                className="h-14 flex-1 rounded-2xl border-border font-black italic uppercase text-[10px] tracking-widest hover:bg-secondary/5"
+                className="h-14 flex-1 rounded-2xl border-border font-semibold text-[10px] tracking-widest hover:bg-secondary/5"
               >
                 Cancel View
               </Button>
@@ -242,7 +242,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
               {order.status === "paid" && (
                 <Button
                   onClick={() => handleStatusChange("processing")}
-                  className="h-14 flex-[2] bg-primary hover:bg-primary/90 rounded-2xl font-black italic uppercase text-[10px] tracking-widest shadow-xl shadow-indigo-100"
+                  className="h-14 flex-[2] bg-primary hover:bg-primary/90 rounded-2xl font-semibold text-[10px] tracking-widest shadow-sm shadow-indigo-100"
                 >
                   <Package className="w-4 h-4 mr-2" />
                   Initiate Processing
@@ -252,7 +252,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
               {order.status === "processing" && (
                 <Button
                   onClick={() => handleStatusChange("ready_for_pickup")}
-                  className="h-14 flex-[2] bg-warning hover:bg-warning rounded-2xl font-black italic uppercase text-[10px] tracking-widest shadow-xl shadow-amber-100"
+                  className="h-14 flex-[2] bg-warning hover:bg-warning rounded-2xl font-semibold text-[10px] tracking-widest shadow-sm shadow-amber-100"
                 >
                   <Clock className="w-4 h-4 mr-2" />
                   Mark Ready for Pickup
@@ -262,7 +262,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
               {order.status === "ready_for_pickup" && (
                 <Button
                   onClick={() => handleStatusChange("shipped")}
-                  className="h-14 flex-[2] bg-success hover:bg-success rounded-2xl font-black italic uppercase text-[10px] tracking-widest shadow-xl shadow-emerald-100"
+                  className="h-14 flex-[2] bg-success hover:bg-success rounded-2xl font-semibold text-[10px] tracking-widest shadow-sm shadow-emerald-100"
                 >
                   <Truck className="w-4 h-4 mr-2" />
                   Dispatch Payload
@@ -272,7 +272,7 @@ export const OrderDetailModal: React.FC<OrderDetailModalProps> = ({
               {order.status === "shipped" && (
                 <Button
                   onClick={() => handleStatusChange("complete")}
-                  className="h-14 flex-[2] bg-secondary hover:bg-secondary/60 rounded-2xl font-black italic uppercase text-[10px] tracking-widest shadow-xl shadow-slate-100"
+                  className="h-14 flex-[2] bg-secondary hover:bg-secondary/60 rounded-2xl font-semibold text-[10px] tracking-widest shadow-sm shadow-slate-100"
                 >
                   <CheckCircle2 className="w-4 h-4 mr-2" />
                   Confirm Receipt

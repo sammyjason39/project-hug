@@ -237,7 +237,7 @@ export default function CoreSettings() {
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-4">
           <div className="h-12 w-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-          <p className="text-xs font-black uppercase tracking-widest text-muted-foreground italic">Syncing Central Registry...</p>
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground italic">Syncing Central Registry...</p>
         </div>
       </div>
     );
@@ -254,7 +254,7 @@ export default function CoreSettings() {
             >
               <div className="space-y-6 pt-4">
                 <div className="space-y-3">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Business Name</Label>
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Business Name</Label>
                   <Input 
                     className="h-12 rounded-xl border-border bg-muted focus:bg-white transition-all font-bold"
                     value={profile?.name || ''} 
@@ -263,12 +263,12 @@ export default function CoreSettings() {
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Industry Sector</Label>
+                    <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Industry Sector</Label>
                     <Select value={profile?.industry || 'retail'}>
                       <SelectTrigger className="h-12 rounded-xl border-border bg-muted font-bold">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="rounded-xl border-none shadow-2xl">
+                      <SelectContent className="rounded-xl border-none shadow-sm">
                         <SelectItem value="retail">Retail Operations</SelectItem>
                         <SelectItem value="fintech">Financial Services</SelectItem>
                         <SelectItem value="logistics">Global Logistics</SelectItem>
@@ -276,7 +276,7 @@ export default function CoreSettings() {
                     </Select>
                   </div>
                   <div className="space-y-3">
-                    <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Base Currency</Label>
+                    <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Base Currency</Label>
                     <Select 
                       value={profile?.currency?.toLowerCase() || 'usd'}
                       onValueChange={(val) => setProfile(p => p ? { ...p, currency: val?.toUpperCase() } : null)}
@@ -284,7 +284,7 @@ export default function CoreSettings() {
                       <SelectTrigger className="h-12 rounded-xl border-border bg-muted font-bold">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="rounded-xl border-none shadow-2xl">
+                      <SelectContent className="rounded-xl border-none shadow-sm">
                         <SelectItem value="usd">USD ($)</SelectItem>
                         <SelectItem value="eur">EUR (€)</SelectItem>
                         <SelectItem value="idr">IDR (Rp)</SelectItem>
@@ -301,14 +301,14 @@ export default function CoreSettings() {
               description="Encrypted contact and registration data."
             >
               <div className="space-y-6 pt-4">
-                 <div className="p-6 rounded-[2rem] bg-primary dark:bg-primary border border-primary dark:border-primary">
+                 <div className="p-6 rounded-2xl bg-primary dark:bg-primary border border-primary dark:border-primary">
                     <div className="flex items-center gap-4 mb-4">
                        <div className="h-12 w-12 rounded-2xl bg-white dark:bg-muted flex items-center justify-center shadow-lg">
                           <Building2 className="h-6 w-6 text-primary" />
                        </div>
                        <div>
-                          <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">Legal Entity</p>
-                          <p className="font-black italic text-muted-foreground dark:text-white">#{profile?.code || 'ROOT_TENANT'}</p>
+                          <p className="text-xs font-semibold tracking-widest text-muted-foreground">Legal Entity</p>
+                          <p className="font-bold text-muted-foreground dark:text-white">#{profile?.code || 'ROOT_TENANT'}</p>
                        </div>
                     </div>
                     <p className="text-sm text-primary font-medium italic">
@@ -316,7 +316,7 @@ export default function CoreSettings() {
                     </p>
                  </div>
                  <div className="space-y-3 opacity-60 grayscale cursor-not-allowed">
-                   <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Registered Address (Immutable)</Label>
+                   <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Registered Address (Immutable)</Label>
                    <Textarea 
                       className="rounded-2xl border-border bg-muted font-medium text-sm min-h-[100px]"
                       value="88 Enterprise Plaza, Cyber Sector 7, Neo-Jakarta, 12110"
@@ -342,13 +342,13 @@ export default function CoreSettings() {
               {childCompanies.length === 0 ? (
                 <div className="col-span-full py-20 flex flex-col items-center justify-center rounded-[3rem] border border-dashed border-border bg-muted">
                    <Globe className="h-12 w-12 text-muted-foreground mb-4" />
-                   <p className="text-xs font-black uppercase tracking-widest text-muted-foreground">No Satellite Nodes Detected</p>
+                   <p className="text-xs font-semibold tracking-widest text-muted-foreground">No Satellite Nodes Detected</p>
                 </div>
               ) : (
                 (Array.isArray(childCompanies) ? childCompanies : []).map((child: any) => (
                   <Card 
                     key={child.id} 
-                    className="rounded-[2.5rem] border-none shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-pointer group bg-white dark:bg-muted"
+                    className="rounded-2xl border-none shadow-lg hover:shadow-sm hover:-translate-y-2 transition-all duration-500 cursor-pointer group bg-white dark:bg-muted"
                     onClick={() => openChildDetail(child)}
                   >
                     <CardContent className="p-8 space-y-6">
@@ -357,14 +357,14 @@ export default function CoreSettings() {
                             <Building2 className="h-7 w-7" />
                          </div>
                          <Badge variant={child.status === 'active' ? 'outline' : 'secondary'} className={cn(
-                           "rounded-full px-3 py-1 text-[9px] font-black uppercase tracking-widest",
+                           "rounded-full px-3 py-1 text-label",
                            child.status === 'active' ? "border-success text-success bg-success" : ""
                          )}>
                            {child.status}
                          </Badge>
                       </div>
                       <div className="space-y-1">
-                         <h4 className="text-xl font-black italic tracking-tighter uppercase">{child.name}</h4>
+                         <h4 className="text-xl font-bold tracking-tighter uppercase">{child.name}</h4>
                          <div className="flex items-center gap-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
                            <Globe className="h-3 w-3" /> {child.country} • {child.industry}
                          </div>
@@ -392,14 +392,14 @@ export default function CoreSettings() {
               >
                 <div className="grid gap-6 md:grid-cols-2 pt-4">
                    {(Array.isArray(group.items) ? group.items : []).map((item) => (
-                     <div key={item.id} className="p-8 rounded-[2.5rem] border border-border dark:border-border bg-white dark:bg-muted hover:shadow-2xl transition-all duration-500 group flex flex-col justify-between h-full">
+                     <div key={item.id} className="p-8 rounded-2xl border border-border dark:border-border bg-white dark:bg-muted hover:shadow-sm transition-all duration-500 group flex flex-col justify-between h-full">
                         <div className="space-y-6">
                           <div className="flex justify-between items-start">
                             <div className="h-14 w-14 rounded-2xl bg-muted dark:bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
                               <item.icon className="h-7 w-7" />
                             </div>
                             <Badge variant="outline" className={cn(
-                              "rounded-full px-4 py-1.5 text-[9px] font-black uppercase tracking-[0.2em]",
+                              "rounded-full px-4 py-1.5 text-label",
                               item.status === 'Connected' ? "bg-success text-success border-success" :
                               item.status === 'Error' ? "bg-destructive text-destructive border-destructive animate-pulse" :
                               "bg-muted text-muted-foreground border-border"
@@ -408,20 +408,20 @@ export default function CoreSettings() {
                             </Badge>
                           </div>
                           <div className="space-y-2">
-                            <h4 className="text-xl font-black uppercase tracking-tighter italic">{item.name}</h4>
+                            <h4 className="text-xl font-semibold tracking-tighter italic">{item.name}</h4>
                             <p className="text-xs font-medium text-muted-foreground leading-relaxed">{item.detail}</p>
                           </div>
                         </div>
                         <div className="pt-8 flex items-center gap-3">
                            <Button 
                              variant="outline" 
-                             className="flex-1 rounded-xl h-11 font-black text-[10px] uppercase tracking-widest"
+                             className="flex-1 rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest"
                              onClick={() => toast({ title: "Protocol Logs", description: `Fetching live telemetry for ${item.name}...` })}
                            >
                               PROTOCOL LOGS
                             </Button>
                            <Button 
-                             className="flex-1 rounded-xl h-11 font-black text-[10px] uppercase tracking-widest bg-primary hover:bg-primary text-white border-none"
+                             className="flex-1 rounded-xl h-11 font-bold text-[10px] uppercase tracking-widest bg-primary hover:bg-primary text-white border-none"
                              onClick={() => toast({ title: "Handshake Initiated", description: `Establishing secure link with ${item.name} gateway...` })}
                            >
                               {item.status === 'Connected' ? 'CONFIGURE' : 'ESTABLISH LINK'}
@@ -440,20 +440,20 @@ export default function CoreSettings() {
             title="Organizational Roles"
             description="Define permission clusters and access levels across the organization."
             action={
-              <Button variant="outline" className="rounded-xl h-10 gap-2 font-black text-[10px] uppercase tracking-widest border-border">
+              <Button variant="outline" className="rounded-xl h-10 gap-2 font-bold text-[10px] uppercase tracking-widest border-border">
                 <Plus className="h-3.5 w-3.5" /> ADD ROLE
               </Button>
             }
           >
             <div className="pt-4 overflow-hidden">
-               <div className="rounded-[2rem] border border-border overflow-hidden">
+               <div className="rounded-2xl border border-border overflow-hidden">
                   <Table>
                     <TableHeader>
                       <TableRow className="bg-muted border-none hover:bg-muted">
-                        <TableHead className="py-6 px-8 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Identity</TableHead>
-                        <TableHead className="py-6 px-8 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Description</TableHead>
-                        <TableHead className="py-6 px-8 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Users</TableHead>
-                        <TableHead className="py-6 px-8 text-[10px] font-black uppercase tracking-widest text-muted-foreground">Last Sync</TableHead>
+                        <TableHead className="py-6 px-8 text-[10px] font-semibold tracking-widest text-muted-foreground">Identity</TableHead>
+                        <TableHead className="py-6 px-8 text-[10px] font-semibold tracking-widest text-muted-foreground">Description</TableHead>
+                        <TableHead className="py-6 px-8 text-[10px] font-semibold tracking-widest text-muted-foreground">Users</TableHead>
+                        <TableHead className="py-6 px-8 text-[10px] font-semibold tracking-widest text-muted-foreground">Last Sync</TableHead>
                         <TableHead className="py-6 px-8 text-right"></TableHead>
                       </TableRow>
                     </TableHeader>
@@ -475,14 +475,14 @@ export default function CoreSettings() {
                                <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary transition-all">
                                   <Users className="h-5 w-5" />
                                </div>
-                               <span className="font-black text-xs uppercase tracking-tighter italic">{safeText(role.role)}</span>
+                               <span className="font-bold text-xs uppercase tracking-tighter italic">{safeText(role.role)}</span>
                             </div>
                           </TableCell>
                           <TableCell className="py-6 px-8">
                             <span className="text-[11px] font-medium text-muted-foreground leading-relaxed max-w-xs block">{safeText(role.description)}</span>
                           </TableCell>
                           <TableCell className="py-6 px-8">
-                            <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-[10px] font-black">{role.users ?? 0}</Badge>
+                            <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-[10px] font-bold">{role.users ?? 0}</Badge>
                           </TableCell>
                           <TableCell className="py-6 px-8 text-[10px] font-bold text-muted-foreground uppercase">{formatDate(role.lastUpdated)}</TableCell>
                           <TableCell className="py-6 px-8 text-right">
@@ -506,18 +506,18 @@ export default function CoreSettings() {
             description="Fiscal protocols, tax logic, and financial reporting parameters."
           >
             <div className="grid gap-8 md:grid-cols-2 pt-4">
-               <div className="space-y-4 p-8 rounded-[2.5rem] border border-border bg-muted">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Default Consumption Tax (%)</Label>
-                  <Input type="number" defaultValue={10} className="h-14 rounded-2xl font-black text-2xl border-none shadow-inner" />
+               <div className="space-y-4 p-8 rounded-2xl border border-border bg-muted">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Default Consumption Tax (%)</Label>
+                  <Input type="number" defaultValue={10} className="h-14 rounded-2xl font-bold text-2xl border-none shadow-inner" />
                   <p className="text-[10px] font-bold text-muted-foreground italic">"Global fallback rate for non-geocoded transactions."</p>
                </div>
-               <div className="space-y-4 p-8 rounded-[2.5rem] border border-border bg-muted">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Rounding Protocol</Label>
+               <div className="space-y-4 p-8 rounded-2xl border border-border bg-muted">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Rounding Protocol</Label>
                   <Select defaultValue="nearest">
-                     <SelectTrigger className="h-14 rounded-2xl font-black text-lg border-none shadow-inner">
+                     <SelectTrigger className="h-14 rounded-2xl font-bold text-lg border-none shadow-inner">
                         <SelectValue />
                      </SelectTrigger>
-                     <SelectContent className="rounded-2xl border-none shadow-2xl">
+                     <SelectContent className="rounded-2xl border-none shadow-sm">
                         <SelectItem value="nearest">Nearest Cent (Standard)</SelectItem>
                         <SelectItem value="floor">Floor (Strict Reconciliation)</SelectItem>
                         <SelectItem value="ceil">Ceiling (Tax Aggressive)</SelectItem>
@@ -530,16 +530,16 @@ export default function CoreSettings() {
       </div>
 
       <Dialog open={isAddingChild} onOpenChange={setIsAddingChild}>
-        <DialogContent className="sm:max-w-2xl rounded-[3rem] border-none shadow-2xl p-10 max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-2xl rounded-[3rem] border-none shadow-sm p-10 max-h-[90vh] overflow-y-auto">
           <DialogHeader className="space-y-4">
-            <DialogTitle className="text-4xl font-black tracking-tighter italic uppercase">Register Satellite Node</DialogTitle>
+            <DialogTitle className="text-4xl font-bold tracking-tighter italic uppercase">Register Satellite Node</DialogTitle>
             <DialogDescription className="font-medium text-muted-foreground uppercase tracking-widest text-[10px]">
               Initialize a new subsidiary entity within the organizational hierarchy.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-6 py-6">
             <div className="space-y-3">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Node Identity (Name)</Label>
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Node Identity (Name)</Label>
               <Input
                 placeholder="Enterprise Satellite Name"
                 className="h-12 rounded-xl border-border bg-muted focus:bg-white transition-all font-bold"
@@ -548,7 +548,7 @@ export default function CoreSettings() {
               />
             </div>
             <div className="space-y-3">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">HQ Physical Address</Label>
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">HQ Physical Address</Label>
               <Textarea
                 placeholder="Enter full physical address for this node"
                 className="rounded-xl border-border bg-muted focus:bg-white transition-all font-bold min-h-[80px]"
@@ -556,15 +556,15 @@ export default function CoreSettings() {
                 onChange={(e) => setNewChild({ ...newChild, address: e.target.value })}
               />
             </div>
-            <div className="p-6 bg-primary rounded-[2rem] border border-primary space-y-6">
+            <div className="p-6 bg-primary rounded-2xl border border-primary space-y-6">
               <div className="flex items-center justify-between">
-                <label className="text-[10px] font-black text-primary uppercase tracking-widest flex items-center gap-2">
+                <label className="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                   <Globe className="w-3.5 h-3.5" /> Geospatial Anchoring
                 </label>
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Latitude</Label>
+                  <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Latitude</Label>
                   <Input
                     type="number"
                     step="any"
@@ -577,7 +577,7 @@ export default function CoreSettings() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Longitude</Label>
+                  <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Longitude</Label>
                   <Input
                     type="number"
                     step="any"
@@ -592,8 +592,8 @@ export default function CoreSettings() {
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Geofence Radius</Label>
-                  <span className="text-[10px] font-black text-primary">{newChild.geofence_radius ?? 200}m</span>
+                  <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Geofence Radius</Label>
+                  <span className="text-[10px] font-bold text-primary">{newChild.geofence_radius ?? 200}m</span>
                 </div>
                 <input
                   type="range"
@@ -610,12 +610,12 @@ export default function CoreSettings() {
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div className="space-y-3">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Industry Vector</Label>
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Industry Vector</Label>
                 <Select value={newChild.industry} onValueChange={(val) => setNewChild({ ...newChild, industry: val })}>
                   <SelectTrigger className="h-12 rounded-xl border-border bg-muted font-bold">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="rounded-xl border-none shadow-2xl">
+                  <SelectContent className="rounded-xl border-none shadow-sm">
                     <SelectItem value="retail">Retail Operations</SelectItem>
                     <SelectItem value="logistics">Logistics</SelectItem>
                     <SelectItem value="services">Service Suite</SelectItem>
@@ -623,12 +623,12 @@ export default function CoreSettings() {
                 </Select>
               </div>
               <div className="space-y-3">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Jurisdiction</Label>
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">Jurisdiction</Label>
                 <Select value={newChild.country} onValueChange={(val) => setNewChild({ ...newChild, country: val })}>
                   <SelectTrigger className="h-12 rounded-xl border-border bg-muted font-bold">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent className="rounded-xl border-none shadow-2xl">
+                  <SelectContent className="rounded-xl border-none shadow-sm">
                     <SelectItem value="US">USA (USD)</SelectItem>
                     <SelectItem value="ID">IDN (IDR)</SelectItem>
                     <SelectItem value="SG">SGP (SGD)</SelectItem>
@@ -638,13 +638,13 @@ export default function CoreSettings() {
             </div>
           </div>
           <DialogFooter className="gap-4 pt-4">
-            <Button variant="ghost" onClick={() => setIsAddingChild(false)} className="rounded-xl h-14 px-8 font-black text-xs uppercase tracking-widest">
+            <Button variant="ghost" onClick={() => setIsAddingChild(false)} className="rounded-xl h-14 px-8 font-bold text-xs uppercase tracking-widest">
               ABORT
             </Button>
             <Button
               disabled={saving || !newChild.name}
               onClick={handleCreateChildCompany}
-              className="rounded-2xl h-14 px-10 font-black text-xs uppercase tracking-widest bg-primary hover:bg-primary text-white shadow-xl shadow-indigo-500/20"
+              className="rounded-2xl h-14 px-10 font-bold text-xs uppercase tracking-widest bg-primary hover:bg-primary text-white shadow-sm shadow-indigo-500/20"
             >
               {saving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
               INITIALIZE NODE
@@ -653,32 +653,32 @@ export default function CoreSettings() {
         </DialogContent>
       </Dialog>
       <Dialog open={isChildDetailOpen} onOpenChange={setIsChildDetailOpen}>
-        <DialogContent className="sm:max-w-2xl rounded-[4rem] border-none shadow-2xl p-14 bg-white dark:bg-muted">
+        <DialogContent className="sm:max-w-2xl rounded-[4rem] border-none shadow-sm p-14 bg-white dark:bg-muted">
           {selectedChild && (
             <div className="space-y-10">
                <div className="flex justify-between items-start">
                   <div className="space-y-2">
-                     <Badge className="bg-success text-white border-none font-black text-[9px] px-3 py-1 rounded-full uppercase tracking-widest">Active Satellite</Badge>
-                     <h2 className="text-5xl font-black tracking-tighter italic uppercase">{selectedChild.name}</h2>
+                     <Badge className="bg-success text-white border-none font-bold text-[9px] px-3 py-1 rounded-full uppercase tracking-widest">Active Satellite</Badge>
+                     <h2 className="text-5xl font-bold tracking-tighter italic uppercase">{selectedChild.name}</h2>
                      <p className="text-sm font-bold text-muted-foreground">NODE ID: {selectedChild.code}</p>
                   </div>
-                  <div className="h-20 w-20 rounded-[2rem] bg-muted dark:bg-muted flex items-center justify-center shadow-inner">
+                  <div className="h-20 w-20 rounded-2xl bg-muted dark:bg-muted flex items-center justify-center shadow-inner">
                      <Building2 className="h-10 w-10 text-primary" />
                   </div>
                </div>
                <div className="grid grid-cols-2 gap-10">
                   <div className="space-y-2">
-                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Sector</p>
-                     <p className="text-lg font-black italic">{selectedChild.industry?.toUpperCase() || "RETAIL"}</p>
+                     <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Sector</p>
+                     <p className="text-lg font-bold">{selectedChild.industry?.toUpperCase() || "RETAIL"}</p>
                   </div>
                   <div className="space-y-2 text-right">
-                     <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Jurisdiction</p>
-                     <p className="text-lg font-black italic">{selectedChild.country?.toUpperCase() || "US"}</p>
+                     <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Jurisdiction</p>
+                     <p className="text-lg font-bold">{selectedChild.country?.toUpperCase() || "US"}</p>
                   </div>
                </div>
                <Separator className="bg-muted" />
                <div className="space-y-4">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Satellite Telemetry</p>
+                  <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Satellite Telemetry</p>
                   <div className="grid grid-cols-3 gap-6">
                      {[
                        { label: "Active Staff", value: "14" },
@@ -686,17 +686,17 @@ export default function CoreSettings() {
                        { label: "Sync Status", value: "100%" },
                      ].map((stat, i) => (
                        <div key={i} className="p-6 rounded-3xl bg-muted dark:bg-muted border border-border dark:border-border text-center space-y-1">
-                          <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
-                          <p className="text-xl font-black italic">{stat.value}</p>
+                          <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+                          <p className="text-xl font-bold">{stat.value}</p>
                        </div>
                      ))}
                   </div>
                </div>
                <div className="flex gap-4">
-                  <Button variant="outline" className="flex-1 rounded-2xl h-14 font-black text-xs uppercase tracking-widest border-border">
+                  <Button variant="outline" className="flex-1 rounded-2xl h-14 font-bold text-xs uppercase tracking-widest border-border">
                     SATELLITE LOGS
                   </Button>
-                  <Button className="flex-1 rounded-2xl h-14 font-black text-xs uppercase tracking-widest bg-primary hover:bg-primary text-white shadow-xl shadow-indigo-500/20">
+                  <Button className="flex-1 rounded-2xl h-14 font-bold text-xs uppercase tracking-widest bg-primary hover:bg-primary text-white shadow-sm shadow-indigo-500/20">
                     REMOTE ACCESS
                   </Button>
                </div>
@@ -722,7 +722,7 @@ export default function CoreSettings() {
       headerActions={
         <Button
           disabled={saving}
-          className="rounded-[1.5rem] px-8 h-12 font-black text-xs uppercase tracking-widest bg-primary hover:bg-primary shadow-xl shadow-indigo-500/20"
+          className="rounded-xl px-8 h-12 font-bold text-xs uppercase tracking-widest bg-primary hover:bg-primary shadow-sm shadow-indigo-500/20"
           onClick={activeTab === 'general' ? handleSaveProfile : handleSavePreferences}
         >
           {saving ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}

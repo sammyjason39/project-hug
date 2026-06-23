@@ -53,7 +53,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
         >
           <LayoutGrid className="w-7 h-7" />
         </div>
-        <span className="text-[9px] font-black uppercase tracking-[0.2em] italic text-center">
+        <span className="text-label italic text-center">
           ALL SKUS
         </span>
       </button>
@@ -82,7 +82,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
             >
               <Icon className="w-7 h-7" />
             </div>
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] italic text-center">
+            <span className="text-label italic text-center">
               {cat.name}
             </span>
             {isActive && (

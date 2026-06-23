@@ -148,7 +148,7 @@ export function CoreLayout() {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed lg:static inset-y-0 left-0 z-50 bg-sidebar text-sidebar-foreground transition-all duration-300 ease-in-out border-r border-sidebar-border shadow-xl",
+          "fixed lg:static inset-y-0 left-0 z-50 bg-sidebar text-sidebar-foreground transition-all duration-300 ease-in-out border-r border-sidebar-border",
           sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
           isCollapsed ? "w-20" : "w-64"
         )}
@@ -157,7 +157,7 @@ export function CoreLayout() {
           {/* Collapse Toggle Button (Desktop) */}
           <button
             onClick={toggleSidebar}
-            className="hidden lg:flex absolute -right-3 top-20 w-6 h-6 bg-primary text-primary-foreground rounded-full items-center justify-center border border-sidebar-border shadow-md hover:scale-110 transition-transform z-50"
+            className="hidden lg:flex absolute -right-3 top-20 w-6 h-6 bg-foreground text-background rounded-full items-center justify-center border border-border transition-transform z-50 hover:scale-105"
           >
             {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
           </button>
@@ -168,14 +168,14 @@ export function CoreLayout() {
             isCollapsed ? "justify-center" : "px-4"
           )}>
             <div className="flex items-center gap-3">
-              <div className="shrink-0 w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shadow-inner">
+              <div className="shrink-0 w-9 h-9 rounded-xl bg-accent flex items-center justify-center border border-border">
                 <LayoutDashboard
                   size={20}
                   className="text-primary"
                 />
               </div>
               {!isCollapsed && (
-                <span className="font-bold text-lg whitespace-nowrap animate-in fade-in slide-in-from-left-2">
+                <span className="font-bold text-lg tracking-tight whitespace-nowrap">
                   {settings?.businessName || "OpsCore"}
                 </span>
               )}
@@ -198,7 +198,7 @@ export function CoreLayout() {
               {(Array.isArray(navSections) ? navSections : []).map((section) => (
                 <div key={section.title} className="space-y-2">
                   {!isCollapsed ? (
-                    <p className="px-3 pb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 animate-in fade-in">
+                    <p className="px-3 pb-1 text-label">
                       {section.title}
                     </p>
                   ) : (
@@ -214,20 +214,17 @@ export function CoreLayout() {
                           cn(
                             "group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative",
                             isActive || (path !== '/core' && location.pathname.startsWith(path))
-                              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                              : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-foreground hover:translate-x-1",
-                            isCollapsed && "justify-center px-0 hover:translate-x-0"
+                              ? "bg-foreground text-background"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                            isCollapsed && "justify-center px-0"
                           )
                         }
                         onClick={() => setSidebarOpen(false)}
                         title={isCollapsed ? label : undefined}
                       >
-                        <Icon size={isCollapsed ? 22 : 18} className={cn(
-                          "transition-transform",
-                          !isCollapsed && "group-hover:scale-110"
-                        )} />
+                        <Icon size={isCollapsed ? 22 : 18} />
                         {!isCollapsed && (
-                          <span className="flex-1 whitespace-nowrap animate-in fade-in slide-in-from-left-1">{label}</span>
+                          <span className="flex-1 whitespace-nowrap">{label}</span>
                         )}
                         
                         {/* Tooltip for collapsed mode */}
@@ -239,7 +236,7 @@ export function CoreLayout() {
 
                         {badgeKey && unreadCounts && unreadCounts[badgeKey] > 0 && (
                           <span className={cn(
-                            "bg-destructive text-[10px] font-black text-destructive-foreground rounded-full flex items-center justify-center shadow-lg shadow-destructive/20 animate-in zoom-in",
+                            "bg-destructive text-[10px] font-semibold text-destructive-foreground rounded-full flex items-center justify-center",
                             isCollapsed ? "absolute top-1 right-1 h-4 w-4" : "h-5 min-w-[20px] px-1"
                           )}>
                             {isCollapsed ? '' : (unreadCounts[badgeKey] > 9 ? '9+' : unreadCounts[badgeKey])}
@@ -254,7 +251,7 @@ export function CoreLayout() {
           </ScrollArea>
 
           {/* Footer */}
-          <div className="p-4 border-t border-sidebar-border space-y-4 bg-sidebar/50">
+          <div className="p-4 border-t border-sidebar-border space-y-4">
             {!isCollapsed && <OfflineIndicator showText className="text-sidebar-foreground/70" />}
 
             <div className={cn(
@@ -290,14 +287,14 @@ export function CoreLayout() {
                 <p className="text-sm font-semibold text-sidebar-foreground truncate">
                   {appState.currentUser.name}
                 </p>
-                <p className="text-[10px] text-muted-foreground/80 uppercase tracking-tighter font-bold">
+                <p className="text-label">
                   {appState.currentUser.role}
                 </p>
               </div>
             )}
             {appState.currentUser && isCollapsed && (
               <div className="flex justify-center pt-1 group relative">
-                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
+                <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-[10px] font-bold text-primary border border-border">
                   {appState.currentUser.name.charAt(0)}
                 </div>
                 <div className="absolute left-full ml-4 px-2 py-1 bg-popover text-popover-foreground text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-50 shadow-md whitespace-nowrap">

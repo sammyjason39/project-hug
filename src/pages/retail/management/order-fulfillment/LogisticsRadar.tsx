@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 export const LogisticsRadar = () => {
   return (
-    <Card className="rounded-2xl bg-white border-border shadow-xl p-8 space-y-8">
-      <div className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+    <Card className="rounded-2xl bg-white border-border shadow-sm p-8 space-y-8">
+      <div className="text-[10px] font-semibold tracking-widest text-muted-foreground">
         Logistics Radar
       </div>
       <div className="space-y-6">
@@ -18,12 +18,12 @@ export const LogisticsRadar = () => {
         ].map((c, i) => (
           <div key={i} className="space-y-2">
             <div className="flex justify-between items-center italic">
-              <span className="text-xs font-black text-muted-foreground">
+              <span className="text-xs font-bold text-muted-foreground">
                 {c.courier}
               </span>
               <span
                 className={cn(
-                  "text-[9px] font-black",
+                  "text-[9px] font-bold",
                   c.load > 80 ? "text-warning" : "text-success",
                 )}
               >
@@ -39,7 +39,7 @@ export const LogisticsRadar = () => {
           <Printer className="w-5 h-5" />
         </div>
         <div>
-          <div className="text-[10px] font-black text-primary uppercase italic">
+          <div className="text-[10px] font-bold text-primary uppercase italic">
             Label Station B-2
           </div>
           <div className="text-[10px] text-primary font-bold uppercase italic tracking-tighter">

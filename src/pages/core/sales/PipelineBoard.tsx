@@ -131,10 +131,10 @@ export default function PipelineBoard() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
             <Layers className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Syncing Pipeline Matrix...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Syncing Pipeline Matrix...</p>
         </div>
       </div>
     );
@@ -146,13 +146,13 @@ export default function PipelineBoard() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Flow</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Strategic Flow</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <ActivitySquare className="h-4 w-4 animate-pulse" />
                Live Board Matrix
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground italic">Pipeline Matrix</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground italic">Pipeline Matrix</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"Execution is everything. The board is your battlefield for high-value conversions."</p>
         </div>
         
@@ -161,21 +161,21 @@ export default function PipelineBoard() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <Input 
               placeholder="Filter opportunities..." 
-              className="pl-12 h-14 bg-white/50 dark:bg-muted backdrop-blur-xl border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
+              className="pl-12 h-14 bg-card dark:bg-muted border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-110 transition-all"
+            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-110 transition-all"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
             <RefreshCw className={cn("h-6 w-6 text-primary", refreshing && "animate-spin")} />
           </Button>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
             onClick={() => navigate("/core/sales/intelligence")}
           >
             <Filter className="h-6 w-6 group-hover:rotate-180 transition-transform duration-500" /> 
@@ -195,36 +195,36 @@ export default function PipelineBoard() {
               
               return (
                 <div key={stage} className="flex flex-col w-[350px] shrink-0 group">
-                  <div className="flex items-center justify-between p-5 mb-6 rounded-[2rem] bg-white/40 dark:bg-muted backdrop-blur-xl border border-white/20 dark:border-border/20 shadow-xl group-hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-center justify-between p-5 mb-6 rounded-2xl bg-card dark:bg-muted border border-border dark:border-border/20 shadow-sm group-hover:shadow-sm transition-all duration-500">
                      <div className="flex items-center gap-4">
                         <div className={cn("h-4 w-4 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]", STAGE_COLORS[stage])} />
-                        <p className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground">{stage.replace('_', ' ')}</p>
+                        <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground">{stage.replace('_', ' ')}</p>
                      </div>
-                     <Badge className="bg-primary text-primary font-black border-none rounded-full px-3 py-1 text-[10px]">
+                     <Badge className="bg-primary text-primary font-bold border-none rounded-full px-3 py-1 text-[10px]">
                         {filteredOpps.length}
                      </Badge>
                   </div>
 
-                  <div className="flex-1 space-y-6 p-4 rounded-[2.5rem] bg-muted dark:bg-muted border-2 border-dashed border-border/50 dark:border-border/50 transition-colors group-hover:border-primary">
+                  <div className="flex-1 space-y-6 p-4 rounded-2xl bg-muted dark:bg-muted border-2 border-dashed border-border/50 dark:border-border/50 transition-colors group-hover:border-primary">
                     {filteredOpps.length === 0 ? (
                       <div className="h-48 flex flex-col items-center justify-center text-center p-8 space-y-4 opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700">
                          <div className="h-16 w-16 rounded-full border-2 border-dashed border-border flex items-center justify-center">
                             <Box className="h-6 w-6 text-muted-foreground" />
                          </div>
-                         <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Empty Strategic Node</p>
+                         <p className="text-[10px] font-semibold tracking-widest text-muted-foreground">Empty Strategic Node</p>
                       </div>
                     ) : (
                       (Array.isArray(filteredOpps) ? filteredOpps : []).map((item) => (
                         <Card 
                           key={item.id} 
-                          className="group/card relative overflow-hidden rounded-[2rem] border-none shadow-xl bg-white dark:bg-muted hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 cursor-default"
+                          className="group/card relative overflow-hidden rounded-2xl border-none shadow-sm bg-white dark:bg-muted hover:shadow-sm hover:-translate-y-2 transition-all duration-500 cursor-default"
                         >
                            <div className={cn("absolute top-0 left-0 h-full w-2 shadow-[2px_0_10px_rgba(0,0,0,0.05)]", STAGE_COLORS[stage])} />
                            <CardContent className="p-7 space-y-6">
                               <div className="flex justify-between items-start">
                                  <div className="space-y-1">
-                                    <h3 className="font-black text-lg tracking-tight leading-tight line-clamp-1 uppercase italic">{item.accountName}</h3>
-                                    <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest italic opacity-60">Deal Protocol: {item.id.substring(0, 8)}</p>
+                                    <h3 className="font-bold text-lg tracking-tight leading-tight line-clamp-1 uppercase italic">{item.accountName}</h3>
+                                    <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest italic opacity-60">Deal Protocol: {item.id.substring(0, 8)}</p>
                                  </div>
                                  <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
@@ -232,8 +232,8 @@ export default function PipelineBoard() {
                                           <MoreVertical className="h-5 w-5 text-muted-foreground" />
                                        </Button>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="rounded-2xl border-none shadow-2xl p-2 w-64" align="end">
-                                       <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-50 px-3 py-2">Tactical Actions</DropdownMenuLabel>
+                                    <DropdownMenuContent className="rounded-2xl border-none shadow-sm p-2 w-64" align="end">
+                                       <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-50 px-3 py-2">Tactical Actions</DropdownMenuLabel>
                                        <DropdownMenuSeparator />
                                        <DropdownMenuItem className="gap-3 py-3 rounded-xl text-xs font-bold" onClick={() => window.open(`/sales/opportunities?id=${item.id}`, '_blank')}><ChevronRight className="h-4 w-4" /> View Strategic Context</DropdownMenuItem>
                                        <DropdownMenuItem className="gap-3 py-3 rounded-xl text-xs font-bold" 
@@ -253,15 +253,15 @@ export default function PipelineBoard() {
                                  </div>
                                  <div className="space-y-0.5">
                                     <div className="flex items-baseline gap-1.5">
-                                       <span className="text-3xl font-black tracking-tighter text-primary italic">{formatCurrency(item.amount, item.currency)}</span>
-                                       <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{item.currency}</span>
+                                       <span className="text-3xl font-bold tracking-tighter text-primary italic">{formatCurrency(item.amount, item.currency)}</span>
+                                       <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{item.currency}</span>
                                     </div>
-                                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground italic">Projected Valuation</p>
+                                    <p className="text-label text-muted-foreground italic">Projected Valuation</p>
                                  </div>
                               </div>
 
                               <div className="space-y-4 pt-2">
-                                 <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">
+                                 <div className="flex justify-between items-center text-[10px] font-semibold tracking-widest text-muted-foreground italic">
                                     <span className="flex items-center gap-2"><Target className="h-3.5 w-3.5 text-primary" /> CONVERSION PROBABILITY</span>
                                     <span className="text-primary">{item.probability}%</span>
                                  </div>
@@ -274,13 +274,13 @@ export default function PipelineBoard() {
                               </div>
 
                               <div className="flex items-center justify-between pt-4 border-t border-border dark:border-border">
-                                 <Badge variant="secondary" className="bg-muted dark:bg-muted text-muted-foreground border-none rounded-full px-4 py-1.5 text-[9px] font-black uppercase tracking-widest italic shadow-sm">
+                                 <Badge variant="secondary" className="bg-muted dark:bg-muted text-muted-foreground border-none rounded-full px-4 py-1.5 text-label italic shadow-sm">
                                     {item.health.replace('_', ' ')} PULSE
                                  </Badge>
                                  
                                  <div className="flex -space-x-3">
                                     {[1, 2].map(i => (
-                                      <div key={i} className="h-9 w-9 rounded-full border-2 border-white dark:border-border bg-muted dark:bg-muted flex items-center justify-center text-[10px] font-black text-primary shadow-md uppercase">
+                                      <div key={i} className="h-9 w-9 rounded-full border-2 border-white dark:border-border bg-muted dark:bg-muted flex items-center justify-center text-[10px] font-bold text-primary shadow-md uppercase">
                                          {item.owner_name?.charAt(0) || "U"}
                                       </div>
                                     ))}
@@ -292,11 +292,11 @@ export default function PipelineBoard() {
                                    value={item.stage}
                                    onValueChange={(value: OpportunityStage) => moveStage(item.id, value)}
                                  >
-                                   <SelectTrigger className="h-12 rounded-2xl border-none bg-muted dark:bg-muted hover:bg-muted transition-all text-[10px] font-black uppercase tracking-widest shadow-inner group-hover/card:bg-white dark:group-hover/card:bg-muted">
+                                   <SelectTrigger className="h-12 rounded-2xl border-none bg-muted dark:bg-muted hover:bg-muted transition-all text-[10px] font-semibold tracking-widest shadow-inner group-hover/card:bg-white dark:group-hover/card:bg-muted">
                                      <SelectValue placeholder="Transition Stage" />
                                    </SelectTrigger>
-                                   <SelectContent className="rounded-2xl border-none shadow-2xl p-2 w-64">
-                                     <DropdownMenuLabel className="text-[10px] font-black uppercase tracking-widest opacity-50 px-3 py-2">Transition Matrix</DropdownMenuLabel>
+                                   <SelectContent className="rounded-2xl border-none shadow-sm p-2 w-64">
+                                     <DropdownMenuLabel className="text-[10px] font-semibold tracking-widest opacity-50 px-3 py-2">Transition Matrix</DropdownMenuLabel>
                                      <DropdownMenuSeparator />
                                      {(Array.isArray(STAGES) ? STAGES : []).map((candidate) => (
                                        <SelectItem key={candidate} value={candidate} className="rounded-xl text-xs font-bold py-3">
@@ -320,22 +320,22 @@ export default function PipelineBoard() {
 
       {/* Footer Tactical Intelligence Overlay */}
       <div className="fixed bottom-12 right-12 flex gap-6 pointer-events-none">
-         <Card className="rounded-[2.5rem] border-none shadow-2xl bg-primary text-white p-8 flex items-center gap-8 pointer-events-auto hover:scale-105 transition-transform duration-500 cursor-default">
-            <div className="h-16 w-16 rounded-[1.5rem] bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-2xl">
+         <Card className="rounded-2xl border-none shadow-sm bg-primary text-white p-8 flex items-center gap-8 pointer-events-auto hover:scale-105 transition-transform duration-500 cursor-default">
+            <div className="h-16 w-16 rounded-xl bg-white/20 flex items-center justify-center border border-border shadow-sm">
                <TrendingUp className="h-8 w-8 text-white" />
             </div>
             <div>
-               <p className="text-[11px] font-black uppercase tracking-[0.2em] opacity-60 italic">Aggregate Nominal Yield</p>
-               <h4 className="text-4xl font-black tracking-tighter italic">{formatCurrency(aggregateValue)}</h4>
+               <p className="text-[11px] font-semibold tracking-[0.2em] opacity-60 italic">Aggregate Nominal Yield</p>
+               <h4 className="text-4xl font-bold tracking-tighter italic">{formatCurrency(aggregateValue)}</h4>
             </div>
          </Card>
-         <Card className="rounded-[2.5rem] border-none shadow-2xl bg-white dark:bg-muted p-8 flex items-center gap-8 pointer-events-auto hover:scale-105 transition-transform duration-500 cursor-default">
-            <div className="h-16 w-16 rounded-[1.5rem] bg-success flex items-center justify-center shadow-inner">
+         <Card className="rounded-2xl border-none shadow-sm bg-white dark:bg-muted p-8 flex items-center gap-8 pointer-events-auto hover:scale-105 transition-transform duration-500 cursor-default">
+            <div className="h-16 w-16 rounded-xl bg-success flex items-center justify-center shadow-inner">
                <Rocket className="h-8 w-8 text-success" />
             </div>
             <div>
-               <p className="text-[11px] font-black uppercase tracking-[0.2em] text-muted-foreground italic">Strategic Velocity</p>
-               <h4 className="text-4xl font-black tracking-tighter text-success italic">+12.4%</h4>
+               <p className="text-[11px] font-semibold tracking-[0.2em] text-muted-foreground italic">Strategic Velocity</p>
+               <h4 className="text-4xl font-bold tracking-tighter text-success italic">+12.4%</h4>
             </div>
          </Card>
       </div>

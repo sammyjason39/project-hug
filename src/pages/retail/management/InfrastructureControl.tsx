@@ -138,13 +138,13 @@ const InfrastructureControl = () => {
       ) : null}
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-white/[0.03] border border-white/5 text-foreground shadow-2xl relative overflow-hidden group backdrop-blur-3xl">
+        <Card className="bg-white/[0.03] border border-border text-foreground shadow-sm relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
              <Activity className="w-16 h-16" />
           </div>
           <CardContent className="p-6">
-            <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Active Nodes</div>
-            <div className="text-3xl font-black italic tracking-tighter flex items-end gap-2 text-foreground">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">Active Nodes</div>
+            <div className="text-3xl font-bold tracking-tighter flex items-end gap-2 text-foreground">
               {(Array.isArray(nodes) ? nodes : []).filter(n => n.status === "ACTIVE").length}
               <span className="text-sm font-bold text-muted-foreground mb-1">/ {nodes.length}</span>
             </div>
@@ -155,20 +155,20 @@ const InfrastructureControl = () => {
           </CardContent>
         </Card>
 
-        <Card className="border border-white/5 bg-white/[0.03] shadow-2xl backdrop-blur-3xl">
+        <Card className="border border-border bg-white/[0.03] shadow-sm">
           <CardContent className="p-6">
-            <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Load Balancers</div>
-            <div className="text-3xl font-black italic tracking-tighter text-foreground">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">Load Balancers</div>
+            <div className="text-3xl font-bold tracking-tighter text-foreground">
               {lbs.length}
             </div>
             <Progress value={((Array.isArray(nodes) ? nodes : []).filter(n => n.status === "ACTIVE").length / (nodes.length || 1)) * 100} className="h-1.5 mt-4 bg-white/10" />
           </CardContent>
         </Card>
 
-        <Card className="border border-white/5 bg-white/[0.03] shadow-2xl backdrop-blur-3xl">
+        <Card className="border border-border bg-white/[0.03] shadow-sm">
           <CardContent className="p-6">
-            <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Avg. Node Health</div>
-            <div className="text-3xl font-black italic tracking-tighter text-foreground">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">Avg. Node Health</div>
+            <div className="text-3xl font-bold tracking-tighter text-foreground">
               {nodes.length > 0
                 ? `${Math.round((Array.isArray(nodes) ? nodes : []).reduce((sum, n) => sum + (n.healthScore || 0), 0) / nodes.length)}%`
                 : "—"}
@@ -180,10 +180,10 @@ const InfrastructureControl = () => {
           </CardContent>
         </Card>
 
-        <Card className="border border-white/5 bg-white/[0.03] shadow-2xl backdrop-blur-3xl">
+        <Card className="border border-border bg-white/[0.03] shadow-sm">
           <CardContent className="p-6">
-            <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Provisioning Queue</div>
-            <div className="text-3xl font-black italic tracking-tighter text-foreground">
+            <div className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">Provisioning Queue</div>
+            <div className="text-3xl font-bold tracking-tighter text-foreground">
               {requests.length}
             </div>
             <div className="flex items-center gap-2 mt-4 text-[10px] font-bold text-success uppercase">
@@ -201,7 +201,7 @@ const InfrastructureControl = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-3">
                 <Network className="w-6 h-6 text-primary" />
-                <h2 className="text-xl font-black italic uppercase tracking-tighter text-foreground">Edge Clusters & Load Balancers</h2>
+                <h2 className="text-xl font-semibold tracking-tighter text-foreground">Edge Clusters & Load Balancers</h2>
               </div>
               <Button disabled title="Not available yet" size="sm" variant="outline" className="rounded-xl font-bold gap-2">
                 <Plus className="w-4 h-4" /> Provision Cluster
@@ -210,12 +210,12 @@ const InfrastructureControl = () => {
 
             <div className="grid grid-cols-1 gap-6">
               {(Array.isArray(lbs) ? lbs : []).map(lb => (
-                <Card key={lb.id} className="border border-white/5 bg-white/[0.03] rounded-3xl overflow-hidden shadow-2xl backdrop-blur-3xl">
-                  <div className="bg-white/[0.02] p-4 border-b border-white/5 flex justify-between items-center">
+                <Card key={lb.id} className="border border-border bg-white/[0.03] rounded-3xl overflow-hidden shadow-sm">
+                  <div className="bg-white/[0.02] p-4 border-b border-border flex justify-between items-center">
                     <div className="flex items-center gap-4">
                       <div className={`w-3 h-3 rounded-full ${lb.status === 'ONLINE' ? 'bg-success animate-pulse' : 'bg-destructive'}`} />
                       <div>
-                        <div className="text-sm font-black italic text-foreground">{lb.name}</div>
+                        <div className="text-sm font-bold text-foreground">{lb.name}</div>
                         <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">VIP: {lb.virtualIp || 'Pending...'} • {lb.algorithm}</div>
                       </div>
                     </div>
@@ -227,14 +227,14 @@ const InfrastructureControl = () => {
                   <CardContent className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {(Array.isArray(lb.nodes) ? lb.nodes : []).map(node => (
-                        <div key={node.id} className="bg-white/[0.02] border border-white/5 rounded-2xl p-5 hover:border-primary transition-all group">
+                        <div key={node.id} className="bg-white/[0.02] border border-border rounded-2xl p-5 hover:border-primary transition-all group">
                           <div className="flex justify-between items-start mb-4">
                             <div className="flex items-center gap-3">
                               <div className="w-10 h-10 rounded-xl bg-white/5 text-foreground flex items-center justify-center">
                                 <Cpu className="w-5 h-5" />
                               </div>
                               <div>
-                                <div className="text-sm font-black italic text-foreground leading-tight">{node.nodeName}</div>
+                                <div className="text-sm font-bold text-foreground leading-tight">{node.nodeName}</div>
                                 <div className="text-[10px] text-muted-foreground font-bold uppercase">{node.ipAddress}:{node.port}</div>
                               </div>
                             </div>
@@ -246,15 +246,15 @@ const InfrastructureControl = () => {
                                 <DropdownMenuTrigger asChild>
                                   <Button variant="ghost" size="icon" className="h-6 w-6 text-muted-foreground"><MoreVertical className="w-3 h-3" /></Button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-40 p-1 rounded-xl border-none shadow-2xl">
+                                <DropdownMenuContent align="end" className="w-40 p-1 rounded-xl border-none shadow-sm">
                                   <DropdownMenuItem 
-                                    className="rounded-lg gap-2 font-black italic text-[10px] uppercase tracking-widest py-2 cursor-pointer"
+                                    className="rounded-lg gap-2 font-bold text-[10px] uppercase tracking-widest py-2 cursor-pointer"
                                     onClick={() => handleNodeAction(node.id, "RESET")}
                                   >
                                     <RefreshCw className="w-3 h-3" /> Reset Node
                                   </DropdownMenuItem>
                                   <DropdownMenuItem 
-                                    className="rounded-lg gap-2 font-black italic text-[10px] uppercase tracking-widest py-2 cursor-pointer"
+                                    className="rounded-lg gap-2 font-bold text-[10px] uppercase tracking-widest py-2 cursor-pointer"
                                     onClick={() => handleNodeAction(node.id, "REPAIR")}
                                   >
                                     <Zap className="w-3 h-3" /> Repair Node
@@ -282,9 +282,9 @@ const InfrastructureControl = () => {
                       
                       {/* Fake Node for Visuals if list is empty */}
                       {(!lb.nodes || lb.nodes.length === 0) && (
-                         <div className="border-2 border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center opacity-50">
+                         <div className="border-2 border-dashed border-border rounded-2xl p-6 flex flex-col items-center justify-center text-center opacity-50">
                             <Server className="w-8 h-8 text-muted-foreground mb-2" />
-                            <div className="text-[10px] font-black uppercase text-muted-foreground">No nodes attached</div>
+                            <div className="text-[10px] font-semibold text-muted-foreground">No nodes attached</div>
                          </div>
                       )}
                     </div>
@@ -299,13 +299,13 @@ const InfrastructureControl = () => {
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-3">
                 <ArrowUpRight className="w-6 h-6 text-primary" />
-                <h2 className="text-xl font-black italic uppercase tracking-tighter text-foreground">IT Provisioning Tracker</h2>
+                <h2 className="text-xl font-semibold tracking-tighter text-foreground">IT Provisioning Tracker</h2>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {(Array.isArray(requests) ? requests : []).map(req => (
-                <Card key={req.id} className="border border-white/5 bg-white/[0.03] rounded-3xl overflow-hidden hover:border-primary transition-all shadow-2xl backdrop-blur-3xl">
+                <Card key={req.id} className="border border-border bg-white/[0.03] rounded-3xl overflow-hidden hover:border-primary transition-all shadow-sm">
                   <CardContent className="p-5">
                     <div className="flex justify-between items-start mb-4">
                       <div className="w-10 h-10 rounded-xl bg-white/5 text-primary flex items-center justify-center">
@@ -319,7 +319,7 @@ const InfrastructureControl = () => {
                       </Badge>
                     </div>
                     <div className="space-y-1 mb-4">
-                      <div className="text-sm font-black italic text-foreground leading-tight">{req.name}</div>
+                      <div className="text-sm font-bold text-foreground leading-tight">{req.name}</div>
                       <div className="text-[10px] text-muted-foreground font-bold uppercase">SKU: {req.sku}</div>
                     </div>
                     <Separator className="my-3 opacity-10" />
@@ -336,11 +336,11 @@ const InfrastructureControl = () => {
                 </Card>
               ))}
               {requests.length === 0 && (
-                <div className="col-span-full border-2 border-dashed border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center text-center">
+                <div className="col-span-full border-2 border-dashed border-border rounded-3xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4">
                     <Network className="w-6 h-6 text-muted-foreground/60" />
                   </div>
-                  <div className="text-sm font-black italic text-muted-foreground uppercase tracking-widest">No Active Provisioning Requests</div>
+                  <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No Active Provisioning Requests</div>
                   <p className="text-[10px] text-muted-foreground mt-2 font-medium">Use the IT Tech Shop to request new hardware nodes.</p>
                 </div>
               )}
@@ -348,17 +348,17 @@ const InfrastructureControl = () => {
           </section>
 
           {/* Infrastructure Logs section */}
-          <section className="bg-white/[0.02] rounded-2xl p-8 border border-white/5 backdrop-blur-3xl">
+          <section className="bg-white/[0.02] rounded-2xl p-8 border border-border">
              <div className="flex items-center gap-3 mb-6">
                 <BarChart3 className="w-6 h-6 text-foreground" />
-                <h2 className="text-xl font-black italic uppercase tracking-tighter text-foreground">Infrastructure Events</h2>
+                <h2 className="text-xl font-semibold tracking-tighter text-foreground">Infrastructure Events</h2>
              </div>
 
-             <div className="border-2 border-dashed border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center">
+             <div className="border-2 border-dashed border-border rounded-2xl p-8 flex flex-col items-center justify-center text-center">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4">
                   <BarChart3 className="w-6 h-6 text-muted-foreground/60" />
                 </div>
-                <div className="text-sm font-black italic text-muted-foreground uppercase tracking-widest">No infrastructure events</div>
+                <div className="text-sm font-bold text-muted-foreground uppercase tracking-widest">No infrastructure events</div>
                 <p className="text-[10px] text-muted-foreground mt-2 font-medium">Event telemetry for this cluster has no feed wired yet. Node and load-balancer status above reflect live data.</p>
              </div>
           </section>

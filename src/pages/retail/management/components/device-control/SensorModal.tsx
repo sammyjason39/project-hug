@@ -30,7 +30,7 @@ const SensorModal = ({ sensor, onClose }: SensorModalProps) => {
       if (!v) onClose();
     }}
   >
-    <DialogContent className="max-w-md rounded-3xl border-none shadow-2xl bg-white">
+    <DialogContent className="max-w-md rounded-3xl border-none shadow-sm bg-white">
       {sensor && (
         <>
           <DialogHeader>
@@ -41,7 +41,7 @@ const SensorModal = ({ sensor, onClose }: SensorModalProps) => {
                 <SIcon type={sensor.type} cls="w-6 h-6" />
               </div>
               <div>
-                <DialogTitle className="text-base font-black italic tracking-tighter">
+                <DialogTitle className="text-base font-bold tracking-tighter">
                   {sensor.name}
                 </DialogTitle>
                 <div className="text-[10px] text-muted-foreground font-mono">
@@ -61,7 +61,7 @@ const SensorModal = ({ sensor, onClose }: SensorModalProps) => {
                 className={`rounded-2xl p-5 flex items-center justify-between ${sensor.status === "warning" ? "bg-warning" : sensor.status === "critical" ? "bg-destructive" : "bg-success"}`}
               >
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">
+                  <div className="text-label text-muted-foreground">
                     Current Reading
                   </div>
                   <div
@@ -107,7 +107,7 @@ const SensorModal = ({ sensor, onClose }: SensorModalProps) => {
                 .filter((r) => r.v)
                 .map((r, i) => (
                   <div key={i} className="bg-secondary/5 rounded-2xl p-3">
-                    <div className="text-[9px] font-black uppercase text-muted-foreground tracking-widest mb-1">
+                    <div className="text-[9px] font-semibold text-muted-foreground tracking-widest mb-1">
                       {r.l}
                     </div>
                     <div className="font-semibold text-muted-foreground font-mono">
@@ -126,7 +126,7 @@ const SensorModal = ({ sensor, onClose }: SensorModalProps) => {
                   toast({ title: "Configuration Failed", description: "Could not update sensor thresholds.", variant: "destructive" });
                 }
               }}
-              className="w-full h-10 rounded-xl bg-secondary text-foreground font-black italic uppercase text-[10px] tracking-widest gap-2"
+              className="w-full h-10 rounded-xl bg-secondary text-foreground font-semibold text-[10px] tracking-widest gap-2"
             >
               <Settings2 className="w-3.5 h-3.5" /> Configure Threshold
             </Button>

@@ -143,14 +143,14 @@ export const RegisterEcommerceBranchDialog: React.FC<
       <DialogTrigger asChild>
         {trigger || (
           <Button
-            className="h-10 px-6 rounded-2xl bg-primary text-foreground font-black italic uppercase tracking-widest text-[10px] gap-2 shadow-lg"
+            className="h-10 px-6 rounded-2xl bg-primary text-foreground font-semibold tracking-widest text-[10px] gap-2 shadow-lg"
             data-testid="register-ecommerce-trigger"
           >
             <Globe className="w-4 h-4" /> Register E-Commerce
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="rounded-2xl border-border/50 bg-white shadow-2xl max-w-lg p-0 overflow-hidden">
+      <DialogContent className="rounded-2xl border-border/50 bg-white shadow-sm max-w-lg p-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-success via-primary to-chart-5" />
 
         <DialogHeader className="p-8 pb-4">
@@ -158,7 +158,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
             <div className="p-2 bg-success/10 rounded-xl text-success">
               <Globe className="w-5 h-5" />
             </div>
-            <DialogTitle className="font-black italic text-2xl uppercase tracking-tighter text-muted-foreground">
+            <DialogTitle className="font-bold text-2xl uppercase tracking-tighter text-muted-foreground">
               Register E-Commerce Branch
             </DialogTitle>
           </div>
@@ -170,7 +170,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
 
         <form onSubmit={handleRegister} className="px-8 pb-2 space-y-5">
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
               Storefront Name
             </Label>
             <input
@@ -185,7 +185,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                 Platform
               </Label>
               <select
@@ -201,7 +201,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
               </select>
             </div>
             <div className="space-y-2">
-              <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+              <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                 Branch Code
               </Label>
               <input
@@ -214,7 +214,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
           </div>
 
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
               Storefront Domain
             </Label>
             <input
@@ -227,7 +227,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
           </div>
 
           <div className="space-y-2">
-            <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
+            <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
               <Store className="w-3.5 h-3.5" /> Anchor Location (Hierarchy
               Parent)
             </Label>
@@ -255,7 +255,7 @@ export const RegisterEcommerceBranchDialog: React.FC<
               onChange={(e) => setBindChannel(e.target.checked)}
               className="w-4 h-4 rounded accent-success"
             />
-            <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+            <span className="text-[10px] font-semibold tracking-widest text-muted-foreground flex items-center gap-1.5">
               <Link2 className="w-3.5 h-3.5" /> Bind a sales channel to this
               branch
             </span>
@@ -267,14 +267,14 @@ export const RegisterEcommerceBranchDialog: React.FC<
                 type="button"
                 variant="outline"
                 onClick={() => setOpen(false)}
-                className="flex-1 h-13 rounded-2xl border-border font-black italic uppercase tracking-widest text-[10px] py-4"
+                className="flex-1 h-13 rounded-2xl border-border font-semibold tracking-widest text-[10px] py-4"
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 disabled={isRegistering || isLoadingData}
-                className="flex-[2] h-13 bg-success hover:bg-success/90 text-white font-black italic rounded-2xl uppercase tracking-[0.2em] text-[10px] py-4 group transition-all active:scale-95"
+                className="flex-[2] h-13 bg-success hover:bg-success/90 text-white font-bold rounded-2xl uppercase tracking-[0.2em] text-[10px] py-4 group transition-all active:scale-95"
               >
                 {isRegistering ? (
                   <RefreshCw className="w-5 h-5 animate-spin" />

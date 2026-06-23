@@ -154,7 +154,7 @@ export default function BudgetPlanning() {
                         
                         {/* Industry Vertical Contribs */}
                         <div className="pt-4 border-t border-dashed mt-4">
-                          <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4">Industry Verticals</p>
+                          <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-4">Industry Verticals</p>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {isModuleActive("retail") && (
                               <div className="p-4 rounded-2xl border bg-muted relative group cursor-pointer hover:border-primary transition-all">
@@ -234,7 +234,7 @@ export default function BudgetPlanning() {
                     <BrainCircuit className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-primary">Predictive Warning</p>
+                    <p className="text-xs font-semibold tracking-widest text-primary">Predictive Warning</p>
                     <p className="text-sm text-primary font-medium leading-relaxed mt-1">
                       Cloud compute costs are trending 15% higher than projection. Suggesting resizing of dev-instances.
                     </p>
@@ -245,7 +245,7 @@ export default function BudgetPlanning() {
                     <Zap className="w-6 h-6 text-success" />
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-success">Optimization Opportunity</p>
+                    <p className="text-xs font-semibold tracking-widest text-success">Optimization Opportunity</p>
                     <p className="text-sm text-success font-medium leading-relaxed mt-1">
                       Consolidating Digital Marketing bills into a single annual contract could save Rp 4.2Mn in fees.
                     </p>
@@ -260,7 +260,7 @@ export default function BudgetPlanning() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Plus className="w-5 h-5 text-primary" />
-              <h3 className="font-black uppercase tracking-tight text-muted-foreground italic">Submission Studio</h3>
+              <h3 className="font-semibold tracking-tight text-muted-foreground italic">Submission Studio</h3>
             </div>
             <p className="text-xs text-muted-foreground mb-6 font-bold leading-relaxed">
               Add new line items to your periodic plan. Items require HOD approval before finance clearance.
@@ -268,15 +268,15 @@ export default function BudgetPlanning() {
             
             <div className="space-y-4">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Item Description</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Item Description</label>
                 <Input placeholder="e.g. New Workstation Laptops" className="h-12 border-border rounded-xl" />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Requested Amount (Rp)</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Requested Amount (Rp)</label>
                 <Input type="number" placeholder="50,000,000" className="h-12 border-border rounded-xl" />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground italic">Expense Category</label>
+                <label className="text-[10px] font-semibold tracking-widest text-muted-foreground italic">Expense Category</label>
                 <div className="grid grid-cols-2 gap-2">
                   <Button 
                     onClick={() => alert("Setting category to Operational Expenditure (OPEX)")}
@@ -296,14 +296,14 @@ export default function BudgetPlanning() {
                   </Button>
                 </div>
               </div>
-              <Button onClick={(e) => { e.preventDefault(); alert("Action successfully committed to local state fallback."); }} className="w-full h-12 bg-primary hover:bg-primary text-white font-black uppercase tracking-widest mt-4 shadow-lg shadow-indigo-600/20">
+              <Button onClick={(e) => { e.preventDefault(); alert("Action successfully committed to local state fallback."); }} className="w-full h-12 bg-primary hover:bg-primary text-white font-semibold tracking-widest mt-4 shadow-lg shadow-indigo-600/20">
                 Submit Item
               </Button>
             </div>
           </div>
 
           <div className="pt-6 border-t border-border">
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
+            <h4 className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-success" /> Compliance Checklist
             </h4>
             <div className="space-y-3">
@@ -332,8 +332,8 @@ function BudgetStatCard({ label, value, trend, icon: Icon, color }: any) {
       <div className={`p-2.5 rounded-2xl w-fit mb-3 border ${colors}`}>
         <Icon className="w-5 h-5" />
       </div>
-      <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">{label}</p>
-      <p className="text-xl font-black text-muted-foreground tracking-tight">{formatCurrency(value, "IDR", "id-ID")}</p>
+      <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-1">{label}</p>
+      <p className="text-xl font-bold text-muted-foreground tracking-tight">{formatCurrency(value, "IDR", "id-ID")}</p>
       <p className="text-[10px] font-bold text-muted-foreground mt-2 flex items-center gap-1 uppercase tracking-wider">
         {trend}
       </p>
@@ -355,12 +355,12 @@ function BudgetProgressRow({ label, total, spent, color }: any) {
     <div className="space-y-2">
       <div className="flex justify-between items-end">
         <div>
-          <p className="text-xs font-black uppercase tracking-tight text-muted-foreground italic">{label}</p>
+          <p className="text-xs font-semibold tracking-tight text-muted-foreground italic">{label}</p>
           <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mt-0.5">
             {formatCurrency(spent, "IDR", "id-ID")} / {formatCurrency(total, "IDR", "id-ID")}
           </p>
         </div>
-        <p className="text-xs font-black text-muted-foreground">{percent}%</p>
+        <p className="text-xs font-bold text-muted-foreground">{percent}%</p>
       </div>
       <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
         <div className={`h-full ${colorClass} transition-all duration-1000`} style={{ width: `${percent}%` }} />
@@ -396,11 +396,11 @@ function FiscalEventBox({ date, label, type }: any) {
   return (
     <div className="flex items-center gap-4 p-3 rounded-2xl hover:bg-muted transition-colors cursor-pointer group">
       <div className="flex flex-col items-center justify-center h-12 w-12 bg-white rounded-xl border border-border shadow-sm group-hover:border-primary transition-colors">
-        <p className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">{date.split(" ")[0]}</p>
-        <p className="text-sm font-black text-muted-foreground">{date.split(" ")[1]}</p>
+        <p className="text-[10px] font-semibold tracking-tighter text-muted-foreground">{date.split(" ")[0]}</p>
+        <p className="text-sm font-bold text-muted-foreground">{date.split(" ")[1]}</p>
       </div>
       <div>
-        <p className="text-xs font-black text-muted-foreground uppercase tracking-tight italic">{label}</p>
+        <p className="text-xs font-bold text-muted-foreground uppercase tracking-tight italic">{label}</p>
         <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mt-0.5">{type}</p>
       </div>
       <ArrowRight className="w-4 h-4 text-muted-foreground ml-auto group-hover:text-primary group-hover:translate-x-1 transition-all" />

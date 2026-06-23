@@ -87,7 +87,7 @@ export const ChannelListItem = ({
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <h4 className="text-lg font-black italic text-foreground tracking-tight uppercase italic">
+              <h4 className="text-lg font-bold text-foreground tracking-tight uppercase italic">
                 {channel.name}
               </h4>
               <Badge
@@ -100,7 +100,7 @@ export const ChannelListItem = ({
                 {channel.status}
               </Badge>
             </div>
-            <div className="flex items-center gap-3 text-[10px] font-black text-muted-foreground uppercase tracking-widest italic">
+            <div className="flex items-center gap-3 text-[10px] font-bold text-muted-foreground uppercase tracking-widest italic">
               {channel.type} • Node {channel.id.slice(0, 8)}
               <Separator orientation="vertical" className="h-2 bg-muted/20" />
               <span className="text-primary">
@@ -112,10 +112,10 @@ export const ChannelListItem = ({
 
         <div className="grid grid-cols-2 lg:flex items-center gap-4 lg:gap-8">
           <div className="space-y-1">
-            <div className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">
+            <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em]">
               Tenant Scope
             </div>
-            <div className="text-[11px] font-black text-muted-foreground italic">
+            <div className="text-[11px] font-bold text-muted-foreground italic">
               {tenantId}
             </div>
           </div>
@@ -124,10 +124,10 @@ export const ChannelListItem = ({
             className="hidden lg:block h-8 bg-muted/20"
           />
           <div className="space-y-1">
-            <div className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.2em]">
+            <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-[0.2em]">
               Operational Unit
             </div>
-            <div className="text-[11px] font-black text-muted-foreground italic">
+            <div className="text-[11px] font-bold text-muted-foreground italic">
               {branch}
             </div>
           </div>
@@ -145,7 +145,7 @@ export const ChannelListItem = ({
             </Button>
             <Button
               onClick={() => onOpenDetail(channel)}
-              className="h-12 px-6 rounded-xl bg-secondary border-none font-black italic uppercase text-[9px] tracking-widest flex items-center gap-2 group/btn"
+              className="h-12 px-6 rounded-xl bg-secondary border-none font-semibold text-[9px] tracking-widest flex items-center gap-2 group/btn"
             >
               Vault{" "}
               <Key className="w-3 h-3 group-hover/btn:rotate-12 transition-transform text-warning" />
@@ -171,7 +171,7 @@ export const ChannelListItem = ({
           >
             <cred.icon className="w-3.5 h-3.5 text-muted-foreground group-hover/cred:text-primary transition-colors" />
             <div className="flex flex-col items-start leading-none text-left">
-              <span className="text-[8px] font-black text-muted-foreground uppercase tracking-widest mb-0.5">
+              <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">
                 {cred.label}
               </span>
               <div className="font-mono text-[9px] font-bold text-muted-foreground bg-secondary/5 px-2 py-0.5 rounded truncate max-w-[120px]">

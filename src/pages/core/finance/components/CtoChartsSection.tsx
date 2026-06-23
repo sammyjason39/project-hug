@@ -133,12 +133,12 @@ export function CtoChartsSection({ pendingApprovals, processedPayments }: CtoPro
         >
           <div className="grid grid-cols-2 gap-3 mt-4 mb-4">
             <div className="rounded-2xl bg-primary/5 border border-primary/10 p-3 text-center">
-              <p className="text-2xl font-black text-primary">{pendingApprovals}</p>
-              <p className="text-[10px] font-black text-primary/60 uppercase tracking-widest mt-0.5">Pending</p>
+              <p className="text-2xl font-bold text-primary">{pendingApprovals}</p>
+              <p className="text-[10px] font-bold text-primary/60 uppercase tracking-widest mt-0.5">Pending</p>
             </div>
             <div className="rounded-2xl bg-success border border-success p-3 text-center">
-              <p className="text-2xl font-black text-success">{processedPayments}</p>
-              <p className="text-[10px] font-black text-success uppercase tracking-widest mt-0.5">Processed</p>
+              <p className="text-2xl font-bold text-success">{processedPayments}</p>
+              <p className="text-[10px] font-bold text-success uppercase tracking-widest mt-0.5">Processed</p>
             </div>
           </div>
           <div className="h-[240px] w-full">

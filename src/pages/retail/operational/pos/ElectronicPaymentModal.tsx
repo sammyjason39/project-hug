@@ -75,7 +75,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden border-none bg-background text-foreground rounded-[2rem] shadow-2xl">
+      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden border-none bg-background text-foreground rounded-2xl shadow-sm">
         <div className="p-10 space-y-10">
           <DialogHeader className="flex flex-row items-center justify-between space-y-0">
             <div className="flex items-center gap-4">
@@ -83,7 +83,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
                 <CreditCard className="w-7 h-7" />
               </div>
               <div>
-                <DialogTitle className="text-2xl font-black uppercase tracking-widest italic text-foreground">
+                <DialogTitle className="text-2xl font-semibold tracking-widest italic text-foreground">
                   Electronic Payment
                 </DialogTitle>
                 <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -95,10 +95,10 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
 
           {/* Amount Due Area */}
           <div className="bg-primary/5 border border-primary/20 rounded-3xl p-6 flex flex-col items-center justify-center gap-1">
-            <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em] italic">
+            <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] italic">
               Authorization Amount
             </span>
-            <div className="text-5xl font-black italic tracking-tighter text-foreground">
+            <div className="text-5xl font-bold tracking-tighter text-foreground">
               Rp {total.toLocaleString()}
             </div>
           </div>
@@ -116,7 +116,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
                 }`}
               >
                 <CreditCard className="w-6 h-6" />
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   Credit/Debit
                 </span>
               </Button>
@@ -130,7 +130,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
                 }`}
               >
                 <QrCode className="w-6 h-6" />
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   QRIS
                 </span>
               </Button>
@@ -144,7 +144,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
                 }`}
               >
                 <Smartphone className="w-6 h-6" />
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   E-Wallet
                 </span>
               </Button>
@@ -180,7 +180,7 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
 
             {/* TRANSACTION NOTES */}
             <div className="flex flex-col gap-2 mt-4">
-              <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest ml-2">
+              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-2">
                 Transaction Notes
               </span>
               <Textarea 
@@ -194,9 +194,9 @@ export const ElectronicPaymentModal: React.FC<ElectronicPaymentModalProps> = ({
 
           {/* Processing Overlay */}
           {isProcessing && (
-            <div className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur-sm p-8 flex flex-col items-center justify-center gap-4 animate-in fade-in">
+            <div className="absolute inset-x-0 bottom-0 bg-background/80 p-8 flex flex-col items-center justify-center gap-4 animate-in fade-in">
               <RefreshCw className="w-10 h-10 text-primary animate-spin" />
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground">
+              <p className="text-[10px] font-semibold tracking-[0.4em] text-foreground">
                 Waiting for authorization...
               </p>
             </div>

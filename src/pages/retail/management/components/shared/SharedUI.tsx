@@ -36,7 +36,7 @@ export const CredentialField = ({
   const isMissing = !value;
   return (
     <div className="space-y-1">
-      <div className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+      <div className="flex items-center gap-1 text-[10px] font-semibold tracking-widest text-muted-foreground">
         <span>{label}</span>
         {tooltip && (
           <TooltipProvider delayDuration={0}>
@@ -91,7 +91,7 @@ export const CopyPill = ({ label, value, onClick }: CopyPillProps) => (
   <Button
     size="sm"
     variant="outline"
-    className="h-8 rounded-full border-border text-[10px] font-black uppercase tracking-widest text-muted-foreground"
+    className="h-8 rounded-full border-border text-[10px] font-semibold tracking-widest text-muted-foreground"
     onClick={onClick}
     disabled={!value}
     type="button"

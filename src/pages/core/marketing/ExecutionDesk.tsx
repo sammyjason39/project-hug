@@ -170,10 +170,10 @@ export default function ExecutionDesk() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
              <Rocket className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Booting Execution Control...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Booting Execution Control...</p>
         </div>
       </div>
     );
@@ -185,13 +185,13 @@ export default function ExecutionDesk() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Mission Control</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Mission Control</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Engine V4.2 Online
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground text-left italic">Execution Desk</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground text-left italic">Execution Desk</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic text-left">"Orchestrate multi-channel campaign dispatch with total operational command."</p>
         </div>
         
@@ -200,21 +200,21 @@ export default function ExecutionDesk() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
             <Input 
               placeholder="Search strategic runs..." 
-              className="pl-12 h-14 bg-white/50 dark:bg-muted backdrop-blur-xl border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
+              className="pl-12 h-14 bg-card dark:bg-muted border-none shadow-inner rounded-2xl min-w-[300px] font-bold text-sm"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-xl hover:scale-110 transition-all"
+            className="h-14 w-14 rounded-2xl bg-white dark:bg-muted border-none shadow-sm hover:scale-110 transition-all"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
             <RefreshCw className={cn("h-6 w-6 text-primary", refreshing && "animate-spin")} />
           </Button>
           <Button 
-            className="h-[4.5rem] px-10 rounded-[2rem] bg-primary hover:bg-primary shadow-2xl shadow-indigo-500/30 font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
+            className="h-[4.5rem] px-10 rounded-2xl bg-primary hover:bg-primary shadow-sm shadow-indigo-500/30 font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95 text-white"
             onClick={() => navigate("/core/marketing/automation")}
           >
             <Play className="h-6 w-6 group-hover:scale-110 transition-transform" /> 
@@ -222,7 +222,7 @@ export default function ExecutionDesk() {
           </Button>
           <Button 
             variant="outline"
-            className="h-[4.5rem] px-10 rounded-[2rem] border-border dark:border-border bg-white dark:bg-muted shadow-2xl font-black text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
+            className="h-[4.5rem] px-10 rounded-2xl border-border dark:border-border bg-white dark:bg-muted shadow-sm font-bold text-sm gap-3 group transition-all hover:scale-105 active:scale-95"
             onClick={() => setRunOpen(true)}
           >
             <Plus className="h-6 w-6 group-hover:rotate-90 transition-transform duration-500" /> 
@@ -239,16 +239,16 @@ export default function ExecutionDesk() {
            { name: 'Email API', status: 'Warning', color: 'text-warning', icon: Radio },
            { name: 'WhatsApp', status: 'Healthy', color: 'text-success', icon: Activity }
          ].map(ch => (
-           <Card key={ch.name} className="rounded-[2rem] border-none shadow-xl glass-card group hover:shadow-2xl transition-all">
+           <Card key={ch.name} className="rounded-2xl border-none shadow-sm glass-card group hover:shadow-sm transition-all">
               <CardContent className="p-6 flex items-center gap-4">
                  <div className="h-12 w-12 rounded-2xl bg-white dark:bg-muted flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <ch.icon className="h-6 w-6 text-primary" />
                  </div>
                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest italic">{ch.name}</p>
+                    <p className="text-[10px] font-semibold text-muted-foreground tracking-widest italic">{ch.name}</p>
                     <div className="flex items-center gap-2">
                        <span className={cn("h-2 w-2 rounded-full animate-pulse", ch.color.replace('text', 'bg'))} />
-                       <span className={cn("text-xs font-black uppercase tracking-tighter", ch.color)}>{ch.status}</span>
+                       <span className={cn("text-xs font-semibold tracking-tighter", ch.color)}>{ch.status}</span>
                     </div>
                  </div>
               </CardContent>
@@ -259,21 +259,21 @@ export default function ExecutionDesk() {
       <div className="grid grid-cols-12 gap-10 flex-1 min-h-0">
          {/* Left: Execution Matrix */}
          <div className="col-span-12 lg:col-span-8 flex flex-col gap-6">
-            <Card className="flex-1 rounded-[3rem] border-none shadow-2xl glass-card overflow-hidden flex flex-col">
-               <CardHeader className="p-10 pb-6 border-b border-white/10 dark:border-border/10 flex flex-row items-center justify-between">
+            <Card className="flex-1 rounded-[3rem] border-none shadow-sm glass-card overflow-hidden flex flex-col">
+               <CardHeader className="p-10 pb-6 border-b border-border dark:border-border/10 flex flex-row items-center justify-between">
                   <div className="space-y-1">
-                     <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3 uppercase italic">
+                     <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3 uppercase italic">
                         <Layers className="h-6 w-6 text-primary" />
                         Run History & Queue
                      </CardTitle>
                      <CardDescription className="text-xs font-medium italic italic">Monitor scheduled and past execution performance across the grid.</CardDescription>
                   </div>
-                  <Badge variant="outline" className="rounded-full font-black text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-widest text-muted-foreground">LIVE FEED</Badge>
+                  <Badge variant="outline" className="rounded-full font-bold text-[9px] px-3 py-1 border-border dark:border-border uppercase tracking-widest text-muted-foreground">LIVE FEED</Badge>
                </CardHeader>
                <ScrollArea className="flex-1">
                   <div className="p-0">
                     <table className="w-full text-sm">
-                       <thead className="bg-muted dark:bg-muted text-[10px] uppercase text-muted-foreground sticky top-0 z-10 font-black tracking-[0.2em] italic">
+                       <thead className="bg-muted dark:bg-muted text-[10px] uppercase text-muted-foreground sticky top-0 z-10 font-bold tracking-[0.2em] italic">
                           <tr>
                              <th className="p-8 text-left">Strategic Campaign</th>
                              <th className="p-8 text-left">Channel</th>
@@ -285,24 +285,24 @@ export default function ExecutionDesk() {
                        </thead>
                        <tbody>
                           {(Array.isArray(filtered) ? filtered : []).map((run) => (
-                            <tr key={run.id} className="border-t border-white/10 dark:border-border/10 group hover:bg-primary transition-all">
+                            <tr key={run.id} className="border-t border-border dark:border-border/10 group hover:bg-primary transition-all">
                                <td className="p-8">
                                   <div className="flex items-center gap-4">
                                      <div className="h-12 w-12 rounded-xl bg-primary text-primary flex items-center justify-center shadow-sm">
                                         <Target className="h-6 w-6" />
                                      </div>
                                      <div className="space-y-0.5">
-                                        <p className="font-black uppercase tracking-tight italic group-hover:text-primary transition-colors">
+                                        <p className="font-semibold tracking-tight italic group-hover:text-primary transition-colors">
                                            {campaigns.find(c => c.id === run.campaignId)?.name || "Unknown Protocol"}
                                         </p>
-                                        <div className="text-[9px] text-muted-foreground font-black uppercase tracking-widest opacity-60 flex items-center gap-2 italic">
+                                        <div className="text-[9px] text-muted-foreground font-semibold tracking-widest opacity-60 flex items-center gap-2 italic">
                                            <Hash className="h-3 w-3" /> ID: {run.id.slice(0, 8)}
                                         </div>
                                      </div>
                                   </div>
                                </td>
                                <td className="p-8">
-                                  <Badge className="bg-muted dark:bg-muted text-muted-foreground font-black text-[9px] px-3 py-1 rounded-full border-none uppercase tracking-widest">
+                                  <Badge className="bg-muted dark:bg-muted text-muted-foreground font-bold text-[9px] px-3 py-1 rounded-full border-none uppercase tracking-widest">
                                      {run.channel}
                                   </Badge>
                                </td>
@@ -314,7 +314,7 @@ export default function ExecutionDesk() {
                                </td>
                                <td className="p-8">
                                   <div className="space-y-3 min-w-[120px]">
-                                     <div className="flex justify-between text-[10px] font-black uppercase tracking-widest">
+                                     <div className="flex justify-between text-[10px] font-semibold tracking-widest">
                                         <span className="text-muted-foreground italic">{run.leadsGenerated} Leads</span>
                                         <span className="text-success italic">{formatCurrency(run.spend)}</span>
                                      </div>
@@ -325,7 +325,7 @@ export default function ExecutionDesk() {
                                </td>
                                <td className="p-8">
                                   <Badge className={cn(
-                                    "text-[9px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border-none shadow-sm",
+                                    "text-label px-4 py-1.5 rounded-full border-none shadow-sm",
                                     run.status === 'COMPLETED' ? "bg-success text-white shadow-emerald-500/20" :
                                     run.status === 'FAILED' ? "bg-destructive text-white shadow-rose-500/20" : "bg-muted dark:bg-muted text-muted-foreground"
                                   )}>
@@ -364,23 +364,23 @@ export default function ExecutionDesk() {
 
          {/* Right: Runtime Intelligence */}
          <div className="col-span-12 lg:col-span-4 flex flex-col gap-10">
-            <Card className="rounded-[3rem] border-none shadow-2xl bg-primary text-white p-10 relative overflow-hidden group">
+            <Card className="rounded-[3rem] border-none shadow-sm bg-primary text-white p-10 relative overflow-hidden group">
                <div className="absolute top-0 right-0 h-40 w-40 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
                <div className="relative z-10 space-y-8">
                   <div className="flex items-center gap-4">
-                     <div className="h-14 w-14 bg-primary rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform">
+                     <div className="h-14 w-14 bg-primary rounded-2xl flex items-center justify-center shadow-sm group-hover:rotate-12 transition-transform">
                         <Cpu className="h-7 w-7 text-white" />
                      </div>
                      <div>
-                        <h4 className="font-black text-xl uppercase tracking-tighter italic">Orchestrator</h4>
-                        <p className="text-[10px] font-black uppercase tracking-widest opacity-40">Tactical Dispatch Node</p>
+                        <h4 className="font-bold text-xl uppercase tracking-tighter italic">Orchestrator</h4>
+                        <p className="text-[10px] font-semibold tracking-widest opacity-40">Tactical Dispatch Node</p>
                      </div>
                   </div>
                   <p className="text-sm font-medium italic italic opacity-70 leading-relaxed italic">
                      "Campaign runs are currently optimized for <strong>High-Conversion Windows</strong>. Automated sync with Google Ads is live."
                   </p>
                   <Button 
-                    className="w-full h-16 bg-white text-primary hover:bg-muted border-none rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl gap-3 group/btn"
+                    className="w-full h-16 bg-white text-primary hover:bg-muted border-none rounded-2xl font-bold text-xs uppercase tracking-widest shadow-sm gap-3 group/btn"
                     onClick={() => setRunOpen(true)}
                   >
                      <Plus className="h-5 w-5 group-hover/btn:rotate-90 transition-transform duration-500" />
@@ -389,11 +389,11 @@ export default function ExecutionDesk() {
                </div>
             </Card>
 
-            <Card className="flex-1 rounded-[3rem] border-none shadow-2xl bg-muted overflow-hidden flex flex-col group/terminal">
-               <CardHeader className="p-8 pb-4 border-b border-white/5 flex flex-row items-center justify-between bg-black/40">
+            <Card className="flex-1 rounded-[3rem] border-none shadow-sm bg-muted overflow-hidden flex flex-col group/terminal">
+               <CardHeader className="p-8 pb-4 border-b border-border flex flex-row items-center justify-between bg-black/40">
                   <div className="flex items-center gap-3">
                      <Terminal className="h-4 w-4 text-success" />
-                     <CardTitle className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">
+                     <CardTitle className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">
                         Runtime Logs
                      </CardTitle>
                   </div>
@@ -413,7 +413,7 @@ export default function ExecutionDesk() {
                      <p className="text-primary flex items-center gap-2"><ChevronRight className="h-3 w-3" /> [META] PIXEL HANDSHAKE VERIFIED FOR PI-442</p>
                      <div className="flex gap-1.5 items-center animate-pulse pt-2">
                         <span className="w-1.5 h-3 bg-success" />
-                        <span className="text-[8px] font-black text-success uppercase tracking-widest italic opacity-50">LISTENING FOR EVENTS...</span>
+                        <span className="text-[8px] font-bold text-success uppercase tracking-widest italic opacity-50">LISTENING FOR EVENTS...</span>
                      </div>
                   </div>
                </ScrollArea>

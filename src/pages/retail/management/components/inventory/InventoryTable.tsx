@@ -65,10 +65,10 @@ const PaginationBar: React.FC<PaginationProps> = ({
   return (
     <div className="px-6 py-4 border-t border-border bg-secondary/5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
       <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+        <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
           Page {page} of {totalPages} • Total {totalItems} items
         </span>
-        <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+        <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
           Showing {currentCount} on this page
         </span>
       </div>
@@ -103,7 +103,7 @@ const PaginationBar: React.FC<PaginationProps> = ({
           >
             →
           </Button>
-          <div className="flex items-center gap-1 text-[10px] uppercase font-black italic text-muted-foreground">
+          <div className="flex items-center gap-1 text-[10px] uppercase font-bold text-muted-foreground">
             Jump:
             <Input
               type="number"
@@ -163,7 +163,7 @@ export const InventoryTable: React.FC<TableProps> = ({
             ].map((h, i) => (
               <th
                 key={i}
-                className="px-6 py-4 text-left text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground italic"
+                className="px-6 py-4 text-left text-label text-muted-foreground italic"
               >
                 {h}
               </th>
@@ -176,7 +176,7 @@ export const InventoryTable: React.FC<TableProps> = ({
               <td colSpan={9} className="px-6 py-16 text-center">
                 <div className="flex flex-col items-center gap-2">
                   <RefreshCw className="w-6 h-6 text-primary animate-spin" />
-                  <span className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground">
+                  <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Pulling from Core...
                   </span>
                 </div>
@@ -212,7 +212,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                     {item.sku}
                   </td>
                   <td className="px-6 py-4">
-                    <div className="font-black italic text-sm text-foreground">
+                    <div className="font-bold text-sm text-foreground">
                       {item.name}
                     </div>
                     <button
@@ -225,7 +225,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                       {item.category}
                     </button>
                   </td>
-                  <td className="px-6 py-4 font-black italic text-foreground">
+                  <td className="px-6 py-4 font-bold text-foreground">
                     {item.onHand}
                   </td>
                   <td className="px-6 py-4 text-muted-foreground font-bold italic text-sm">
@@ -234,7 +234,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                   <td className="px-6 py-4">
                     <span
                       className={cn(
-                        "font-black italic",
+                        "font-bold",
                         item.available <= 0
                           ? "text-destructive"
                           : "text-success",
@@ -246,13 +246,13 @@ export const InventoryTable: React.FC<TableProps> = ({
                   <td className="px-6 py-4 text-muted-foreground font-bold italic text-sm">
                     {item.minBuffer}
                   </td>
-                  <td className="px-6 py-4 font-black italic text-primary">
+                  <td className="px-6 py-4 font-bold text-primary">
                     Rp {(item.price || 0).toLocaleString()}
                   </td>
                   <td className="px-6 py-4">
                     <Badge
                       className={cn(
-                        "border-none font-black italic text-[9px] uppercase tracking-widest",
+                        "border-none font-bold text-[9px] uppercase tracking-widest",
                         statusBadge(item.status),
                       )}
                     >
@@ -273,10 +273,10 @@ export const InventoryTable: React.FC<TableProps> = ({
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         align="end"
-                        className="w-48 rounded-2xl p-2 border-none shadow-2xl"
+                        className="w-48 rounded-2xl p-2 border-none shadow-sm"
                       >
                         <DropdownMenuItem
-                          className="rounded-xl gap-2 font-black italic text-xs py-3"
+                          className="rounded-xl gap-2 font-bold text-xs py-3"
                           onClick={(e) => {
                             e.stopPropagation();
                             onEdit(item);
@@ -286,7 +286,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                           Buffer
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          className="rounded-xl gap-2 font-black italic text-xs py-3"
+                          className="rounded-xl gap-2 font-bold text-xs py-3"
                           onClick={(e) => {
                             e.stopPropagation();
                             onPrint(item);
@@ -296,7 +296,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                           Print Barcode
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          className="rounded-xl gap-2 font-black italic text-xs py-3"
+                          className="rounded-xl gap-2 font-bold text-xs py-3"
                           onClick={(e) => {
                             e.stopPropagation();
                             onMovement("transfer_out", item);
@@ -306,7 +306,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                           Transfer Out
                         </DropdownMenuItem>
                         <DropdownMenuItem
-                          className="rounded-xl gap-2 font-black italic text-xs py-3"
+                          className="rounded-xl gap-2 font-bold text-xs py-3"
                           onClick={(e) => {
                             e.stopPropagation();
                             onReclassify?.(item);
@@ -317,7 +317,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                         </DropdownMenuItem>
                         {item.category?.toLowerCase() === "anomaly" && onComplete && (
                           <DropdownMenuItem
-                            className="rounded-xl gap-2 font-black italic text-xs py-3"
+                            className="rounded-xl gap-2 font-bold text-xs py-3"
                             onClick={(e) => {
                               e.stopPropagation();
                               onComplete(item);
@@ -329,7 +329,7 @@ export const InventoryTable: React.FC<TableProps> = ({
                         )}
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
-                          className="rounded-xl gap-2 font-black italic text-xs py-3 text-destructive focus:bg-destructive"
+                          className="rounded-xl gap-2 font-bold text-xs py-3 text-destructive focus:bg-destructive"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Trash2 className="w-3.5 h-3.5" /> Request Write-off

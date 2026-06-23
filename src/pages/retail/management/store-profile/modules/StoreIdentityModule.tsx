@@ -19,7 +19,7 @@ export const StoreIdentityModule: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-muted-foreground">
         <Building2 className="w-16 h-16 mb-4 opacity-20" />
-        <h3 className="text-xl font-black italic tracking-wider">
+        <h3 className="text-xl font-bold tracking-wider">
           GLOBAL IDENTITY ENFORCEMENT
         </h3>
         <p className="text-sm mt-2 max-w-md text-center">
@@ -39,7 +39,7 @@ export const StoreIdentityModule: React.FC = () => {
           <Building2 className="w-5 h-5" />
         </div>
         <div>
-          <h2 className="text-lg font-black italic uppercase tracking-wider text-muted-foreground">
+          <h2 className="text-lg font-semibold tracking-wider text-muted-foreground">
             Node Identity & Registration
           </h2>
           <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -51,7 +51,7 @@ export const StoreIdentityModule: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Core Identity */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <Building2 className="w-4 h-4 text-muted-foreground" /> Core Identity
           </h3>
 
@@ -154,7 +154,7 @@ export const StoreIdentityModule: React.FC = () => {
 
         {/* Regional Parameters */}
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-border shadow-sm">
-          <h3 className="text-sm font-black italic text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
+          <h3 className="text-sm font-bold text-muted-foreground tracking-wider flex items-center gap-2 border-b border-border pb-3">
             <MapPin className="w-4 h-4 text-muted-foreground" /> Regional Parameters
           </h3>
 

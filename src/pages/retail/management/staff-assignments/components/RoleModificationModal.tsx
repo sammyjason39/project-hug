@@ -56,13 +56,13 @@ export const RoleModificationModal: React.FC<RoleModificationModalProps> = ({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-md bg-secondary border-border p-8 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] text-foreground">
         <DialogHeader className="mb-6">
-          <DialogTitle className="text-xl font-black italic tracking-tighter flex items-center gap-3">
+          <DialogTitle className="text-xl font-bold tracking-tighter flex items-center gap-3">
             <div className="p-2.5 rounded-2xl bg-warning text-warning">
               <ShieldHalf className="w-6 h-6" />
             </div>
             MODIFY PERMISSIONS
           </DialogTitle>
-          <div className="text-[10px] font-black text-warning uppercase tracking-widest mt-2 pl-14">
+          <div className="text-[10px] font-bold text-warning uppercase tracking-widest mt-2 pl-14">
             Security Clearance Override
           </div>
         </DialogHeader>
@@ -78,16 +78,16 @@ export const RoleModificationModal: React.FC<RoleModificationModalProps> = ({
 
           <div className="space-y-4">
             <div>
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground block mb-2">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground block mb-2">
                 Target Personnel
               </label>
-              <div className="h-12 bg-secondary/60 rounded-xl border border-white/5 flex items-center px-4 font-bold text-sm text-muted-foreground/60">
+              <div className="h-12 bg-secondary/60 rounded-xl border border-border flex items-center px-4 font-bold text-sm text-muted-foreground/60">
                 {staff.fullName} ({staff.roleTitle})
               </div>
             </div>
 
             <div>
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground block mb-2">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground block mb-2">
                 New Assignable Role
               </label>
               <Select value={newRole} onValueChange={setNewRole}>
@@ -109,7 +109,7 @@ export const RoleModificationModal: React.FC<RoleModificationModalProps> = ({
             </div>
 
             <div>
-              <label className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground block mb-2">
+              <label className="text-[10px] font-semibold tracking-widest text-muted-foreground block mb-2">
                 Required: Justification
               </label>
               <textarea
@@ -126,14 +126,14 @@ export const RoleModificationModal: React.FC<RoleModificationModalProps> = ({
           <Button
             variant="ghost"
             onClick={onClose}
-            className="text-[10px] font-black italic uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-secondary/60 rounded-xl h-11"
+            className="text-[10px] font-semibold tracking-widest text-muted-foreground hover:text-foreground hover:bg-secondary/60 rounded-xl h-11"
           >
             Cancel Protocol
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={!newRole || !reason || isSubmitting}
-            className="text-[10px] font-black italic uppercase tracking-widest bg-warning hover:bg-warning text-foreground rounded-xl h-11 px-6 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
+            className="text-[10px] font-semibold tracking-widest bg-warning hover:bg-warning text-foreground rounded-xl h-11 px-6 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
           >
             <Lock className="w-3.5 h-3.5 mr-2" /> Sign & Modify
           </Button>

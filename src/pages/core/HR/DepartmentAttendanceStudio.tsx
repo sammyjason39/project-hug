@@ -186,15 +186,15 @@ export default function DepartmentAttendanceStudio({
             </Button>
           </div>
 
-          <div className="rounded-2xl border border-border overflow-hidden bg-muted backdrop-blur-md">
+          <div className="rounded-2xl border border-border overflow-hidden bg-muted">
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/50 border-b border-border hover:bg-muted/50">
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Personnel</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Check-In</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Check-Out</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Status</TableHead>
-                  <TableHead className="text-[10px] font-black uppercase tracking-widest text-right text-muted-foreground">Actions</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest text-muted-foreground">Personnel</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest text-muted-foreground">Check-In</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest text-muted-foreground">Check-Out</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest text-muted-foreground">Status</TableHead>
+                  <TableHead className="text-[10px] font-semibold tracking-widest text-right text-muted-foreground">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -221,7 +221,7 @@ export default function DepartmentAttendanceStudio({
                       <Badge 
                         variant="outline" 
                         className={cn(
-                          "text-[8px] font-black uppercase tracking-tighter px-1.5 py-0.5 border-none",
+                          "text-label tracking-tighter px-1.5 py-0.5 border-none",
                           record.status === "Present" && "bg-success text-success",
                           record.status === "On Duty" && "bg-primary/10 text-primary",
                           record.status === "Absent" && "bg-destructive text-destructive",
@@ -235,7 +235,7 @@ export default function DepartmentAttendanceStudio({
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="h-7 text-[10px] font-black uppercase tracking-widest text-foreground hover:bg-muted rounded-lg px-3"
+                        className="h-7 text-[10px] font-semibold tracking-widest text-foreground hover:bg-muted rounded-lg px-3"
                         onClick={() => handleAdjust(record.id)}
                       >
                         Adjust
@@ -303,13 +303,13 @@ function StatCard({ icon: Icon, label, value, color }: { icon: React.ElementType
   };
 
   return (
-    <GlassCard className="p-4 rounded-3xl shadow-2xl flex items-center gap-4">
+    <GlassCard className="p-4 rounded-3xl shadow-sm flex items-center gap-4">
       <div className={cn("w-10 h-10 rounded-2xl flex items-center justify-center border", colorMap[color])}>
         <Icon className="h-5 w-5" />
       </div>
       <div className="flex flex-col">
-        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground leading-none mb-1">{label}</span>
-        <span className="text-xl font-black italic tracking-tighter leading-none text-foreground">{value}</span>
+        <span className="text-[10px] font-semibold tracking-widest text-muted-foreground leading-none mb-1">{label}</span>
+        <span className="text-xl font-bold tracking-tighter leading-none text-foreground">{value}</span>
       </div>
     </GlassCard>
   );

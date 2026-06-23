@@ -39,7 +39,7 @@ export const DraggableBlock = ({
       style={style}
       className={cn(
         "group border border-transparent hover:border-primary transition-colors bg-white/10",
-        isDragging && "opacity-50 ring-2 ring-blue-500 shadow-xl",
+        isDragging && "opacity-50 ring-2 ring-blue-500 shadow-sm",
       )}
     >
       <div

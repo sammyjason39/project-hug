@@ -50,7 +50,7 @@ export default function InfrastructureMap() {
           title="Infrastructure Matrix"
           subtitle="Global geospatial visualization of all retail nodes."
           primaryAction={
-            <Button className="rounded-xl h-10 px-5 bg-secondary text-foreground font-black text-[10px] uppercase tracking-widest gap-2">
+            <Button className="rounded-xl h-10 px-5 bg-secondary text-foreground font-bold text-[10px] uppercase tracking-widest gap-2">
               <Activity className="h-3.5 w-3.5" /> PULSE: OPTIMAL
             </Button>
           }
@@ -59,11 +59,11 @@ export default function InfrastructureMap() {
     >
       <div className="grid grid-cols-12 gap-6 pb-24">
         {/* Map Visualization */}
-        <Card className="col-span-12 xl:col-span-8 rounded-2xl border-none shadow-2xl bg-secondary/30 dark:bg-secondary/40 backdrop-blur-xl overflow-hidden relative min-h-[600px] group">
+        <Card className="col-span-12 xl:col-span-8 rounded-2xl border-none shadow-sm bg-secondary/30 dark:bg-secondary/40 overflow-hidden relative min-h-[600px] group">
           <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6366f1 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
           
           {/* Simulated Map Grid */}
-          <div className="absolute inset-20 border border-primary/10 rounded-[2rem] relative">
+          <div className="absolute inset-20 border border-primary/10 rounded-2xl relative">
             {nodes.map((node) => (
               <div 
                 key={node.id}
@@ -79,7 +79,7 @@ export default function InfrastructureMap() {
                   )}>
                     <MapPin className="h-3 w-3 text-foreground" />
                   </div>
-                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-black/80 backdrop-blur-md text-foreground text-[9px] font-black uppercase px-3 py-1.5 rounded-lg border border-border z-50">
+                  <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-black/80 text-foreground text-[9px] font-semibold px-3 py-1.5 rounded-lg border border-border z-50">
                     {node.name}
                   </div>
                 </div>
@@ -89,16 +89,16 @@ export default function InfrastructureMap() {
 
           {/* Map Controls */}
           <div className="absolute bottom-10 right-10 flex flex-col gap-3">
-            <Button size="icon" className="h-12 w-12 rounded-xl bg-white/10 backdrop-blur-md border border-border hover:bg-white/20">
+            <Button size="icon" className="h-12 w-12 rounded-xl bg-white/10 border border-border hover:bg-white/20">
               <Maximize2 className="h-5 w-5 text-foreground" />
             </Button>
-            <Button size="icon" className="h-12 w-12 rounded-xl bg-white/10 backdrop-blur-md border border-border hover:bg-white/20">
+            <Button size="icon" className="h-12 w-12 rounded-xl bg-white/10 border border-border hover:bg-white/20">
               <Navigation className="h-5 w-5 text-foreground" />
             </Button>
           </div>
 
           <div className="absolute top-6 left-10">
-             <Badge className="bg-primary text-foreground border-none font-black px-4 py-2 rounded-xl text-[10px] uppercase tracking-widest">
+             <Badge className="bg-primary text-foreground border-none font-bold px-4 py-2 rounded-xl text-[10px] uppercase tracking-widest">
                 GEOSPATIAL LAYER: ACTIVE
              </Badge>
           </div>
@@ -107,10 +107,10 @@ export default function InfrastructureMap() {
         {/* Node Sidebar */}
         <div className="col-span-12 xl:col-span-4 space-y-10">
           {selectedNode ? (
-            <Card className="rounded-[2rem] border-none shadow-2xl bg-card dark:bg-secondary p-6 space-y-8 animate-in slide-in-from-right-4 duration-500">
+            <Card className="rounded-2xl border-none shadow-sm bg-card dark:bg-secondary p-6 space-y-8 animate-in slide-in-from-right-4 duration-500">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <h3 className="text-3xl font-black italic tracking-tighter uppercase leading-none">{selectedNode.name}</h3>
+                  <h3 className="text-3xl font-bold tracking-tighter uppercase leading-none">{selectedNode.name}</h3>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{selectedNode.location}</p>
                 </div>
                 <div className={cn(
@@ -123,57 +123,57 @@ export default function InfrastructureMap() {
 
               <div className="grid grid-cols-2 gap-4">
                  <div className="p-6 rounded-2xl bg-secondary/50 border border-border">
-                    <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-1">Health Index</p>
-                    <p className="text-2xl font-black italic">{selectedNode.health}%</p>
+                    <p className="text-label text-muted-foreground mb-1">Health Index</p>
+                    <p className="text-2xl font-bold">{selectedNode.health}%</p>
                  </div>
                  <div className="p-6 rounded-2xl bg-secondary/50 border border-border">
-                    <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-1">Latency</p>
-                    <p className="text-2xl font-black italic">{selectedNode.latency}</p>
+                    <p className="text-label text-muted-foreground mb-1">Latency</p>
+                    <p className="text-2xl font-bold">{selectedNode.latency}</p>
                  </div>
               </div>
 
               <div className="space-y-4 pt-4 border-t border-border">
-                 <Button className="w-full h-14 rounded-2xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-xs gap-3">
+                 <Button className="w-full h-14 rounded-2xl bg-primary text-primary-foreground font-semibold tracking-widest text-xs gap-3">
                     NODE REMOTE ACCESS
                  </Button>
-                 <Button variant="outline" className="w-full h-14 rounded-2xl border-border font-black uppercase tracking-widest text-xs">
+                 <Button variant="outline" className="w-full h-14 rounded-2xl border-border font-semibold tracking-widest text-xs">
                     DIAGNOSTIC SWEEP
                  </Button>
               </div>
             </Card>
           ) : (
-            <Card className="rounded-[2rem] border-none shadow-2xl bg-card dark:bg-secondary p-6 flex flex-col items-center justify-center text-center space-y-6 min-h-[300px]">
+            <Card className="rounded-2xl border-none shadow-sm bg-card dark:bg-secondary p-6 flex flex-col items-center justify-center text-center space-y-6 min-h-[300px]">
                <div className="h-20 w-20 rounded-2xl bg-secondary flex items-center justify-center">
                   <Globe className="h-10 w-10 text-muted-foreground" />
                </div>
                <div className="space-y-2">
-                  <h4 className="text-xl font-black italic uppercase tracking-tighter">No Node Selected</h4>
+                  <h4 className="text-xl font-semibold tracking-tighter">No Node Selected</h4>
                   <p className="text-xs font-medium text-muted-foreground italic">Select a tactical node on the geospatial map to view real-time telemetry.</p>
                </div>
             </Card>
           )}
 
-          <Card className="rounded-[2rem] border-none shadow-2xl bg-card dark:bg-secondary p-8">
-             <h4 className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground mb-6 flex items-center gap-3 italic">
+          <Card className="rounded-2xl border-none shadow-sm bg-card dark:bg-secondary p-8">
+             <h4 className="text-xs font-semibold tracking-[0.3em] text-muted-foreground mb-6 flex items-center gap-3 italic">
                 <Activity className="h-4 w-4 text-primary" /> System Alerts
              </h4>
              <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-destructive/5 border border-destructive/10 flex items-start gap-4">
                    <ShieldAlert className="h-5 w-5 text-destructive shrink-0" />
                    <div>
-                      <p className="text-[10px] font-black uppercase text-destructive">Critical Failure</p>
+                      <p className="text-[10px] font-semibold text-destructive">Critical Failure</p>
                       <p className="text-xs font-medium italic italic">Node Bali_01 disconnected from grid.</p>
                    </div>
                 </div>
                 <div className="p-4 rounded-2xl bg-warning border border-warning/10 flex items-start gap-4">
                    <Server className="h-5 w-5 text-warning shrink-0" />
                    <div>
-                      <p className="text-[10px] font-black uppercase text-warning">Maintenance</p>
+                      <p className="text-[10px] font-semibold text-warning">Maintenance</p>
                       <p className="text-xs font-medium italic italic">Bandung Node: Scheduled patch L4.2</p>
                    </div>
                 </div>
              </div>
-             <Button variant="ghost" className="w-full mt-6 text-[10px] font-black uppercase tracking-widest gap-2">
+             <Button variant="ghost" className="w-full mt-6 text-[10px] font-semibold tracking-widest gap-2">
                 VIEW FULL INCIDENT LOG <ChevronRight className="h-4 w-4" />
              </Button>
           </Card>

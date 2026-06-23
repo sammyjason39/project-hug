@@ -368,13 +368,13 @@ export default function CoreReports() {
             disabled 
             title="Not available yet" 
             variant="outline"
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest"
           >
             Manage schedules
           </Button>
           <Button 
             onClick={() => handleGenerate("Executive KPI Summary", "PDF")}
-            className="rounded-xl h-10 px-6 font-black text-[10px] uppercase tracking-widest shadow-xl shadow-primary/20"
+            className="rounded-xl h-10 px-6 font-bold text-[10px] uppercase tracking-widest shadow-sm shadow-primary/20"
           >
             <Plus className="h-3 w-3 mr-2" /> New report
           </Button>

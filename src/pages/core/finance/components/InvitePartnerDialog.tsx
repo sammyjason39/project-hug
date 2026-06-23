@@ -69,7 +69,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] glass-morphism border-border shadow-2xl">
+      <DialogContent className="sm:max-w-[425px] surface-card border-border shadow-sm">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-primary">
             <Mail className="h-5 w-5" />
@@ -88,7 +88,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
               placeholder="admin@partner-tenant.com" 
               value={form.email}
               onChange={e => setForm({...form, email: e.target.value})}
-              className="bg-white/50"
+              className="bg-card"
             />
           </div>
 
@@ -98,7 +98,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
               value={form.jv_profile_id} 
               onValueChange={v => setForm({...form, jv_profile_id: v})}
             >
-              <SelectTrigger className="bg-white/50">
+              <SelectTrigger className="bg-card">
                 <SelectValue placeholder="Select a profile" />
               </SelectTrigger>
               <SelectContent>
@@ -116,7 +116,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
                 <Percent className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input 
                   type="number" 
-                  className="pl-9 bg-white/50"
+                  className="pl-9 bg-card"
                   value={form.revenue_share}
                   onChange={e => setForm({...form, revenue_share: e.target.value})}
                 />
@@ -128,7 +128,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
                 <Percent className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input 
                   type="number" 
-                  className="pl-9 bg-white/50"
+                  className="pl-9 bg-card"
                   value={form.profit_share}
                   onChange={e => setForm({...form, profit_share: e.target.value})}
                 />
@@ -142,7 +142,7 @@ export function InvitePartnerDialog({ open, onOpenChange, profiles }: InvitePart
               value={form.role} 
               onValueChange={v => setForm({...form, role: v})}
             >
-              <SelectTrigger className="bg-white/50">
+              <SelectTrigger className="bg-card">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

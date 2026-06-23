@@ -19,7 +19,7 @@ export const ShiftStatusCard: React.FC<ShiftStatusCardProps> = ({
   return (
     <Card
       className={cn(
-        "lg:col-span-2 rounded-2xl border-4 transition-all shadow-2xl relative overflow-hidden group min-h-[220px] flex items-center p-6",
+        "lg:col-span-2 rounded-2xl border-4 transition-all shadow-sm relative overflow-hidden group min-h-[220px] flex items-center p-6",
         activeShift
           ? "bg-secondary border-primary text-foreground"
           : "bg-white border-destructive/20 text-foreground",
@@ -31,7 +31,7 @@ export const ShiftStatusCard: React.FC<ShiftStatusCardProps> = ({
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 w-full">
         <div
           className={cn(
-            "w-24 h-24 rounded-[2rem] flex items-center justify-center shrink-0 border-2",
+            "w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 border-2",
             activeShift
               ? "bg-primary border-primary shadow-[0_0_30px_rgba(37,99,235,0.3)]"
               : "bg-destructive border-destructive text-destructive",
@@ -45,11 +45,11 @@ export const ShiftStatusCard: React.FC<ShiftStatusCardProps> = ({
         </div>
         <div className="flex-1 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-            <h2 className="text-2xl font-black italic tracking-tighter uppercase">
+            <h2 className="text-2xl font-bold tracking-tighter uppercase">
               {activeShift ? "Node Session Live" : "Terminals Locked"}
             </h2>
             {activeShift && (
-              <Badge className="bg-success font-black italic animate-pulse">
+              <Badge className="bg-success font-bold animate-pulse">
                 ACTIVE
               </Badge>
             )}
@@ -68,7 +68,7 @@ export const ShiftStatusCard: React.FC<ShiftStatusCardProps> = ({
         <Button
           onClick={() => navigate("/m/retail/management/shifts")}
           className={cn(
-            "h-14 px-10 rounded-2xl font-black italic uppercase tracking-widest text-xs shadow-xl transition-all",
+            "h-14 px-10 rounded-2xl font-semibold tracking-widest text-xs shadow-sm transition-all",
             activeShift
               ? "bg-white text-foreground hover:bg-secondary/10"
               : "bg-destructive text-foreground hover:bg-destructive",

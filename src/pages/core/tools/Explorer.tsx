@@ -541,7 +541,7 @@ export default function Explorer() {
               <div className="max-h-[calc(100vh-320px)] overflow-y-auto pr-2 custom-scrollbar">
                 <div
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-[10px] font-black uppercase tracking-widest transition-all",
+                    "flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-[10px] font-semibold tracking-widest transition-all",
                     activeFolder === "root" ? "bg-primary/10 text-primary shadow-sm" : "hover:bg-muted/50 text-muted-foreground/70"
                   )}
                   onClick={() => navigateToFolder("root")}
@@ -575,7 +575,7 @@ export default function Explorer() {
 
                 <div
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-[10px] font-black uppercase tracking-widest transition-all",
+                    "flex cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-[10px] font-semibold tracking-widest transition-all",
                     activeFolder === "recycle" ? "bg-destructive text-destructive shadow-sm" : "hover:bg-muted/50 text-muted-foreground/70"
                   )}
                   onClick={() => navigateToFolder("recycle")}
@@ -585,17 +585,17 @@ export default function Explorer() {
                 </div>
 
                 {renameFolderId ? (
-                  <div className="space-y-2 mt-4 p-3 border rounded-2xl bg-muted/20 backdrop-blur-sm">
+                  <div className="space-y-2 mt-4 p-3 border rounded-2xl bg-muted/20">
                     <Input
                       value={renameFolderValue}
                       onChange={(event) => setRenameFolderValue(event.target.value)}
                       placeholder="NEW_IDENTITY..."
-                      className="h-8 text-[10px] font-black uppercase tracking-widest"
+                      className="h-8 text-[10px] font-semibold tracking-widest"
                     />
                     <div className="flex gap-2">
                       <Button
                         size="sm"
-                        className="flex-1 rounded-lg font-black text-[9px] uppercase tracking-widest"
+                        className="flex-1 rounded-lg font-bold text-[9px] uppercase tracking-widest"
                         onClick={() => {
                           renameFolder(session, renameFolderId, renameFolderValue);
                           setRenameFolderId(null);
@@ -605,7 +605,7 @@ export default function Explorer() {
                       >
                         SAVE
                       </Button>
-                      <Button size="sm" variant="ghost" className="rounded-lg font-black text-[9px] uppercase tracking-widest" onClick={() => setRenameFolderId(null)}>CANCEL</Button>
+                      <Button size="sm" variant="ghost" className="rounded-lg font-bold text-[9px] uppercase tracking-widest" onClick={() => setRenameFolderId(null)}>CANCEL</Button>
                     </div>
                   </div>
                 ) : null}
@@ -625,13 +625,13 @@ export default function Explorer() {
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="flex flex-1 items-center gap-2 rounded-2xl border bg-background/50 backdrop-blur-md px-4 py-2 min-w-0 shadow-sm ring-1 ring-primary/5">
+              <div className="flex flex-1 items-center gap-2 rounded-2xl border bg-background/50 px-4 py-2 min-w-0 shadow-sm ring-1 ring-primary/5">
                 <div className="flex flex-wrap items-center gap-1.5 overflow-hidden">
                   {(Array.isArray(currentBreadcrumb) ? currentBreadcrumb : []).map((crumb, index) => (
                     <React.Fragment key={`${crumb.id}-${index}`}>
                       <button
                         className={cn(
-                          "text-xs font-black transition-all truncate max-w-[150px] uppercase tracking-widest",
+                          "text-xs font-bold transition-all truncate max-w-[150px] uppercase tracking-widest",
                           index === currentBreadcrumb.length - 1 ? "text-primary" : "text-muted-foreground/60 hover:text-primary"
                         )}
                         onClick={() => navigateToFolder(crumb.id)}
@@ -651,7 +651,7 @@ export default function Explorer() {
                   placeholder="SEARCH ENGINE: SCAN BY IDENTITY..."
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
-                  className="pl-11 h-10 rounded-2xl bg-background/50 backdrop-blur-md border-primary/10 focus:border-primary/30 transition-all font-black text-[10px] uppercase tracking-widest shadow-sm"
+                  className="pl-11 h-10 rounded-2xl bg-background/50 border-primary/10 focus:border-primary/30 transition-all font-bold text-[10px] uppercase tracking-widest shadow-sm"
                 />
               </div>
             </div>
@@ -987,7 +987,7 @@ export default function Explorer() {
                                       <TooltipTrigger asChild>
                                         <span className="truncate max-w-[200px] block">{file.name}</span>
                                       </TooltipTrigger>
-                                      <TooltipContent className="bg-muted border-white/10 text-white font-bold italic">
+                                      <TooltipContent className="bg-muted border-border text-white font-bold italic">
                                         {file.name}
                                       </TooltipContent>
                                     </Tooltip>
@@ -1311,19 +1311,19 @@ export default function Explorer() {
                                           setVersion((prev) => prev + 1);
                                         }}
                                         autoFocus
-                                        className="h-8 text-[10px] rounded-lg font-black uppercase tracking-widest"
+                                        className="h-8 text-[10px] rounded-lg font-semibold tracking-widest"
                                       />
                                     ) : (
                                       <TooltipProvider>
                                         <Tooltip>
                                           <TooltipTrigger asChild>
                                             <p 
-                                              className="text-[11px] font-black text-foreground truncate w-full group-hover:text-primary transition-all tracking-widest uppercase" 
+                                              className="text-[11px] font-bold text-foreground truncate w-full group-hover:text-primary transition-all tracking-widest uppercase" 
                                             >
                                               {file.name}
                                             </p>
                                           </TooltipTrigger>
-                                          <TooltipContent className="bg-muted border-white/10 text-white font-bold italic shadow-2xl backdrop-blur-xl">
+                                          <TooltipContent className="bg-muted border-border text-white font-bold italic shadow-sm">
                                             {file.name}
                                           </TooltipContent>
                                         </Tooltip>
@@ -1332,14 +1332,14 @@ export default function Explorer() {
                                     
                                     <div className="flex flex-col gap-2 mt-2">
                                         <div className="flex items-center gap-2">
-                                          <div className="flex items-center gap-1.5 bg-muted dark:bg-white/5 px-2.5 py-1 rounded-lg border border-border/5 dark:border-white/5 shadow-inner group-hover:bg-primary/5 transition-all">
+                                          <div className="flex items-center gap-1.5 bg-muted dark:bg-white/5 px-2.5 py-1 rounded-lg border border-border/5 dark:border-border shadow-inner group-hover:bg-primary/5 transition-all">
                                             <Folder className="h-2.5 w-2.5 text-muted-foreground" />
-                                            <p className="text-[8px] text-muted-foreground font-black tracking-widest truncate max-w-[120px] uppercase">
+                                            <p className="text-[8px] text-muted-foreground font-bold tracking-widest truncate max-w-[120px] uppercase">
                                               {folderMap.get(file.folderId ?? "root") ?? "ROOT_NODE"}
                                             </p>
                                           </div>
                                           {file.access_level && (
-                                            <Badge variant={file.access_level === "private" ? "destructive" : "secondary"} className="h-4.5 px-2 text-[8px] uppercase font-black rounded-lg border-none shadow-sm tracking-[0.2em] bg-muted dark:bg-muted text-muted-foreground">
+                                            <Badge variant={file.access_level === "private" ? "destructive" : "secondary"} className="h-4.5 px-2 text-[8px] uppercase font-bold rounded-lg border-none shadow-sm tracking-[0.2em] bg-muted dark:bg-muted text-muted-foreground">
                                               {file.access_level}
                                             </Badge>
                                           )}
@@ -1352,11 +1352,11 @@ export default function Explorer() {
                                           return (
                                             <div className="pt-2 border-t border-dashed border-primary/10 space-y-2 mt-1">
                                               <div className="flex items-center gap-2 flex-wrap">
-                                                <div className="flex items-center gap-1 bg-gradient-to-r from-indigo-500/10 to-blue-500/5 text-primary text-[8px] px-2 py-1 rounded-lg border border-primary font-black shadow-sm uppercase tracking-widest">
+                                                <div className="flex items-center gap-1 bg-gradient-to-r from-indigo-500/10 to-blue-500/5 text-primary text-[8px] px-2 py-1 rounded-lg border border-primary font-bold shadow-sm uppercase tracking-widest">
                                                   <Bot className="h-3 w-3" />
                                                   {meta.ai_name || "AUDIT_ENGINE"}
                                                 </div>
-                                                <div className="flex items-center gap-1 bg-muted text-muted-foreground text-[8px] px-2 py-1 rounded-lg border border-border font-black shadow-sm uppercase tracking-widest">
+                                                <div className="flex items-center gap-1 bg-muted text-muted-foreground text-[8px] px-2 py-1 rounded-lg border border-border font-bold shadow-sm uppercase tracking-widest">
                                                   <User className="h-3 w-3" />
                                                   {meta.performer}
                                                 </div>
@@ -1365,7 +1365,7 @@ export default function Explorer() {
                                                 <Button 
                                                   variant="secondary" 
                                                   size="sm" 
-                                                  className="w-full h-7 text-[9px] font-black uppercase tracking-[0.2em] rounded-lg shadow-sm border border-primary/10 hover:bg-primary/10 transition-all group-hover:bg-primary group-hover:text-white"
+                                                  className="w-full h-7 text-label rounded-lg shadow-sm border border-primary/10 hover:bg-primary/10 transition-all group-hover:bg-primary group-hover:text-white"
                                                   onClick={(e) => {
                                                     e.stopPropagation();
                                                     setSelectedFileId(file.id);
@@ -1386,7 +1386,7 @@ export default function Explorer() {
                                 </div>
                                 {viewMode !== "large" && (
                                   <div className="ml-2 flex items-center gap-2 flex-shrink-0 self-start">
-                                    <Badge variant="outline" className="text-[10px] rounded-full px-4 py-1.5 bg-primary/5 text-primary border-primary/20 font-black italic shadow-md uppercase tracking-tighter hover:bg-primary/10 transition-colors">
+                                    <Badge variant="outline" className="text-[10px] rounded-full px-4 py-1.5 bg-primary/5 text-primary border-primary/20 font-bold shadow-md uppercase tracking-tighter hover:bg-primary/10 transition-colors">
                                       {typeLabel[file.type]}
                                     </Badge>
                                   </div>

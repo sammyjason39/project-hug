@@ -60,9 +60,9 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
         }
       }}
     >
-      <DialogContent className="max-w-lg rounded-3xl border-none shadow-2xl bg-white max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-lg rounded-3xl border-none shadow-sm bg-white max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-base font-black italic tracking-tighter">
+          <DialogTitle className="text-base font-bold tracking-tighter">
             Register New {label}
           </DialogTitle>
           <p className="text-[11px] text-muted-foreground font-medium">
@@ -73,7 +73,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
         <div className="space-y-3 py-2">
           <div className="grid grid-cols-2 gap-3">
             <div className="col-span-2 space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 {label} Name *
               </Label>
               <Input
@@ -84,7 +84,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               />
             </div>
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 {typeLabel} *
               </Label>
               <Select value={f.subType} onValueChange={set("subType")}>
@@ -101,7 +101,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               </Select>
             </div>
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Model
               </Label>
               <Input
@@ -112,7 +112,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               />
             </div>
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Serial No.
               </Label>
               <Input
@@ -125,7 +125,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
             {showConn && (
               <>
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                  <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                     Connection Type
                   </Label>
                   <Select
@@ -146,7 +146,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
                 </div>
                 {(f.connType === "tcp_ip" || f.connType === "wifi") && (
                   <div className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                    <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                       IP Address
                     </Label>
                     <Input
@@ -159,7 +159,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
                 )}
                 {f.connType === "com_port" && (
                   <div className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                    <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                       COM Port
                     </Label>
                     <Input
@@ -172,7 +172,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
                 )}
                 {f.connType === "usb" && (
                   <div className="space-y-1.5">
-                    <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                    <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                       USB Port Label
                     </Label>
                     <Input
@@ -184,7 +184,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
                   </div>
                 )}
                 <div className="space-y-1.5">
-                  <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+                  <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                     MAC Address
                   </Label>
                   <Input
@@ -197,7 +197,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               </>
             )}
             <div className="space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Placement / Location
               </Label>
               <Input
@@ -208,7 +208,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               />
             </div>
             <div className="col-span-2 space-y-1.5">
-              <Label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">
+              <Label className="text-[10px] font-semibold text-muted-foreground tracking-widest">
                 Notes
               </Label>
               <Textarea
@@ -249,7 +249,7 @@ const RegisterModal = ({ open, tab, onClose, onSave }: RegisterModalProps) => {
               onSave(f);
               setF(EMPTY_FORM);
             }}
-            className="flex-1 rounded-xl bg-secondary text-foreground font-black italic uppercase text-[10px] tracking-widest"
+            className="flex-1 rounded-xl bg-secondary text-foreground font-semibold text-[10px] tracking-widest"
           >
             Register {label}
           </Button>

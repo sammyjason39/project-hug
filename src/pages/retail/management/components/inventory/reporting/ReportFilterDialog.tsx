@@ -75,19 +75,19 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[1000px] p-0 border-none rounded-[2rem] overflow-hidden bg-white/95 backdrop-blur-2xl shadow-[0_64px_128px_-24px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
+      <DialogContent className="max-w-[1000px] p-0 border-none rounded-2xl overflow-hidden bg-white/95 shadow-[0_64px_128px_-24px_rgba(0,0,0,0.15)] ring-1 ring-black/5">
         <div className="flex flex-col lg:flex-row h-full lg:min-h-[600px]">
           {/* Modal Left: Active Report Info */}
           <div className="hidden lg:flex lg:w-80 bg-background p-6 flex-col justify-between relative overflow-hidden">
             <div className="absolute -left-16 -top-16 w-64 h-64 bg-primary/20 rounded-full blur-[100px]" />
             <div className="relative z-10 space-y-8">
-              <div className="w-16 h-16 rounded-[2rem] bg-white/10 border border-border flex items-center justify-center">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 border border-border flex items-center justify-center">
                 {activeReportMeta && (
                   <activeReportMeta.icon className="w-8 h-8 text-foreground" />
                 )}
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-black italic text-foreground uppercase tracking-tighter leading-none">
+                <h3 className="text-2xl font-bold text-foreground uppercase tracking-tighter leading-none">
                   {activeReportMeta?.label}
                 </h3>
                 <div className="h-1 w-12 bg-primary rounded-full" />
@@ -99,11 +99,11 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
             <div className="relative z-10">
               <div className="flex items-center gap-3 text-primary mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest">
+                <span className="text-[10px] font-semibold tracking-widest">
                   Secure Endpoint
                 </span>
               </div>
-              <div className="p-4 rounded-2xl bg-secondary/40 border border-white/5">
+              <div className="p-4 rounded-2xl bg-secondary/40 border border-border">
                 <p className="text-[10px] font-bold text-muted-foreground italic uppercase">
                   Trace ID: EXT-
                   {Math.random().toString(36).substring(7).toUpperCase()}
@@ -116,7 +116,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
           <div className="flex-1 p-6 lg:p-8 space-y-10 overflow-y-auto">
             <div>
               <DialogHeader className="p-0 text-left">
-                <DialogTitle className="font-black italic text-3xl tracking-tighter text-primary-foreground uppercase mb-2">
+                <DialogTitle className="font-bold text-3xl tracking-tighter text-primary-foreground uppercase mb-2">
                   Extraction Parameters
                 </DialogTitle>
                 <DialogDescription className="text-muted-foreground font-medium italic">
@@ -129,7 +129,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Branch Selection */}
               <div className="space-y-5">
-                <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-3">
+                <Label className="text-[11px] font-semibold tracking-widest text-muted-foreground flex items-center gap-3">
                   <Building2 className="w-4 h-4 text-primary" /> Store
                   Isolation
                 </Label>
@@ -138,10 +138,10 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
                   onValueChange={setBranchId}
                   disabled={!isAdmin}
                 >
-                  <SelectTrigger className="h-16 rounded-xl font-black italic border-border bg-white shadow-sm px-6 hover:bg-secondary/5 transition-all">
+                  <SelectTrigger className="h-16 rounded-xl font-bold border-border bg-white shadow-sm px-6 hover:bg-secondary/5 transition-all">
                     <SelectValue placeholder="Select Location" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-[2rem] border-none shadow-2xl p-3 font-black italic bg-white/95 backdrop-blur-md">
+                  <SelectContent className="rounded-2xl border-none shadow-sm p-3 font-bold bg-white/95">
                     <SelectItem
                       value="all"
                       className="rounded-xl py-4 focus:bg-primary/5"
@@ -164,7 +164,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
 
               {/* Date Selection */}
               <div className="space-y-5">
-                <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-3">
+                <Label className="text-[11px] font-semibold tracking-widest text-muted-foreground flex items-center gap-3">
                   <Calendar className="w-4 h-4 text-primary" /> Time
                   Dimension
                 </Label>
@@ -187,7 +187,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
 
             {/* Data Toggles */}
             <div className="space-y-6">
-              <Label className="text-[11px] font-black uppercase tracking-widest text-muted-foreground">
+              <Label className="text-[11px] font-semibold tracking-widest text-muted-foreground">
                 Information Manifest (Toggle Columns)
               </Label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -204,7 +204,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
                     className={cn(
                       "flex flex-col items-center justify-center p-8 rounded-2xl cursor-pointer transition-all border-2 text-center space-y-4",
                       toggles[toggle.key as keyof typeof toggles]
-                        ? "bg-primary/5 border-primary shadow-xl shadow-indigo-100/50"
+                        ? "bg-primary/5 border-primary shadow-sm shadow-indigo-100/50"
                         : "bg-white border-border text-muted-foreground hover:border-border",
                     )}
                   >
@@ -218,7 +218,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
                     />
                     <div
                       className={cn(
-                        "text-[10px] font-black italic uppercase tracking-widest",
+                        "text-[10px] font-semibold tracking-widest",
                         toggles[toggle.key as keyof typeof toggles]
                           ? "text-primary"
                           : "text-muted-foreground",
@@ -236,7 +236,7 @@ export const ReportFilterDialog: React.FC<ReportFilterDialogProps> = ({
               <Button
                 onClick={() => handleExport("CSV")}
                 disabled={isGenerating}
-                className="flex-1 h-20 rounded-2xl bg-primary hover:bg-primary/90 text-foreground font-black italic uppercase tracking-[0.25em] text-sm gap-4 shadow-2xl shadow-indigo-200 transition-all active:scale-95"
+                className="flex-1 h-20 rounded-2xl bg-primary hover:bg-primary/90 text-foreground font-semibold tracking-[0.25em] text-sm gap-4 shadow-sm shadow-indigo-200 transition-all active:scale-95"
               >
                 {isGenerating ? (
                   <>

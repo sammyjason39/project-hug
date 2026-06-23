@@ -26,7 +26,7 @@ export const BufferCollisionSensor: React.FC<BufferCollisionSensorProps> = ({
   return (
     <Card
       className={cn(
-        "p-6 md:p-8 rounded-2xl shadow-xl overflow-hidden relative border-none",
+        "p-6 md:p-8 rounded-2xl shadow-sm overflow-hidden relative border-none",
         isCollision ? "bg-destructive" : "bg-white",
       )}
     >
@@ -52,7 +52,7 @@ export const BufferCollisionSensor: React.FC<BufferCollisionSensorProps> = ({
             </div>
             <div
               className={cn(
-                "text-[9px] font-black italic uppercase tracking-widest px-4 py-1.5 rounded-full shadow-sm",
+                "text-[9px] font-semibold tracking-widest px-4 py-1.5 rounded-full shadow-sm",
                 isCollision
                   ? "bg-destructive text-foreground"
                   : "bg-secondary text-foreground",
@@ -65,7 +65,7 @@ export const BufferCollisionSensor: React.FC<BufferCollisionSensorProps> = ({
           <div className="mb-8">
             <div
               className={cn(
-                "text-2xl font-black italic tracking-tighter mb-2",
+                "text-2xl font-bold tracking-tighter mb-2",
                 isCollision ? "text-destructive" : "text-foreground",
               )}
             >
@@ -73,7 +73,7 @@ export const BufferCollisionSensor: React.FC<BufferCollisionSensorProps> = ({
             </div>
             <div
               className={cn(
-                "text-[10px] font-black uppercase italic tracking-widest",
+                "text-[10px] font-semibold italic tracking-widest",
                 isCollision ? "text-destructive" : "text-muted-foreground",
               )}
             >
@@ -84,7 +84,7 @@ export const BufferCollisionSensor: React.FC<BufferCollisionSensorProps> = ({
         </div>
 
         <div className="space-y-3 mt-auto">
-          <div className="flex justify-between text-[9px] font-black uppercase tracking-widest text-muted-foreground">
+          <div className="flex justify-between text-label text-muted-foreground">
             <span>Safety Buffer: {ecommerceBufferConfig}</span>
             <span>Est. Impact: {promoImpactEstimate} units</span>
           </div>

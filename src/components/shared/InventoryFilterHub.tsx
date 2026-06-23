@@ -85,7 +85,7 @@ export const InventoryFilterHub: React.FC<InventoryFilterHubProps> = ({
         <div className="relative flex-1 group">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
           <UIInput
-            className="pl-12 h-14 bg-muted backdrop-blur-md border-white/10 shadow-xl rounded-2xl font-bold italic placeholder:text-muted-foreground focus:ring-2 focus:ring-indigo-500/20 transition-all text-white"
+            className="pl-12 h-14 bg-muted border-border shadow-sm rounded-2xl font-bold italic placeholder:text-muted-foreground focus:ring-2 focus:ring-indigo-500/20 transition-all text-white"
             placeholder="Quick search SKU, item name..."
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -125,16 +125,16 @@ export const InventoryFilterHub: React.FC<InventoryFilterHubProps> = ({
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-[2.5rem] bg-muted backdrop-blur-2xl border border-white/5 shadow-2xl mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-8 rounded-2xl bg-muted border border-border shadow-sm mt-2">
 
               {/* Category */}
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Category</label>
+                <label className="text-label text-muted-foreground ml-2">Category</label>
                 <UISelect value={category || "all"} onValueChange={onCategoryChange}>
-                  <UISelectTrigger className="h-12 rounded-xl bg-muted border-white/5 shadow-sm font-bold italic text-xs text-white">
+                  <UISelectTrigger className="h-12 rounded-xl bg-muted border-border shadow-sm font-bold italic text-xs text-white">
                     <UISelectValue placeholder="All Categories" />
                   </UISelectTrigger>
-                  <UISelectContent className="rounded-xl bg-muted border-white/10 text-white">
+                  <UISelectContent className="rounded-xl bg-muted border-border text-white">
                     <UISelectItem value="all">All Categories</UISelectItem>
                     {categories
                       .filter((c) => c.id !== "all")
@@ -147,12 +147,12 @@ export const InventoryFilterHub: React.FC<InventoryFilterHubProps> = ({
 
               {/* Sort By */}
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Sort By</label>
+                <label className="text-label text-muted-foreground ml-2">Sort By</label>
                 <UISelect value={sortBy} onValueChange={onSortChange ?? (() => {})}>
-                  <UISelectTrigger className="h-12 rounded-xl bg-muted border-white/5 shadow-sm font-bold italic text-xs text-white">
+                  <UISelectTrigger className="h-12 rounded-xl bg-muted border-border shadow-sm font-bold italic text-xs text-white">
                     <UISelectValue placeholder="Sort By" />
                   </UISelectTrigger>
-                  <UISelectContent className="rounded-xl bg-muted border-white/10 text-white">
+                  <UISelectContent className="rounded-xl bg-muted border-border text-white">
                     {SORT_OPTIONS.map((opt) => (
                       <UISelectItem key={opt.value} value={opt.value} className="font-bold italic">
                         {opt.label}
@@ -165,12 +165,12 @@ export const InventoryFilterHub: React.FC<InventoryFilterHubProps> = ({
               {/* Status */}
               {onStatusChange && (
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Item Status</label>
+                  <label className="text-label text-muted-foreground ml-2">Item Status</label>
                   <UISelect value={status || "all"} onValueChange={onStatusChange}>
-                    <UISelectTrigger className="h-12 rounded-xl bg-muted border-white/5 shadow-sm font-bold italic text-xs text-white">
+                    <UISelectTrigger className="h-12 rounded-xl bg-muted border-border shadow-sm font-bold italic text-xs text-white">
                       <UISelectValue placeholder="All Status" />
                     </UISelectTrigger>
-                    <UISelectContent className="rounded-xl bg-muted border-white/10 text-white">
+                    <UISelectContent className="rounded-xl bg-muted border-border text-white">
                       <UISelectItem value="all">All Status</UISelectItem>
                       <UISelectItem value="active">Active</UISelectItem>
                       <UISelectItem value="REPAIR">Repair</UISelectItem>
@@ -188,8 +188,8 @@ export const InventoryFilterHub: React.FC<InventoryFilterHubProps> = ({
               {/* Price Range */}
               {onPriceRangeChange && (
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Price Range</label>
-                  <div className="flex items-center gap-2 h-12 rounded-xl bg-muted border border-white/5 shadow-sm px-4">
+                  <label className="text-label text-muted-foreground ml-2">Price Range</label>
+                  <div className="flex items-center gap-2 h-12 rounded-xl bg-muted border border-border shadow-sm px-4">
                     <UIInput
                       type="number"
                       placeholder="Min"

@@ -454,7 +454,7 @@ const CashierPOS = () => {
 
   if (isLoading || isContextLoading) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center bg-background text-muted-foreground font-black italic uppercase tracking-[0.25em]">
+      <div className="h-screen flex flex-col items-center justify-center bg-background text-muted-foreground font-semibold tracking-[0.25em]">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-[50%] h-[50%] bg-primary/20 blur-[150px] rounded-full animate-pulse" />
         </div>
@@ -478,23 +478,23 @@ const CashierPOS = () => {
         <div className="flex-[2.8] flex flex-col gap-6 overflow-hidden min-h-0">
           
           {/* TACTICAL HEADER */}
-          <div className="flex items-center justify-between glass-morphism p-6 rounded-[2rem] relative overflow-hidden group shrink-0">
+          <div className="flex items-center justify-between surface-card p-6 rounded-2xl relative overflow-hidden group shrink-0">
             <div className="flex items-center gap-6 relative z-10">
-              <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center text-primary shadow-2xl ring-4 ring-primary/10 group-hover:scale-105 transition-transform duration-500">
+              <div className="w-16 h-16 rounded-2xl bg-secondary flex items-center justify-center text-primary shadow-sm ring-4 ring-primary/10 group-hover:scale-105 transition-transform duration-500">
                 <Store className="w-8 h-8" />
               </div>
               <div>
-                <h1 className="text-3xl font-black italic tracking-tighter text-foreground uppercase leading-none mb-2">
+                <h1 className="text-3xl font-bold tracking-tighter text-foreground uppercase leading-none mb-2">
                   {activeStore?.name || "RETAIL_TERMINAL"}
                 </h1>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1.5 px-3 py-1 bg-success/10 rounded-lg border border-success/20">
                     <div className="w-2 h-2 rounded-full bg-success animate-pulse shadow-[0_0_10px_hsl(var(--success)/0.5)]" />
-                    <span className="text-[10px] font-black uppercase text-success tracking-widest">
+                    <span className="text-[10px] font-semibold text-success tracking-widest">
                       Session Active
                     </span>
                   </div>
-                  <span className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.2em] italic">
+                  <span className="text-[10px] font-semibold text-muted-foreground tracking-[0.2em] italic">
                     Node: {session.user_id.slice(0, 8)}
                   </span>
                 </div>
@@ -506,7 +506,7 @@ const CashierPOS = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => fetchProducts(activeCategory?.id)}
-                className="h-12 rounded-xl bg-primary/5 border-primary/10 text-foreground hover:bg-primary/10 font-black italic uppercase text-[10px] tracking-widest gap-2"
+                className="h-12 rounded-xl bg-primary/5 border-primary/10 text-foreground hover:bg-primary/10 font-semibold text-[10px] tracking-widest gap-2"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isProductsLoading ? 'animate-spin' : ''}`} /> Sync Catalog
               </Button>
@@ -524,7 +524,7 @@ const CashierPOS = () => {
               {activeShift && (
                 <div className="px-4 py-2 bg-success/10 border border-success/20 rounded-xl flex items-center gap-2 h-12">
                   <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                  <span className="text-[10px] font-black italic uppercase text-success tracking-widest">
+                  <span className="text-[10px] font-semibold text-success tracking-widest">
                     Shift Active: {activeShift.id.slice(-6).toUpperCase()}
                   </span>
                 </div>
@@ -533,7 +533,7 @@ const CashierPOS = () => {
           </div>
 
           {/* IN-PLANE COMMAND BAR (Scan, Search, Filter) */}
-          <div className="flex items-center gap-4 bg-card/40 backdrop-blur-2xl p-4 rounded-[2rem] border border-border shadow-2xl shrink-0">
+          <div className="flex items-center gap-4 bg-card/40 p-4 rounded-2xl border border-border shadow-sm shrink-0">
             <div className="flex-1">
               <ScannerSearchHeader
                 searchTerm={searchTerm}
@@ -549,7 +549,7 @@ const CashierPOS = () => {
             <div className="flex items-center gap-3 px-5 py-3 bg-secondary/50 border border-border rounded-2xl min-w-[240px] h-14 transition-all hover:border-primary/50">
               <Filter className="w-4 h-4 text-primary shrink-0" />
               <select
-                className="flex-1 bg-transparent text-[11px] font-black uppercase tracking-widest outline-none text-foreground cursor-pointer h-full appearance-none"
+                className="flex-1 bg-transparent text-[11px] font-semibold tracking-widest outline-none text-foreground cursor-pointer h-full appearance-none"
                 value={activeCategory?.id || ""}
                 onChange={(e) => {
                   const cat = categories.find((c) => c.id === e.target.value);
@@ -585,7 +585,7 @@ const CashierPOS = () => {
           {/* Section Label — always visible, never scrolls */}
           <div className="flex items-center gap-4 shrink-0 px-2">
             <div className="h-px flex-1 bg-border/30" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground italic flex items-center gap-3">
+            <span className="text-[10px] font-semibold tracking-[0.4em] text-muted-foreground italic flex items-center gap-3">
               {isProductsLoading && (
                 <RefreshCw className="w-3.5 h-3.5 animate-spin text-primary" />
               )}
@@ -608,7 +608,7 @@ const CashierPOS = () => {
             {isProductsLoading ? (
               <div className="flex flex-col items-center justify-center h-full text-muted-foreground gap-4">
                 <div className="w-16 h-16 rounded-full border-t-2 border-primary animate-spin" />
-                <p className="text-[11px] font-black uppercase tracking-[0.3em]">
+                <p className="text-[11px] font-semibold tracking-[0.3em]">
                   Hydrating Catalog...
                 </p>
               </div>
@@ -618,9 +618,9 @@ const CashierPOS = () => {
           </div>
 
           {/* Pagination Bar — always visible, pinned to bottom of left pane */}
-          <div className="shrink-0 bg-card/40 backdrop-blur-2xl rounded-[1.5rem] border border-border shadow-2xl px-6 py-4 flex items-center justify-between">
+          <div className="shrink-0 bg-card/40 rounded-xl border border-border shadow-sm px-6 py-4 flex items-center justify-between">
             {/* Range Label */}
-            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] italic">
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] italic">
               {filteredProducts.length === 0
                 ? "No entries found"
                 : `Range: ${(currentPage - 1) * PAGE_SIZE + 1} – ${Math.min(currentPage * PAGE_SIZE, filteredProducts.length)} / ${filteredProducts.length}`}
@@ -724,19 +724,19 @@ const CashierPOS = () => {
 
       {/* TRANSACTION SUCCESS MODAL - Thermal Preview */}
       <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
-        <DialogContent className="max-w-md bg-background border-border p-0 overflow-hidden rounded-[2rem]">
+        <DialogContent className="max-w-md bg-background border-border p-0 overflow-hidden rounded-2xl">
           <div className="p-8 bg-primary flex flex-col items-center text-center gap-4">
-             <div className="w-20 h-20 bg-primary-foreground/20 rounded-full flex items-center justify-center backdrop-blur-xl animate-bounce">
+             <div className="w-20 h-20 bg-primary-foreground/20 rounded-full flex items-center justify-center animate-bounce">
                 <CheckCircle2 className="w-10 h-10 text-primary-foreground" />
              </div>
              <div>
-                <h2 className="text-2xl font-black italic uppercase tracking-tighter text-primary-foreground">Payment Received</h2>
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-foreground/70">Order Synchronized to Vault</p>
+                <h2 className="text-2xl font-semibold tracking-tighter text-primary-foreground">Payment Received</h2>
+                <p className="text-label text-primary-foreground/70">Order Synchronized to Vault</p>
              </div>
           </div>
 
           <div className="p-8 bg-secondary/50 flex flex-col items-center">
-             <div className="w-full bg-white p-6 shadow-2xl space-y-4 font-mono text-[10px] text-black leading-tight uppercase relative mb-8">
+             <div className="w-full bg-white p-6 shadow-sm space-y-4 font-mono text-[10px] text-black leading-tight uppercase relative mb-8">
                 <div className="text-center space-y-1 py-2">
                    <p className="text-xs font-bold tracking-tighter">{lastTransaction?.storeName}</p>
                    <p className="text-[8px]">{lastTransaction?.storeAddress}</p>
@@ -760,8 +760,8 @@ const CashierPOS = () => {
                 </div>
                 {lastTransaction?.changeAmount > 0 && (
                    <div className="p-3 bg-success/10 rounded-lg flex justify-between items-center text-success">
-                      <span className="font-black">CHANGE DUE:</span>
-                      <span className="text-sm font-black tracking-tighter">{formatCurrency(lastTransaction.changeAmount, "IDR", "id-ID")}</span>
+                      <span className="font-bold">CHANGE DUE:</span>
+                      <span className="text-sm font-bold tracking-tighter">{formatCurrency(lastTransaction.changeAmount, "IDR", "id-ID")}</span>
                    </div>
                 )}
                 <div className="py-4 flex flex-col items-center">
@@ -772,15 +772,15 @@ const CashierPOS = () => {
                       displayValue={false} 
                       background="transparent"
                    />
-                   <p className="text-[7px] mt-1 tracking-widest font-black italic">{lastTransaction?.orderId}</p>
+                   <p className="text-[7px] mt-1 tracking-widest font-bold">{lastTransaction?.orderId}</p>
                 </div>
              </div>
 
              <div className="w-full grid grid-cols-2 gap-3">
-                <Button variant="outline" className="h-12 rounded-xl bg-secondary border-border text-foreground font-black italic uppercase text-[10px] tracking-widest gap-2" onClick={() => printerService.printReceipt(session.tenant_id, session, lastTransaction)}>
+                <Button variant="outline" className="h-12 rounded-xl bg-secondary border-border text-foreground font-semibold text-[10px] tracking-widest gap-2" onClick={() => printerService.printReceipt(session.tenant_id, session, lastTransaction)}>
                    <PrinterIcon className="w-4 h-4" /> Reprint
                 </Button>
-                <Button className="h-12 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-black italic uppercase text-[10px] tracking-widest gap-2 shadow-lg shadow-primary/20" onClick={() => setIsSuccessModalOpen(false)}>
+                <Button className="h-12 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[10px] tracking-widest gap-2 shadow-lg shadow-primary/20" onClick={() => setIsSuccessModalOpen(false)}>
                    Next Customer
                 </Button>
              </div>

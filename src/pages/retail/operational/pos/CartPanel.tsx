@@ -66,29 +66,29 @@ export const CartPanel: React.FC<CartPanelProps> = ({
   const selectedItem = cart.find((item) => item.id === selectedItemId);
 
   return (
-    <div className="h-full flex flex-col glass-morphism overflow-hidden shadow-[0_40px_80px_-20px_hsl(var(--foreground)/0.1)] rounded-[2.5rem] relative">
+    <div className="h-full flex flex-col surface-card overflow-hidden shadow-[0_40px_80px_-20px_hsl(var(--foreground)/0.1)] rounded-2xl relative">
       {/* Gloss Effect overlay */}
       <div className="absolute inset-0 bg-gradient-to-tr from-foreground/5 to-transparent pointer-events-none" />
 
       {/* Header */}
       <div className="p-4 border-b border-border/40 bg-background/20 shrink-0 flex items-center justify-between relative z-10">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-primary-foreground shadow-2xl shadow-primary/40 ring-4 ring-primary/10">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-primary-foreground shadow-sm shadow-primary/40 ring-4 ring-primary/10">
             <ShoppingCart className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="text-xl font-black italic tracking-tighter uppercase text-foreground leading-none mb-1">
+            <h2 className="text-xl font-bold tracking-tighter uppercase text-foreground leading-none mb-1">
               {activeStoreName || "POS HUB"}
             </h2>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_hsl(var(--success)/0.5)] animate-pulse" />
-              <span className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">
+              <span className="text-[9px] font-semibold text-muted-foreground tracking-[0.2em]">
                 ACTIVE LINK
               </span>
             </div>
           </div>
         </div>
-        <Badge className="h-8 rounded-xl bg-background border border-border text-foreground px-4 font-black italic shadow-lg shadow-primary/5">
+        <Badge className="h-8 rounded-xl bg-background border border-border text-foreground px-4 font-bold shadow-lg shadow-primary/5">
           {cart.length} SKUS
         </Badge>
       </div>
@@ -101,7 +101,7 @@ export const CartPanel: React.FC<CartPanelProps> = ({
               <ShoppingCart className="w-16 h-16 opacity-10" />
               <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" />
             </div>
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-40 italic">
+            <p className="text-[10px] font-semibold tracking-[0.4em] opacity-40 italic">
               CART IS EMPTY
             </p>
           </div>
@@ -150,7 +150,7 @@ export const CartPanel: React.FC<CartPanelProps> = ({
                           className="p-1.5 rounded-lg bg-success/20 text-success hover:text-success-foreground hover:bg-success transition-all flex items-center gap-1"
                         >
                           <Zap className="w-3.5 h-3.5" />
-                          <span className="text-[10px] font-black italic">DISC</span>
+                          <span className="text-[10px] font-bold">DISC</span>
                         </button>
                         <button
                           onClick={(e) => {
@@ -290,7 +290,7 @@ export const CartPanel: React.FC<CartPanelProps> = ({
               </div>
 
               <div className="text-right">
-                <div className="text-3xl font-black tracking-tight text-foreground leading-none">
+                <div className="text-3xl font-bold tracking-tight text-foreground leading-none">
                   {formatCurrency(totals.grandTotal, "IDR", "id-ID")}
                 </div>
               </div>

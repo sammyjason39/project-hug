@@ -23,12 +23,12 @@ export const MarketplaceGallery = ({ onSelect }: MarketplaceGalleryProps) => {
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between px-2">
-        <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic">
+        <h3 className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground italic">
           Pre-Integrated Marketplace Hub
         </h3>
         <Badge
           variant="outline"
-          className="font-black italic text-[9px] border-border uppercase opacity-60"
+          className="font-bold text-[9px] border-border uppercase opacity-60"
         >
           Regional Presets
         </Badge>
@@ -39,7 +39,7 @@ export const MarketplaceGallery = ({ onSelect }: MarketplaceGalleryProps) => {
           <Card
             key={mp.id}
             onClick={() => onSelect?.(mp.name, "MARKETPLACE", mp.id)}
-            className="rounded-2xl bg-white border-none shadow-xl hover:shadow-2xl hover:scale-[1.02] cursor-pointer transition-all group overflow-hidden"
+            className="rounded-2xl bg-white border-none shadow-sm hover:shadow-sm hover:scale-[1.02] cursor-pointer transition-all group overflow-hidden"
           >
             <CardContent className="p-6 flex flex-col items-center justify-center text-center">
               <div
@@ -48,17 +48,17 @@ export const MarketplaceGallery = ({ onSelect }: MarketplaceGalleryProps) => {
                 <ShoppingBag className={`w-8 h-8 text-${mp.color}-600`} />
               </div>
               <div className="space-y-2 mb-8">
-                <div className="font-black italic text-foreground text-xl tracking-tighter uppercase italic">
+                <div className="font-bold text-foreground text-xl tracking-tighter uppercase italic">
                   {mp.name}
                 </div>
-                <div className="text-[9px] text-muted-foreground font-black uppercase tracking-widest">
+                <div className="text-[9px] text-muted-foreground font-semibold tracking-widest">
                   {mp.slug}
                 </div>
               </div>
 
               <div className="w-full h-[1px] bg-secondary/10 mb-8" />
 
-              <div className="flex items-center gap-2 text-[9px] font-black text-primary uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-2 text-[9px] font-bold text-primary uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                 Connect Channel <ArrowRight className="w-3 h-3" />
               </div>
             </CardContent>
@@ -70,10 +70,10 @@ export const MarketplaceGallery = ({ onSelect }: MarketplaceGalleryProps) => {
             <ShoppingBag className="w-8 h-8 text-muted-foreground/60" />
           </div>
           <div>
-            <div className="font-black italic text-muted-foreground text-xs uppercase tracking-widest">
+            <div className="font-bold text-muted-foreground text-xs uppercase tracking-widest">
               Request API
             </div>
-            <p className="text-[9px] font-black text-muted-foreground uppercase tracking-tighter mt-1 italic">
+            <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-tighter mt-1 italic">
               Missing a platform?
             </p>
           </div>

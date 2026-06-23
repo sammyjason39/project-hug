@@ -126,10 +126,10 @@ export function DeptAdmin({
               <Table>
                 <TableHeader>
                   <TableRow className="bg-muted/50">
-                    <TableHead className="text-[10px] font-black uppercase">Action</TableHead>
-                    <TableHead className="text-[10px] font-black uppercase">Identity</TableHead>
-                    <TableHead className="text-[10px] font-black uppercase">Timestamp</TableHead>
-                    <TableHead className="text-[10px] font-black uppercase text-right">Status</TableHead>
+                    <TableHead className="text-[10px] font-semibold">Action</TableHead>
+                    <TableHead className="text-[10px] font-semibold">Identity</TableHead>
+                    <TableHead className="text-[10px] font-semibold">Timestamp</TableHead>
+                    <TableHead className="text-[10px] font-semibold text-right">Status</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -144,7 +144,7 @@ export function DeptAdmin({
                       <TableCell className="text-xs text-muted-foreground">{log.user}</TableCell>
                       <TableCell className="text-xs text-muted-foreground">{log.time}</TableCell>
                       <TableCell className="text-right">
-                        <Badge variant={log.status === "Success" ? "secondary" : "destructive"} className="text-[8px] font-black uppercase">
+                        <Badge variant={log.status === "Success" ? "secondary" : "destructive"} className="text-label">
                           {log.status}
                         </Badge>
                       </TableCell>

@@ -33,7 +33,7 @@ const RootLayoutContent = () => {
           <div className="w-16 h-1 w-full bg-muted/20 rounded-full overflow-hidden">
             <div className="h-full bg-primary animate-[loading_1.5s_infinite]" />
           </div>
-          <div className="animate-pulse text-primary font-black italic tracking-tighter text-sm">
+          <div className="animate-pulse text-primary font-bold tracking-tighter text-sm">
             Zenvix_RETAIL_AUTHORITY_SYNCING...
           </div>
         </div>

@@ -79,10 +79,10 @@ export default function SalesOverview() {
     return (
       <div className="flex h-screen items-center justify-center bg-muted dark:bg-muted">
         <div className="flex flex-col items-center gap-6">
-          <div className="h-20 w-20 bg-primary rounded-[2.5rem] animate-pulse flex items-center justify-center shadow-2xl shadow-indigo-500/20">
+          <div className="h-20 w-20 bg-primary rounded-2xl animate-pulse flex items-center justify-center shadow-sm shadow-indigo-500/20">
             <TrendingUp className="h-10 w-10 text-white" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Projecting Executive Intelligence...</p>
+          <p className="text-[10px] font-semibold tracking-[0.3em] text-muted-foreground">Projecting Executive Intelligence...</p>
         </div>
       </div>
     );
@@ -94,20 +94,20 @@ export default function SalesOverview() {
       <div className="flex flex-col lg:flex-row justify-between items-end gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
-            <Badge className="bg-primary text-white border-none font-black px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Executive Intelligence</Badge>
+            <Badge className="bg-primary text-white border-none font-bold px-3 py-1 rounded-full uppercase tracking-widest text-[10px]">Executive Intelligence</Badge>
             <div className="flex items-center gap-1.5 text-primary font-bold text-xs uppercase tracking-widest">
                <Activity className="h-4 w-4 animate-pulse" />
                Global Sales Pulse Active
             </div>
           </div>
-          <h1 className="text-6xl font-black tracking-tighter text-foreground italic">Sales Overview</h1>
+          <h1 className="text-6xl font-bold tracking-tighter text-foreground italic">Sales Overview</h1>
           <p className="text-muted-foreground font-medium max-w-2xl text-lg leading-relaxed italic">"Revenue is the result of strategic coordination and relentless execution."</p>
         </div>
         
-        <div className="flex items-center bg-white/50 dark:bg-muted backdrop-blur-xl p-2 rounded-[2rem] border border-white/20 dark:border-border/20 shadow-2xl">
+        <div className="flex items-center bg-card dark:bg-muted p-2 rounded-2xl border border-border dark:border-border/20 shadow-sm">
           <Button
             variant="secondary"
-            className="h-14 w-14 rounded-[1.5rem] bg-primary text-white hover:bg-primary transition-all shadow-xl shadow-indigo-500/20"
+            className="h-14 w-14 rounded-xl bg-primary text-white hover:bg-primary transition-all shadow-sm shadow-indigo-500/20"
             onClick={() => refresh(true)}
             disabled={refreshing}
           >
@@ -158,9 +158,9 @@ export default function SalesOverview() {
 
       <div className="grid gap-10 lg:grid-cols-3">
         {/* Revenue Projection Model */}
-        <Card className="lg:col-span-2 rounded-[3rem] border-none shadow-2xl bg-white dark:bg-muted overflow-hidden group">
+        <Card className="lg:col-span-2 rounded-[3rem] border-none shadow-sm bg-white dark:bg-muted overflow-hidden group">
           <CardHeader className="p-10 pb-4">
-            <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3">
+            <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3">
               <TrendingUp className="h-6 w-6 text-primary" />
               Strategic Projection Model
             </CardTitle>
@@ -224,9 +224,9 @@ export default function SalesOverview() {
         </Card>
 
         {/* Top Performance Board */}
-        <Card className="rounded-[3rem] border-none shadow-2xl bg-white dark:bg-muted overflow-hidden group">
+        <Card className="rounded-[3rem] border-none shadow-sm bg-white dark:bg-muted overflow-hidden group">
           <CardHeader className="p-10 pb-4">
-            <CardTitle className="text-2xl font-black tracking-tight flex items-center gap-3">
+            <CardTitle className="text-2xl font-bold tracking-tight flex items-center gap-3">
               <Medal className="h-6 w-6 text-warning" />
               Victory Leaders
             </CardTitle>
@@ -237,7 +237,7 @@ export default function SalesOverview() {
               <div key={rep.name} className="flex items-center justify-between group/item">
                 <div className="flex items-center gap-4">
                   <div className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-2xl text-xs font-black transition-all shadow-inner",
+                    "flex h-10 w-10 items-center justify-center rounded-2xl text-xs font-bold transition-all shadow-inner",
                     idx === 0 ? "bg-warning text-white shadow-amber-500/20" :
                     idx === 1 ? "bg-muted text-muted-foreground dark:bg-muted" :
                     "bg-muted text-muted-foreground dark:bg-muted"
@@ -245,12 +245,12 @@ export default function SalesOverview() {
                     {idx === 0 ? <Medal className="h-5 w-5" /> : idx + 1}
                   </div>
                   <div>
-                    <p className="text-sm font-black uppercase tracking-tight">{rep.name}</p>
+                    <p className="text-sm font-semibold tracking-tight">{rep.name}</p>
                     <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">RANK {idx + 1} CUSTODIAN</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-base font-black text-primary">{formatCurrency(Number(rep.total))}</p>
+                  <p className="text-base font-bold text-primary">{formatCurrency(Number(rep.total))}</p>
                   <div className="h-1.5 w-32 bg-muted dark:bg-muted rounded-full mt-2 overflow-hidden shadow-inner">
                     <div 
                       className={cn("h-full transition-all duration-1000", idx === 0 ? "bg-warning" : "bg-primary")}
@@ -266,9 +266,9 @@ export default function SalesOverview() {
 
       <div className="grid gap-10 md:grid-cols-2">
         {/* Revenue Distribution */}
-        <GlassCard className="rounded-[3rem] border-none shadow-2xl overflow-hidden p-10 space-y-6">
+        <GlassCard className="rounded-[3rem] border-none shadow-sm overflow-hidden p-10 space-y-6">
           <div className="space-y-2">
-            <h3 className="text-2xl font-black tracking-tight flex items-center gap-3">
+            <h3 className="text-2xl font-bold tracking-tight flex items-center gap-3">
               <BarChart3 className="h-6 w-6 text-primary" />
               Capture Trend
             </h3>
@@ -305,9 +305,9 @@ export default function SalesOverview() {
         </GlassCard>
 
         {/* Funnel Health Matrix */}
-        <GlassCard className="rounded-[3rem] border-none shadow-2xl p-10 space-y-8">
+        <GlassCard className="rounded-[3rem] border-none shadow-sm p-10 space-y-8">
            <div className="space-y-2">
-              <h3 className="text-2xl font-black tracking-tight flex items-center gap-3">
+              <h3 className="text-2xl font-bold tracking-tight flex items-center gap-3">
                  <ShieldCheck className="h-6 w-6 text-success" />
                  Funnel Health Matrix
               </h3>
@@ -351,11 +351,11 @@ export default function SalesOverview() {
 
 function KPIItem({ title, value, trend, trendUp, description, icon: Icon, color }: any) {
   return (
-    <Card className="group relative overflow-hidden rounded-[2.5rem] border-none bg-white dark:bg-muted p-8 shadow-xl transition-all hover:shadow-2xl hover:-translate-y-1">
+    <Card className="group relative overflow-hidden rounded-2xl border-none bg-white dark:bg-muted p-8 shadow-sm transition-all hover:shadow-sm hover:-translate-y-1">
       <div className="flex items-center justify-between relative z-10">
         <div className="space-y-2">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">{title}</p>
-          <h3 className="text-3xl font-black tracking-tighter">{value}</h3>
+          <p className="text-label text-muted-foreground">{title}</p>
+          <h3 className="text-3xl font-bold tracking-tighter">{value}</h3>
         </div>
         <div className={cn("rounded-2xl p-4 shadow-inner group-hover:scale-110 transition-transform", `bg-${color}-500/10 text-${color}-600`)}>
           <Icon className="h-6 w-6" />
@@ -363,7 +363,7 @@ function KPIItem({ title, value, trend, trendUp, description, icon: Icon, color 
       </div>
       <div className="mt-6 flex items-center gap-3 relative z-10">
         <Badge className={cn(
-          "rounded-full font-black text-[9px] px-2.5 py-0.5 border-none shadow-sm uppercase tracking-widest",
+          "rounded-full font-bold text-[9px] px-2.5 py-0.5 border-none shadow-sm uppercase tracking-widest",
           trendUp ? "bg-success text-white" : "bg-destructive text-white"
         )}>
           {trendUp ? <ArrowUpRight className="h-3 w-3 mr-1 inline" /> : <ArrowDownRight className="h-3 w-3 mr-1 inline" />}
@@ -378,13 +378,13 @@ function KPIItem({ title, value, trend, trendUp, description, icon: Icon, color 
 
 function HealthMetric({ label, value, detail, color, icon: Icon }: any) {
   return (
-    <div className="rounded-[2rem] bg-white/60 dark:bg-muted p-6 space-y-3 shadow-sm border border-white/20">
+    <div className="rounded-2xl bg-white/60 dark:bg-muted p-6 space-y-3 shadow-sm border border-border">
       <div className="flex items-center justify-between">
-         <p className="text-[9px] font-black uppercase tracking-widest text-muted-foreground">{label}</p>
+         <p className="text-label text-muted-foreground">{label}</p>
          <Icon className={cn("h-4 w-4", color)} />
       </div>
       <div className="space-y-1">
-        <span className={cn("text-2xl font-black tracking-tighter", color)}>{value}</span>
+        <span className={cn("text-2xl font-bold tracking-tighter", color)}>{value}</span>
         <p className="text-[9px] font-bold text-muted-foreground uppercase italic leading-none">{detail}</p>
       </div>
     </div>

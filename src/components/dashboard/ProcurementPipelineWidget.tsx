@@ -15,12 +15,12 @@ export const ProcurementPipelineWidget: React.FC = () => {
 
   return (
     <div 
-      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-2xl transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
+      className="flex flex-col h-full rounded-[3rem] border border-border bg-muted p-10 shadow-sm transition-all duration-500 hover:shadow-indigo-500/10 group cursor-pointer overflow-hidden relative"
       onClick={() => navigate('/core/procurement/prs')}
     >
       <div className="flex items-center justify-between mb-10 relative z-10">
         <div>
-          <h4 className="text-xl font-black italic uppercase tracking-tighter text-white">Procurement Flow</h4>
+          <h4 className="text-xl font-semibold tracking-tighter text-white">Procurement Flow</h4>
           <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Active purchase requests and fulfillment</p>
         </div>
         <div className="h-12 w-12 rounded-2xl bg-primary flex items-center justify-center border border-primary">
@@ -34,26 +34,26 @@ export const ProcurementPipelineWidget: React.FC = () => {
           {stages.map((s, i) => (
             <div key={i} className="flex flex-col items-center gap-4 group/stage">
               <div className={cn(
-                "z-10 flex h-16 w-16 items-center justify-center rounded-[1.5rem] border-4 border-border bg-muted shadow-2xl transition-all duration-500 group-hover/stage:scale-110",
+                "z-10 flex h-16 w-16 items-center justify-center rounded-xl border-4 border-border bg-muted shadow-sm transition-all duration-500 group-hover/stage:scale-110",
                 s.color
               )}>
                 <s.icon className={cn("h-6 w-6 transition-all", s.glow)} />
               </div>
               <div className="text-center">
-                <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover/stage:text-white transition-colors">{s.label}</p>
-                <p className="text-xl font-black text-white mt-1">{s.value}</p>
+                <p className="text-[10px] font-semibold tracking-widest text-muted-foreground group-hover/stage:text-white transition-colors">{s.label}</p>
+                <p className="text-xl font-bold text-white mt-1">{s.value}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-auto border-t border-white/5 pt-8 flex items-center justify-between relative z-10">
+      <div className="mt-auto border-t border-border pt-8 flex items-center justify-between relative z-10">
         <div className="flex items-center gap-2">
            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">Open PO Value</span>
+           <span className="text-label text-muted-foreground">Open PO Value</span>
         </div>
-        <span className="text-2xl font-black text-primary tracking-tighter">$432,500</span>
+        <span className="text-2xl font-bold text-primary tracking-tighter">$432,500</span>
       </div>
       
       {/* Subtle background glow */}

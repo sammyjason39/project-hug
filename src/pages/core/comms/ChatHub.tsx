@@ -151,9 +151,9 @@ export default function ChatHub() {
   );
 
   const mainContent = (
-    <div className="flex h-[calc(100vh-140px)] overflow-hidden bg-muted dark:bg-muted rounded-[2.5rem] border border-border/50 dark:border-border/50 m-6">
+    <div className="flex h-[calc(100vh-140px)] overflow-hidden bg-muted dark:bg-muted rounded-2xl border border-border/50 dark:border-border/50 m-6">
       {/* Sidebar - Channels */}
-      <div className="w-80 border-r border-border/50 dark:border-border/50 flex flex-col bg-white dark:bg-muted backdrop-blur-xl">
+      <div className="w-80 border-r border-border/50 dark:border-border/50 flex flex-col bg-white dark:bg-muted">
         <div className="p-6 space-y-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
@@ -175,7 +175,7 @@ export default function ChatHub() {
             ) : channels.length === 0 ? (
               <div className="p-12 text-center opacity-40">
                 <Radio className="h-8 w-8 mx-auto mb-3" />
-                <p className="text-[10px] font-black uppercase tracking-widest">No Active Channels</p>
+                <p className="text-[10px] font-semibold tracking-widest">No Active Channels</p>
               </div>
             ) : (
               channels
@@ -191,9 +191,9 @@ export default function ChatHub() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start mb-1">
-                        <span className="text-[11px] font-black uppercase tracking-widest truncate">{channel.name}</span>
+                        <span className="text-[11px] font-semibold tracking-widest truncate">{channel.name}</span>
                         {channel.unreadCount ? (
-                          <Badge className="h-4 min-w-[1rem] p-0 flex items-center justify-center bg-destructive text-[9px] font-black rounded-full border-none">
+                          <Badge className="h-4 min-w-[1rem] p-0 flex items-center justify-center bg-destructive text-[9px] font-bold rounded-full border-none">
                             {channel.unreadCount}
                           </Badge>
                         ) : (
@@ -212,26 +212,26 @@ export default function ChatHub() {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col bg-white dark:bg-muted backdrop-blur-sm relative">
+      <div className="flex-1 flex flex-col bg-white dark:bg-muted relative">
         {!activeChannel ? (
           <div className="flex-1 flex flex-col items-center justify-center opacity-20">
             <MessageSquare className="h-24 w-24 mb-6 stroke-[1]" />
-            <h3 className="text-xl font-black uppercase tracking-[0.3em]">Encrypted Terminal</h3>
+            <h3 className="text-xl font-semibold tracking-[0.3em]">Encrypted Terminal</h3>
             <p className="text-[10px] font-bold mt-2">Select a frequency to begin transmission</p>
           </div>
         ) : (
           <>
             {/* Chat Header */}
-            <div className="p-6 border-b border-border/50 dark:border-border/50 flex justify-between items-center bg-white/50 dark:bg-muted backdrop-blur-md sticky top-0 z-10">
+            <div className="p-6 border-b border-border/50 dark:border-border/50 flex justify-between items-center bg-card dark:bg-muted sticky top-0 z-10">
               <div className="flex items-center gap-4">
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shadow-inner">
                   {activeChannel.type === "PRIVATE" ? <Lock className="h-5 w-5" /> : <Users className="h-5 w-5" />}
                 </div>
                 <div>
-                  <h2 className="text-sm font-black uppercase tracking-widest leading-tight">{activeChannel.name}</h2>
+                  <h2 className="text-sm font-semibold tracking-widest leading-tight">{activeChannel.name}</h2>
                   <div className="flex items-center gap-2 mt-1">
                     <Circle className="h-2 w-2 fill-success text-success" />
-                    <span className="text-[9px] font-black text-success uppercase tracking-tighter">Transmission Stable</span>
+                    <span className="text-[9px] font-bold text-success uppercase tracking-tighter">Transmission Stable</span>
                   </div>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function ChatHub() {
                 ) : messages.length === 0 ? (
                   <div className="py-24 text-center opacity-20">
                     <Radio className="h-12 w-12 mx-auto mb-4" />
-                    <p className="text-xs font-black uppercase tracking-widest">No previous logs on this frequency</p>
+                    <p className="text-xs font-semibold tracking-widest">No previous logs on this frequency</p>
                   </div>
                 ) : (
                   messages.map((msg, i) => {
@@ -262,7 +262,7 @@ export default function ChatHub() {
                         </div>
                         <div className={`max-w-[70%] space-y-2 ${isMe ? 'items-end' : 'items-start'}`}>
                           <div className={`flex items-center gap-2 ${isMe ? 'flex-row-reverse' : 'flex-row'}`}>
-                            <span className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">@{safeText(msg.senderId?.split("-")[0])}</span>
+                            <span className="text-[10px] font-semibold tracking-tighter text-muted-foreground">@{safeText(msg.senderId?.split("-")[0])}</span>
                             <span className="text-[9px] font-bold text-muted-foreground">{formatDateTime(msg.createdAt)}</span>
                           </div>
                           <div className={`p-4 rounded-2xl text-sm font-medium leading-relaxed shadow-sm ${isMe ? 'bg-primary text-primary-foreground rounded-tr-none' : 'bg-card border border-border rounded-tl-none'}`}>
@@ -278,7 +278,7 @@ export default function ChatHub() {
             </ScrollArea>
 
             {/* Input */}
-            <div className="p-8 border-t border-border/50 dark:border-border/50 bg-white/50 dark:bg-muted backdrop-blur-md">
+            <div className="p-8 border-t border-border/50 dark:border-border/50 bg-card dark:bg-muted">
               <div className="max-w-4xl mx-auto flex gap-4">
                 <div className="relative flex-1 group">
                   <Input
@@ -301,7 +301,7 @@ export default function ChatHub() {
                             <Send className="h-4 w-4" />
                           </Button>
                         </TooltipTrigger>
-                        <TooltipContent className="bg-popover text-popover-foreground border-none font-black text-[9px] uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-2xl">Execute Transmission</TooltipContent>
+                        <TooltipContent className="bg-popover text-popover-foreground border-none font-bold text-[9px] uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-sm">Execute Transmission</TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
                   </div>

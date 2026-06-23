@@ -166,12 +166,12 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger || (
-          <Button className="h-11 px-6 rounded-2xl bg-primary hover:bg-primary text-foreground font-black italic uppercase tracking-widest text-[10px] gap-2 shadow-xl transition-all active:scale-95">
+          <Button className="h-11 px-6 rounded-2xl bg-primary hover:bg-primary text-foreground font-semibold tracking-widest text-[10px] gap-2 shadow-sm transition-all active:scale-95">
             <PlusCircle className="w-4 h-4" /> Provision New Node
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="rounded-2xl border-border/50 bg-white/80 backdrop-blur-2xl shadow-2xl max-w-2xl max-h-[90vh] overflow-hidden flex flex-col p-0">
+      <DialogContent className="rounded-2xl border-border/50 bg-white/80 shadow-sm max-w-2xl max-h-[90vh] overflow-hidden flex flex-col p-0">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
 
         <DialogHeader className="p-8 pb-4">
@@ -179,7 +179,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
             <div className="p-2 bg-primary rounded-xl text-primary">
               <Building2 className="w-5 h-5" />
             </div>
-            <DialogTitle className="font-black italic text-2xl uppercase tracking-tighter text-muted-foreground">
+            <DialogTitle className="font-bold text-2xl uppercase tracking-tighter text-muted-foreground">
               Establish New Retail Node
             </DialogTitle>
           </div>
@@ -197,7 +197,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
             {/* Metadata & Identity */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                   Node Identity (Name)
                 </Label>
                 <div className="relative group">
@@ -213,7 +213,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
               </div>
 
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                   Authoritative Code (Unique)
                 </Label>
                 <input
@@ -226,7 +226,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
               </div>
 
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                   Node Classification
                 </Label>
                 <select
@@ -244,7 +244,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
 
               <div className="space-y-6 pt-2">
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1">
                     Node Contact Info
                   </Label>
                   <div className="space-y-3">
@@ -274,7 +274,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
             {/* Context & Placement */}
             <div className="space-y-6">
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
                   <Globe className="w-3.5 h-3.5" /> HR Location Context
                 </Label>
                 <select
@@ -288,7 +288,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
                   </option>
                   <option
                     value="placeholder"
-                    className="text-primary font-black italic"
+                    className="text-primary font-bold"
                   >
                     + PROVISION NEW PHYSICAL LOCATION
                   </option>
@@ -303,7 +303,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between px-1">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                     Physical Address
                   </Label>
                   <div className="flex items-center gap-2">
@@ -315,7 +315,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
                     />
                     <Label
                       htmlFor="use-office"
-                      className="text-[9px] font-black uppercase tracking-widest text-primary cursor-pointer"
+                      className="text-label text-primary cursor-pointer"
                     >
                       Inherit from Location
                     </Label>
@@ -338,14 +338,14 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
               {/* Geospatial Section */}
               <div className="p-4 bg-primary/5 rounded-2xl border border-primary space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-[10px] font-black text-primary uppercase tracking-widest flex items-center gap-2">
+                  <label className="text-[10px] font-bold text-primary uppercase tracking-widest flex items-center gap-2">
                     <Globe className="w-3.5 h-3.5" /> Geospatial Anchoring
                   </label>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Latitude</Label>
+                    <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Latitude</Label>
                     <input
                       type="number"
                       step="any"
@@ -355,7 +355,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
                     />
                   </div>
                   <div className="space-y-1">
-                    <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Longitude</Label>
+                    <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Longitude</Label>
                     <input
                       type="number"
                       step="any"
@@ -367,7 +367,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <Label className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">Geofence Radius (m)</Label>
+                  <Label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Geofence Radius (m)</Label>
                   <input
                     type="range"
                     min="50"
@@ -382,7 +382,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5" /> Node Commander
                   </Label>
                   <select
@@ -398,7 +398,7 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
+                  <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground pl-1 flex items-center gap-1.5">
                     <Database className="w-3.5 h-3.5" /> Inventory Pool
                   </Label>
                   <select
@@ -417,20 +417,20 @@ export const CreateStoreDialog: React.FC<CreateStoreDialogProps> = ({
             </div>
           </div>
 
-          <DialogFooter className="mt-12 sticky bottom-0 bg-background/80 backdrop-blur-md pb-8 -mx-8 px-8 border-t border-border pt-6">
+          <DialogFooter className="mt-12 sticky bottom-0 bg-background/80 pb-8 -mx-8 px-8 border-t border-border pt-6">
             <div className="flex w-full gap-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => setOpen(false)}
-                className="flex-1 h-14 rounded-2xl border-border font-black italic uppercase tracking-widest text-[10px] hover:bg-secondary/5 transition-all"
+                className="flex-1 h-14 rounded-2xl border-border font-semibold tracking-widest text-[10px] hover:bg-secondary/5 transition-all"
               >
                 Abort Provisioning
               </Button>
               <Button
                 type="submit"
                 disabled={isRegistering || isLoadingData}
-                className="flex-[2] h-14 bg-primary hover:bg-primary text-foreground font-black italic rounded-2xl shadow-xl shadow-blue-500/20 uppercase tracking-[0.2em] text-[10px] group transition-all active:scale-95"
+                className="flex-[2] h-14 bg-primary hover:bg-primary text-foreground font-bold rounded-2xl shadow-sm shadow-blue-500/20 uppercase tracking-[0.2em] text-[10px] group transition-all active:scale-95"
               >
                 {isRegistering ? (
                   <RefreshCw className="w-5 h-5 animate-spin" />

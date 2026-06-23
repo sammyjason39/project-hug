@@ -129,7 +129,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
         <div className="w-16 h-16 rounded-3xl bg-secondary/10 flex items-center justify-center mb-4">
           <ShoppingBag className="w-8 h-8 text-muted-foreground/60" />
         </div>
-        <h3 className="font-black italic text-muted-foreground text-lg">
+        <h3 className="font-bold text-muted-foreground text-lg">
           Select a Channel
         </h3>
         <p className="text-sm font-bold mt-2 max-w-xs">
@@ -286,17 +286,17 @@ export const ChannelProfilePanel: React.FC<Props> = ({
             <PlatformIcon className="w-6 h-6 text-foreground" />
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="font-black italic text-xl tracking-tight truncate text-foreground">
+            <h2 className="font-bold text-xl tracking-tight truncate text-foreground">
               {channel.name}
             </h2>
-            <div className="text-[10px] font-black uppercase tracking-widest text-foreground/50 mt-0.5">
+            <div className="text-[10px] font-semibold tracking-widest text-foreground/50 mt-0.5">
               {channel.adapterType ?? channel.integrationCategory} ·{" "}
               {channel.syncFrequency ?? "No sync"}
             </div>
           </div>
           <Badge
             className={cn(
-              "font-black italic text-xs border-none shrink-0",
+              "font-bold text-xs border-none shrink-0",
               statusCfg.color,
             )}
           >
@@ -314,7 +314,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                 key={tab.id}
                 value={tab.id}
                 className={cn(
-                  "data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-b-2 font-black italic uppercase tracking-widest text-[9px] py-3 px-0 flex items-center gap-1.5 transition-all",
+                  "data-[state=active]:bg-transparent data-[state=active]:shadow-none rounded-none border-b-2 font-semibold tracking-widest text-[9px] py-3 px-0 flex items-center gap-1.5 transition-all",
                   activeTab === tab.id
                     ? tab.id === "danger"
                       ? "border-destructive text-destructive"
@@ -337,7 +337,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
           <TabsContent value="overview" className="p-6 space-y-6 mt-0">
             {/* Identity */}
             <div className="space-y-2">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <h3 className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Channel Identity
               </h3>
               <div className="rounded-2xl border border-border overflow-hidden divide-y divide-slate-50">
@@ -365,7 +365,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                     key={row.label}
                     className="flex items-center justify-between px-4 py-3"
                   >
-                    <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <span className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                       {row.label}
                     </span>
                     <span className="font-mono text-xs font-bold text-muted-foreground flex items-center gap-1.5 truncate max-w-[60%]">
@@ -387,11 +387,11 @@ export const ChannelProfilePanel: React.FC<Props> = ({
 
             {/* Sync frequency */}
             <div className="space-y-2">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+              <h3 className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                 Sync Configuration
               </h3>
               <div className="space-y-2">
-                <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                   Sync Frequency
                 </Label>
                 <Select value={syncFreq} onValueChange={setSyncFreq}>
@@ -419,7 +419,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                 <Button
                   onClick={handleSaveOverview}
                   disabled={isSaving}
-                  className="w-full h-11 rounded-xl font-black italic bg-secondary gap-2"
+                  className="w-full h-11 rounded-xl font-bold bg-secondary gap-2"
                 >
                   {isSaving ? (
                     <RefreshCw className="w-4 h-4 animate-spin" />
@@ -445,14 +445,14 @@ export const ChannelProfilePanel: React.FC<Props> = ({
           <TabsContent value="branches" className="p-6 space-y-6 mt-0">
             <div className="space-y-4">
                <div>
-                  <h3 className="text-sm font-black italic uppercase text-muted-foreground">Branch Fulfilment Matrix</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground">Branch Fulfilment Matrix</h3>
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Map physical nodes to this digital channel</p>
                </div>
 
                <div className="space-y-3">
                   {branches.length === 0 && (
                      <div className="p-6 text-center border-2 border-dashed border-border rounded-3xl">
-                        <p className="text-[10px] font-black uppercase text-muted-foreground">No physical branches found</p>
+                        <p className="text-[10px] font-semibold text-muted-foreground">No physical branches found</p>
                      </div>
                   )}
                   {branches.map(branch => (
@@ -480,7 +480,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                               <Building2 className="w-5 h-5" />
                            </div>
                            <div>
-                              <div className="text-xs font-black uppercase italic text-muted-foreground">{branch.name}</div>
+                              <div className="text-xs font-semibold italic text-muted-foreground">{branch.name}</div>
                               <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">{branch.type} • {branch.code}</div>
                            </div>
                         </div>
@@ -507,7 +507,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                      }
                   }}
                   disabled={isLinking}
-                  className="w-full h-12 rounded-2xl bg-primary hover:bg-primary/90 font-black italic uppercase text-xs tracking-widest gap-3 shadow-lg shadow-indigo-200"
+                  className="w-full h-12 rounded-2xl bg-primary hover:bg-primary/90 font-semibold text-xs tracking-widest gap-3 shadow-lg shadow-indigo-200"
                >
                   {isLinking ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   {isLinking ? "Synchronizing..." : "Establish Branch Uplinks"}
@@ -528,7 +528,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
           {/* ── Danger Zone Tab ── */}
           <TabsContent value="danger" className="p-6 space-y-4 mt-0">
             <div className="p-4 rounded-2xl bg-destructive border border-destructive text-[11px] font-bold italic text-destructive space-y-0.5">
-              <div className="font-black not-italic text-destructive text-sm">
+              <div className="font-bold not-italic text-destructive text-sm">
                 ⚠ Danger Zone
               </div>
               Actions in this section are irreversible or will break active
@@ -538,7 +538,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
             {/* Rotate credentials */}
             <div className="rounded-2xl border border-warning overflow-hidden">
               <div className="px-5 py-4">
-                <div className="font-black italic text-muted-foreground text-sm">
+                <div className="font-bold text-muted-foreground text-sm">
                   Rotate API Credentials
                 </div>
                 <p className="text-[11px] font-bold text-muted-foreground mt-0.5">
@@ -549,7 +549,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
               <div className="px-5 pb-4">
                 <Button
                   variant="outline"
-                  className="w-full h-11 rounded-xl font-black italic gap-2 border-warning text-warning hover:bg-warning"
+                  className="w-full h-11 rounded-xl font-bold gap-2 border-warning text-warning hover:bg-warning"
                   onClick={handleRotate}
                   disabled={isRotating}
                 >
@@ -577,7 +577,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                     },
                   ].map((c) => (
                     <div key={c.key} className="space-y-1">
-                      <Label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                      <Label className="text-[10px] font-semibold tracking-widest text-muted-foreground">
                         {c.label}
                       </Label>
                       <div className="flex items-center gap-2">
@@ -608,7 +608,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
             {/* Suspend / Reactivate */}
             <div className="rounded-2xl border border-border overflow-hidden">
               <div className="px-5 py-4">
-                <div className="font-black italic text-muted-foreground text-sm">
+                <div className="font-bold text-muted-foreground text-sm">
                   {channel.status === "active"
                     ? "Suspend Channel"
                     : "Reactivate Channel"}
@@ -622,7 +622,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
               <div className="px-5 pb-4">
                 <Button
                   variant="outline"
-                  className="w-full h-11 rounded-xl font-black italic gap-2 border-border text-muted-foreground hover:bg-secondary/5"
+                  className="w-full h-11 rounded-xl font-bold gap-2 border-border text-muted-foreground hover:bg-secondary/5"
                   onClick={handleToggleSuspend}
                 >
                   {channel.status === "active" ? (
@@ -643,7 +643,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
               <AlertDialogTrigger asChild>
                 <div className="rounded-2xl border border-destructive overflow-hidden">
                   <div className="px-5 py-4">
-                    <div className="font-black italic text-destructive text-sm">
+                    <div className="font-bold text-destructive text-sm">
                       Delete Channel
                     </div>
                     <p className="text-[11px] font-bold text-destructive mt-0.5">
@@ -654,7 +654,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                   <div className="px-5 pb-4">
                     <Button disabled title="Not available yet"
                       variant="outline"
-                      className="w-full h-11 rounded-xl font-black italic gap-2 border-destructive text-destructive hover:bg-destructive"
+                      className="w-full h-11 rounded-xl font-bold gap-2 border-destructive text-destructive hover:bg-destructive"
                     >
                       <Trash2 className="w-4 h-4" /> Delete Channel
                     </Button>
@@ -663,7 +663,7 @@ export const ChannelProfilePanel: React.FC<Props> = ({
               </AlertDialogTrigger>
               <AlertDialogContent className="rounded-2xl">
                 <AlertDialogHeader>
-                  <AlertDialogTitle className="font-black italic">
+                  <AlertDialogTitle className="font-bold">
                     Delete {channel.name}?
                   </AlertDialogTitle>
                   <AlertDialogDescription className="font-bold">
@@ -672,12 +672,12 @@ export const ChannelProfilePanel: React.FC<Props> = ({
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel className="rounded-xl font-black italic">
+                  <AlertDialogCancel className="rounded-xl font-bold">
                     Cancel
                   </AlertDialogCancel>
                   <AlertDialogAction
                     onClick={handleDelete}
-                    className="rounded-xl font-black italic bg-destructive hover:bg-destructive"
+                    className="rounded-xl font-bold bg-destructive hover:bg-destructive"
                   >
                     Delete
                   </AlertDialogAction>

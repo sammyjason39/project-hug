@@ -27,44 +27,44 @@ export function EmptyState({
   description,
   onRetry,
   className,
-  actionLabel = "Refresh Telemetry"
+  actionLabel = "Refresh"
 }: EmptyStateProps) {
   
   const config = {
     "no-data": {
       icon: Database,
-      defaultTitle: "No Data Found",
-      defaultDescription: "The requested dataset is currently empty. This might be due to a new tenant environment or missing historical records.",
-      color: "text-muted-foreground",
-      bg: "bg-muted dark:bg-muted"
+      defaultTitle: "No data found",
+      defaultDescription: "This view has no records yet. Data may appear once your workspace is configured or synced.",
+      iconBg: "bg-muted",
+      iconColor: "text-muted-foreground",
     },
     "error": {
       icon: AlertCircle,
-      defaultTitle: "Telemetry Link Failure",
-      defaultDescription: "A neural synchronization error occurred. Please verify your connection to the core mainframe and try again.",
-      color: "text-destructive",
-      bg: "bg-destructive dark:bg-destructive"
+      defaultTitle: "Something went wrong",
+      defaultDescription: "We couldn't load this data. Check your connection and try again.",
+      iconBg: "bg-destructive/10",
+      iconColor: "text-destructive",
     },
     "restricted": {
       icon: Lock,
-      defaultTitle: "Access Restricted",
-      defaultDescription: "Your current clearance level does not permit access to this module. Please contact your system administrator.",
-      color: "text-warning",
-      bg: "bg-warning dark:bg-warning"
+      defaultTitle: "Access restricted",
+      defaultDescription: "Your current role doesn't permit access to this module. Contact your administrator.",
+      iconBg: "bg-warning/10",
+      iconColor: "text-warning",
     },
     "not-found": {
       icon: FileQuestion,
-      defaultTitle: "Entity Not Found",
-      defaultDescription: "The specified data object could not be located in the central registry.",
-      color: "text-primary",
-      bg: "bg-primary dark:bg-primary"
+      defaultTitle: "Not found",
+      defaultDescription: "The requested item could not be located in the current scope.",
+      iconBg: "bg-accent",
+      iconColor: "text-primary",
     },
     "search": {
       icon: SearchX,
-      defaultTitle: "No Results",
-      defaultDescription: "Your search parameters yielded no matches in the current index.",
-      color: "text-muted-foreground",
-      bg: "bg-muted dark:bg-muted"
+      defaultTitle: "No results",
+      defaultDescription: "No matches for your current search or filters.",
+      iconBg: "bg-muted",
+      iconColor: "text-muted-foreground",
     }
   }[variant];
 
@@ -72,24 +72,21 @@ export function EmptyState({
 
   return (
     <div className={cn(
-      "flex flex-col items-center justify-center p-12 text-center rounded-[2.5rem] border border-dashed border-border dark:border-border transition-all duration-500",
-      config.bg,
+      "surface-card flex flex-col items-center justify-center p-10 md:p-12 text-center",
       className
     )}>
       <div className={cn(
-        "h-20 w-20 rounded-[2rem] flex items-center justify-center mb-6 shadow-xl shadow-slate-200/20 dark:shadow-none",
-        variant === "error" ? "bg-destructive dark:bg-destructive" : 
-        variant === "restricted" ? "bg-warning dark:bg-warning" :
-        "bg-white dark:bg-muted"
+        "h-14 w-14 rounded-xl flex items-center justify-center mb-5",
+        config.iconBg
       )}>
-        <Icon className={cn("h-10 w-10", config.color)} />
+        <Icon className={cn("h-7 w-7", config.iconColor)} />
       </div>
       
-      <h3 className="text-2xl font-black tracking-tight mb-2 text-muted-foreground dark:text-white uppercase">
+      <h3 className="text-lg font-semibold tracking-tight mb-2 text-foreground">
         {title || config.defaultTitle}
       </h3>
       
-      <p className="text-muted-foreground dark:text-muted-foreground max-w-md text-sm font-medium leading-relaxed mb-8">
+      <p className="text-muted-foreground max-w-md text-sm leading-relaxed mb-6">
         {description || config.defaultDescription}
       </p>
 
@@ -97,10 +94,10 @@ export function EmptyState({
         <Button 
           onClick={onRetry}
           variant="outline"
-          className="rounded-xl h-12 px-6 font-black text-xs gap-2 border-border hover:bg-white dark:border-border hover:scale-105 transition-all"
+          className="rounded-full gap-2"
         >
           <RefreshCw className="h-4 w-4" />
-          {actionLabel.toUpperCase()}
+          {actionLabel}
         </Button>
       )}
     </div>
