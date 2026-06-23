@@ -143,7 +143,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
           />
         </div>
         <div className="flex items-center gap-3">
-          <Badge className="bg-primary text-white border-none font-black px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">
+          <Badge className="bg-primary text-white border-none font-bold px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">
             Dept: {session.department_id || "Global Operations"}
           </Badge>
           <Button 
@@ -170,7 +170,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
             <TabsTrigger 
               key={t.id} 
               value={t.id}
-              className="rounded-xl px-6 font-black text-xs uppercase tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-lg dark:data-[state=active]:bg-muted"
+              className="rounded-xl px-6 font-bold text-xs uppercase tracking-widest data-[state=active]:bg-white data-[state=active]:shadow-lg dark:data-[state=active]:bg-muted"
             >
               {t.label} ({statusCounts[t.id as any] || 0})
             </TabsTrigger>
@@ -180,7 +180,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
         {loading && workflows.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-80 rounded-[3rem] border border-dashed border-border bg-muted">
             <Loader2 className="h-10 w-10 animate-spin text-primary mb-4" />
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground">Syncing Approval Matrix</p>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-muted-foreground">Syncing Approval Matrix</p>
           </div>
         ) : error ? (
           <EmptyState 
@@ -202,7 +202,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
             <DataTableShell>
               <table className="w-full text-sm border-separate border-spacing-y-4">
                 <thead>
-                  <tr className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground">
+                  <tr className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
                     <th className="px-6 py-4 text-left">Request Identity</th>
                     <th className="px-6 py-4 text-left">Departmental Route</th>
                     <th className="px-6 py-4 text-left">Status</th>
@@ -216,11 +216,11 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
                       className="bg-white dark:bg-muted shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                     >
                       <td className="px-6 py-6 first:rounded-l-[2rem]">
-                        <p className="font-black text-muted-foreground dark:text-white uppercase tracking-tight">{flow.entityType}</p>
+                        <p className="font-bold text-muted-foreground dark:text-white uppercase tracking-tight">{flow.entityType}</p>
                         <p className="text-[10px] font-bold text-primary font-mono opacity-60">#{flow.entityId.substring(0, 12)}</p>
                       </td>
                       <td className="px-6 py-6">
-                        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                           <span>{flow.makerDept}</span>
                           <Separator className="w-4 bg-muted" />
                           <span>{flow.destinationDept}</span>
@@ -234,7 +234,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="rounded-xl font-black text-[10px] h-9 border-border"
+                            className="rounded-xl font-bold text-[10px] h-9 border-border"
                             onClick={() => setSelectedId(flow.id)}
                           >
                             OPEN TRACE
@@ -242,7 +242,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
                           {flow.status === "PENDING" && (
                             <Button
                               size="sm"
-                              className="rounded-xl font-black text-[10px] h-9 bg-success hover:bg-success text-white"
+                              className="rounded-xl font-bold text-[10px] h-9 bg-success hover:bg-success text-white"
                               onClick={() => handleAction("approve", flow)}
                             >
                               AUTHORIZE
@@ -265,12 +265,12 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
             <div className="space-y-10">
               <SheetHeader className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <Badge className="bg-primary text-primary border-none font-black text-[10px] px-3 py-1 rounded-full uppercase">
+                  <Badge className="bg-primary text-primary border-none font-bold text-[10px] px-3 py-1 rounded-full uppercase">
                     {selected.entityType}
                   </Badge>
                   <ApprovalStatusBadge status={selected.status} />
                 </div>
-                <SheetTitle className="text-4xl font-black tracking-tighter italic uppercase">Authorization Trace</SheetTitle>
+                <SheetTitle className="text-4xl font-bold tracking-tighter italic uppercase">Authorization Trace</SheetTitle>
                 <SheetDescription className="font-medium text-muted-foreground">
                   Detailed inspection of request #{selected.entityId}
                 </SheetDescription>
@@ -281,24 +281,24 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
               <div className="space-y-8">
                 <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Requester</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Requester</p>
                     <p className="font-bold text-muted-foreground">{selected.requestedBy}</p>
                   </div>
                   <div className="space-y-1 text-right">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Timestamp</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Timestamp</p>
                     <p className="font-bold text-muted-foreground font-mono text-xs">{new Date(selected.requestedAt).toLocaleString()}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Contextual Notes</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contextual Notes</p>
                   <div className="p-6 rounded-3xl bg-muted border border-border italic text-muted-foreground text-sm">
                     {selected.notes || "No additional context provided by the maker."}
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Authorization Protocol</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Authorization Protocol</p>
                   <Textarea
                     placeholder="Enter disposition notes..."
                     value={notes}
@@ -308,14 +308,14 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
                   <div className="grid grid-cols-2 gap-4">
                     <Button
                       variant="destructive"
-                      className="h-14 rounded-2xl font-black uppercase tracking-widest text-xs"
+                      className="h-14 rounded-2xl font-bold uppercase tracking-widest text-xs"
                       onClick={() => handleAction("reject", selected)}
                       disabled={selected.status !== "PENDING"}
                     >
                       DENY REQUEST
                     </Button>
                     <Button
-                      className="h-14 rounded-2xl font-black uppercase tracking-widest text-xs bg-success hover:bg-success text-white"
+                      className="h-14 rounded-2xl font-bold uppercase tracking-widest text-xs bg-success hover:bg-success text-white"
                       onClick={() => handleAction("approve", selected)}
                       disabled={selected.status !== "PENDING"}
                     >
@@ -326,7 +326,7 @@ export function ApprovalInbox({ tenantId, session }: ApprovalInboxProps) {
 
                 {auditTrail.length > 0 && (
                   <div className="space-y-6 pt-4">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                        <History className="h-3 w-3" />
                        Audit History
                     </p>
